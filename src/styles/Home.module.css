@@ -1,0 +1,41 @@
+.gradientVelho {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+@keyframes sumiu {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+.gradienteMutavel {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  justify-content: center;
+  animation: sumiu 1s;
+  /* animation: sumiu 6s infinite; */
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  /* z-index: -1; */
+}
+
+.gradienteImutavel {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  display: flex;
+  opacity: 0;
+  flex-direction: column;
+  justify-content: center;
+}
