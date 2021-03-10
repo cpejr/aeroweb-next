@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useStyles } from "./HomeStyles";
 import Background1 from "./GradienteHome.svg";
 import Background2 from "./GradienteCursos.svg";
 import Background3 from "./GradienteQuemSomos.svg";
 import Background4 from "./GradienteContato.svg";
-import airplane from "./AviaoIcon.svg";
+
 import AnimatedModal from "../components/AnimatedModal";
 import Footer from "../components/Footer";
 import {
@@ -56,10 +56,16 @@ function Home() {
   const contato = "linear-gradient(83.83deg, #78CBEE 3.06%, #0E41C5 96.88%)";
   //--------------------------
 
-  const [size] = useState(() => {
+  const [size, setSize] = useState(null);
+
+  function windowSize() {
     let proposedWidth = window.innerWidth / 40;
     if (proposedWidth < 20) proposedWidth = 20;
     return proposedWidth;
+  }
+
+  useEffect(() => {
+    setSize(windowSize());
   });
 
   const [flying, setFlying] = useState(true);
@@ -240,8 +246,7 @@ function Home() {
         >
           <img
             className={"plane" + (flying ? " flying" : "")}
-            src={airplane}
-            alt="airplane"
+            src="/assests/AviaoIcon.svg"
             width={size}
             height={size}
             onAnimationEnd={(e) => {
@@ -271,7 +276,10 @@ function Home() {
             }}
           ></div>
           <div className={classes.button1} style={{ zIndex: "100" }}>
-            <p onClick={spin1} style={{ color: colorHome, cursor: "pointer" }}>
+            <p
+              onClick={spin1}
+              style={{ color: colorCursos, cursor: "pointer" }}
+            >
               HOME
             </p>
           </div>
