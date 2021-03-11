@@ -1,9 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useStyles } from "./HomeStyles";
-import Background1 from "./GradienteHome.svg";
-import Background2 from "./GradienteCursos.svg";
-import Background3 from "./GradienteQuemSomos.svg";
-import Background4 from "./GradienteContato.svg";
+import Background1 from "../../public/assests/GradienteHome.svg";
 
 import AnimatedModal from "../components/AnimatedModal";
 import Footer from "../components/Footer";
@@ -77,10 +74,14 @@ function Home() {
     x1 = 90;
     setPosBackground(x1);
     // Para a animação do gradiente:
-    setNewGradient(home);
+    setNewGradient(
+      "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)"
+    );
     setChange(true);
     setTimeout(() => {
-      setOldGradient(home);
+      setOldGradient(
+        "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)"
+      );
       console.log("cabou Home");
     }, 1000);
 
@@ -275,7 +276,8 @@ function Home() {
               height: "100vh",
             }}
           ></div>
-          <div className={classes.button1} style={{ zIndex: "100" }}>
+
+          <div className={classes.buttonHome} style={{ zIndex: "100" }}>
             <p
               onClick={spin1}
               style={{ color: colorCursos, cursor: "pointer" }}
