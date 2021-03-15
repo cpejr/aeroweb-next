@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useStyles } from "./HomeStyles";
+import useStyles from "./HomeStyles";
 import Background1 from "../../public/assests/GradienteHome.svg";
 
 import AnimatedModal from "../components/AnimatedModal";
