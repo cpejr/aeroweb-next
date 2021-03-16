@@ -82,7 +82,6 @@ function Home() {
       setOldGradient(
         "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)"
       );
-      console.log("cabou Home");
     }, 1000);
 
     // Para a animação do avião:
@@ -103,8 +102,8 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("15vw");
-    setPosY("30vh");
+    setPosX("12vw");
+    setPosY("15vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
   }
@@ -139,8 +138,8 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("30vw");
-    setPosY("40vh");
+    setPosX("33vw");
+    setPosY("30vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -181,8 +180,8 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("43vw");
-    setPosY("65vh");
+    setPosX("60vw");
+    setPosY("48vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -220,8 +219,8 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("69vw");
-    setPosY("82vh");
+    setPosX("89vw");
+    setPosY("70vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
   }
