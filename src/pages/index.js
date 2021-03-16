@@ -5,7 +5,7 @@ import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
 
-import { useStyles } from "../stylesJs/HomeStyles";
+import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
 
 function Home() {
