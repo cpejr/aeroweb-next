@@ -31,7 +31,7 @@ function Home() {
   // Parâmetros para o novo gradiente:
   const [newGradient, setNewGradient] = useState();
   const [oldGradient, setOldGradient] = useState(
-    "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)"
+    "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
   );
 
   const [change, setChange] = useState(false);
@@ -65,12 +65,12 @@ function Home() {
     setPosBackground(x1);
     // Para a animação do gradiente:
     setNewGradient(
-      "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)"
+      "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
     );
     setChange(true);
     setTimeout(() => {
       setOldGradient(
-        "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)"
+        "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
       );
       console.log("cabou Home");
     }, 1000);
@@ -303,8 +303,12 @@ function Home() {
 
       <AnimatedModal open={open} setOpen={setOpen} />
 
-      <AnimatedModalMobile open={openMobile} setOpen={setOpenMobile} slideStyle={slideStyle} setSlideStyle={setSlideStyle} />
-
+      <AnimatedModalMobile
+        open={openMobile}
+        setOpen={setOpenMobile}
+        slideStyle={slideStyle}
+        setSlideStyle={setSlideStyle}
+      />
     </div>
   );
 }

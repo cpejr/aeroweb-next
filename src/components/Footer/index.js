@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 import { AppBar } from "@material-ui/core";
-import { Instagram, YouTube, Facebook } from "@material-ui/icons"
-import {useStyles} from './styles'
+import { Instagram, YouTube, Facebook } from "@material-ui/icons";
+import { useStyles } from "./styles";
 
 function Footer() {
   const classes = useStyles();
 
   return (
-    <AppBar position="fixed" color="primary" className={classes.appBar} >
+    <AppBar position="fixed" color="primary" className={classes.appBar}>
       <div className={classes.appBarContainer}>
         <div className={classes.appBarSubContainer}>
           <div className={classes.appBarInfo}>
@@ -20,22 +20,33 @@ function Footer() {
             <p className={classes.text}>Bairro, Belo Horizonte, MG</p>
           </div>
         </div>
-        
+
         <div className={classes.appBarIcons}>
-          <a href="https://www.instagram.com/?hl=pt-br" target="_blank" rel="noopener noreferrer" >
+          <a
+            href="https://www.instagram.com/?hl=pt-br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Instagram className={classes.icon} />
           </a>
-          <a href="https://pt-br.facebook.com/" target="_blank" rel="noopener noreferrer" >
+          <a
+            href="https://pt-br.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Facebook className={classes.icon} />
           </a>
-          <a href="https://www.youtube.com/?hl=pt&gl=BR" target="_blank" rel="noopener noreferrer" >
+          <a
+            href="https://www.youtube.com/?hl=pt&gl=BR"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <YouTube className={classes.icon} />
           </a>
         </div>
-
       </div>
     </AppBar>
   );
-};
+}
 
 export default Footer;

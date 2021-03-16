@@ -1,39 +1,39 @@
-import {makeStyles} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
   appBar: {
-    top: 'auto',
+    top: "auto",
     bottom: 0,
 
-    background: 'transparent', 
-    boxShadow: 'none',
+    background: "transparent",
+    boxShadow: "none",
 
     marginBottom: 16,
 
     [theme.breakpoints.down("600")]: {
-      height: '0%'
+      height: "0%",
     },
   },
 
   appBarContainer: {
-    width: '100%',
-    
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    width: "100%",
+
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 
   appBarSubContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-start",
 
     [theme.breakpoints.down("600")]: {
-      width: '100%',
-      flexDirection: 'column',
-      justifyContent: 'center',
+      width: "100%",
+      flexDirection: "column",
+      justifyContent: "center",
     },
   },
 
@@ -41,12 +41,12 @@ export const useStyles = makeStyles((theme) => ({
     marginLeft: 16,
     marginRight: 16,
 
-    textAlign: 'left',
+    textAlign: "left",
 
     [theme.breakpoints.down("600")]: {
       marginLeft: 0,
       marginRight: 0,
-      textAlign: 'center',
+      textAlign: "center",
     },
   },
 
@@ -61,7 +61,7 @@ export const useStyles = makeStyles((theme) => ({
   icon: {
     fontSize: 32,
     marginLeft: 12,
-    color: '#FFFFFF',
+    color: "#FFFFFF",
 
     [theme.breakpoints.down("600")]: {
       height: 0,
@@ -74,7 +74,7 @@ export const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("600")]: {
       height: 0,
-      margin: 0
+      margin: 0,
     },
-  }
+  },
 }));
