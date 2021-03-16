@@ -5,22 +5,23 @@ export const useStyles = makeStyles((theme) => ({
     top: 'auto',
     bottom: 0,
 
-    background: 'transparent',
-    boxShadow: 'none'
+    background: 'transparent', 
+    boxShadow: 'none',
+
+    marginBottom: 16,
+
+    [theme.breakpoints.down("600")]: {
+      height: '0%'
+    },
   },
 
   appBarContainer: {
     width: '100%',
-
+    
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-
-    [theme.breakpoints.down("600")]: {
-      flexDirection: 'column',
-      justifyContent: 'center',
-    },
   },
 
   appBarSubContainer: {
@@ -37,8 +38,8 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   appBarInfo: {
-    marginLeft: 32,
-    marginRight: 32,
+    marginLeft: 16,
+    marginRight: 16,
 
     textAlign: 'left',
 
@@ -58,6 +59,22 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   icon: {
-    fontSize: 40,
+    fontSize: 32,
+    marginLeft: 12,
+    color: '#FFFFFF',
+
+    [theme.breakpoints.down("600")]: {
+      height: 0,
+      fontSize: 0,
+    },
   },
+
+  text: {
+    margin: 2,
+
+    [theme.breakpoints.down("600")]: {
+      height: 0,
+      margin: 0
+    },
+  }
 }));

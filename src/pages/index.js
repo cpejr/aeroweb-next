@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useStyles } from "./HomeStyles";
-import Background1 from "../../public/assests/GradienteHome.svg";
+import Background1 from "../../public/assets/GradienteHome.svg";
 
 import AnimatedModal from "../components/AnimatedModal";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/index";
+
 import {
   Button,
   ButtonGroup,
@@ -247,7 +248,7 @@ function Home() {
         >
           <img
             className={"plane" + (flying ? " flying" : "")}
-            src="/assests/AviaoIcon.svg"
+            src="/assets/AviaoIcon.svg"
             width={size}
             height={size}
             onAnimationEnd={(e) => {
