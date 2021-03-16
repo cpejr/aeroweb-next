@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { 
   Button, 
   Modal, 
@@ -7,22 +7,17 @@ import {
   Card, 
   CardContent, 
   CardActions,
-  CardMedia,
-  makeStyles,
   Typography 
 } from '@material-ui/core'
 import { ExpandMore } from "@material-ui/icons"
-import { useStyles} from "./AnimatedModalStyles";
+import { useStyles} from "./styles";
 
-function AnimatedModal() {
+function AnimatedModal({open, setOpen}) {
 
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
 
   return (
     <div className={classes.container}>
-      
-
       <Modal
         open={open}
         onBackdropClick={() => setOpen(false)}
