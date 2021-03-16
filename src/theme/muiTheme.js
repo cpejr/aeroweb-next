@@ -1,5 +1,4 @@
 import { createMuiTheme } from '@material-ui/core/styles';
-import { FontStyle as fontWeightBold } from "@material-ui/core/styles/createTypography";
 
 const theme = createMuiTheme({
   overrides: {
