@@ -278,32 +278,36 @@ function Home() {
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
             <p
+              className={styles.name}
               onClick={spin1}
-              style={{ color: colorCursos, cursor: "pointer" }}
+              style={{ cursor: "pointer" }}
             >
               HOME
             </p>
           </div>
           <div className={classes.button2} style={{ zIndex: "100" }}>
             <p
+              className={styles.name}
               onClick={spin2}
-              style={{ color: colorCursos, cursor: "pointer" }}
+              style={{ cursor: "pointer" }}
             >
               CURSOS
             </p>
           </div>
           <div className={classes.button3} style={{ zIndex: "100" }}>
             <p
+              className={styles.name}
               onClick={spin3}
-              style={{ color: colorQuemSomos, cursor: "pointer" }}
+              style={{ cursor: "pointer" }}
             >
               QUEM SOMOS
             </p>
           </div>
           <div className={classes.button4} style={{ zIndex: "100" }}>
             <p
+              className={styles.name}
               onClick={spin4}
-              style={{ color: colorContato, cursor: "pointer" }}
+              style={{ cursor: "pointer" }}
             >
               CONTATO
             </p>

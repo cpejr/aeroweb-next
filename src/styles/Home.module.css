@@ -39,3 +39,19 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.name {
+  color: #100554;
+  font-weight: 500;
+  font-size: 1.15rem;
+}
+.name:focus {
+  border-bottom: #fff;
+  color: rgb(196, 54, 54);
+  background-color: #fff;
+}
+
+.name:hover {
+  color: #fff;
+  transition: color 0.5s;
+}

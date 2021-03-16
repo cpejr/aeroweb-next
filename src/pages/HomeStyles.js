@@ -29,6 +29,7 @@ export const useStyles = makeStyles((theme) => ({
     paddingLeft: "12vw",
     width: "15%",
     height: "24px",
+
     [theme.breakpoints.down("765")]: {
       paddingLeft: "5vw",
       width: "50px",
