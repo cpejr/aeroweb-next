@@ -1,25 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useStyles } from "./HomeStyles";
-import Background1 from "../../public/assests/GradienteHome.svg";
+import Background1 from "../../public/assets/GradienteHome.svg";
 
-import AnimatedModal from "../components/AnimatedModal";
-import Footer from "../components/Footer";
-import {
-  Button,
-  ButtonGroup,
-  Modal,
-  Fade,
-  Grow,
-  Card,
-  CardContent,
-  CardActions,
-  CardMedia,
-  Slide,
-  Typography,
-} from "@material-ui/core";
-import { ExpandMore, ExpandLess } from "@material-ui/icons";
+import AnimatedModal from "../components/AnimatedModal/index";
+import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
+import Footer from "../components/Footer/index";
+
+import { useStyles } from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
-import zIndex from "@material-ui/core/styles/zIndex";
 
 function Home() {
   let x1 = 90;
@@ -38,10 +25,13 @@ function Home() {
   const [open, setOpen] = useState(false);
   const [openMobile, setOpenMobile] = useState(false);
 
+  const classes = useStyles();
+  const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
+
   // Parâmetros para o novo gradiente:
   const [newGradient, setNewGradient] = useState();
   const [oldGradient, setOldGradient] = useState(
-    "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)"
+    "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
   );
 
   const [change, setChange] = useState(false);
@@ -75,12 +65,12 @@ function Home() {
     setPosBackground(x1);
     // Para a animação do gradiente:
     setNewGradient(
-      "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)"
+      "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
     );
     setChange(true);
     setTimeout(() => {
       setOldGradient(
-        "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)"
+        "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
       );
     }, 1000);
 
@@ -225,9 +215,6 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
   }
 
-  const classes = useStyles();
-  const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
-
   return (
     <div className={classes.homeContainer}>
       <div className={classes.homeContainerChildren}>
@@ -246,7 +233,7 @@ function Home() {
         >
           <img
             className={"plane" + (flying ? " flying" : "")}
-            src="/assests/AviaoIcon.svg"
+            src="/assets/AviaoIcon.svg"
             width={size}
             height={size}
             onAnimationEnd={(e) => {
@@ -317,120 +304,14 @@ function Home() {
 
       <Footer />
 
-      <Modal
-        open={open}
-        onBackdropClick={() => setOpen(false)}
-        classNme={classes.modalBackground}
-      >
-        <Grow in={open} timeout={2500}>
-          <Fade in={open} timeout={2500}>
-            <div className={classes.fadeRoot}>
-              <Card className={classes.card}>
-                <CardContent>
-                  <div className={classes.cardContent}>
-                    <div className={classes.cardTitle}>
-                      <Typography variant="h4" style={{ color: "#3467eb" }}>
-                        Título do Curso
-                      </Typography>
-                      <ExpandMore
-                        onClick={() => setOpen(false)}
-                        fontSize="large"
-                      />
-                    </div>
-                    <div className={classes.cardBody}>
-                      <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Aliquam auctor in mi ut egestas. Phasellus mi neque,
-                        viverra sed pulvinar sit amet, eleifend non ante.
-                        Phasellus vel nibh tempor, tincidunt tortor nec,
-                        molestie nibh. Morbi nec odio volutpat, mollis quam a,
-                        fringilla urna. Cras iaculis velit risus, convallis
-                        vestibulum urna sollicitudin et. Aenean id ex finibus,
-                        rutrum enim sed, semper ante. In aliquam, arcu id
-                        consectetur euismod, purus turpis tincidunt felis, vitae
-                        dapibus erat sem quis turpis. Mauris non scelerisque
-                        lorem, ac ornare nulla. Mauris venenatis elit id tellus
-                        convallis tempus. In blandit vulputate eros, a rutrum
-                        purus. Aliquam eu mi at diam bibendum mollis convallis
-                        et sem.
-                      </Typography>
-                    </div>
-                  </div>
-                </CardContent>
+      <AnimatedModal open={open} setOpen={setOpen} />
 
-                <CardActions>
-                  <div className={classes.buttonContainer}>
-                    <Button
-                      variant="contained"
-                      className={classes.button}
-                      onClick={() => setOpen(false)}
-                    >
-                      Garanta sua vaga
-                    </Button>
-                  </div>
-                </CardActions>
-              </Card>
-            </div>
-          </Fade>
-        </Grow>
-      </Modal>
-
-      <Modal
+      <AnimatedModalMobile
         open={openMobile}
-        onBackdropClick={() => setOpenMobile(false)}
-        classNme={classes.modalBackground}
-      >
-        <Slide direction="left" in={openMobile} timeout={1500}>
-          <div className={slideStyle}>
-            <Card className={classes.card}>
-              <CardContent>
-                <div className={classes.cardContent}>
-                  <div className={classes.cardTitle}>
-                    <Typography variant="h4" style={{ color: "#3467eb" }}>
-                      Quem Somos
-                    </Typography>
-                    {slideStyle === classes.cardMobileUp && (
-                      <ExpandMore
-                        onClick={() => {
-                          setSlideStyle(classes.cardMobileDown);
-                          setTimeout(() => {
-                            setSlideStyle(classes.cardMobile);
-                          }, 1500); // epsera a animação acaba
-                        }}
-                        fontSize="large"
-                      />
-                    )}
-                    {slideStyle !== classes.cardMobileUp && (
-                      <ExpandLess
-                        onClick={() => setSlideStyle(classes.cardMobileUp)}
-                        fontSize="large"
-                      />
-                    )}
-                  </div>
-
-                  <div className={classes.cardBody}>
-                    <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Aliquam auctor in mi ut egestas. Phasellus mi neque,
-                      viverra sed pulvinar sit amet, eleifend non ante.
-                      Phasellus vel nibh tempor, tincidunt tortor nec, molestie
-                      nibh. Morbi nec odio volutpat, mollis quam a, fringilla
-                      urna. Cras iaculis velit risus, convallis vestibulum urna
-                      sollicitudin et. Aenean id ex finibus, rutrum enim sed,
-                      semper ante. In aliquam, arcu id consectetur euismod,
-                      purus turpis tincidunt felis, vitae dapibus erat sem quis
-                      turpis. Mauris non scelerisque lorem, ac ornare nulla.
-                      Mauris venenatis elit id tellus convallis tempus. In
-                      blandit vulputate eros, a rutrum purus. Aliquam eu mi at
-                      diam bibendum mollis convallis et sem.
-                    </Typography>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </Slide>
-      </Modal>
+        setOpen={setOpenMobile}
+        slideStyle={slideStyle}
+        setSlideStyle={setSlideStyle}
+      />
     </div>
   );
 }
