@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 
-export const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   homeContainer: {
     width: "100%",
     height: "100%",
@@ -235,3 +235,5 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+export default useStyles;
