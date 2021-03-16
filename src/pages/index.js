@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useStyles } from "./HomeStyles";
 import Background1 from "../../public/assets/GradienteHome.svg";
 
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
 
+import { useStyles } from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
 
 function Home() {
@@ -24,6 +24,9 @@ function Home() {
   const [colorContato, setColorContato] = useState("#100554");
   const [open, setOpen] = useState(false);
   const [openMobile, setOpenMobile] = useState(false);
+
+  const classes = useStyles();
+  const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
 
   // Parâmetros para o novo gradiente:
   const [newGradient, setNewGradient] = useState();
@@ -212,9 +215,6 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
   }
-
-  const classes = useStyles();
-  const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
 
   return (
     <div className={classes.homeContainer}>
