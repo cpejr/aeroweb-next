@@ -5,7 +5,7 @@ import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
 
-import { useStyles } from "../stylesJs/HomeStyles";
+import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
 
 function Home() {
@@ -13,9 +13,9 @@ function Home() {
   let grad = Background1;
   const [posBackground, setPosBackground] = useState();
   const [gradiente, setGradiente] = useState(grad);
-  const [posX, setPosX] = useState("15vw");
+  const [posX, setPosX] = useState("12vw");
   const [posXAngle, setPosXAngle] = useState(0);
-  const [posY, setPosY] = useState("30vh");
+  const [posY, setPosY] = useState("15vh");
   const [posYAngle, setPosYAngle] = useState(0);
   const [angle, setAngle] = useState(0);
   const [colorHome, setColorHome] = useState("#100554");
