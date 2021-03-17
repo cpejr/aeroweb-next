@@ -170,7 +170,7 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("60vw");
+    setPosX("55vw");
     setPosY("48vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
@@ -209,8 +209,8 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("89vw");
-    setPosY("70vh");
+    setPosX("85vw");
+    setPosY("68vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
   }
