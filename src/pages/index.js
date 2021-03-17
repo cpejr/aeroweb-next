@@ -4,6 +4,7 @@ import Background1 from "../../public/assets/GradienteHome.svg";
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
+import Logo from "../../public/assets/Logomarca.svg";
 
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
@@ -241,6 +242,7 @@ function Home() {
             }}
           />
         </div>
+
         <div
           className={styles.gradientVelho}
           style={{ backgroundImage: oldGradient }}
@@ -255,6 +257,22 @@ function Home() {
             style={{ backgroundImage: newGradient }}
           ></div>
           <div
+            className={classes.planeContainer}
+            style={{
+              position: "absolute",
+              left: "4vw",
+              top: "65vh",
+              margin: "0",
+              transformOrigin: "center",
+              width: "38vw",
+              zIndex: "200",
+              color: "#fff",
+            }}
+          >
+            <h1>INVISTA HOJE NO SEU FUTURO</h1>
+            <h1>E DÊ ASAS AO SEU SONHO</h1>
+          </div>
+          <div
             className={classes.homeContainerChildren}
             style={{
               backgroundPositionX: posBackground,
@@ -262,6 +280,21 @@ function Home() {
               height: "100vh",
             }}
           ></div>
+          <div
+            className={classes.planeContainer}
+            style={{
+              position: "absolute",
+              left: "44vw",
+              top: "0.1vh",
+
+              transformOrigin: "center",
+              width: size,
+              height: size,
+              zIndex: "200",
+            }}
+          >
+            <img className={styles.logo} src="/assets/Logomarca.svg"></img>
+          </div>
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
             <p
@@ -281,6 +314,7 @@ function Home() {
               CURSOS
             </p>
           </div>
+
           <div className={classes.button3} style={{ zIndex: "100" }}>
             <p
               className={styles.name}
