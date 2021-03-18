@@ -80,12 +80,6 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
 
-  buttonOut: {
-    "&:hover": {
-      borderBottom: "4px solid",
-    },
-  },
-
   media: {
     height: "30%",
     width: "30%",
