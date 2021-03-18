@@ -1,21 +1,14 @@
-import React from 'react'
-import { 
-  Modal, 
-  Card, 
-  CardContent, 
-  Slide,
-  Typography 
-} from '@material-ui/core'
-import { ExpandMore, ExpandLess } from "@material-ui/icons"
-import { useStyles} from "./styles";
+import React from "react";
+import { Modal, Card, CardContent, Slide, Typography } from "@material-ui/core";
+import { ExpandMore, ExpandLess } from "@material-ui/icons";
+import { useStyles } from "./styles";
 
-function AnimatedModal({open, setOpen, slideStyle, setSlideStyle}) {
-
+function AnimatedModal({ open, setOpen, slideStyle, setSlideStyle }) {
   const classes = useStyles();
 
   return (
     <div className={classes.container}>
-     <Modal
+      <Modal
         open={open}
         onBackdropClick={() => setOpen(false)}
         classNme={classes.modalBackground}
@@ -73,7 +66,6 @@ function AnimatedModal({open, setOpen, slideStyle, setSlideStyle}) {
       </Modal>
     </div>
   );
-
 }
 
 export default AnimatedModal;

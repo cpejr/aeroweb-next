@@ -4,6 +4,7 @@ import Background1 from "../../public/assets/GradienteHome.svg";
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
+import Logo from "../../public/assets/Logomarca.svg";
 
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
@@ -13,9 +14,9 @@ function Home() {
   let grad = Background1;
   const [posBackground, setPosBackground] = useState();
   const [gradiente, setGradiente] = useState(grad);
-  const [posX, setPosX] = useState("15vw");
+  const [posX, setPosX] = useState("12vw");
   const [posXAngle, setPosXAngle] = useState(0);
-  const [posY, setPosY] = useState("30vh");
+  const [posY, setPosY] = useState("15vh");
   const [posYAngle, setPosYAngle] = useState(0);
   const [angle, setAngle] = useState(0);
   const [colorHome, setColorHome] = useState("#100554");
@@ -31,7 +32,7 @@ function Home() {
   // Parâmetros para o novo gradiente:
   const [newGradient, setNewGradient] = useState();
   const [oldGradient, setOldGradient] = useState(
-    "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)"
+    "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
   );
 
   const [change, setChange] = useState(false);
@@ -65,14 +66,13 @@ function Home() {
     setPosBackground(x1);
     // Para a animação do gradiente:
     setNewGradient(
-      "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)"
+      "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
     );
     setChange(true);
     setTimeout(() => {
       setOldGradient(
-        "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)"
+        "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
       );
-      console.log("cabou Home");
     }, 1000);
 
     // Para a animação do avião:
@@ -93,8 +93,8 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("15vw");
-    setPosY("30vh");
+    setPosX("12vw");
+    setPosY("15vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
   }
@@ -129,8 +129,8 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("30vw");
-    setPosY("40vh");
+    setPosX("33vw");
+    setPosY("30vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -171,8 +171,8 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("43vw");
-    setPosY("65vh");
+    setPosX("55vw");
+    setPosY("48vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -210,8 +210,8 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("69vw");
-    setPosY("82vh");
+    setPosX("85vw");
+    setPosY("68vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
   }
@@ -242,6 +242,7 @@ function Home() {
             }}
           />
         </div>
+
         <div
           className={styles.gradientVelho}
           style={{ backgroundImage: oldGradient }}
@@ -256,6 +257,22 @@ function Home() {
             style={{ backgroundImage: newGradient }}
           ></div>
           <div
+            className={classes.planeContainer}
+            style={{
+              position: "absolute",
+              left: "4vw",
+              top: "65vh",
+              margin: "0",
+              transformOrigin: "center",
+              width: "38vw",
+              zIndex: "200",
+              color: "#fff",
+            }}
+          >
+            <h1>INVISTA HOJE NO SEU FUTURO</h1>
+            <h1>E DÊ ASAS AO SEU SONHO</h1>
+          </div>
+          <div
             className={classes.homeContainerChildren}
             style={{
               backgroundPositionX: posBackground,
@@ -263,35 +280,55 @@ function Home() {
               height: "100vh",
             }}
           ></div>
+          <div
+            className={classes.planeContainer}
+            style={{
+              position: "absolute",
+              left: "44vw",
+              top: "0.1vh",
+
+              transformOrigin: "center",
+              width: size,
+              height: size,
+              zIndex: "200",
+            }}
+          >
+            <img className={styles.logo} src="/assets/Logomarca.svg"></img>
+          </div>
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
             <p
+              className={styles.name}
               onClick={spin1}
-              style={{ color: colorCursos, cursor: "pointer" }}
+              style={{ cursor: "pointer" }}
             >
               HOME
             </p>
           </div>
           <div className={classes.button2} style={{ zIndex: "100" }}>
             <p
+              className={styles.name}
               onClick={spin2}
-              style={{ color: colorCursos, cursor: "pointer" }}
+              style={{ cursor: "pointer" }}
             >
               CURSOS
             </p>
           </div>
+
           <div className={classes.button3} style={{ zIndex: "100" }}>
             <p
+              className={styles.name}
               onClick={spin3}
-              style={{ color: colorQuemSomos, cursor: "pointer" }}
+              style={{ cursor: "pointer" }}
             >
               QUEM SOMOS
             </p>
           </div>
           <div className={classes.button4} style={{ zIndex: "100" }}>
             <p
+              className={styles.name}
               onClick={spin4}
-              style={{ color: colorContato, cursor: "pointer" }}
+              style={{ cursor: "pointer" }}
             >
               CONTATO
             </p>
@@ -303,8 +340,12 @@ function Home() {
 
       <AnimatedModal open={open} setOpen={setOpen} />
 
-      <AnimatedModalMobile open={openMobile} setOpen={setOpenMobile} slideStyle={slideStyle} setSlideStyle={setSlideStyle} />
-
+      <AnimatedModalMobile
+        open={openMobile}
+        setOpen={setOpenMobile}
+        slideStyle={slideStyle}
+        setSlideStyle={setSlideStyle}
+      />
     </div>
   );
 }
