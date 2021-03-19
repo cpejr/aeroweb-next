@@ -20,7 +20,7 @@ function AnimatedModal({ open, setOpen }) {
       <Modal
         open={open}
         onBackdropClick={() => setOpen(false)}
-        classNme={classes.modalBackground}
+        className={classes.modalBackground}
       >
         <Grow in={open} timeout={2500} className={classes.growContent}>
           <Fade in={open} timeout={2500}>

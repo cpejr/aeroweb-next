@@ -30,8 +30,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     width: '50vw',
-    marginTop: '20vh',
-    marginLeft: '25vw'
+    outline: '0',
   },
 
   backDrop: {
@@ -73,7 +72,8 @@ export const useStyles = makeStyles((theme) => ({
 
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingBottom: '2vh',
   },
 
   button: {
