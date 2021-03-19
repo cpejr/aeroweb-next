@@ -25,10 +25,11 @@ const useStyles = makeStyles((theme) => ({
   },
 
   buttonHome: {
-    paddingTop: "25vh",
+    paddingTop: "15vh",
     paddingLeft: "12vw",
-    width: "15%",
+    width: "4.5",
     height: "24px",
+
     [theme.breakpoints.down("765")]: {
       paddingLeft: "5vw",
       width: "50px",
@@ -36,9 +37,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button2: {
-    paddingTop: "35vh",
-    paddingLeft: "10vw",
-    width: "15%",
+    paddingTop: "30vh",
+    marginLeft: "18vw",
+    width: "4.2rem",
     height: "24px",
     [theme.breakpoints.down("765")]: {
       paddingLeft: "5vw",
@@ -47,20 +48,21 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button3: {
-    paddingTop: "60vh",
-    paddingLeft: "5vw",
-    width: "142px",
-    height: "22px",
+    paddingTop: "48vh",
+    marginLeft: "17vw",
+    width: "4rem",
+    height: "20px",
     [theme.breakpoints.down("765")]: {
       paddingLeft: "5vw",
-      width: "106px",
+      width: "50px",
       height: "20px",
     },
   },
   button4: {
-    paddingTop: "77vh",
-    paddingLeft: "15vw",
-    width: "98px",
+    paddingTop: "68vh",
+    marginLeft: "28vw",
+
+    width: "5.5rem",
     height: "22px",
     [theme.breakpoints.down("765")]: {
       paddingLeft: "5vw",

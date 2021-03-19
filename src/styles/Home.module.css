@@ -5,6 +5,8 @@
   width: 100vw;
   display: flex;
 }
+.gradientVelho img {
+}
 
 @keyframes sumiu {
   from {
@@ -38,4 +40,21 @@
   opacity: 0;
   flex-direction: column;
   justify-content: center;
+}
+
+.name {
+  color: #100554;
+  font-weight: 500;
+  font-size: 1.15rem;
+}
+
+.name:hover {
+  color: #fff;
+  transition: color 0.5s;
+  border-bottom: 3px solid #fff;
+  font-weight: 530;
+}
+
+.logo {
+  width: 16vw;
 }
