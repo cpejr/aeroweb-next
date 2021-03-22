@@ -39,12 +39,13 @@ const useStyles = makeStyles((theme) => ({
   button2: {
     paddingTop: "30vh",
     marginLeft: "18vw",
-    width: "4.2rem",
-    height: "24px",
+    width: "16rem",
+    height: undefined,
+
     [theme.breakpoints.down("765")]: {
       paddingLeft: "5vw",
       width: "50px",
-      height: "20px",
+      height: undefined,
     },
   },
   button3: {
@@ -149,6 +150,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+
+    
   },
 
   button: {
@@ -165,15 +168,43 @@ const useStyles = makeStyles((theme) => ({
   },
 
   cardButtons: {
-    width: "100%",
-    background: "transparent",
+    width: '100%',
+    background: 'transparent', 
+    height: 0,
+
+    //animation: '$downList 1000ms ease-in-out forwards'
+  },
+
+  cardButtonsUp: {
+    width: '100%',
+    background: 'transparent', 
+    backgroundColor: '#CCCCCCFF',
+
+    animation: '$upList 1000ms ease-in-out forwards'
+  },
+
+  cardButtonsDown: {
+    width: '100%',
+    background: 'transparent', 
+    backgroundColor: '#CCCCCCFF',
+    backdropFilter: 'blur(5px)',
+
+    animation: '$downList 1000ms ease-in-out forwards'
   },
 
   cardContentButtons: {
     padding: 2,
-    "&:last-child": {
-      paddingBottom: 2,
+    '&:last-child': {
+      paddingBottom: 2
     },
+    background: 'transparent'
+  },
+
+  buttonsList: {
+    color: '#FFFFFF', 
+    backgroundColor: '#CCCCCC77', 
+    backdropFilter: 'blur(5px)',
+    background: 'transparent'
   },
 
   cardMobile: {
@@ -187,6 +218,7 @@ const useStyles = makeStyles((theme) => ({
 
     position: "relative",
     top: "75%",
+
     //animation: '$upCard 1500ms ease-in-out forwards'
   },
 
@@ -215,27 +247,45 @@ const useStyles = makeStyles((theme) => ({
 
     position: "relative",
     top: "75%",
-    animation: "$downCard 1500ms ease-in-out forwards",
+    animation: "$downCard 1500ms linear forwards",
   },
 
   // animações de transição dos modais
   "@keyframes upCard": {
     "0%": {
-      transform: "translateY(0)",
+      transform: "translateY(0)"
     },
     "100%": {
       transform: "translateY(-75%)",
-    },
+    }
   },
 
   "@keyframes downCard": {
     "0%": {
-      transform: "translateY(-75%)",
+      transform: "translateY(-75%)"
     },
     "100%": {
       transform: "translateY(0)",
+    }
+  },
+
+  "@keyframes downList": {
+    "0%": {
+      height: '0%',
+    },
+    "100%": {
+      height: '100%',
     },
   },
+
+  "@keyframes upList": {
+    "0%": {
+      height: '100%',
+    },
+    "100%": {
+      height: 0,
+    },
+  }
 }));
 
 export default useStyles;

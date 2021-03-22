@@ -46,6 +46,8 @@
   color: #100554;
   font-weight: 500;
   font-size: 1.15rem;
+
+  text-align: center;
 }
 
 .name:hover {

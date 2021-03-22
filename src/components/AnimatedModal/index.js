@@ -12,14 +12,14 @@ import {
 import { ExpandMore } from "@material-ui/icons";
 import { useStyles } from "./styles";
 
-function AnimatedModal({ open, setOpen }) {
+function AnimatedModal({ open, setOpen, close, title, text, videoLink }) {
   const classes = useStyles();
 
   return (
     <div className={classes.container}>
       <Modal
         open={open}
-        onBackdropClick={() => setOpen(false)}
+        onBackdropClick={close}
         classNme={classes.modalBackground}
       >
         <Grow in={open} timeout={2500}>
@@ -30,29 +30,16 @@ function AnimatedModal({ open, setOpen }) {
                   <div className={classes.cardContent}>
                     <div className={classes.cardTitle}>
                       <Typography variant="h4" style={{ color: "#3467eb" }}>
-                        Título do Curso
+                        { title }
                       </Typography>
                       <ExpandMore
-                        onClick={() => setOpen(false)}
+                        onClick={close}
                         fontSize="large"
                       />
                     </div>
                     <div className={classes.cardBody}>
                       <Typography variante="h6">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Aliquam auctor in mi ut egestas. Phasellus mi neque,
-                        viverra sed pulvinar sit amet, eleifend non ante.
-                        Phasellus vel nibh tempor, tincidunt tortor nec,
-                        molestie nibh. Morbi nec odio volutpat, mollis quam a,
-                        fringilla urna. Cras iaculis velit risus, convallis
-                        vestibulum urna sollicitudin et. Aenean id ex finibus,
-                        rutrum enim sed, semper ante. In aliquam, arcu id
-                        consectetur euismod, purus turpis tincidunt felis, vitae
-                        dapibus erat sem quis turpis. Mauris non scelerisque
-                        lorem, ac ornare nulla. Mauris venenatis elit id tellus
-                        convallis tempus. In blandit vulputate eros, a rutrum
-                        purus. Aliquam eu mi at diam bibendum mollis convallis
-                        et sem.
+                        { text }
                       </Typography>
                     </div>
                   </div>
@@ -63,12 +50,12 @@ function AnimatedModal({ open, setOpen }) {
                     <Button
                       variant="contained"
                       className={classes.button}
-                      onClick={() => setOpen(false)}
+                      onClick={close}
                     >
                       Garanta sua vaga
                     </Button>
                   </div>
-                </CardActions>
+                </CardActions>)
               </Card>
             </div>
           </Fade>
