@@ -36,10 +36,11 @@ const useStyles = makeStyles((theme) => ({
       height: "20px",
     },
   },
+
   button2: {
     paddingTop: "30vh",
     marginLeft: "18vw",
-    width: "16rem",
+    width: undefined,
     height: undefined,
 
     [theme.breakpoints.down("765")]: {

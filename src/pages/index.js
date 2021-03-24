@@ -33,6 +33,19 @@ function Home() {
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
 
+  // Parâmetros para o novo gradiente:
+  const [newGradient, setNewGradient] = useState();
+  const [oldGradient, setOldGradient] = useState(
+    "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
+  );
+  const [change, setChange] = useState(false);
+  const home = "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)";
+  const cursos = "linear-gradient(258.81deg, #78CBEE -18.81%, #0E41C5 109.84%)";
+  const quemSomos =
+    "linear-gradient(346.31deg, #78CBEE 16.62%, #0E41C5 99.07%)";
+  const contato = "linear-gradient(83.83deg, #78CBEE 3.06%, #0E41C5 96.88%)";
+  const [size, setSize] = useState(null);
+
   // variaveis dos modais
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
@@ -41,27 +54,10 @@ function Home() {
   const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
   const [listStyle, setListStyle] = useState(classes.cardButtons);
 
-  // Parâmetros para o novo gradiente:
-  const [newGradient, setNewGradient] = useState();
-  const [oldGradient, setOldGradient] = useState(
-    "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
-  );
-
-  const [change, setChange] = useState(false);
-
-  const home = "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)";
-  const cursos = "linear-gradient(258.81deg, #78CBEE -18.81%, #0E41C5 109.84%)";
-  const quemSomos =
-    "linear-gradient(346.31deg, #78CBEE 16.62%, #0E41C5 99.07%)";
-  const contato = "linear-gradient(83.83deg, #78CBEE 3.06%, #0E41C5 96.88%)";
-
-  const [size, setSize] = useState(null);
-
   // vetor de objetos com os dados a serem mostrados nos modais do Cursos
   const data = [ 
     {
       open: openFirst,
-      setOpen: () => setOpenFirst(true),
       title: "Simulados ICAO",
       text: "Texto Simulados ICAO Texto Simulados ICAO Texto Simulados ICAO Texto Simulados ICAO Texto Simulados ICAO ",
       videoLink: "youtube.com"
@@ -69,7 +65,6 @@ function Home() {
 
     {
       open: openSecond,
-      setOpen: () => setOpenSecond(true),
       title: "Curso Ingles ICAO",
       text: "Texto Curso Ingles ICAO Texto Curso Ingles ICAO Texto Curso Ingles ICAO Texto Curso Ingles ICAO Texto Curso Ingles ICAO ",
       videoLink: "youtube.com"
@@ -77,7 +72,6 @@ function Home() {
 
     {
       open: openThird,
-      setOpen: () => setOpenThird(true),
       title: "Curso Cartas Jappesen",
       text: "Texto Curso Cartas Jappesen Texto Curso Cartas Jappesen Texto Curso Cartas Jappesen Texto Curso Cartas Jappesen Texto Curso Cartas Jappesen ",
       videoLink: "youtube.com"
@@ -363,18 +357,19 @@ function Home() {
           </div>
           <div className={classes.button2} style={{ zIndex: "100" }}>
             <p
-              className={styles.name}
+              className={styles.nameCourses}
               onClick={spin2}
               style={{ cursor: "pointer" }}
             >
               CURSOS
             </p>
             
-            <CoursesList
+            <CoursesList 
               listStyle={ listStyle }
-              openFirst={ () => setOpenFirst(true) }
+              // daqui para baixo é GAMBIARRA: passando as funções pro componente retornar
+              openFirst= { () => setOpenFirst(true)  }
               openSecond={ () => setOpenSecond(true) }
-              openThird={ () => setOpenThird(true) }
+              openThird= { () => setOpenThird(true)  }
             />
 
           </div>
@@ -407,7 +402,6 @@ function Home() {
           return (
             <AnimatedModal 
               open={object.open} 
-              setOpen={object.setOpen} 
               close={closeModal}
               title={object.title} 
               text={object.text}

@@ -12,7 +12,7 @@ import {
 import { ExpandMore } from "@material-ui/icons";
 import { useStyles } from "./styles";
 
-function AnimatedModal({ open, setOpen, close, title, text, videoLink }) {
+function AnimatedModal({ open, close, title, text, videoLink }) {
   const classes = useStyles();
 
   return (
@@ -54,6 +54,9 @@ function AnimatedModal({ open, setOpen, close, title, text, videoLink }) {
                     >
                       Garanta sua vaga
                     </Button>
+
+                
+
                   </div>
                 </CardActions>)
               </Card>
