@@ -12,6 +12,9 @@ import styles from "../styles/Home.module.css";
 import CoursesList from "../components/CoursesList";
 
 function Home() {
+  const classes = useStyles();
+
+  // variaveis da animacao
   let x1 = 90;
   let grad = Background1;
   const [posBackground, setPosBackground] = useState();
@@ -25,13 +28,18 @@ function Home() {
   const [colorCursos, setColorCursos] = useState("#100554");
   const [colorQuemSomos, setColorQuemSomos] = useState("#100554");
   const [colorContato, setColorContato] = useState("#100554");
+  
+  const [flying, setFlying] = useState(true);
+  const animating = useRef(false);
+  const target = useRef({ x: 0, y: 0 });
+
+  // variaveis dos modais
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
   const [openThird, setOpenThird] = useState(false);
   const [openMobile, setOpenMobile] = useState(false);
-
-  const classes = useStyles();
   const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
+  const [listStyle, setListStyle] = useState(classes.cardButtons);
 
   // Parâmetros para o novo gradiente:
   const [newGradient, setNewGradient] = useState();
@@ -48,9 +56,9 @@ function Home() {
   const contato = "linear-gradient(83.83deg, #78CBEE 3.06%, #0E41C5 96.88%)";
 
   const [size, setSize] = useState(null);
-  const [listStyle, setListStyle] = useState(classes.cardButtons);
 
-  const data = [
+  // vetor de objetos com os dados a serem mostrados nos modais do Cursos
+  const data = [ 
     {
       open: openFirst,
       setOpen: () => setOpenFirst(true),
@@ -73,16 +81,10 @@ function Home() {
       title: "Curso Cartas Jappesen",
       text: "Texto Curso Cartas Jappesen Texto Curso Cartas Jappesen Texto Curso Cartas Jappesen Texto Curso Cartas Jappesen Texto Curso Cartas Jappesen ",
       videoLink: "youtube.com"
-    },
+    }
   ]
 
   //--------------------------
-
-
-  function openModal() {
-    // Para a animação do modal:
-    setOpen(true)
-  }
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -94,9 +96,6 @@ function Home() {
     setSize(windowSize());
   });
 
-  const [flying, setFlying] = useState(true);
-  const animating = useRef(false);
-  const target = useRef({ x: 0, y: 0 });
 
   function spin1(e) {
     //Para a animação da linha:
@@ -267,24 +266,11 @@ function Home() {
     }
   }
 
-  function openFirstModal() {
-    setOpenFirst(true);
-  }
-
-  function openSecondModal() {
-    setOpenSecond(true);
-  }
-
-  function openThirdModal() {
-    setOpenThird(true);
-  }
-
   function closeModal() {
     setOpenFirst(false);
     setOpenSecond(false);
     setOpenThird(false);
   }
-
 
   return (
     <div className={classes.homeContainer}>
@@ -385,10 +371,10 @@ function Home() {
             </p>
             
             <CoursesList
-              listStyle={listStyle}
-              openFirst={openFirstModal}
-              openSecond={openSecondModal}
-              openThird={openThirdModal}
+              listStyle={ listStyle }
+              openFirst={ () => setOpenFirst(true) }
+              openSecond={ () => setOpenSecond(true) }
+              openThird={ () => setOpenThird(true) }
             />
 
           </div>
@@ -416,43 +402,19 @@ function Home() {
 
       <Footer />
 
-      <AnimatedModal 
-        open={data[0].open} 
-        setOpen={data[0].setOpen} 
-        close={closeModal}
-        title={data[0].title} 
-        text={data[0].text} 
-      />
-
-
-      <AnimatedModal 
-        open={data[1].open} 
-        setOpen={data[1].setOpen} 
-        close={closeModal}
-        title={data[1].title} 
-        text={data[1].text} 
-      />
-
-
-      <AnimatedModal 
-        open={data[2].open} 
-        setOpen={data[2].setOpen} 
-        close={closeModal}
-        title={data[2].title} 
-        text={data[2].text} 
-      />
-
-      {/* {
-        data.map((object) => {(
-          <AnimatedModal 
-            open={object.open} 
-            setOpen={object.setOpen} 
-            close={closeModal}
-            title={object.title} 
-            text={object.text}
-          />
-        )})
-      } */}
+      { // Modais de transição DESKTOP
+        data.map((object) => {
+          return (
+            <AnimatedModal 
+              open={object.open} 
+              setOpen={object.setOpen} 
+              close={closeModal}
+              title={object.title} 
+              text={object.text}
+            />
+          )
+        })
+      }
 
       <AnimatedModalMobile
         open={openMobile}
