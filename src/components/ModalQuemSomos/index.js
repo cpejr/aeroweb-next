@@ -37,11 +37,11 @@ function ModalQuemSomos({ open, setOpen }) {
                         onClick={() => setOpen(false)}
                         fontSize="large"
                         style={{cursor: "pointer"}}>
-                        X
+                        <img src="/assets/Close.svg" style={{height:'3vh', fontFamily: 'Roboto'}}></img>
                       </div>
                     </div>
                     <div className={classes.cardBody}>
-                      <Typography variante="p" style={{fontSize: '12px'}}>
+                      <Typography variante="p" style={{fontSize: '12px', fontFamily: 'Roboto'}}>
                       A vontade de ajudar e difundir o conhecimento, assim como a 
                       crescente demanda por mão de obra qualificada no mercado aeronáutico 
                       resultou na reunião de esforços para a criação da Tailwind Aviation Courses <br/>

@@ -51,7 +51,9 @@ export const useStyles = makeStyles((theme) => ({
   cardContent: {
     display: 'flex',
     flexDirection: 'column',
-    border:'none'
+    border:'none',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   cardTitle: {
