@@ -4,10 +4,13 @@ import Background1 from "../../public/assets/GradienteHome.svg";
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
+import Contacts from "../components/Contacts/index"
 import Logo from "../../public/assets/Logomarca.svg";
 
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
+
+import { Card, CardContent, Typography } from '@material-ui/core'
 
 function Home() {
   let x1 = 90;
@@ -28,6 +31,7 @@ function Home() {
 
   const classes = useStyles();
   const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
+  const [contactStyle, setContactStyle] = useState('standby')
 
   // Parâmetros para o novo gradiente:
   const [newGradient, setNewGradient] = useState();
@@ -97,6 +101,8 @@ function Home() {
     setPosY("15vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
+
+    if(contactStyle !== 'standby') setContactStyle('down');
   }
 
   function spin2(e) {
@@ -138,6 +144,8 @@ function Home() {
     setTimeout(() => {
       setOpen(true);
     }, 1200);
+
+    if(contactStyle !== 'standby') setContactStyle('down');
   }
 
   function spin3(e) {
@@ -177,6 +185,8 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     setOpenMobile(true);
+
+    if(contactStyle !== 'standby') setContactStyle('down');
   }
 
   function spin4(e) {
@@ -214,6 +224,14 @@ function Home() {
     setPosY("68vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
+
+    if(contactStyle === 'standby' || contactStyle === 'down') {
+      setContactStyle('up')
+      //alert('first')
+    } else {
+      setContactStyle('down')
+      //alert('second')
+    }
   }
 
   return (
@@ -333,8 +351,12 @@ function Home() {
               CONTATO
             </p>
           </div>
+          
         </div>
       </div>
+      <Contacts 
+        contactStyle={contactStyle}
+      />
 
       <Footer />
 
@@ -346,6 +368,7 @@ function Home() {
         slideStyle={slideStyle}
         setSlideStyle={setSlideStyle}
       />
+
     </div>
   );
 }
