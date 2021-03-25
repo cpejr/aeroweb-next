@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
-import { ExpandMore } from "@material-ui/icons";
+import emailjs from 'emailjs-com'
 import { useStyles } from "./styles";
 
 function Contacts({ contactStyle }) {
@@ -26,8 +26,6 @@ function Contacts({ contactStyle }) {
   const [errorMsg, setErrorMsg] = useState(false);
   const [errorMsgMessage, setErrorMsgMessage] = useState('');
 
-  // useEffect(() => console.log("foo".includes("oo")), []);
-
   useEffect(() => {
     if(contactStyle === 'standby') setContactClass(classes.cardContacts)
     else if(contactStyle === 'up') setContactClass(classes.cardContactsShow)
@@ -38,7 +36,7 @@ function Contacts({ contactStyle }) {
   function validateInput(type, value) {
     let isValid = true 
 
-    switch(type) { // não usar break!
+    switch(type) { 
       case 'name':
         value === "" ? (isValid = false) : (isValid = true)
         break
@@ -53,18 +51,6 @@ function Contacts({ contactStyle }) {
         value === "" ? (isValid = false) : (isValid = true)
         break
     }
-
-    // if(type === 'name') 
-    //   value === "" ? (isValid = false) : (isValid = true)
-
-    // if(type === 'email') {
-    //   if (!value.includes('@') || !value.includes('.com') || value === "") {
-    //     isValid = false
-    //   } else isValid = true
-    // }
-        
-    // if(type === 'msg')
-    //   value === "" ? (isValid = false) : (isValid = true)
 
     return isValid
   }
@@ -95,6 +81,19 @@ function Contacts({ contactStyle }) {
     } else {
       setErrorMsg(false)
       setErrorMsgMessage('')
+    }
+
+    // se estiver tudo OK
+    if(validateInput('name', nameInput.current.value) &&
+      validateInput('email', emailInput.current.value) && 
+      validateInput('msg', msgInput.current.value)) {
+      
+      emailjs.send("service_p5jlw0d", "template_d282t06", {
+        name: nameInput.current.value,
+        email: emailInput.current.value,
+        message: msgInput.current.value,
+      }, "user_gLVfhvvveWgsdihdNm20d").then((result) => console.log(result.text), 
+      (error) => console.log(error.text));
     }
 
   }
