@@ -4,12 +4,14 @@ import Background1 from "../../public/assets/GradienteHome.svg";
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
+import Contacts from "../components/Contacts/index"
 import Logo from "../../public/assets/Logomarca.svg";
 
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
 
 import CoursesList from "../components/CoursesList";
+import { Card, CardContent, Typography } from '@material-ui/core'
 
 function Home() {
   const classes = useStyles();
@@ -32,6 +34,12 @@ function Home() {
   const [flying, setFlying] = useState(true);
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
+  const [open, setOpen] = useState(false);
+  const [openMobile, setOpenMobile] = useState(false);
+
+  const classes = useStyles();
+  const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
+  const [contactStyle, setContactStyle] = useState('standby')
 
   // Parâmetros para o novo gradiente:
   const [newGradient, setNewGradient] = useState();
@@ -132,6 +140,7 @@ function Home() {
     if(listStyle === classes.cardButtonsDown){
       setListStyle(classes.cardButtonsUp);
     }
+    if(contactStyle !== 'standby') setContactStyle('down');
   }
 
   function spin2(e) {
@@ -174,6 +183,12 @@ function Home() {
     } else {
       setListStyle(classes.cardButtonsUp);
     }
+    //Para a animação do modal:
+    setTimeout(() => {
+      setOpen(true);
+    }, 1200);
+
+    if(contactStyle !== 'standby') setContactStyle('down');
   }
 
   function spin3(e) {
@@ -217,6 +232,7 @@ function Home() {
     if(listStyle === classes.cardButtonsDown){
       setListStyle(classes.cardButtonsUp);
     }
+    if(contactStyle !== 'standby') setContactStyle('down');
   }
 
   function spin4(e) {
@@ -264,6 +280,13 @@ function Home() {
     setOpenFirst(false);
     setOpenSecond(false);
     setOpenThird(false);
+    if(contactStyle === 'standby' || contactStyle === 'down') {
+      setContactStyle('up')
+      //alert('first')
+    } else {
+      setContactStyle('down')
+      //alert('second')
+    }
   }
 
   return (
@@ -392,8 +415,12 @@ function Home() {
               CONTATO
             </p>
           </div>
+          
         </div>
       </div>
+      <Contacts 
+        contactStyle={contactStyle}
+      />
 
       <Footer />
 
@@ -416,6 +443,7 @@ function Home() {
         slideStyle={slideStyle}
         setSlideStyle={setSlideStyle}
       />
+
     </div>
   );
 }

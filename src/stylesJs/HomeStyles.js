@@ -251,6 +251,8 @@ const useStyles = makeStyles((theme) => ({
     animation: "$downCard 1500ms linear forwards",
   },
 
+  
+
   // animações de transição dos modais
   "@keyframes upCard": {
     "0%": {
