@@ -31,7 +31,7 @@ function Contacts({ contactStyle }) {
   const [snackbarType, setSnackbarType] = useState('');
   const [snackbarMessage, setSnackbarMessage] = useState('');
 
-  // variveis de validação
+  // variaveis de validação
   const [errorName, setErrorName] = useState(false);
   const [errorNameMessage, setErrorNameMessage] = useState('');
   const [errorEmail, setErrorEmail] = useState(false);
@@ -122,8 +122,16 @@ function Contacts({ contactStyle }) {
 
       setOpenSnackbar(true);
     }
-
   }
+
+  // if(classes.cardContacts.opacity === '0%')
+  //   classes.cardContacts.height = '0px'
+
+  // if(classes.cardContactsShow.opacity === '0%')
+  //   classes.cardContacts.height = '0px'
+
+  // if(classes.cardContactsHide.opacity === '0%')
+  //   classes.cardContactsHide.height = '0px'
 
   return (
     <Card style={{ zIndex: '200' }} className={contactClass}>
@@ -135,8 +143,8 @@ function Contacts({ contactStyle }) {
           fullWidth
           required
           size='small'
-          placeholder="Nome"
-          label="Nome"
+          placeholder="NOME"
+          label="NOME"
           style={{ marginTop: '8px' }}
           inputRef={nameInput}
 
@@ -145,13 +153,14 @@ function Contacts({ contactStyle }) {
               root: classes.cssLabel,
               focused: classes.cssLabel
             },
-            style: { color: 'white' }
+            style: { color: 'white', fontSize: 12 }
           }}
           InputProps={{
             classes: {
               root: classes.textfield,
               underline: classes.underline,
             },
+            style: { color: 'white', fontSize: 12 }
           }}
           FormHelperTextProps={{
             style: { color: 'orange' }
@@ -164,8 +173,8 @@ function Contacts({ contactStyle }) {
           fullWidth
           required
           size='small'
-          placeholder="Email"
-          label="Email"
+          placeholder="EMAIL"
+          label="EMAIL"
           style={{ marginTop: '8px' }}
           inputRef={emailInput}
 
@@ -174,13 +183,14 @@ function Contacts({ contactStyle }) {
               root: classes.cssLabel,
               focused: classes.cssLabel
             },
-            style: { color: 'white' }
+            style: { color: 'white', fontSize: 12 }
           }}
           InputProps={{
             classes: {
               root: classes.textfield,
               underline: classes.underline,
             },
+            style: { color: 'white', fontSize: 12 }
           }}
           FormHelperTextProps={{
             style: { color: 'orange' }
@@ -194,8 +204,8 @@ function Contacts({ contactStyle }) {
           fullWidth
           required
           size='small'
-          placeholder="Mensagem"
-          label="Mensagem"
+          placeholder="MENSAGEM"
+          label="MENSAGEM"
           style={{ marginTop: '8px' }}
           inputRef={msgInput}
 
@@ -207,13 +217,14 @@ function Contacts({ contactStyle }) {
               root: classes.cssLabel,
               focused: classes.cssLabel
             },
-            style: { color: 'white' }
+            style: { color: 'white', fontSize: 12 }
           }}
           InputProps={{
             classes: {
-              root: classes.textfield,
+              root: classes.textfieldMsg,
               underline: classes.underline,
             },
+            style: { color: 'white', fontSize: 12 }
           }}
           FormHelperTextProps={{
             style: { color: 'orange' }
@@ -228,7 +239,7 @@ function Contacts({ contactStyle }) {
           className={classes.buttonContacts}
           onClick={() => handleSend()}
         >
-          Enviar Mensagem
+          Enviar
         </Button>
 
         <Snackbar 
