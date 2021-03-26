@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import emailjs from 'emailjs-com';
 import { useStyles } from "./styles";
+import MuiAlert from "@material-ui/lab/Alert";
 import {
   Button,
   Card,
@@ -9,7 +10,6 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
-import MuiAlert from "@material-ui/lab/Alert";
 
 function Contacts({ contactStyle }) {
   // variaveis de estilização
@@ -110,9 +110,9 @@ function Contacts({ contactStyle }) {
         }, userId)
         .then(
           (result) => {
-          console.log(result.text);
-          setSnackbarMessage('Email enviado com sucesso!');
-          setSnackbarType('success');
+            console.log(result.text);
+            setSnackbarMessage('Email enviado com sucesso!');
+            setSnackbarType('success');
           }, 
           (error) => {
             console.log(error.text);
@@ -128,7 +128,7 @@ function Contacts({ contactStyle }) {
   return (
     <Card style={{ zIndex: '200' }} className={contactClass}>
       <CardContent className={classes.cardContentContacts}>
-        <Typography variant="h5" style={{ color: "#ffffff" }} >
+        <Typography variant="h5" style={{ color: "white" }} >
           Mande sua mensagem
         </Typography>
         <TextField 
@@ -139,6 +139,23 @@ function Contacts({ contactStyle }) {
           label="Nome"
           style={{ marginTop: '8px' }}
           inputRef={nameInput}
+
+          InputLabelProps={{
+            classes: {
+              root: classes.cssLabel,
+              focused: classes.cssLabel
+            },
+            style: { color: 'white' }
+          }}
+          InputProps={{
+            classes: {
+              root: classes.textfield,
+              underline: classes.underline,
+            },
+          }}
+          FormHelperTextProps={{
+            style: { color: 'orange' }
+          }}
           
           error={errorName}
           helperText={errorNameMessage}
@@ -151,6 +168,23 @@ function Contacts({ contactStyle }) {
           label="Email"
           style={{ marginTop: '8px' }}
           inputRef={emailInput}
+
+          InputLabelProps={{
+            classes: {
+              root: classes.cssLabel,
+              focused: classes.cssLabel
+            },
+            style: { color: 'white' }
+          }}
+          InputProps={{
+            classes: {
+              root: classes.textfield,
+              underline: classes.underline,
+            },
+          }}
+          FormHelperTextProps={{
+            style: { color: 'orange' }
+          }}
 
           error={errorEmail}
           helperText={errorEmailMessage}
@@ -167,6 +201,23 @@ function Contacts({ contactStyle }) {
 
           multiline={true}
           rows="3"
+
+          InputLabelProps={{
+            classes: {
+              root: classes.cssLabel,
+              focused: classes.cssLabel
+            },
+            style: { color: 'white' }
+          }}
+          InputProps={{
+            classes: {
+              root: classes.textfield,
+              underline: classes.underline,
+            },
+          }}
+          FormHelperTextProps={{
+            style: { color: 'orange' }
+          }}
 
           error={errorMsg}
           helperText={errorMsgMessage}

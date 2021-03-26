@@ -51,6 +51,30 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: '#ffffff'
   },
 
+  cssLabel: {
+    color : 'white',
+  },
+
+  textfield: {
+    color: 'white',
+    // height: 32,
+  },
+
+  underline: {
+    '&:before': {
+      borderBottomColor: '#ffffff',
+    },
+    '&:after': {
+      borderBottomColor: '#ffffff',
+    },
+    '&:hover:before': {
+      borderBottomColor: '#ffffff',
+    },
+    '&:hover:after': {
+      borderBottomColor: '#ffffff',
+    },
+  },
+
   "@keyframes showContacts": {
     "0%": {
       opacity: '0%',
