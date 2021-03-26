@@ -8,6 +8,7 @@ import Logo from "../../public/assets/Logomarca.svg";
 
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
+import ModalQuemSomos from "../components/ModalQuemSomos";
 
 function Home() {
   let x1 = 90;
@@ -24,6 +25,7 @@ function Home() {
   const [colorQuemSomos, setColorQuemSomos] = useState("#100554");
   const [colorContato, setColorContato] = useState("#100554");
   const [open, setOpen] = useState(false);
+  const [openQuemSomos, setOpenQuemSomos] = useState(false);
   const [openMobile, setOpenMobile] = useState(false);
 
   const classes = useStyles();
@@ -176,7 +178,10 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
-    setOpenMobile(true);
+    //Para a animação do modal:
+    setTimeout(() => {
+      setOpenQuemSomos(true);
+    }, 1200);
   }
 
   function spin4(e) {
@@ -339,6 +344,8 @@ function Home() {
       <Footer />
 
       <AnimatedModal open={open} setOpen={setOpen} />
+
+      <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
 
       <AnimatedModalMobile
         open={openMobile}
