@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
 
     position: 'relative',
     left: '25vw',
-    top: '25vh',
+    top: '24vh',
 
     opacity: '0%',
 
@@ -19,7 +19,7 @@ export const useStyles = makeStyles((theme) => ({
 
     position: 'relative',
     left: '25vw',
-    top: '25vh',
+    top: '24vh',
 
     backgroundColor: '#2234CCBB',
 
@@ -31,7 +31,7 @@ export const useStyles = makeStyles((theme) => ({
 
     position: 'relative',
     left: '25vw',
-    top: '25vh',
+    top: '24vh',
 
     backgroundColor: '#2234CCBB',
 

@@ -1,22 +1,35 @@
 import React, { useState, useEffect, useRef } from "react";
+import emailjs from 'emailjs-com';
+import { useStyles } from "./styles";
 import {
   Button,
   Card,
   CardContent,
+  Snackbar,
   TextField,
   Typography,
 } from "@material-ui/core";
-import emailjs from 'emailjs-com'
-import { useStyles } from "./styles";
+import MuiAlert from "@material-ui/lab/Alert";
 
 function Contacts({ contactStyle }) {
+  // variaveis de estilização
   const classes = useStyles();
   const [contactClass, setContactClass] = useState(classes.cardContacts);
+
+  // variaveis de configuração do emailJs
+  const serviceId = "service_p5jlw0d";
+  const templateId = "template_d282t06";
+  const userId = "user_gLVfhvvveWgsdihdNm20d";
 
   // variaveis de input do usuario
   const nameInput = useRef('');
   const emailInput = useRef('');
   const msgInput = useRef('');
+
+  // variaveis do snackbar
+  const [openSnackbar,setOpenSnackbar] = useState(false);
+  const [snackbarType, setSnackbarType] = useState('');
+  const [snackbarMessage, setSnackbarMessage] = useState('');
 
   // variveis de validação
   const [errorName, setErrorName] = useState(false);
@@ -27,32 +40,33 @@ function Contacts({ contactStyle }) {
   const [errorMsgMessage, setErrorMsgMessage] = useState('');
 
   useEffect(() => {
-    if(contactStyle === 'standby') setContactClass(classes.cardContacts)
-    else if(contactStyle === 'up') setContactClass(classes.cardContactsShow)
-    else if(contactStyle === 'down') setContactClass(classes.cardContactsHide)
+    if(contactStyle === 'standby') setContactClass(classes.cardContacts);
+    else if(contactStyle === 'up') setContactClass(classes.cardContactsShow);
+    else if(contactStyle === 'down') setContactClass(classes.cardContactsHide);
   }, [contactStyle]);
 
   // função de validação
   function validateInput(type, value) {
-    let isValid = true 
+
+    let isValid = true;
 
     switch(type) { 
       case 'name':
-        value === "" ? (isValid = false) : (isValid = true)
-        break
+        value === "" ? (isValid = false) : (isValid = true);
+        break;
 
       case 'email':
         if (!value.includes('@') || !value.includes('.com') || value === "") {
-          isValid = false
-        } else isValid = true
-        break
+          isValid = false;
+        } else isValid = true;
+        break;
       
       case 'msg': 
-        value === "" ? (isValid = false) : (isValid = true)
-        break
+        value === "" ? (isValid = false) : (isValid = true);
+        break;
     }
 
-    return isValid
+    return isValid;
   }
 
   // função ao pressionar enviar
@@ -60,27 +74,27 @@ function Contacts({ contactStyle }) {
 
     // validação
     if(!validateInput('name', nameInput.current.value)) {
-      setErrorName(true)
-      setErrorNameMessage('Nome não pode estar vazio.')
+      setErrorName(true);
+      setErrorNameMessage('Nome não pode estar vazio.');
     } else {
-      setErrorName(false)
-      setErrorNameMessage('')
+      setErrorName(false);
+      setErrorNameMessage('');
     }
 
     if(!validateInput('email', emailInput.current.value)) {
       setErrorEmail(true);
-      setErrorEmailMessage('Email inválido.')
+      setErrorEmailMessage('Email inválido.');
     } else {
-      setErrorEmail(false)
-      setErrorEmailMessage('')
+      setErrorEmail(false);
+      setErrorEmailMessage('');
     }
 
     if(!validateInput('msg', msgInput.current.value)) {
       setErrorMsg(true);
-      setErrorMsgMessage('Mensagem não pode estar vazio.')
+      setErrorMsgMessage('Mensagem não pode estar vazio.');
     } else {
-      setErrorMsg(false)
-      setErrorMsgMessage('')
+      setErrorMsg(false);
+      setErrorMsgMessage('');
     }
 
     // se estiver tudo OK
@@ -88,12 +102,25 @@ function Contacts({ contactStyle }) {
       validateInput('email', emailInput.current.value) && 
       validateInput('msg', msgInput.current.value)) {
       
-      emailjs.send("service_p5jlw0d", "template_d282t06", {
-        name: nameInput.current.value,
-        email: emailInput.current.value,
-        message: msgInput.current.value,
-      }, "user_gLVfhvvveWgsdihdNm20d").then((result) => console.log(result.text), 
-      (error) => console.log(error.text));
+        // envia o email
+        emailjs.send(serviceId, templateId, {
+          name: nameInput.current.value,
+          email: emailInput.current.value,
+          message: msgInput.current.value,
+        }, userId)
+        .then(
+          (result) => {
+          console.log(result.text);
+          setSnackbarMessage('Email enviado com sucesso!');
+          setSnackbarType('success');
+          }, 
+          (error) => {
+            console.log(error.text);
+            setSnackbarMessage('Falha no envio do email.');
+            setSnackbarType('error');
+          });
+
+      setOpenSnackbar(true);
     }
 
   }
@@ -106,8 +133,11 @@ function Contacts({ contactStyle }) {
         </Typography>
         <TextField 
           fullWidth
+          required
+          size='small'
           placeholder="Nome"
-          style={{ marginTop: '32px' }}
+          label="Nome"
+          style={{ marginTop: '8px' }}
           inputRef={nameInput}
           
           error={errorName}
@@ -115,7 +145,10 @@ function Contacts({ contactStyle }) {
         />
         <TextField 
           fullWidth
+          required
+          size='small'
           placeholder="Email"
+          label="Email"
           style={{ marginTop: '8px' }}
           inputRef={emailInput}
 
@@ -125,7 +158,10 @@ function Contacts({ contactStyle }) {
 
         <TextField 
           fullWidth
+          required
+          size='small'
           placeholder="Mensagem"
+          label="Mensagem"
           style={{ marginTop: '8px' }}
           inputRef={msgInput}
 
@@ -140,10 +176,23 @@ function Contacts({ contactStyle }) {
           variant='outlined'
           className={classes.buttonContacts}
           onClick={() => handleSend()}
-        
         >
           Enviar Mensagem
         </Button>
+
+        <Snackbar 
+          open={openSnackbar} 
+          autoHideDuration={3000} 
+          onClose={() => setOpenSnackbar(false)}
+        >
+          <MuiAlert
+            elevation={6}
+            variant="filled"
+            severity={snackbarType}
+          >
+            {snackbarMessage}
+          </MuiAlert>
+        </Snackbar>
 
       </CardContent>
     </Card>
