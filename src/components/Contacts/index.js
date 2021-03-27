@@ -7,6 +7,7 @@ import {
   Button,
   Card,
   CardContent,
+  CircularProgress,
   Snackbar,
   TextField,
   Typography,
@@ -31,6 +32,7 @@ function Contacts({ contactStyle, close }) {
   const [openSnackbar,setOpenSnackbar] = useState(false);
   const [snackbarType, setSnackbarType] = useState('');
   const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   // variaveis de validação
   const [errorName, setErrorName] = useState(false);
@@ -102,6 +104,7 @@ function Contacts({ contactStyle, close }) {
     if(validateInput('name', nameInput.current.value) &&
        validateInput('email', emailInput.current.value) && 
        validateInput('msg', msgInput.current.value)) {
+         setLoading(true);
       
         // envia o email
         emailjs.send(serviceId, templateId, {
@@ -112,16 +115,24 @@ function Contacts({ contactStyle, close }) {
         .then(
           (result) => {
             console.log(result.text);
-            setSnackbarMessage('Email enviado com sucesso!');
-            setSnackbarType('success');
+            setTimeout(() => {
+              setSnackbarMessage('Email enviado com sucesso!');
+              setSnackbarType('success');
+              setOpenSnackbar(true);
+              setLoading(false);
+            }, 1000)
+            
           }, 
           (error) => {
             console.log(error.text);
-            setSnackbarMessage('Falha no envio do email.');
-            setSnackbarType('error');
+            setTimeout(() => {
+              setSnackbarMessage('Falha no envio do email.');
+              setSnackbarType('error');
+              setOpenSnackbar(true);
+              setLoading(false);
+            }, 1000)
+            
           });
-
-        setOpenSnackbar(true);
     }
   }
 
@@ -240,7 +251,7 @@ function Contacts({ contactStyle, close }) {
           className={classes.buttonContacts}
           onClick={() => handleSend()}
         >
-          Enviar
+          { loading ? <CircularProgress color="primary" size={32} thickness={2.5} /> : "Enviar" }
         </Button>
 
         <Snackbar 

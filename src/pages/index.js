@@ -1,18 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
-import Background1 from "../../public/assets/GradienteHome.svg";
+import useStyles from "../stylesJs/HomeStyles";
+import styles from "../styles/Home.module.css";
 
+// imagens
+import Background1 from "../../public/assets/GradienteHome.svg";
+import Logo from "../../public/assets/Logomarca.svg";
+
+// componentes
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
 import Contacts from "../components/Contacts/index"
-import Logo from "../../public/assets/Logomarca.svg";
-
-import useStyles from "../stylesJs/HomeStyles";
-import styles from "../styles/Home.module.css";
 import ModalQuemSomos from "../components/ModalQuemSomos";
-
 import CoursesList from "../components/CoursesList";
-import { Card, CardContent, Typography } from '@material-ui/core'
 
 function Home() {
   const classes = useStyles();
@@ -52,12 +52,10 @@ function Home() {
   const contato = "linear-gradient(83.83deg, #78CBEE 3.06%, #0E41C5 96.88%)";
   const [size, setSize] = useState(null);
 
-  // variaveis dos modais
+  // variaveis da animacao dos modais
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
   const [openThird, setOpenThird] = useState(false);
-  
-  // variaveis da animacao
   const [listStyle, setListStyle] = useState('standby');
   const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
   const [contactStyle, setContactStyle] = useState('standby');
@@ -66,27 +64,65 @@ function Home() {
   const data = [ 
     {
       open: openFirst,
-      title: "Simulados ICAO",
-      text: "Texto Simulados ICAO Texto Simulados ICAO Texto Simulados ICAO Texto Simulados ICAO Texto Simulados ICAO ",
+      title: "Simulados ICAO - COMENTADOS",
+      text1: 
+      `Os simulados comentados do teste ICAO da ANAC elaborados pela Tailwind Aviation Courses 
+      foram todos criteriosamente desenvolvidos por uma equipe formada por pilotos comerciais e professores 
+      especialistas na área de inglês voltado para a aviação.`, 
+      text2:
+      `Nossos simulados trazem situações corriqueiras 
+      apresentadas nas provas oficiais e têm o grau de dificuldade compatível com os exigidos no teste da ANAC. 
+      A qualidade dos áudios, imagens e das questões elaboradas fazem toda a diferença tanto para aqueles que já 
+      são certificados e buscam uma melhora em seu nível de proficiência, quanto para os candidatos que buscam 
+      a qualificação pela primeira vez.`,
+      text3: 
+      `Há ainda uma oportunidade de se obter um feedback personalizado de 
+      proficiência e orientações de estudo diretamente da nossa equipe pedagógica.`,
       videoLink: "youtube.com"
     },
 
     {
       open: openSecond,
-      title: "Curso Ingles ICAO",
-      text: "Texto Curso Ingles ICAO Texto Curso Ingles ICAO Texto Curso Ingles ICAO Texto Curso Ingles ICAO Texto Curso Ingles ICAO ",
+      title: "Curso Inglês ICAO",
+      text1: 
+      `O domínio da língua inglesa é imprescindível não somente para os pilotos que estão iniciando a carreira, 
+      mas também para profissionais consolidados que buscam a renovação de sua certificação ICAO ou a melhora 
+      do nível obtido em exames anteriores.`,
+      text2: 
+      `O curso preparatório para o exame de inglês da ANAC oferecido pela Tailwind Aviation Courses tem por 
+      objetivo não somente a familiarização com as etapas do teste, mas também a melhora da proficiência 
+      linguística do aluno, através da apresentação de termos técnicos, estruturas vitais para o melhor 
+      aproveitamento na prova, assim como oportunidades de desenvolver habilidades de comunicação, interação e 
+      fraseologia em inglês, tão necessárias para a obtenção da certificação.`,
+      text3: 
+      `O curso foi preparado por profissionais que contam com larga experiência na preparação de alunos 
+      para a prova, com grande histórico de aprovações, certificações internacionais e formação superior em 
+      ensino de língua estrangeira.`,
       videoLink: "youtube.com"
     },
 
     {
       open: openThird,
       title: "Curso Cartas Jappesen",
-      text: "Texto Curso Cartas Jappesen Texto Curso Cartas Jappesen Texto Curso Cartas Jappesen Texto Curso Cartas Jappesen Texto Curso Cartas Jappesen ",
+      text1: 
+      `A interpretação e manuseio de cartas aeronáuticas é uma habilidade que todo piloto deve ter, 
+      sendo ela necessária tanto para a manutenção da padronização quanto, como consequência, para a 
+      segurança de voo. Além disso, essas habilidades demonstram-se essenciais para aqueles candidatos 
+      que buscam o ingresso em uma linha área ou taxi aéreo.`,
+      text2: 
+      `O curso de Cartas Jeppesen da Tailwind Aviation Courses foi elaborado por profissionais capacitados e 
+      estruturado de maneira lógica para facilitar o entendimento e proporcionar uma 
+      abordagem prática do tema.`,
+      text3: 
+      `Dessa maneira, o curso tem como objetivo a demonstração da correta utilização dos materiais 
+      relacionados à cartografia aeronáutica Jeppesen, no que diz respeito à utilização do Jeppesen 
+      General Airway Manual, assim como, e não menos importante, a interpretação, entendimento e briefing de 
+      cartas aeronáuticas.`,
       videoLink: "youtube.com"
     }
   ]
 
-  //--------------------------
+  // --------------------------------- //
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -97,7 +133,6 @@ function Home() {
   useEffect(() => {
     setSize(windowSize());
   });
-
 
   function spin1(e) {
     //Para a animação da linha:
@@ -137,6 +172,7 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
+    // controla dos modais
     if(listStyle !== 'standby') setListStyle('hide');
     if(contactStyle !== 'standby') setContactStyle('hide');
   }
@@ -176,20 +212,19 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
-    if(listStyle === 'standby' || listStyle === 'hide') {
-      setListStyle('show')
-      //alert('first')
-    } else {
-      setListStyle('hide')
-      //alert('second')
-    }
-
-    //Para a animação do modal:
+    //Para a animação do modalQuemSomos:
     setTimeout(() => {
       setOpen(true);
     }, 1200);
 
+    // controle dos modais
     if(contactStyle !== 'standby') setContactStyle('hide');
+
+    if(listStyle === 'standby' || listStyle === 'hide') {
+      setListStyle('show')
+    } else {
+      setListStyle('hide')
+    }
   }
 
   function spin3(e) {
@@ -230,12 +265,14 @@ function Home() {
 
     setOpenMobile(true);
 
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(contactStyle !== 'standby') setContactStyle('hide');
     //Para a animação do modal:
     setTimeout(() => {
       setOpenQuemSomos(true);
     }, 1200);
+
+    // controle dos modais
+    if(listStyle !== 'standby') setListStyle('hide');
+    if(contactStyle !== 'standby') setContactStyle('hide');
   }
 
   function spin4(e) {
@@ -274,14 +311,12 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
+    // controle dos modais
     if(listStyle !== 'standby') setListStyle('hide');
-
     if(contactStyle === 'standby' || contactStyle === 'hide') {
       setContactStyle('show')
-      //alert('first')
     } else {
       setContactStyle('hide')
-      //alert('second')
     }
   }
 
@@ -436,12 +471,14 @@ function Home() {
               open={object.open} 
               close={closeModal}
               title={object.title} 
-              text={object.text}
+              text1={object.text1}
+              text2={object.text2}
+              text3={object.text3}
             />
           )
         })
       }
-      
+
      <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
 
     </div>

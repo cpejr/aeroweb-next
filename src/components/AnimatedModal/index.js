@@ -12,7 +12,7 @@ import {
 import { ExpandMore } from "@material-ui/icons";
 import { useStyles } from "./styles";
 
-function AnimatedModal({ open, close, title, text, videoLink }) {
+function AnimatedModal({ open, close, title, text1, text2, text3, videoLink }) {
   const classes = useStyles();
 
   return (
@@ -28,7 +28,7 @@ function AnimatedModal({ open, close, title, text, videoLink }) {
                 <CardContent>
                   <div className={classes.cardContent}>
                     <div className={classes.cardTitle}>
-                      <Typography variant="h4" style={{ color: "#3467eb" }}>
+                      <Typography variant="h5" style={{ color: "#3467eb", fontFamily: 'Roboto' }}>
                         { title }
                       </Typography>
                       <ExpandMore
@@ -37,11 +37,27 @@ function AnimatedModal({ open, close, title, text, videoLink }) {
                         style={{cursor: "pointer"}}
                       />
                     </div>
+
                     <div className={classes.cardBody}>
-                      <Typography variante="h6">
-                        { text }
+                      <Typography style={{ fontSize: '12px', fontFamily: 'Roboto' }} >
+                        { text1 }
+                        <br />
+                        { text2 }
+                        <br />
+                        { text3 }
                       </Typography>
                     </div>
+
+                    <div className={classes.cardVideo}>
+
+                    </div>
+
+                    <div className={classes.cardPayments}>
+                      <Typography style={{ fontSize: '18px', fontFamily: 'Roboto', color: "#3467eb", fontWeight: 500 }} >
+                        Formas de pagamento
+                      </Typography>
+                    </div>
+
                   </div>
                 </CardContent>
 

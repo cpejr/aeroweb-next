@@ -170,45 +170,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  cardButtons: {
-    width: '100%',
-    background: 'transparent', 
-    height: 0,
-
-    //animation: '$downList 1000ms ease-in-out forwards'
-  },
-
-  cardButtonsUp: {
-    width: '100%',
-    background: 'transparent', 
-    backgroundColor: '#CCCCCCFF',
-
-    animation: '$upList 1000ms ease-in-out forwards'
-  },
-
-  cardButtonsDown: {
-    width: '100%',
-    background: 'transparent', 
-    backgroundColor: '#CCCCCCFF',
-    backdropFilter: 'blur(5px)',
-
-    animation: '$downList 1000ms ease-in-out forwards'
-  },
-
-  cardContentButtons: {
-    padding: 2,
-    '&:last-child': {
-      paddingBottom: 2
-    },
-    background: 'transparent'
-  },
-
-  buttonsList: {
-    color: '#FFFFFF', 
-    backgroundColor: '#CCCCCC77', 
-    backdropFilter: 'blur(5px)',
-    background: 'transparent'
-  },
 
   cardMobile: {
     width: "100%",
@@ -273,24 +234,6 @@ const useStyles = makeStyles((theme) => ({
       transform: "translateY(0)",
     }
   },
-
-  "@keyframes downList": {
-    "0%": {
-      height: '0%',
-    },
-    "100%": {
-      height: '100%',
-    },
-  },
-
-  "@keyframes upList": {
-    "0%": {
-      height: '100%',
-    },
-    "100%": {
-      height: 0,
-    },
-  }
 }));
 
 export default useStyles;
