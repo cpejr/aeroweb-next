@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import emailjs from 'emailjs-com';
 import { useStyles } from "./styles";
 import MuiAlert from "@material-ui/lab/Alert";
+import { Clear } from "@material-ui/icons";
 import {
   Button,
   Card,
@@ -9,10 +10,9 @@ import {
   Snackbar,
   TextField,
   Typography,
-  CircularProgress
 } from "@material-ui/core";
 
-function Contacts({ contactStyle }) {
+function Contacts({ contactStyle, close }) {
   // variaveis de estilização
   const classes = useStyles();
   const [contactClass, setContactClass] = useState(classes.cardContacts);
@@ -42,8 +42,8 @@ function Contacts({ contactStyle }) {
 
   useEffect(() => {
     if(contactStyle === 'standby') setContactClass(classes.cardContacts);
-    else if(contactStyle === 'up') setContactClass(classes.cardContactsShow);
-    else if(contactStyle === 'down') setContactClass(classes.cardContactsHide);
+    else if(contactStyle === 'show') setContactClass(classes.cardContactsShow);
+    else if(contactStyle === 'hide') setContactClass(classes.cardContactsHide);
   }, [contactStyle]);
 
   // função de validação
@@ -128,9 +128,17 @@ function Contacts({ contactStyle }) {
   return (
     <Card style={{ zIndex: '200' }} className={contactClass}>
       <CardContent className={classes.cardContentContacts}>
+
+        <div className={classes.titleContacts}>
         <Typography variant="h5" style={{ color: "white" }} >
           Mande sua mensagem
         </Typography>
+        <Clear 
+          fontSize="large"
+          style={{ color: 'red', marginLeft: '25%', cursor: "pointer" }}
+          onClick={ close }
+        />
+        </div>
         
         <TextField 
           fullWidth

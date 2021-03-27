@@ -135,8 +135,8 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
-    if(listStyle !== 'standby') setListStyle('up');
-    if(contactStyle !== 'standby') setContactStyle('down');
+    if(listStyle !== 'standby') setListStyle('hide');
+    if(contactStyle !== 'standby') setContactStyle('hide');
   }
 
   function spin2(e) {
@@ -174,11 +174,11 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
-    if(listStyle === 'standby' || listStyle === 'up') {
-      setListStyle('down')
+    if(listStyle === 'standby' || listStyle === 'hide') {
+      setListStyle('show')
       //alert('first')
     } else {
-      setListStyle('up')
+      setListStyle('hide')
       //alert('second')
     }
 
@@ -187,7 +187,7 @@ function Home() {
       setOpen(true);
     }, 1200);
 
-    if(contactStyle !== 'standby') setContactStyle('down');
+    if(contactStyle !== 'standby') setContactStyle('hide');
   }
 
   function spin3(e) {
@@ -228,8 +228,8 @@ function Home() {
 
     setOpenMobile(true);
 
-    if(listStyle !== 'standby') setListStyle('up');
-    if(contactStyle !== 'standby') setContactStyle('down');
+    if(listStyle !== 'standby') setListStyle('hide');
+    if(contactStyle !== 'standby') setContactStyle('hide');
   }
 
   function spin4(e) {
@@ -268,13 +268,13 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
-    if(listStyle !== 'standby') setListStyle('up');
+    if(listStyle !== 'standby') setListStyle('hide');
 
-    if(contactStyle === 'standby' || contactStyle === 'down') {
-      setContactStyle('up')
+    if(contactStyle === 'standby' || contactStyle === 'hide') {
+      setContactStyle('show')
       //alert('first')
     } else {
-      setContactStyle('down')
+      setContactStyle('hide')
       //alert('second')
     }
   }
@@ -336,6 +336,7 @@ function Home() {
               width: "38vw",
               zIndex: "200",
               color: "#fff",
+              
             }}
           >
             <h1>INVISTA HOJE NO SEU FUTURO</h1>
@@ -409,6 +410,7 @@ function Home() {
 
       <Contacts 
         contactStyle={contactStyle}
+        close={ () => setContactStyle('hide') }
       />
 
       <CoursesList 
@@ -434,12 +436,12 @@ function Home() {
         })
       }
 
-      <AnimatedModalMobile
+      {/* <AnimatedModalMobile
         open={openMobile}
         setOpen={setOpenMobile}
         slideStyle={slideStyle}
         setSlideStyle={setSlideStyle}
-      />
+      /> */}
 
     </div>
   );

@@ -54,9 +54,7 @@ function AnimatedModal({ open, close, title, text, videoLink }) {
                     >
                       Garanta sua vaga
                     </Button>
-
-                
-
+                    
                   </div>
                 </CardActions>)
               </Card>

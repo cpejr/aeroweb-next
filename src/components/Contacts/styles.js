@@ -8,13 +8,10 @@ export const useStyles = makeStyles((theme) => ({
 
     position: 'relative',
     left: '25vw',
-    top: '35vh',
+    top: '25vh',
 
     opacity: '0%',
     display: 'none',
-    
-
-    backgroundColor: '#2234CCBB',
   },
 
   cardContactsShow: {
@@ -23,9 +20,9 @@ export const useStyles = makeStyles((theme) => ({
 
     position: 'relative',
     left: '25vw',
-    top: '35vh',
+    top: '25vh',
 
-    backgroundColor: '#2234CCBB',
+    backgroundColor: '#2234CCFF',
 
     animation: "$showContacts 1000ms linear forwards",
   },
@@ -36,9 +33,9 @@ export const useStyles = makeStyles((theme) => ({
 
     position: 'relative',
     left: '25vw',
-    top: '35vh',
+    top: '25vh',
 
-    backgroundColor: '#2234CCBB',
+    backgroundColor: '#2234CCFF',
 
     animation: "$hideContacts 1000ms linear forwards",
   },
@@ -49,6 +46,14 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+  },
+
+  titleContacts: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+
+    width: '95%',
   },
 
   buttonContacts: {

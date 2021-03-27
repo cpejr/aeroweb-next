@@ -14,9 +14,9 @@ function CoursesList({ listStyle, openFirst, openSecond, openThird, slideStyle, 
 
   useEffect(() => {
     if(listStyle === 'standby') setListClass(classes.cardButtons);
-    else if(listStyle === 'up') setListClass(classes.cardButtonsUp);
-    else if(listStyle === 'down') setListClass(classes.cardButtonsDown);
-    console.log(listStyle)
+    else if(listStyle === 'hide') setListClass(classes.cardButtonsUp);
+    else if(listStyle === 'show') setListClass(classes.cardButtonsDown);
+    // console.log(listStyle)
   }, [listStyle]);
 
   return (
@@ -37,7 +37,7 @@ function CoursesList({ listStyle, openFirst, openSecond, openThird, slideStyle, 
             <Typography style={{ color: "#ffffff", fontWeight: 600, fontSize: 14 }}>
               Simulados ICAO
             </Typography> 
-            <Typography style={{ color: "#ffffff", fontSize: 10, marginLeft: '8px' }}>
+            <Typography style={{ color: "#ffffff", fontSize: 12, marginLeft: '8px' }}>
                - COMENTADOS
             </Typography> 
           </Button>

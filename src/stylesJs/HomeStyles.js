@@ -9,16 +9,18 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     backgroundSize: "1700px",
 
-    //overflow: 'scroll'
+    overflow: 'hidden'
   },
   homeContainerChildren: {
     width: "100%",
-    height: "100%",
+    maxHeight: "100%",
     display: "flex",
     flexDirection: "column",
     backgroundImage: "url(/assets/ImagemDeFundo.svg)",
     backgroundSize: "cover",
     position: "absolute",
+
+    overflow: 'hidden',
   },
   homeGeneral: {
     display: "flex",
