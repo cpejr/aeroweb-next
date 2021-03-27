@@ -9,6 +9,7 @@ import Logo from "../../public/assets/Logomarca.svg";
 
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
+import ModalQuemSomos from "../components/ModalQuemSomos";
 
 import CoursesList from "../components/CoursesList";
 import { Card, CardContent, Typography } from '@material-ui/core'
@@ -35,6 +36,7 @@ function Home() {
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
   const [open, setOpen] = useState(false);
+  const [openQuemSomos, setOpenQuemSomos] = useState(false);
   const [openMobile, setOpenMobile] = useState(false);
 
   // Parâmetros para o novo gradiente:
@@ -230,6 +232,10 @@ function Home() {
 
     if(listStyle !== 'standby') setListStyle('hide');
     if(contactStyle !== 'standby') setContactStyle('hide');
+    //Para a animação do modal:
+    setTimeout(() => {
+      setOpenQuemSomos(true);
+    }, 1200);
   }
 
   function spin4(e) {
@@ -435,13 +441,8 @@ function Home() {
           )
         })
       }
-
-      {/* <AnimatedModalMobile
-        open={openMobile}
-        setOpen={setOpenMobile}
-        slideStyle={slideStyle}
-        setSlideStyle={setSlideStyle}
-      /> */}
+      
+     <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
 
     </div>
   );

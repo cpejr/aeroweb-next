@@ -16,15 +16,14 @@ function AnimatedModal({ open, close, title, text, videoLink }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container} >
       <Modal
         open={open}
-        onBackdropClick={close}
-        classNme={classes.modalBackground}
+        onBackdropClick={() => setOpen(false)}
+        className={classes.modalBackground}
       >
-        <Grow in={open} timeout={2500}>
+        <Grow in={open} timeout={2500} className={classes.growContent}>
           <Fade in={open} timeout={2500}>
-            <div className={classes.fadeRoot}>
               <Card className={classes.card}>
                 <CardContent>
                   <div className={classes.cardContent}>
@@ -35,6 +34,7 @@ function AnimatedModal({ open, close, title, text, videoLink }) {
                       <ExpandMore
                         onClick={close}
                         fontSize="large"
+                        style={{cursor: "pointer"}}
                       />
                     </div>
                     <div className={classes.cardBody}>
@@ -56,9 +56,8 @@ function AnimatedModal({ open, close, title, text, videoLink }) {
                     </Button>
                     
                   </div>
-                </CardActions>)
+                </CardActions>
               </Card>
-            </div>
           </Fade>
         </Grow>
       </Modal>
