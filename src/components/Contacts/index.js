@@ -9,6 +9,7 @@ import {
   Snackbar,
   TextField,
   Typography,
+  CircularProgress
 } from "@material-ui/core";
 
 function Contacts({ contactStyle }) {
@@ -99,8 +100,8 @@ function Contacts({ contactStyle }) {
 
     // se estiver tudo OK
     if(validateInput('name', nameInput.current.value) &&
-      validateInput('email', emailInput.current.value) && 
-      validateInput('msg', msgInput.current.value)) {
+       validateInput('email', emailInput.current.value) && 
+       validateInput('msg', msgInput.current.value)) {
       
         // envia o email
         emailjs.send(serviceId, templateId, {
@@ -120,18 +121,9 @@ function Contacts({ contactStyle }) {
             setSnackbarType('error');
           });
 
-      setOpenSnackbar(true);
+        setOpenSnackbar(true);
     }
   }
-
-  // if(classes.cardContacts.opacity === '0%')
-  //   classes.cardContacts.height = '0px'
-
-  // if(classes.cardContactsShow.opacity === '0%')
-  //   classes.cardContacts.height = '0px'
-
-  // if(classes.cardContactsHide.opacity === '0%')
-  //   classes.cardContactsHide.height = '0px'
 
   return (
     <Card style={{ zIndex: '200' }} className={contactClass}>
@@ -139,6 +131,7 @@ function Contacts({ contactStyle }) {
         <Typography variant="h5" style={{ color: "white" }} >
           Mande sua mensagem
         </Typography>
+        
         <TextField 
           fullWidth
           required

@@ -1,32 +1,73 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
+  ButtonGroup,
+  Button,
   Card,
   CardContent,
-  ButtonGroup,
-  Button
+  Typography,
 } from '@material-ui/core'
 import { useStyles } from "./styles";
 
 function CoursesList({ listStyle, openFirst, openSecond, openThird, slideStyle, setSlideStyle }) {
   const classes = useStyles();
+  const [listClass, setListClass] = useState(classes.cardButtons)
+
+  useEffect(() => {
+    if(listStyle === 'standby') setListClass(classes.cardButtons);
+    else if(listStyle === 'up') setListClass(classes.cardButtonsUp);
+    else if(listStyle === 'down') setListClass(classes.cardButtonsDown);
+    console.log(listStyle)
+  }, [listStyle]);
 
   return (
-    <div className={classes.container}>
-      <Card className={listStyle}>
-        <CardContent className={classes.cardContentButtons}>
-          <ButtonGroup
-            orientation="vertical"
-            color="primary"
-            size="small"
-            className={classes.buttonsGroup}
+    <Card className={listClass}>
+      <CardContent className={classes.cardContentButtons}>
+        <ButtonGroup
+          orientation="vertical"
+          color="primary"
+          size="small"
+          className={classes.buttonsGroup}
+        >
+          <Button 
+            className={classes.buttonsListFirst} 
+            onClick={openFirst} 
+            variant='text' 
+            style={{ textTransform: 'none' }}
+          > 
+            <Typography style={{ color: "#ffffff", fontWeight: 600, fontSize: 14 }}>
+              Simulados ICAO
+            </Typography> 
+            <Typography style={{ color: "#ffffff", fontSize: 10, marginLeft: '8px' }}>
+               - COMENTADOS
+            </Typography> 
+          </Button>
+
+          <Button 
+            className={classes.buttonsList} 
+            onClick={openSecond} 
+            variant='text' 
+            style={{ textTransform: 'none' }}
+          > 
+            <Typography style={{ color: "#ffffff", fontWeight: 600, fontSize: 14 }}>
+              Curso Inglês ICAO
+            </Typography> 
+          </Button>
+
+          <Button 
+            className={classes.buttonsList} 
+            onClick={openThird} 
+            variant='text' 
+            style={{ textTransform: 'none' }}
           >
-            <Button className={classes.buttonsList} onClick={openFirst} variant='text'> Simulados ICAO - comentados</Button>
-            <Button className={classes.buttonsList} onClick={openSecond} variant='text'> Curso Inglês ICAO</Button>
-            <Button className={classes.buttonsList} onClick={openThird} variant='text'> Curso Cartas Jappesen</Button>
-          </ButtonGroup>
-        </CardContent>
-      </Card>
-    </div>
+            <Typography style={{ color: "#ffffff", fontWeight: 600, fontSize: 14 }}>
+              Curso Cartas Jappesen
+            </Typography> 
+            
+          </Button>
+
+        </ButtonGroup>
+      </CardContent>
+    </Card>
   );
 }
 

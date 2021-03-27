@@ -5,8 +5,8 @@
   width: 100vw;
   display: flex;
 }
-.gradientVelho img {
-}
+/* .gradientVelho img {
+} */
 
 @keyframes sumiu {
   from {
@@ -55,24 +55,6 @@
   transition: color 0.5s;
   border-bottom: 3px solid #fff;
   font-weight: 530;
-}
-
-.nameCourses {
-  color: #100554;
-  font-weight: 500;
-  font-size: 1.15rem;
-
-  text-align: center;
-}
-
-.nameCourses:hover {
-  color: #fff;
-  transition: color 0.5s;
-  /* border-bottom: 3px solid #fff; */
-  font-weight: 530;
-
-  background:linear-gradient(#fff,#fff) bottom /* left or right or else */ no-repeat;
-  background-size: 50% 3px;
 }
 
 

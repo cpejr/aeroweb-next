@@ -1,34 +1,60 @@
 import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
-  container: {
-    height: '175px'
-  },
-
   cardButtons: {
-    width: '100%',
-    background: 'transparent', 
-    backgroundColor: '#CCCCCCFF',
+    // posição
+    position: 'absolute',
+    top: '42vh',
+    left: '26.5vw',
+    zIndex: '200',
 
-    //animation: '$downList 1000ms ease-in-out forwards'
+    // dimensionamento
+    maxWidth: '30vw',
+    height: '0px', // começa sem nada
   },
 
   cardButtonsUp: {
-    width: '100%',
-    background: 'transparent', 
-    backgroundColor: '#CCCCCCFF',
-    // height: '100%',
+    // posição
+    position: 'absolute',
+    top: '42vh',
+    left: '26.5vw', 
+    zIndex: '200',
 
+    // dimensionamento
+    width: '20vw',
+    [theme.breakpoints.down("1000")]: {
+      width: '40vw',
+    },
+
+    // estilo
+    background: 'transparent', 
+    backgroundColor: '#CCCCCC55',
+    borderRadius: '6px',
+
+    // animação
     animation: '$upList 1000ms ease-in-out forwards'
   },
 
   cardButtonsDown: {
-    width: '100%',
-    background: 'transparent', 
-    backgroundColor: '#CCCCCCFF',
-    backdropFilter: 'blur(5px)',
-    // height: '100%',
+    // posição
+    position: 'absolute',
+    top: '42vh',
+    left: '26.5vw', 
+    zIndex: '200',
 
+    // dimensionamento
+    width: '20vw',
+    [theme.breakpoints.down("1100")]: {
+      width: '40vw',
+      left: '18vw'
+    },
+
+    // estilo
+    background: 'transparent', 
+    backgroundColor: '#CCCCCC55',
+    borderRadius: '6px',
+
+    // animação
     animation: '$downList 1000ms ease-in-out forwards'
   },
 
@@ -37,31 +63,47 @@ export const useStyles = makeStyles((theme) => ({
     '&:last-child': {
       paddingBottom: 2
     },
-    background: 'transparent'
+  },
+
+  buttonsGroup: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+
+    width: '100%',
+  },
+
+  buttonsListFirst: {
+    marginTop: '8px',
+    marginBottom: '24px',
+
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   buttonsList: {
-    color: '#FFFFFF', 
-    backgroundColor: '#CCCCCC77', 
-    backdropFilter: 'blur(5px)',
-    background: 'transparent'
+    marginTop: '24px',
+    marginBottom: '24px',
   },
 
-  // "@keyframes downList": {
-  //   "0%": {
-  //     height: 0,
-  //   },
-  //   "100%": {
-  //     height: 200,
-  //   }
-  // },
+  "@keyframes downList": {
+    "0%": {
+      height: '0%',
+    },
+    "100%": {
+      height: '26vh',
+    }
+  },
 
-  // "@keyframes upList": {
-  //   "0%": {
-  //     height: 90,
-  //   },
-  //   "100%": {
-  //     height: 200,
-  //   },
-  // }
+  "@keyframes upList": {
+    "0%": {
+      height: '26vh',
+    },
+    "100%": {
+      height: '0%',
+    },
+  }
 }));

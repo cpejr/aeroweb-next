@@ -37,10 +37,6 @@ function Home() {
   const [open, setOpen] = useState(false);
   const [openMobile, setOpenMobile] = useState(false);
 
-  const classes = useStyles();
-  const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
-  const [contactStyle, setContactStyle] = useState('standby')
-
   // Parâmetros para o novo gradiente:
   const [newGradient, setNewGradient] = useState();
   const [oldGradient, setOldGradient] = useState(
@@ -58,9 +54,11 @@ function Home() {
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
   const [openThird, setOpenThird] = useState(false);
-  const [openMobile, setOpenMobile] = useState(false);
+  
+  // variaveis da animacao
+  const [listStyle, setListStyle] = useState('standby');
   const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
-  const [listStyle, setListStyle] = useState(classes.cardButtons);
+  const [contactStyle, setContactStyle] = useState('standby');
 
   // vetor de objetos com os dados a serem mostrados nos modais do Cursos
   const data = [ 
@@ -137,9 +135,7 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
-    if(listStyle === classes.cardButtonsDown){
-      setListStyle(classes.cardButtonsUp);
-    }
+    if(listStyle !== 'standby') setListStyle('up');
     if(contactStyle !== 'standby') setContactStyle('down');
   }
 
@@ -178,11 +174,14 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
-    if(listStyle === classes.cardButtons || listStyle === classes.cardButtonsUp) {
-      setListStyle(classes.cardButtonsDown);
+    if(listStyle === 'standby' || listStyle === 'up') {
+      setListStyle('down')
+      //alert('first')
     } else {
-      setListStyle(classes.cardButtonsUp);
+      setListStyle('up')
+      //alert('second')
     }
+
     //Para a animação do modal:
     setTimeout(() => {
       setOpen(true);
@@ -229,9 +228,7 @@ function Home() {
 
     setOpenMobile(true);
 
-    if(listStyle === classes.cardButtonsDown){
-      setListStyle(classes.cardButtonsUp);
-    }
+    if(listStyle !== 'standby') setListStyle('up');
     if(contactStyle !== 'standby') setContactStyle('down');
   }
 
@@ -271,15 +268,8 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
-    if(listStyle === classes.cardButtonsDown){
-      setListStyle(classes.cardButtonsUp);
-    }
-  }
+    if(listStyle !== 'standby') setListStyle('up');
 
-  function closeModal() {
-    setOpenFirst(false);
-    setOpenSecond(false);
-    setOpenThird(false);
     if(contactStyle === 'standby' || contactStyle === 'down') {
       setContactStyle('up')
       //alert('first')
@@ -287,6 +277,12 @@ function Home() {
       setContactStyle('down')
       //alert('second')
     }
+  }
+
+  function closeModal() {
+    setOpenFirst(false);
+    setOpenSecond(false);
+    setOpenThird(false);
   }
 
   return (
@@ -380,20 +376,12 @@ function Home() {
           </div>
           <div className={classes.button2} style={{ zIndex: "100" }}>
             <p
-              className={styles.nameCourses}
+              className={styles.name}
               onClick={spin2}
               style={{ cursor: "pointer" }}
             >
               CURSOS
             </p>
-            
-            <CoursesList 
-              listStyle={ listStyle }
-              // daqui para baixo é GAMBIARRA: passando as funções pro componente retornar
-              openFirst= { () => setOpenFirst(true)  }
-              openSecond={ () => setOpenSecond(true) }
-              openThird= { () => setOpenThird(true)  }
-            />
 
           </div>
 
@@ -418,8 +406,17 @@ function Home() {
           
         </div>
       </div>
+
       <Contacts 
         contactStyle={contactStyle}
+      />
+
+      <CoursesList 
+        listStyle={ listStyle }
+        // daqui para baixo é GAMBIARRA: passando as funções pro componente retornar
+        openFirst= { () => setOpenFirst(true)  }
+        openSecond={ () => setOpenSecond(true) }
+        openThird= { () => setOpenThird(true)  }
       />
 
       <Footer />

@@ -40,8 +40,8 @@ const useStyles = makeStyles((theme) => ({
   button2: {
     paddingTop: "30vh",
     marginLeft: "18vw",
-    width: undefined,
-    height: undefined,
+    width: "4rem",
+    height: "20px",
 
     [theme.breakpoints.down("765")]: {
       paddingLeft: "5vw",
