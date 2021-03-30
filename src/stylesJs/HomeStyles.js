@@ -9,16 +9,18 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     backgroundSize: "1700px",
 
-    //overflow: 'scroll'
+    overflow: 'hidden'
   },
   homeContainerChildren: {
     width: "100%",
-    height: "100%",
+    maxHeight: "100%",
     display: "flex",
     flexDirection: "column",
     backgroundImage: "url(/assets/ImagemDeFundo.svg)",
     backgroundSize: "cover",
     position: "absolute",
+
+    overflow: 'hidden',
   },
   homeGeneral: {
     display: "flex",
@@ -36,15 +38,17 @@ const useStyles = makeStyles((theme) => ({
       height: "20px",
     },
   },
+
   button2: {
     paddingTop: "30vh",
     marginLeft: "18vw",
-    width: "4.2rem",
-    height: "24px",
+    width: "4rem",
+    height: "20px",
+
     [theme.breakpoints.down("765")]: {
       paddingLeft: "5vw",
       width: "50px",
-      height: "20px",
+      height: undefined,
     },
   },
   button3: {
@@ -149,6 +153,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+
+    
   },
 
   button: {
@@ -164,17 +170,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  cardButtons: {
-    width: "100%",
-    background: "transparent",
-  },
-
-  cardContentButtons: {
-    padding: 2,
-    "&:last-child": {
-      paddingBottom: 2,
-    },
-  },
 
   cardMobile: {
     width: "100%",
@@ -187,6 +182,7 @@ const useStyles = makeStyles((theme) => ({
 
     position: "relative",
     top: "75%",
+
     //animation: '$upCard 1500ms ease-in-out forwards'
   },
 
@@ -215,26 +211,28 @@ const useStyles = makeStyles((theme) => ({
 
     position: "relative",
     top: "75%",
-    animation: "$downCard 1500ms ease-in-out forwards",
+    animation: "$downCard 1500ms linear forwards",
   },
+
+  
 
   // animações de transição dos modais
   "@keyframes upCard": {
     "0%": {
-      transform: "translateY(0)",
+      transform: "translateY(0)"
     },
     "100%": {
       transform: "translateY(-75%)",
-    },
+    }
   },
 
   "@keyframes downCard": {
     "0%": {
-      transform: "translateY(-75%)",
+      transform: "translateY(-75%)"
     },
     "100%": {
       transform: "translateY(0)",
-    },
+    }
   },
 }));
 

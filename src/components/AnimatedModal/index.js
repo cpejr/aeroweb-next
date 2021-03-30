@@ -12,7 +12,7 @@ import {
 import { ExpandMore } from "@material-ui/icons";
 import { useStyles } from "./styles";
 
-function AnimatedModal({ open, setOpen }) {
+function AnimatedModal({ open, close, title, text1, text2, text3, videoLink }) {
   const classes = useStyles();
 
   return (
@@ -28,33 +28,36 @@ function AnimatedModal({ open, setOpen }) {
                 <CardContent>
                   <div className={classes.cardContent}>
                     <div className={classes.cardTitle}>
-                      <Typography variant="h4" style={{ color: "#3467eb" }}>
-                        Título do Curso
+                      <Typography variant="h5" style={{ color: "#3467eb", fontFamily: 'Roboto' }}>
+                        { title }
                       </Typography>
                       <ExpandMore
-                        onClick={() => setOpen(false)}
+                        onClick={close}
                         fontSize="large"
                         style={{cursor: "pointer"}}
                       />
                     </div>
+
                     <div className={classes.cardBody}>
-                      <Typography variante="h6">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Aliquam auctor in mi ut egestas. Phasellus mi neque,
-                        viverra sed pulvinar sit amet, eleifend non ante.
-                        Phasellus vel nibh tempor, tincidunt tortor nec,
-                        molestie nibh. Morbi nec odio volutpat, mollis quam a,
-                        fringilla urna. Cras iaculis velit risus, convallis
-                        vestibulum urna sollicitudin et. Aenean id ex finibus,
-                        rutrum enim sed, semper ante. In aliquam, arcu id
-                        consectetur euismod, purus turpis tincidunt felis, vitae
-                        dapibus erat sem quis turpis. Mauris non scelerisque
-                        lorem, ac ornare nulla. Mauris venenatis elit id tellus
-                        convallis tempus. In blandit vulputate eros, a rutrum
-                        purus. Aliquam eu mi at diam bibendum mollis convallis
-                        et sem.
+                      <Typography style={{ fontSize: '12px', fontFamily: 'Roboto' }} >
+                        { text1 }
+                        <br />
+                        { text2 }
+                        <br />
+                        { text3 }
                       </Typography>
                     </div>
+
+                    <div className={classes.cardVideo}>
+
+                    </div>
+
+                    <div className={classes.cardPayments}>
+                      <Typography style={{ fontSize: '18px', fontFamily: 'Roboto', color: "#3467eb", fontWeight: 500 }} >
+                        Formas de pagamento
+                      </Typography>
+                    </div>
+
                   </div>
                 </CardContent>
 
@@ -63,10 +66,11 @@ function AnimatedModal({ open, setOpen }) {
                     <Button
                       variant="contained"
                       className={classes.button}
-                      onClick={() => setOpen(false)}
+                      onClick={close}
                     >
                       Garanta sua vaga
                     </Button>
+                    
                   </div>
                 </CardActions>
               </Card>

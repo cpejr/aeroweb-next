@@ -48,6 +48,8 @@ export const useStyles = makeStyles((theme) => ({
   cardContent: {
     display: 'flex',
     flexDirection: 'column',
+
+    alignItems: 'center',
   },
 
   cardTitle: {
@@ -93,4 +95,24 @@ export const useStyles = makeStyles((theme) => ({
     height: "30%",
     width: "30%"
   },
+
+  cardVideo: {
+    width: '60%',
+    height: '35vh',
+
+    display: 'flex',
+    flexDirection: 'column',
+
+    border: '1px solid #3467eb',
+    marginTop: '2vh',
+  },
+
+  cardPayments: {
+    width: '95%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+
+    marginTop: '24px',
+  }
 }));
