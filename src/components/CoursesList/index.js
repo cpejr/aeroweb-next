@@ -7,7 +7,6 @@ import {
   Typography,
 } from '@material-ui/core'
 import { useStyles } from "./styles";
-import './coursesList.module.css'
 
 function CoursesList({ listStyle, openFirst, openSecond, openThird, slideStyle, setSlideStyle }) {
   const classes = useStyles();
