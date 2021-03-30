@@ -465,9 +465,10 @@ function Home() {
       <Footer />
 
       { // Modais de transição DESKTOP
-        data.map((object) => {
+        data.map((object, index) => {
           return (
             <AnimatedModal 
+              key={index}
               open={object.open} 
               close={closeModal}
               title={object.title} 
