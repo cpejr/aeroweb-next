@@ -45,7 +45,17 @@ function Contacts({ contactStyle, close }) {
   useEffect(() => {
     if(contactStyle === 'standby') setContactClass(classes.cardContacts);
     else if(contactStyle === 'show') setContactClass(classes.cardContactsShow);
-    else if(contactStyle === 'hide') setContactClass(classes.cardContactsHide);
+    else if(contactStyle === 'hide') {
+      setContactClass(classes.cardContactsHide);
+
+      // reseta os campos todos
+      setErrorName(false);
+      setErrorNameMessage('');
+      setErrorEmail(false);
+      setErrorEmailMessage('');
+      setErrorMsg(false);
+      setErrorMsgMessage('');
+    };
   }, [contactStyle]);
 
   // função de validação
@@ -146,7 +156,7 @@ function Contacts({ contactStyle, close }) {
         </Typography>
         <Clear 
           fontSize="large"
-          style={{ color: 'red', marginLeft: '25%', cursor: "pointer" }}
+          style={{ color: 'white', marginLeft: '25%', cursor: "pointer" }}
           onClick={ close }
         />
         </div>

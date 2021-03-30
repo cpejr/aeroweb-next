@@ -7,6 +7,7 @@ import {
   Typography,
 } from '@material-ui/core'
 import { useStyles } from "./styles";
+import './coursesList.module.css'
 
 function CoursesList({ listStyle, openFirst, openSecond, openThird, slideStyle, setSlideStyle }) {
   const classes = useStyles();
@@ -20,7 +21,7 @@ function CoursesList({ listStyle, openFirst, openSecond, openThird, slideStyle, 
   }, [listStyle]);
 
   return (
-    <Card className={listClass}>
+    <Card className={listClass} class="scroll" >
       <CardContent className={classes.cardContentButtons}>
         <ButtonGroup
           orientation="vertical"
@@ -54,7 +55,7 @@ function CoursesList({ listStyle, openFirst, openSecond, openThird, slideStyle, 
           </Button>
 
           <Button 
-            className={classes.buttonsList} 
+            className={classes.buttonsListLast} 
             onClick={openThird} 
             variant='text' 
             style={{ textTransform: 'none' }}

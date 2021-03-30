@@ -58,11 +58,12 @@ export const useStyles = makeStyles((theme) => ({
 
   buttonContacts: {
     marginTop: '16px',
-    backgroundColor: '#bbbbb4',
+    backgroundColor: 'white',
+    transition: 'background-color 0.2s',
 
     borderRadius: '8px',
     "&:hover": {
-      backgroundColor: "#bbbbb4",
+      backgroundColor: "#ffffffbb",
     },
   },
 
