@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     backgroundSize: "1700px",
+    [theme.breakpoints.down("500")]: {
+      position: "fixed",
+    },
 
     //overflow: 'scroll'
   },
@@ -19,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url(/assets/ImagemDeFundo.svg)",
     backgroundSize: "cover",
     position: "absolute",
+    [theme.breakpoints.down("500")]: {
+      position: "fixed",
+    },
   },
   homeGeneral: {
     display: "flex",
@@ -45,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "5vw",
       width: "50px",
       height: "20px",
+      marginLeft: "15vw",
     },
   },
   button3: {
@@ -56,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "5vw",
       width: "50px",
       height: "20px",
+      marginLeft: "14vw",
     },
   },
   button4: {
@@ -65,9 +73,11 @@ const useStyles = makeStyles((theme) => ({
     width: "5.5rem",
     height: "22px",
     [theme.breakpoints.down("765")]: {
-      paddingLeft: "5vw",
       width: "50px",
       height: "20px",
+    },
+    [theme.breakpoints.down("500")]: {
+      marginLeft: "0vw",
     },
   },
   flying: {

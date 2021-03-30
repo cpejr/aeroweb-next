@@ -235,8 +235,8 @@ function Home() {
           <img
             className={"plane" + (flying ? " flying" : "")}
             src="/assets/AviaoIcon.svg"
-            width={size}
-            height={size}
+            width={40}
+            height={40}
             onAnimationEnd={(e) => {
               setFlying(false);
             }}
