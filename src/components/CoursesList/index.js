@@ -20,7 +20,7 @@ function CoursesList({ listStyle, openFirst, openSecond, openThird, slideStyle, 
   }, [listStyle]);
 
   return (
-    <Card className={listClass} class="scroll" >
+    <Card className={listClass} >
       <CardContent className={classes.cardContentButtons}>
         <ButtonGroup
           orientation="vertical"

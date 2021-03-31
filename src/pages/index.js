@@ -13,6 +13,7 @@ import Footer from "../components/Footer/index";
 import Contacts from "../components/Contacts/index"
 import ModalQuemSomos from "../components/ModalQuemSomos";
 import CoursesList from "../components/CoursesList";
+import isMobile from './isMobile'; // usa para ver se é mobile ou não
 
 function Home() {
   const classes = useStyles();
@@ -330,7 +331,7 @@ function Home() {
     <div className={classes.homeContainer}>
       <div className={classes.homeContainerChildren}>
         <div
-          className={classes.planeContainer}
+          // className={classes.planeContainer}
           style={{
             position: "absolute",
             left: posX,
@@ -367,7 +368,7 @@ function Home() {
             style={{ backgroundImage: newGradient }}
           ></div>
           <div
-            className={classes.planeContainer}
+            // className={classes.planeContainer}
             style={{
               position: "absolute",
               left: "4vw",
@@ -377,7 +378,6 @@ function Home() {
               width: "38vw",
               zIndex: "200",
               color: "#fff",
-              
             }}
           >
             <h1>INVISTA HOJE NO SEU FUTURO</h1>
@@ -392,7 +392,7 @@ function Home() {
             }}
           ></div>
           <div
-            className={classes.planeContainer}
+            // className={classes.planeContainer}
             style={{
               position: "absolute",
               left: "44vw",
@@ -433,7 +433,7 @@ function Home() {
               onClick={spin3}
               style={{ cursor: "pointer" }}
             >
-              QUEM SOMOS
+              {isMobile ? "QUEM SOMOS MOBILE" : "QUEM SOMOS"}
             </p>
           </div>
           <div className={classes.button4} style={{ zIndex: "100" }}>
