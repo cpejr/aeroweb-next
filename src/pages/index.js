@@ -12,6 +12,7 @@ import styles from "../styles/Home.module.css";
 function Home() {
   let x1 = 90;
   let grad = Background1;
+  let responseSize = "/assets/TAILWINDAVIATION.svg";
   const [posBackground, setPosBackground] = useState();
   const [gradiente, setGradiente] = useState(grad);
   const [posX, setPosX] = useState("12vw");
@@ -48,12 +49,22 @@ function Home() {
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
+
     if (proposedWidth < 20) proposedWidth = 20;
     return proposedWidth;
   }
 
+  function responseWindowSize() {
+    var aux = window.innerWidth;
+    if (aux < 500) {
+      responseSize = "/assets/TAILWINDAVIATION.svg";
+    } else responseSize = "/assets/Logomarca.svg";
+    return responseSize;
+  }
+
   useEffect(() => {
     setSize(windowSize());
+    responseWindowSize();
   });
 
   const [flying, setFlying] = useState(true);
@@ -281,19 +292,22 @@ function Home() {
             }}
           ></div>
           <div
-            className={classes.planeContainer}
+            className={classes.planeContainerMobile}
             style={{
-              position: "absolute",
-              left: "44vw",
-              top: "0.1vh",
-
-              transformOrigin: "center",
               width: size,
               height: size,
-              zIndex: "200",
             }}
           >
-            <img className={styles.logo} src="/assets/Logomarca.svg"></img>
+            <img className={styles.logo2} src="/assets/Union.svg" />
+          </div>
+          <div
+            className={classes.planeContainer}
+            style={{
+              width: size,
+              height: size,
+            }}
+          >
+            <img className={styles.logo} src={responseSize} />
           </div>
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
