@@ -12,6 +12,7 @@ import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
 import Contacts from "../components/Contacts/index"
 import ModalQuemSomos from "../components/ModalQuemSomos";
+import QuemSomosMobile from "../components/QuemSomosMobile"
 import CoursesList from "../components/CoursesList";
 import isMobile from './isMobile'; // usa para ver se é mobile ou não
 
@@ -58,7 +59,7 @@ function Home() {
   const [openSecond, setOpenSecond] = useState(false);
   const [openThird, setOpenThird] = useState(false);
   const [listStyle, setListStyle] = useState('standby');
-  const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
+  const [slideStyle, setSlideStyle] = useState('standby');
   const [contactStyle, setContactStyle] = useState('standby');
 
   // vetor de objetos com os dados a serem mostrados nos modais do Cursos
@@ -176,6 +177,7 @@ function Home() {
     // controla dos modais
     if(listStyle !== 'standby') setListStyle('hide');
     if(contactStyle !== 'standby') setContactStyle('hide');
+    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
   }
 
   function spin2(e) {
@@ -220,7 +222,7 @@ function Home() {
 
     // controle dos modais
     if(contactStyle !== 'standby') setContactStyle('hide');
-
+    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
     if(listStyle === 'standby' || listStyle === 'hide') {
       setListStyle('show')
     } else {
@@ -274,6 +276,11 @@ function Home() {
     // controle dos modais
     if(listStyle !== 'standby') setListStyle('hide');
     if(contactStyle !== 'standby') setContactStyle('hide');
+    if(isMobile && slideStyle !== 'show') {
+      setSlideStyle('show')
+    } else {
+      setSlideStyle('hide')
+    }
   }
 
   function spin4(e) {
@@ -314,6 +321,7 @@ function Home() {
 
     // controle dos modais
     if(listStyle !== 'standby') setListStyle('hide');
+    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
     if(contactStyle === 'standby' || contactStyle === 'hide') {
       setContactStyle('show')
     } else {
@@ -331,7 +339,7 @@ function Home() {
     <div className={classes.homeContainer}>
       <div className={classes.homeContainerChildren}>
         <div
-          // className={classes.planeContainer}
+          className={classes.planeContainer}
           style={{
             position: "absolute",
             left: posX,
@@ -368,7 +376,7 @@ function Home() {
             style={{ backgroundImage: newGradient }}
           ></div>
           <div
-            // className={classes.planeContainer}
+            className={classes.planeContainer}
             style={{
               position: "absolute",
               left: "4vw",
@@ -392,7 +400,7 @@ function Home() {
             }}
           ></div>
           <div
-            // className={classes.planeContainer}
+            className={classes.planeContainer}
             style={{
               position: "absolute",
               left: "44vw",
@@ -433,7 +441,7 @@ function Home() {
               onClick={spin3}
               style={{ cursor: "pointer" }}
             >
-              {isMobile ? "QUEM SOMOS MOBILE" : "QUEM SOMOS"}
+              QUEM SOMOS
             </p>
           </div>
           <div className={classes.button4} style={{ zIndex: "100" }}>
@@ -449,6 +457,12 @@ function Home() {
         </div>
       </div>
 
+      { isMobile ? (
+        <QuemSomosMobile slideStyle={slideStyle} close={ () => setSlideStyle('hide') } />
+      ) : (
+        <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
+      )}
+
       <Contacts 
         contactStyle={contactStyle}
         close={ () => setContactStyle('hide') }
@@ -462,7 +476,9 @@ function Home() {
         openThird= { () => setOpenThird(true)  }
       />
 
-      <Footer />
+      {!isMobile && (
+        <Footer />
+      )}
 
       { // Modais de transição DESKTOP
         data.map((object, index) => {
@@ -479,8 +495,6 @@ function Home() {
           )
         })
       }
-
-     <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
 
     </div>
   );

@@ -151,14 +151,14 @@ function Contacts({ contactStyle, close }) {
       <CardContent className={classes.cardContentContacts}>
 
         <div className={classes.titleContacts}>
-        <Typography variant="h5" style={{ color: "white" }} >
-          Mande sua mensagem
-        </Typography>
-        <Clear 
-          fontSize="large"
-          style={{ color: 'white', marginLeft: '25%', cursor: "pointer" }}
-          onClick={ close }
-        />
+          <Typography variant="h5" style={{ color: "white" }} >
+            Mande sua mensagem
+          </Typography>
+          <Clear 
+            fontSize="large"
+            style={{ color: 'white', marginLeft: '25%', cursor: "pointer" }}
+            onClick={ close }
+          />
         </div>
         
         <TextField 

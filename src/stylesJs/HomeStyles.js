@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     backgroundSize: "1700px",
 
-    overflow: 'hidden'
+    // overflow: 'hidden'
   },
   homeContainerChildren: {
     width: "100%",
