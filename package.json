@@ -17,7 +17,8 @@
     "eslint-config-airbnb": "^18.2.1",
     "next": "^10.1.2",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-instagram-authless-feed": "jamesmoriarty/react-instagram-authless-feed#v2.0.0"
   },
   "eslintConfig": {
     "extends": [

@@ -5,6 +5,8 @@ import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
 import Logo from "../../public/assets/Logomarca.svg";
+import Feed from "react-instagram-authless-feed";
+import FeedInstagram from "../components/FeedInstagram/index";
 
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
@@ -12,7 +14,10 @@ import styles from "../styles/Home.module.css";
 function Home() {
   let x1 = 90;
   let grad = Background1;
-  let responseSize = "/assets/TAILWINDAVIATION.svg";
+  const [responseSize, setResponseSize] = useState("");
+  const [union, setUnion] = useState("");
+  const [title1, setTitle1] = useState("INVISTA HOJE NO SEU FUTURO");
+  const [title2, setTitle2] = useState("E DÊ ASAS AO SEU SONHO");
   const [posBackground, setPosBackground] = useState();
   const [gradiente, setGradiente] = useState(grad);
   const [posX, setPosX] = useState("12vw");
@@ -54,17 +59,22 @@ function Home() {
     return proposedWidth;
   }
 
-  function responseWindowSize() {
-    var aux = window.innerWidth;
-    if (aux < 500) {
-      responseSize = "/assets/TAILWINDAVIATION.svg";
-    } else responseSize = "/assets/Logomarca.svg";
-    return responseSize;
-  }
-
   useEffect(() => {
     setSize(windowSize());
-    responseWindowSize();
+  });
+
+  useEffect(() => {
+    var aux = window.innerWidth;
+    if (aux < 500) {
+      setResponseSize("/assets/TAILWINDAVIATION.svg");
+      setUnion("/assets/Union.svg");
+      setTitle1("");
+      setTitle2("");
+    } else {
+      setResponseSize("/assets/Logomarca.svg");
+      setUnion("");
+    }
+    return responseSize;
   });
 
   const [flying, setFlying] = useState(true);
@@ -280,8 +290,8 @@ function Home() {
               color: "#fff",
             }}
           >
-            <h1>INVISTA HOJE NO SEU FUTURO</h1>
-            <h1>E DÊ ASAS AO SEU SONHO</h1>
+            <h1>{title1}</h1>
+            <h1>{title2}</h1>
           </div>
           <div
             className={classes.homeContainerChildren}
@@ -298,7 +308,7 @@ function Home() {
               height: size,
             }}
           >
-            <img className={styles.logo2} src="/assets/Union.svg" />
+            <img className={styles.logo2} src={union} />
           </div>
           <div
             className={classes.planeContainer}
@@ -351,9 +361,7 @@ function Home() {
       </div>
 
       <Footer />
-
       <AnimatedModal open={open} setOpen={setOpen} />
-
       <AnimatedModalMobile
         open={openMobile}
         setOpen={setOpenMobile}
