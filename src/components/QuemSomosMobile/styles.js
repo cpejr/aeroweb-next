@@ -21,8 +21,10 @@ export const useStyles = makeStyles((theme) => ({
 
     // estilo
     padding: 16,
+    paddingTop: 4,
     elevation: 8,
-    backgroundColor:' #3467ebCC',
+    backgroundColor: '#F9F9F922',
+    borderRadius: '6px',
 
     // animação
     animation:' $showSlide 1000ms linear forwards'
@@ -41,8 +43,10 @@ export const useStyles = makeStyles((theme) => ({
 
     // estilo
     padding: 16,
+    paddingTop: 4,
     elevation: 8,
-    backgroundColor:' #3467eb77',
+    backgroundColor: '#F9F9F922',
+    borderRadius: '6px',
 
     // animação
     animation:' $hideSlide 1000ms linear forwards'
@@ -59,8 +63,10 @@ export const useStyles = makeStyles((theme) => ({
 
     // estilo
     padding: 16,
+    paddingTop: 4,
     elevation: 8,
-    backgroundColor:' #3467eb77',
+    backgroundColor:' #3467ebEE',
+    borderRadius: '6px',
 
     // animação
     animation:' $upSlide 1000ms linear forwards'
@@ -77,8 +83,10 @@ export const useStyles = makeStyles((theme) => ({
 
     // estilo
     padding: 16,
+    paddingTop: 4,
     elevation: 8,
-    backgroundColor:' #3467eb77',
+    backgroundColor:' #3467ebEE',
+    borderRadius: '6px',
 
     // animação
     animation:' $downSlide 1000ms linear forwards'
@@ -138,19 +146,23 @@ export const useStyles = makeStyles((theme) => ({
 
   "@keyframes upSlide": {
     "0%": {
-      top: '70vh'
+      top: '70vh',
+      backgroundColor: '#F9F9F922',
     },
     "100%": {
-      top: '10vh'
+      top: '10vh',
+      backgroundColor:' #3467ebEE',
     }
   },
 
   "@keyframes downSlide": {
     "0%": {
-      top: '10vh'
+      top: '10vh',
+      backgroundColor:' #3467ebEE',
     },
     "100%": {
-      top: '70vh'
+      top: '70vh',
+      backgroundColor: '#F9F9F922',
     },
   }
 
