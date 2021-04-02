@@ -1,8 +1,12 @@
 import {makeStyles} from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
-  slideDiv: {
+  backdrop: {
     display: 'contents'
+  },
+
+  backdropUp: { // evita clicar nos botões de fundo
+    zIndex: 400
   },
   
   cardSlide: {
@@ -21,10 +25,11 @@ export const useStyles = makeStyles((theme) => ({
 
     // estilo
     padding: 16,
-    paddingTop: 4,
+    paddingTop: 8,
     elevation: 8,
     backgroundColor: '#F9F9F922',
     borderRadius: '6px',
+    overflow: 'scroll',
 
     // animação
     animation:' $showSlide 1000ms linear forwards'
@@ -43,10 +48,11 @@ export const useStyles = makeStyles((theme) => ({
 
     // estilo
     padding: 16,
-    paddingTop: 4,
+    paddingTop: 8,
     elevation: 8,
     backgroundColor: '#F9F9F922',
     borderRadius: '6px',
+    overflow: 'scroll',
 
     // animação
     animation:' $hideSlide 1000ms linear forwards'
@@ -63,13 +69,14 @@ export const useStyles = makeStyles((theme) => ({
 
     // estilo
     padding: 16,
-    paddingTop: 4,
+    paddingTop: 8,
     elevation: 8,
     backgroundColor:' #3467ebEE',
     borderRadius: '6px',
+    overflow: 'scroll',
 
     // animação
-    animation:' $upSlide 1000ms linear forwards'
+    animation: '$upSlide 1000ms linear forwards'
   },
 
   cardSlideDown: {
@@ -83,13 +90,14 @@ export const useStyles = makeStyles((theme) => ({
 
     // estilo
     padding: 16,
-    paddingTop: 4,
+    paddingTop: 8,
     elevation: 8,
     backgroundColor:' #3467ebEE',
     borderRadius: '6px',
+    overflow: 'scroll',
 
     // animação
-    animation:' $downSlide 1000ms linear forwards'
+    animation: '$downSlide 1000ms linear forwards'
   },
 
   cardContent: {
@@ -100,7 +108,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
 
     width: '100%',
-    padddingLeft: '2px !important'
+    padddingLeft: '2px !important',
   },
 
   titleSlide: {
@@ -109,6 +117,29 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
 
     width: '100%',
+  },
+  
+  text: {
+    fontSize: '11.25px',
+    lineHeight: '13px',
+    
+    // responsividade telas mobile e tablet
+    '@media (min-width: 400px)' : {
+      fontSize: '12.50px',
+      lineHeight: '13.50px',
+    },
+    '@media (min-width: 600px)' : {
+      fontSize: '14px',
+      lineHeight: '16px',
+    },
+    '@media (max-width: 325px)' : {
+      fontSize: '9.50px',
+      lineHeight: '10.50px',
+    },
+  },
+
+  line: {
+    lineHeight: '13px',
   },
 
   cardVideo: {
