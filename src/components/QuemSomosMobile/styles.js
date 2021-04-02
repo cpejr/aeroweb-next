@@ -1,6 +1,10 @@
 import {makeStyles} from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
+  slideDiv: {
+    display: 'contents'
+  },
+  
   cardSlide: {
     display: 'none'
   },
@@ -44,6 +48,42 @@ export const useStyles = makeStyles((theme) => ({
     animation:' $hideSlide 1000ms linear forwards'
   },
 
+  cardSlideUp: {
+    // posição
+    position: 'relative',
+    left: '10vw',
+
+    // dimensionamento
+    maxWidth: '80%',
+    zIndex: 300,
+
+    // estilo
+    padding: 16,
+    elevation: 8,
+    backgroundColor:' #3467eb77',
+
+    // animação
+    animation:' $upSlide 1000ms linear forwards'
+  },
+
+  cardSlideDown: {
+    // posição
+    position: 'relative',
+    left: '10vw',
+
+    // dimensionamento
+    maxWidth: '80%',
+    zIndex: 300,
+
+    // estilo
+    padding: 16,
+    elevation: 8,
+    backgroundColor:' #3467eb77',
+
+    // animação
+    animation:' $downSlide 1000ms linear forwards'
+  },
+
   cardContent: {
     display: 'flex',
     flexDirection: 'column',
@@ -71,6 +111,7 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     border: '1px solid white',
     marginTop: '24px',
+    marginBottom: '4px'
   },
 
   "@keyframes showSlide": {
@@ -93,5 +134,25 @@ export const useStyles = makeStyles((theme) => ({
       left: '100vw',
       opacity: '0%',
     },
+  },
+
+  "@keyframes upSlide": {
+    "0%": {
+      top: '70vh'
+    },
+    "100%": {
+      top: '10vh'
+    }
+  },
+
+  "@keyframes downSlide": {
+    "0%": {
+      top: '10vh'
+    },
+    "100%": {
+      top: '70vh'
+    },
   }
+
+
 }));

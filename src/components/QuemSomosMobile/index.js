@@ -15,29 +15,48 @@ import { ExpandMore, ExpandLess } from "@material-ui/icons";
 function QuemSomosMobile({ slideStyle, close }) {
   const classes = useStyles();
   const [slideClass, setSlideClass] = useState(classes.cardSlide);
+  const [isUp, setIsUp] = useState(false);
 
   useEffect(() => {
     if(slideStyle === 'standby') setSlideClass(classes.cardSlide);
     else if(slideStyle === 'hide') setSlideClass(classes.cardSlideHide);
     else if(slideStyle === 'show') setSlideClass(classes.cardSlideShow);
-    console.log(slideStyle)
+    // console.log(slideStyle)
+    setIsUp(false);
   }, [slideStyle]);
 
   return (
-    <Card className={slideClass}>
+    <Card className={slideClass} >
       <CardContent className={classes.cardContent} style={{ padding: '2px' }}>
         <div className={classes.titleSlide}>
           <Typography variant="h5" style={{ color: "white", paddingBottom: '8px', flex: '9', textAlign: 'center' }}>
             Nossa história
           </Typography>
-          <ExpandMore
-            fontSize='large'
-            style={{ flex: '1', color: 'white', cursor: 'pointer' }}
-            onClick={ close }
-          />
+          {
+            isUp ? (
+              <ExpandMore
+                fontSize='large'
+                style={{ flex: '1', color: 'white', cursor: 'pointer' }}
+                onClick={ () => {
+                  setSlideClass(classes.cardSlideDown);
+                  setIsUp(false);
+                 }}
+              />
+            ) : (
+              <ExpandLess
+                fontSize='large'
+                style={{ flex: '1', color: 'white', cursor: 'pointer' }}
+                onClick={ () => {
+                  setSlideClass(classes.cardSlideUp);
+                  setIsUp(true);
+                } }
+              />
+            )
+          }
+          
         </div>
         
-        <Typography style={{ fontSize: '10.5px', fontFamily: 'Roboto', color: 'white' }}>
+        <Typography style={{ fontSize: '10.25px', fontFamily: 'Roboto', color: 'white' }}>
           A vontade de ajudar e difundir o conhecimento, assim como a 
           crescente demanda por mão de obra qualificada no mercado aeronáutico 
           resultou na reunião de esforços para a criação da Tailwind Aviation Courses. <br/>
@@ -60,6 +79,8 @@ function QuemSomosMobile({ slideStyle, close }) {
         </div>
       </CardContent>
     </Card>
+    
+      
   );
 }
 
