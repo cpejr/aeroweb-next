@@ -5,7 +5,7 @@ import { red } from "@material-ui/core/colors";
 const useStyles = makeStyles((theme) => ({
   homeContainer: {
     width: "100%",
-    height: "100%",
+    height: "100vh",
     display: "flex",
     flexDirection: "column",
     backgroundSize: "1700px",
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       position: "fixed",
     },
 
-    overflow: "hidden",
+    // overflow: 'hidden'
   },
   homeContainerChildren: {
     width: "100%",

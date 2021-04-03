@@ -16,7 +16,10 @@ import FeedInstagram from "../components/FeedInstagram/index";
 
 import Contacts from "../components/Contacts/index";
 import ModalQuemSomos from "../components/ModalQuemSomos";
+import QuemSomosMobile from "../components/QuemSomosMobile"
 import CoursesList from "../components/CoursesList";
+import isMobile from './isMobile'; // usa para ver se é mobile ou não
+import data from "../../public/data";
 
 function Home() {
   const classes = useStyles();
@@ -64,62 +67,14 @@ function Home() {
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
   const [openThird, setOpenThird] = useState(false);
-  const [listStyle, setListStyle] = useState("standby");
-  const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
-  const [contactStyle, setContactStyle] = useState("standby");
+  const [listStyle, setListStyle] = useState('standby');
+  const [slideStyle, setSlideStyle] = useState('standby');
+  const [contactStyle, setContactStyle] = useState('standby');
 
-  // vetor de objetos com os dados a serem mostrados nos modais do Cursos
-  const data = [
-    {
-      open: openFirst,
-      title: "Simulados ICAO - COMENTADOS",
-      text1: `Os simulados comentados do teste ICAO da ANAC elaborados pela Tailwind Aviation Courses 
-      foram todos criteriosamente desenvolvidos por uma equipe formada por pilotos comerciais e professores 
-      especialistas na área de inglês voltado para a aviação.`,
-      text2: `Nossos simulados trazem situações corriqueiras 
-      apresentadas nas provas oficiais e têm o grau de dificuldade compatível com os exigidos no teste da ANAC. 
-      A qualidade dos áudios, imagens e das questões elaboradas fazem toda a diferença tanto para aqueles que já 
-      são certificados e buscam uma melhora em seu nível de proficiência, quanto para os candidatos que buscam 
-      a qualificação pela primeira vez.`,
-      text3: `Há ainda uma oportunidade de se obter um feedback personalizado de 
-      proficiência e orientações de estudo diretamente da nossa equipe pedagógica.`,
-      videoLink: "youtube.com",
-    },
-
-    {
-      open: openSecond,
-      title: "Curso Inglês ICAO",
-      text1: `O domínio da língua inglesa é imprescindível não somente para os pilotos que estão iniciando a carreira, 
-      mas também para profissionais consolidados que buscam a renovação de sua certificação ICAO ou a melhora 
-      do nível obtido em exames anteriores.`,
-      text2: `O curso preparatório para o exame de inglês da ANAC oferecido pela Tailwind Aviation Courses tem por 
-      objetivo não somente a familiarização com as etapas do teste, mas também a melhora da proficiência 
-      linguística do aluno, através da apresentação de termos técnicos, estruturas vitais para o melhor 
-      aproveitamento na prova, assim como oportunidades de desenvolver habilidades de comunicação, interação e 
-      fraseologia em inglês, tão necessárias para a obtenção da certificação.`,
-      text3: `O curso foi preparado por profissionais que contam com larga experiência na preparação de alunos 
-      para a prova, com grande histórico de aprovações, certificações internacionais e formação superior em 
-      ensino de língua estrangeira.`,
-      videoLink: "youtube.com",
-    },
-
-    {
-      open: openThird,
-      title: "Curso Cartas Jappesen",
-      text1: `A interpretação e manuseio de cartas aeronáuticas é uma habilidade que todo piloto deve ter, 
-      sendo ela necessária tanto para a manutenção da padronização quanto, como consequência, para a 
-      segurança de voo. Além disso, essas habilidades demonstram-se essenciais para aqueles candidatos 
-      que buscam o ingresso em uma linha área ou taxi aéreo.`,
-      text2: `O curso de Cartas Jeppesen da Tailwind Aviation Courses foi elaborado por profissionais capacitados e 
-      estruturado de maneira lógica para facilitar o entendimento e proporcionar uma 
-      abordagem prática do tema.`,
-      text3: `Dessa maneira, o curso tem como objetivo a demonstração da correta utilização dos materiais 
-      relacionados à cartografia aeronáutica Jeppesen, no que diz respeito à utilização do Jeppesen 
-      General Airway Manual, assim como, e não menos importante, a interpretação, entendimento e briefing de 
-      cartas aeronáuticas.`,
-      videoLink: "youtube.com",
-    },
-  ];
+  // gambiarra do data.js
+  data[0].open = openFirst;
+  data[1].open = openSecond;
+  data[2].open = openThird;
 
   // --------------------------------- //
 
@@ -187,8 +142,9 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controla dos modais
-    if (listStyle !== "standby") setListStyle("hide");
-    if (contactStyle !== "standby") setContactStyle("hide");
+    if(listStyle !== 'standby') setListStyle('hide');
+    if(contactStyle !== 'standby') setContactStyle('hide');
+    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
   }
 
   function spin2(e) {
@@ -232,10 +188,10 @@ function Home() {
     }, 1200);
 
     // controle dos modais
-    if (contactStyle !== "standby") setContactStyle("hide");
-
-    if (listStyle === "standby" || listStyle === "hide") {
-      setListStyle("show");
+    if(contactStyle !== 'standby') setContactStyle('hide');
+    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
+    if(listStyle === 'standby' || listStyle === 'hide') {
+      setListStyle('show')
     } else {
       setListStyle("hide");
     }
@@ -285,8 +241,13 @@ function Home() {
     }, 1200);
 
     // controle dos modais
-    if (listStyle !== "standby") setListStyle("hide");
-    if (contactStyle !== "standby") setContactStyle("hide");
+    if(listStyle !== 'standby') setListStyle('hide');
+    if(contactStyle !== 'standby') setContactStyle('hide');
+    if(isMobile && slideStyle !== 'show') {
+      setSlideStyle('show')
+    } else {
+      setSlideStyle('hide')
+    }
   }
 
   function spin4(e) {
@@ -326,9 +287,10 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controle dos modais
-    if (listStyle !== "standby") setListStyle("hide");
-    if (contactStyle === "standby" || contactStyle === "hide") {
-      setContactStyle("show");
+    if(listStyle !== 'standby') setListStyle('hide');
+    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
+    if(contactStyle === 'standby' || contactStyle === 'hide') {
+      setContactStyle('show')
     } else {
       setContactStyle("hide");
     }
@@ -463,7 +425,13 @@ function Home() {
         </div>
       </div>
 
-      <Contacts
+      { isMobile ? (
+        <QuemSomosMobile slideStyle={slideStyle} close={ () => setSlideStyle('hide') } />
+      ) : (
+        <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
+      )}
+
+      <Contacts 
         contactStyle={contactStyle}
         close={() => setContactStyle("hide")}
       />
@@ -476,14 +444,9 @@ function Home() {
         openThird={() => setOpenThird(true)}
       />
 
-      <Footer />
-      <AnimatedModal open={open} setOpen={setOpen} />
-      <AnimatedModalMobile
-        open={openMobile}
-        setOpen={setOpenMobile}
-        slideStyle={slideStyle}
-        setSlideStyle={setSlideStyle}
-      />
+      {!isMobile && (
+        <Footer />
+      )}
 
       {
         // Modais de transição DESKTOP
@@ -502,7 +465,6 @@ function Home() {
         })
       }
 
-      <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
     </div>
   );
 }
