@@ -10,7 +10,11 @@ import Logo from "../../public/assets/Logomarca.svg";
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
-import Contacts from "../components/Contacts/index"
+
+import Feed from "react-instagram-authless-feed";
+import FeedInstagram from "../components/FeedInstagram/index";
+
+import Contacts from "../components/Contacts/index";
 import ModalQuemSomos from "../components/ModalQuemSomos";
 import QuemSomosMobile from "../components/QuemSomosMobile"
 import CoursesList from "../components/CoursesList";
@@ -23,6 +27,10 @@ function Home() {
   // variaveis da animacao
   let x1 = 90;
   let grad = Background1;
+  const [responseSize, setResponseSize] = useState("");
+  const [union, setUnion] = useState("");
+  const [title1, setTitle1] = useState("INVISTA HOJE NO SEU FUTURO");
+  const [title2, setTitle2] = useState("E DÊ ASAS AO SEU SONHO");
   const [posBackground, setPosBackground] = useState();
   const [gradiente, setGradiente] = useState(grad);
   const [posX, setPosX] = useState("12vw");
@@ -34,7 +42,7 @@ function Home() {
   const [colorCursos, setColorCursos] = useState("#100554");
   const [colorQuemSomos, setColorQuemSomos] = useState("#100554");
   const [colorContato, setColorContato] = useState("#100554");
-  
+
   const [flying, setFlying] = useState(true);
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
@@ -72,12 +80,27 @@ function Home() {
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
+
     if (proposedWidth < 20) proposedWidth = 20;
     return proposedWidth;
   }
 
   useEffect(() => {
     setSize(windowSize());
+  });
+
+  useEffect(() => {
+    var aux = window.innerWidth;
+    if (aux < 500) {
+      setResponseSize("/assets/TAILWINDAVIATION.svg");
+      setUnion("/assets/Union.svg");
+      setTitle1("");
+      setTitle2("");
+    } else {
+      setResponseSize("/assets/Logomarca.svg");
+      setUnion("");
+    }
+    return responseSize;
   });
 
   function spin1(e) {
@@ -170,7 +193,7 @@ function Home() {
     if(listStyle === 'standby' || listStyle === 'hide') {
       setListStyle('show')
     } else {
-      setListStyle('hide')
+      setListStyle("hide");
     }
   }
 
@@ -269,7 +292,7 @@ function Home() {
     if(contactStyle === 'standby' || contactStyle === 'hide') {
       setContactStyle('show')
     } else {
-      setContactStyle('hide')
+      setContactStyle("hide");
     }
   }
 
@@ -298,8 +321,8 @@ function Home() {
           <img
             className={"plane" + (flying ? " flying" : "")}
             src="/assets/AviaoIcon.svg"
-            width={size}
-            height={size}
+            width={40}
+            height={40}
             onAnimationEnd={(e) => {
               setFlying(false);
             }}
@@ -332,8 +355,8 @@ function Home() {
               color: "#fff",
             }}
           >
-            <h1>INVISTA HOJE NO SEU FUTURO</h1>
-            <h1>E DÊ ASAS AO SEU SONHO</h1>
+            <h1>{title1}</h1>
+            <h1>{title2}</h1>
           </div>
           <div
             className={classes.homeContainerChildren}
@@ -344,19 +367,22 @@ function Home() {
             }}
           ></div>
           <div
-            className={classes.planeContainer}
+            className={classes.planeContainerMobile}
             style={{
-              position: "absolute",
-              left: "44vw",
-              top: "0.1vh",
-
-              transformOrigin: "center",
               width: size,
               height: size,
-              zIndex: "200",
             }}
           >
-            <img className={styles.logo} src="/assets/Logomarca.svg"></img>
+            <img className={styles.logo2} src={union} />
+          </div>
+          <div
+            className={classes.planeContainer}
+            style={{
+              width: size,
+              height: size,
+            }}
+          >
+            <img className={styles.logo} src={responseSize} />
           </div>
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
@@ -376,7 +402,6 @@ function Home() {
             >
               CURSOS
             </p>
-
           </div>
 
           <div className={classes.button3} style={{ zIndex: "100" }}>
@@ -397,7 +422,6 @@ function Home() {
               CONTATO
             </p>
           </div>
-          
         </div>
       </div>
 
@@ -409,34 +433,35 @@ function Home() {
 
       <Contacts 
         contactStyle={contactStyle}
-        close={ () => setContactStyle('hide') }
+        close={() => setContactStyle("hide")}
       />
 
-      <CoursesList 
-        listStyle={ listStyle }
+      <CoursesList
+        listStyle={listStyle}
         // daqui para baixo é GAMBIARRA: passando as funções pro componente retornar
-        openFirst= { () => setOpenFirst(true)  }
-        openSecond={ () => setOpenSecond(true) }
-        openThird= { () => setOpenThird(true)  }
+        openFirst={() => setOpenFirst(true)}
+        openSecond={() => setOpenSecond(true)}
+        openThird={() => setOpenThird(true)}
       />
 
       {!isMobile && (
         <Footer />
       )}
 
-      { // Modais de transição DESKTOP
+      {
+        // Modais de transição DESKTOP
         data.map((object, index) => {
           return (
-            <AnimatedModal 
+            <AnimatedModal
               key={index}
-              open={object.open} 
+              open={object.open}
               close={closeModal}
-              title={object.title} 
+              title={object.title}
               text1={object.text1}
               text2={object.text2}
               text3={object.text3}
             />
-          )
+          );
         })
       }
 

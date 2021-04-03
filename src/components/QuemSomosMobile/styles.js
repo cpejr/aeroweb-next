@@ -16,8 +16,8 @@ export const useStyles = makeStyles((theme) => ({
   cardSlideShow: {
     // posição
     position: 'relative',
-    top: '70vh',
-    left: '10vw',
+    top: '80vh',
+    left: '11.50vw',
 
     // dimensionamento
     maxWidth: '80%',
@@ -29,7 +29,7 @@ export const useStyles = makeStyles((theme) => ({
     elevation: 8,
     backgroundColor: '#F9F9F922',
     borderRadius: '6px',
-    overflow: 'scroll',
+    // overflow: 'scroll',
 
     // animação
     animation:' $showSlide 1000ms linear forwards'
@@ -39,8 +39,8 @@ export const useStyles = makeStyles((theme) => ({
   cardSlideHide: {
     // posição
     position: 'relative',
-    top: '70vh',
-    left: '10vw',
+    top: '80vh',
+    left: '11.50vw',
 
     // dimensionamento
     maxWidth: '80%',
@@ -52,7 +52,7 @@ export const useStyles = makeStyles((theme) => ({
     elevation: 8,
     backgroundColor: '#F9F9F922',
     borderRadius: '6px',
-    overflow: 'scroll',
+    // overflow: 'scroll',
 
     // animação
     animation:' $hideSlide 1000ms linear forwards'
@@ -61,7 +61,7 @@ export const useStyles = makeStyles((theme) => ({
   cardSlideUp: {
     // posição
     position: 'relative',
-    left: '10vw',
+    left: '11.50vw',
 
     // dimensionamento
     maxWidth: '80%',
@@ -73,7 +73,7 @@ export const useStyles = makeStyles((theme) => ({
     elevation: 8,
     backgroundColor:' #3467ebEE',
     borderRadius: '6px',
-    overflow: 'scroll',
+    // overflow: 'scroll',
 
     // animação
     animation: '$upSlide 1000ms linear forwards'
@@ -82,7 +82,7 @@ export const useStyles = makeStyles((theme) => ({
   cardSlideDown: {
     // posição
     position: 'relative',
-    left: '10vw',
+    left: '11.50vw',
 
     // dimensionamento
     maxWidth: '80%',
@@ -94,7 +94,7 @@ export const useStyles = makeStyles((theme) => ({
     elevation: 8,
     backgroundColor:' #3467ebEE',
     borderRadius: '6px',
-    overflow: 'scroll',
+    // overflow: 'scroll',
 
     // animação
     animation: '$downSlide 1000ms linear forwards'
@@ -159,14 +159,14 @@ export const useStyles = makeStyles((theme) => ({
       opacity: '0%',
     },
     "100%": {
-      left: '10vw',
+      left: '11.50vw',
       opacity: '100%',
     }
   },
 
   "@keyframes hideSlide": {
     "0%": {
-      left: '10vw',
+      left: '11.50vw',
       opacity: '100%',
     },
     "100%": {
@@ -177,7 +177,7 @@ export const useStyles = makeStyles((theme) => ({
 
   "@keyframes upSlide": {
     "0%": {
-      top: '70vh',
+      top: '80vh',
       backgroundColor: '#F9F9F922',
     },
     "100%": {
@@ -192,7 +192,7 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor:' #3467ebEE',
     },
     "100%": {
-      top: '70vh',
+      top: '80vh',
       backgroundColor: '#F9F9F922',
     },
   }
