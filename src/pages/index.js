@@ -10,7 +10,11 @@ import Logo from "../../public/assets/Logomarca.svg";
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
-import Contacts from "../components/Contacts/index"
+
+import Feed from "react-instagram-authless-feed";
+import FeedInstagram from "../components/FeedInstagram/index";
+
+import Contacts from "../components/Contacts/index";
 import ModalQuemSomos from "../components/ModalQuemSomos";
 import CoursesList from "../components/CoursesList";
 
@@ -20,6 +24,10 @@ function Home() {
   // variaveis da animacao
   let x1 = 90;
   let grad = Background1;
+  const [responseSize, setResponseSize] = useState("");
+  const [union, setUnion] = useState("");
+  const [title1, setTitle1] = useState("INVISTA HOJE NO SEU FUTURO");
+  const [title2, setTitle2] = useState("E DÊ ASAS AO SEU SONHO");
   const [posBackground, setPosBackground] = useState();
   const [gradiente, setGradiente] = useState(grad);
   const [posX, setPosX] = useState("12vw");
@@ -31,7 +39,7 @@ function Home() {
   const [colorCursos, setColorCursos] = useState("#100554");
   const [colorQuemSomos, setColorQuemSomos] = useState("#100554");
   const [colorContato, setColorContato] = useState("#100554");
-  
+
   const [flying, setFlying] = useState(true);
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
@@ -56,82 +64,88 @@ function Home() {
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
   const [openThird, setOpenThird] = useState(false);
-  const [listStyle, setListStyle] = useState('standby');
+  const [listStyle, setListStyle] = useState("standby");
   const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
-  const [contactStyle, setContactStyle] = useState('standby');
+  const [contactStyle, setContactStyle] = useState("standby");
 
   // vetor de objetos com os dados a serem mostrados nos modais do Cursos
-  const data = [ 
+  const data = [
     {
       open: openFirst,
       title: "Simulados ICAO - COMENTADOS",
-      text1: 
-      `Os simulados comentados do teste ICAO da ANAC elaborados pela Tailwind Aviation Courses 
+      text1: `Os simulados comentados do teste ICAO da ANAC elaborados pela Tailwind Aviation Courses 
       foram todos criteriosamente desenvolvidos por uma equipe formada por pilotos comerciais e professores 
-      especialistas na área de inglês voltado para a aviação.`, 
-      text2:
-      `Nossos simulados trazem situações corriqueiras 
+      especialistas na área de inglês voltado para a aviação.`,
+      text2: `Nossos simulados trazem situações corriqueiras 
       apresentadas nas provas oficiais e têm o grau de dificuldade compatível com os exigidos no teste da ANAC. 
       A qualidade dos áudios, imagens e das questões elaboradas fazem toda a diferença tanto para aqueles que já 
       são certificados e buscam uma melhora em seu nível de proficiência, quanto para os candidatos que buscam 
       a qualificação pela primeira vez.`,
-      text3: 
-      `Há ainda uma oportunidade de se obter um feedback personalizado de 
+      text3: `Há ainda uma oportunidade de se obter um feedback personalizado de 
       proficiência e orientações de estudo diretamente da nossa equipe pedagógica.`,
-      videoLink: "youtube.com"
+      videoLink: "youtube.com",
     },
 
     {
       open: openSecond,
       title: "Curso Inglês ICAO",
-      text1: 
-      `O domínio da língua inglesa é imprescindível não somente para os pilotos que estão iniciando a carreira, 
+      text1: `O domínio da língua inglesa é imprescindível não somente para os pilotos que estão iniciando a carreira, 
       mas também para profissionais consolidados que buscam a renovação de sua certificação ICAO ou a melhora 
       do nível obtido em exames anteriores.`,
-      text2: 
-      `O curso preparatório para o exame de inglês da ANAC oferecido pela Tailwind Aviation Courses tem por 
+      text2: `O curso preparatório para o exame de inglês da ANAC oferecido pela Tailwind Aviation Courses tem por 
       objetivo não somente a familiarização com as etapas do teste, mas também a melhora da proficiência 
       linguística do aluno, através da apresentação de termos técnicos, estruturas vitais para o melhor 
       aproveitamento na prova, assim como oportunidades de desenvolver habilidades de comunicação, interação e 
       fraseologia em inglês, tão necessárias para a obtenção da certificação.`,
-      text3: 
-      `O curso foi preparado por profissionais que contam com larga experiência na preparação de alunos 
+      text3: `O curso foi preparado por profissionais que contam com larga experiência na preparação de alunos 
       para a prova, com grande histórico de aprovações, certificações internacionais e formação superior em 
       ensino de língua estrangeira.`,
-      videoLink: "youtube.com"
+      videoLink: "youtube.com",
     },
 
     {
       open: openThird,
       title: "Curso Cartas Jappesen",
-      text1: 
-      `A interpretação e manuseio de cartas aeronáuticas é uma habilidade que todo piloto deve ter, 
+      text1: `A interpretação e manuseio de cartas aeronáuticas é uma habilidade que todo piloto deve ter, 
       sendo ela necessária tanto para a manutenção da padronização quanto, como consequência, para a 
       segurança de voo. Além disso, essas habilidades demonstram-se essenciais para aqueles candidatos 
       que buscam o ingresso em uma linha área ou taxi aéreo.`,
-      text2: 
-      `O curso de Cartas Jeppesen da Tailwind Aviation Courses foi elaborado por profissionais capacitados e 
+      text2: `O curso de Cartas Jeppesen da Tailwind Aviation Courses foi elaborado por profissionais capacitados e 
       estruturado de maneira lógica para facilitar o entendimento e proporcionar uma 
       abordagem prática do tema.`,
-      text3: 
-      `Dessa maneira, o curso tem como objetivo a demonstração da correta utilização dos materiais 
+      text3: `Dessa maneira, o curso tem como objetivo a demonstração da correta utilização dos materiais 
       relacionados à cartografia aeronáutica Jeppesen, no que diz respeito à utilização do Jeppesen 
       General Airway Manual, assim como, e não menos importante, a interpretação, entendimento e briefing de 
       cartas aeronáuticas.`,
-      videoLink: "youtube.com"
-    }
-  ]
+      videoLink: "youtube.com",
+    },
+  ];
 
   // --------------------------------- //
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
+
     if (proposedWidth < 20) proposedWidth = 20;
     return proposedWidth;
   }
 
   useEffect(() => {
     setSize(windowSize());
+  });
+
+  useEffect(() => {
+    var aux = window.innerWidth;
+    if (aux < 500) {
+      setResponseSize("/assets/TAILWINDAVIATION.svg");
+      setUnion("/assets/Union.svg");
+      setTitle1("");
+      setTitle2("");
+    } else {
+      setResponseSize("/assets/Logomarca.svg");
+      setUnion("");
+    }
+    return responseSize;
   });
 
   function spin1(e) {
@@ -173,8 +187,8 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controla dos modais
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(contactStyle !== 'standby') setContactStyle('hide');
+    if (listStyle !== "standby") setListStyle("hide");
+    if (contactStyle !== "standby") setContactStyle("hide");
   }
 
   function spin2(e) {
@@ -218,12 +232,12 @@ function Home() {
     }, 1200);
 
     // controle dos modais
-    if(contactStyle !== 'standby') setContactStyle('hide');
+    if (contactStyle !== "standby") setContactStyle("hide");
 
-    if(listStyle === 'standby' || listStyle === 'hide') {
-      setListStyle('show')
+    if (listStyle === "standby" || listStyle === "hide") {
+      setListStyle("show");
     } else {
-      setListStyle('hide')
+      setListStyle("hide");
     }
   }
 
@@ -271,8 +285,8 @@ function Home() {
     }, 1200);
 
     // controle dos modais
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(contactStyle !== 'standby') setContactStyle('hide');
+    if (listStyle !== "standby") setListStyle("hide");
+    if (contactStyle !== "standby") setContactStyle("hide");
   }
 
   function spin4(e) {
@@ -312,11 +326,11 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controle dos modais
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(contactStyle === 'standby' || contactStyle === 'hide') {
-      setContactStyle('show')
+    if (listStyle !== "standby") setListStyle("hide");
+    if (contactStyle === "standby" || contactStyle === "hide") {
+      setContactStyle("show");
     } else {
-      setContactStyle('hide')
+      setContactStyle("hide");
     }
   }
 
@@ -345,8 +359,8 @@ function Home() {
           <img
             className={"plane" + (flying ? " flying" : "")}
             src="/assets/AviaoIcon.svg"
-            width={size}
-            height={size}
+            width={40}
+            height={40}
             onAnimationEnd={(e) => {
               setFlying(false);
             }}
@@ -377,11 +391,10 @@ function Home() {
               width: "38vw",
               zIndex: "200",
               color: "#fff",
-              
             }}
           >
-            <h1>INVISTA HOJE NO SEU FUTURO</h1>
-            <h1>E DÊ ASAS AO SEU SONHO</h1>
+            <h1>{title1}</h1>
+            <h1>{title2}</h1>
           </div>
           <div
             className={classes.homeContainerChildren}
@@ -392,19 +405,22 @@ function Home() {
             }}
           ></div>
           <div
-            className={classes.planeContainer}
+            className={classes.planeContainerMobile}
             style={{
-              position: "absolute",
-              left: "44vw",
-              top: "0.1vh",
-
-              transformOrigin: "center",
               width: size,
               height: size,
-              zIndex: "200",
             }}
           >
-            <img className={styles.logo} src="/assets/Logomarca.svg"></img>
+            <img className={styles.logo2} src={union} />
+          </div>
+          <div
+            className={classes.planeContainer}
+            style={{
+              width: size,
+              height: size,
+            }}
+          >
+            <img className={styles.logo} src={responseSize} />
           </div>
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
@@ -424,7 +440,6 @@ function Home() {
             >
               CURSOS
             </p>
-
           </div>
 
           <div className={classes.button3} style={{ zIndex: "100" }}>
@@ -445,43 +460,49 @@ function Home() {
               CONTATO
             </p>
           </div>
-          
         </div>
       </div>
 
-      <Contacts 
+      <Contacts
         contactStyle={contactStyle}
-        close={ () => setContactStyle('hide') }
+        close={() => setContactStyle("hide")}
       />
 
-      <CoursesList 
-        listStyle={ listStyle }
+      <CoursesList
+        listStyle={listStyle}
         // daqui para baixo é GAMBIARRA: passando as funções pro componente retornar
-        openFirst= { () => setOpenFirst(true)  }
-        openSecond={ () => setOpenSecond(true) }
-        openThird= { () => setOpenThird(true)  }
+        openFirst={() => setOpenFirst(true)}
+        openSecond={() => setOpenSecond(true)}
+        openThird={() => setOpenThird(true)}
       />
 
       <Footer />
+      <AnimatedModal open={open} setOpen={setOpen} />
+      <AnimatedModalMobile
+        open={openMobile}
+        setOpen={setOpenMobile}
+        slideStyle={slideStyle}
+        setSlideStyle={setSlideStyle}
+      />
 
-      { // Modais de transição DESKTOP
+      {
+        // Modais de transição DESKTOP
         data.map((object, index) => {
           return (
-            <AnimatedModal 
+            <AnimatedModal
               key={index}
-              open={object.open} 
+              open={object.open}
               close={closeModal}
-              title={object.title} 
+              title={object.title}
               text1={object.text1}
               text2={object.text2}
               text3={object.text3}
             />
-          )
+          );
         })
       }
 
-     <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
-
+      <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
     </div>
   );
 }
