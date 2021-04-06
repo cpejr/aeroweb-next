@@ -24,17 +24,17 @@ function QuemSomosMobile({ slideStyle }) {
   function handleTitleClick() {
     if(isUp) {
       setSlideClass(classes.cardSlideDown);
-      setBackdropClass(classes.backdropUp);
+      setBackdropClass(classes.backdrop);
       setIsUp(false);
     } else {
       setSlideClass(classes.cardSlideUp);
-      setBackdropClass(classes.backdrop);
+      setBackdropClass(classes.backdropUp);
       setIsUp(true);
     }
   }
 
   return (
-    <div className={backdropClass}>
+    // <div className={backdropClass}>
       <Card className={slideClass} >
         <CardContent className={classes.cardContent} style={{ padding: '2px' }}>
           <div className={classes.titleSlide} >
@@ -94,7 +94,7 @@ function QuemSomosMobile({ slideStyle }) {
           </div>
         </CardContent>
       </Card>
-    </div>
+    // </div>
   );
 }
 

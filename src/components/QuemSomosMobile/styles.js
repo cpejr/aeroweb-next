@@ -2,7 +2,7 @@ import {makeStyles} from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
   backdrop: {
-    display: 'contents'
+    display: 'contents',
   },
 
   backdropUp: { // evita clicar nos botões de fundo
@@ -10,7 +10,24 @@ export const useStyles = makeStyles((theme) => ({
   },
   
   cardSlide: {
-    display: 'none'
+    // posição
+    position: 'relative',
+    top: '80vh',
+    left: '11.50vw',
+
+    // dimensionamento
+    maxWidth: '80%',
+    zIndex: 200,
+
+    // estilo
+    padding: 16,
+    paddingTop: 8,
+    elevation: 8,
+    backgroundColor: '#F9F9F922',
+    borderRadius: '6px',
+    // overflow: 'scroll',
+
+    display: 'none',
   },
 
   cardSlideShow: {
@@ -33,7 +50,6 @@ export const useStyles = makeStyles((theme) => ({
 
     // animação
     animation:' $showSlide 1000ms linear forwards'
-    
   },
 
   cardSlideHide: {
@@ -73,7 +89,7 @@ export const useStyles = makeStyles((theme) => ({
     elevation: 8,
     backgroundColor:' #3467ebEE',
     borderRadius: '6px',
-    // overflow: 'scroll',
+    overflowY: 'scroll',
 
     // animação
     animation: '$upSlide 1000ms linear forwards'
