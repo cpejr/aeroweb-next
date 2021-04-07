@@ -10,6 +10,12 @@ const theme = createMuiTheme({
         padding: 0,
       },
     },
+
+    MuiCardContent: {
+      root: {
+        padding: '4px'
+      }
+    }
   },
 
   palette: {

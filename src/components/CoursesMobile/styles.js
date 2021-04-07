@@ -1,119 +1,69 @@
 import {makeStyles} from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
-  backdrop: {
-    display: 'contents',
-  },
-
-  backdropUp: { // evita clicar nos botões de fundo
-    zIndex: 400
-  },
-  
-  cardSlide: {
+  cardButtons: {
     // posição
     position: 'relative',
-    top: '80vh',
     left: '11.50vw',
+    top: '80vh',
 
     // dimensionamento
-    maxWidth: '80%',
-    zIndex: 200,
-
-    // estilo
-    padding: 16,
-    paddingTop: 8,
-    elevation: 8,
-    backgroundColor: '#F9F9F922',
-    borderRadius: '6px',
-    // overflow: 'scroll',
-
-    display: 'none',
-  },
-
-  cardSlideShow: {
-    // posição
-    position: 'relative',
-    top: '80vh',
-    left: '11.50vw',
-
-    // dimensionamento
-    maxWidth: '80%',
-    zIndex: 200,
-
-    // estilo
-    padding: 16,
-    paddingTop: 8,
-    elevation: 8,
-    backgroundColor: '#F9F9F922',
-    borderRadius: '6px',
-    // overflow: 'scroll',
-
-    // animação
-    animation:' $showSlide 1000ms linear forwards'
-  },
-
-  cardSlideHide: {
-    // posição
-    position: 'relative',
-    top: '80vh',
-    left: '11.50vw',
-
-    // dimensionamento
-    maxWidth: '80%',
+    maxWidth: '80vw',
     zIndex: 300,
+    height: '20vh',
 
     // estilo
-    padding: 16,
-    paddingTop: 8,
+    padding: 4,
     elevation: 8,
-    backgroundColor: '#F9F9F922',
+    backgroundColor:' #CCCCCC55',
     borderRadius: '6px',
-    // overflow: 'scroll',
+    overflowY: 'scroll',
+    display: 'none'
 
-    // animação
-    animation:' $hideSlide 1000ms linear forwards'
   },
 
-  cardSlideUp: {
+  cardButtonsShow: {
     // posição
     position: 'relative',
     left: '11.50vw',
+    top: '80vh',
 
     // dimensionamento
-    maxWidth: '80%',
+    maxWidth: '80vw',
     zIndex: 300,
+    height: '20vh',
 
     // estilo
-    padding: 16,
-    paddingTop: 8,
+    padding: 4,
     elevation: 8,
-    backgroundColor:' #3467ebEE',
+    backgroundColor:' #CCCCCC55',
     borderRadius: '6px',
     overflowY: 'scroll',
 
     // animação
-    animation: '$upSlide 1000ms linear forwards'
+    animation: '$showSlide 1000ms linear forwards'
   },
 
-  cardSlideDown: {
+  cardButtonsHide: {
     // posição
     position: 'relative',
     left: '11.50vw',
+    top: '80vh',
 
     // dimensionamento
-    maxWidth: '80%',
+    maxWidth: '80vw',
     zIndex: 300,
+    height: '20vh',
 
     // estilo
-    padding: 16,
-    paddingTop: 8,
+    padding: 4,
     elevation: 8,
-    backgroundColor:' #3467ebEE',
+    backgroundColor:' #CCCCCC55',
     borderRadius: '6px',
-    // overflow: 'scroll',
+    overflowY: 'scroll',
 
     // animação
-    animation: '$downSlide 1000ms linear forwards'
+    animation: '$hideSlide 1000ms linear forwards'
   },
 
   cardContent: {
@@ -124,15 +74,26 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
 
     width: '100%',
-    padddingLeft: '2px !important',
   },
 
-  titleSlide: {
+  buttonsLine: {
+    width: '75vw',
+
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
 
-    width: '100%',
+  buttonsList: {
+    marginTop: '10px',
+    marginBottom: '10px',
+
+    flex: 9,
+  },
+
+  icon: {
+    flex: 1,
   },
   
   text: {
@@ -197,28 +158,5 @@ export const useStyles = makeStyles((theme) => ({
       display: 'none'
     },
   },
-
-  "@keyframes upSlide": {
-    "0%": {
-      top: '80vh',
-      backgroundColor: '#F9F9F922',
-    },
-    "100%": {
-      top: '10vh',
-      backgroundColor:' #3467ebEE',
-    }
-  },
-
-  "@keyframes downSlide": {
-    "0%": {
-      top: '10vh',
-      backgroundColor:' #3467ebEE',
-    },
-    "100%": {
-      top: '80vh',
-      backgroundColor: '#F9F9F922',
-    },
-  }
-
 
 }));

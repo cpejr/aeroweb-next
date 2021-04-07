@@ -10,16 +10,16 @@ import Logo from "../../public/assets/Logomarca.svg";
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
-
 import Feed from "react-instagram-authless-feed";
 import FeedInstagram from "../components/FeedInstagram/index";
-
 import Contacts from "../components/Contacts/index";
 import ModalQuemSomos from "../components/ModalQuemSomos";
 import QuemSomosMobile from "../components/QuemSomosMobile"
 import CoursesList from "../components/CoursesList";
+import CoursesMobile from "../components/CoursesMobile";
 import isMobile from './isMobile'; // usa para ver se é mobile ou não
 import data from "../../public/data";
+
 
 function Home() {
   const classes = useStyles();
@@ -70,6 +70,7 @@ function Home() {
   const [listStyle, setListStyle] = useState('standby');
   const [slideStyle, setSlideStyle] = useState('standby');
   const [contactStyle, setContactStyle] = useState('standby');
+  const [slideCourses, setSlideCourses] = useState('standby');
 
   // gambiarra do data.js
   data[0].open = openFirst;
@@ -145,6 +146,7 @@ function Home() {
     if(listStyle !== 'standby') setListStyle('hide');
     if(contactStyle !== 'standby') setContactStyle('hide');
     if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
+    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
   }
 
   function spin2(e) {
@@ -194,6 +196,11 @@ function Home() {
       setListStyle('show')
     } else {
       setListStyle("hide");
+    }
+    if(isMobile && slideCourses !== 'show') {
+      setSlideCourses('show')
+    } else {
+      setSlideCourses('hide')
     }
   }
 
@@ -248,6 +255,7 @@ function Home() {
     } else {
       setSlideStyle('hide')
     }
+    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
   }
 
   function spin4(e) {
@@ -294,6 +302,7 @@ function Home() {
     } else {
       setContactStyle("hide");
     }
+    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
   }
 
   function closeModal() {
@@ -425,26 +434,32 @@ function Home() {
         </div>
       </div>
 
-      { isMobile ? (
+      {/* { isMobile ? (
         <QuemSomosMobile slideStyle={slideStyle} close={ () => setSlideStyle('hide') } />
       ) : (
         <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
-      )}
+      )} */}
 
       <Contacts 
         contactStyle={contactStyle}
         close={() => setContactStyle("hide")}
       />
 
-      <CoursesList
-        listStyle={listStyle}
-        // daqui para baixo é GAMBIARRA: passando as funções pro componente retornar
-        openFirst={() => setOpenFirst(true)}
-        openSecond={() => setOpenSecond(true)}
-        openThird={() => setOpenThird(true)}
-      />
+      { isMobile ? (
+        <CoursesMobile 
+          slideCourses={slideCourses}
+        />
+      ) : (
+        <CoursesList
+          listStyle={listStyle}
+          // daqui para baixo é GAMBIARRA: passando as funções pro componente retornar
+          openFirst={() => setOpenFirst(true)}
+          openSecond={() => setOpenSecond(true)}
+          openThird={() => setOpenThird(true)}
+        />
+      )}
 
-      {!isMobile && (
+      { !isMobile && (
         <Footer />
       )}
 
