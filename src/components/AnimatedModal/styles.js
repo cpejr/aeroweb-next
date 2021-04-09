@@ -16,7 +16,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   modalBackground: {
-    backgroundColor:' #3467eb77',
+    backgroundColor: '#3467eb77',
 
     display: 'flex',
     flexDirection: 'column',
@@ -82,12 +82,6 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: '#3467eb',
     '&:hover': {
       backgroundColor: '#3467eb'
-    }
-  },
-
-  buttonOut: {
-    '&:hover': {
-      borderBottom: '4px solid'
     }
   },
 

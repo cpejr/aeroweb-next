@@ -10,10 +10,10 @@ import { ArrowForwardIos } from '@material-ui/icons';
 import { useStyles } from "./styles";
 import data from '../../../public/data'
 
-function CoursesMobile({ slideCourses }) {
+function CoursesMobile({ slideCourses, openNthModal, setOpenNthModal }) {
   const classes = useStyles();
   const [slideClass, setSlideClass] = useState(classes.cardButtons)
-
+  
   useEffect(() => {
     if(slideCourses === 'standby') setSlideClass(classes.cardButtons);
     else if(slideCourses === 'hide') setSlideClass(classes.cardButtonsHide);
@@ -35,8 +35,15 @@ function CoursesMobile({ slideCourses }) {
               return (
                 <div className={classes.buttonsLine} >
                   <Button 
+                    key={index}
                     className={classes.buttonsList} 
                     variant='text' 
+                    onClick={ () => {
+                      let updatedArray = [...openNthModal ];
+                      updatedArray[index] = true;
+                      setOpenNthModal(updatedArray);
+                      setSlideClass(classes.cardButtonsHide)
+                    }}
                     style={{ textTransform: 'none' }}
                   > 
                     <Typography style={{ color: "#ffffff", fontWeight: 500, fontSize: 15, cursor: 'pointer' }}>
@@ -54,7 +61,6 @@ function CoursesMobile({ slideCourses }) {
         </ButtonGroup>
       </CardContent>
     </Card>
-    // </div>
   );
 }
 

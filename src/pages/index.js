@@ -71,6 +71,7 @@ function Home() {
   const [slideStyle, setSlideStyle] = useState('standby');
   const [contactStyle, setContactStyle] = useState('standby');
   const [slideCourses, setSlideCourses] = useState('standby');
+  const [openNthModal, setOpenNthModal] = useState([]);
 
   // gambiarra do data.js
   data[0].open = openFirst;
@@ -78,6 +79,18 @@ function Home() {
   data[2].open = openThird;
 
   // --------------------------------- //
+
+  // reset do array dos modais ao carregar pagina
+  useEffect(() => {
+    let auxArray = [];
+    for (let i = 0; i < data.length; ++i) {
+      auxArray.push(false);
+    }
+
+    setOpenNthModal(auxArray)
+  }, []);
+
+  useEffect(() => console.log(openNthModal), [openNthModal]);
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -448,6 +461,8 @@ function Home() {
       { isMobile ? (
         <CoursesMobile 
           slideCourses={slideCourses}
+          openNthModal={openNthModal}
+          setOpenNthModal={setOpenNthModal}
         />
       ) : (
         <CoursesList
@@ -458,6 +473,12 @@ function Home() {
           openThird={() => setOpenThird(true)}
         />
       )}
+
+      {
+        isMobile && (
+          <AnimatedModalMobile />
+        )
+      }
 
       { !isMobile && (
         <Footer />
@@ -477,6 +498,21 @@ function Home() {
               text3={object.text3}
             />
           );
+        })
+      }
+
+      {
+        data.map((object, index) => {
+          return (
+            <AnimatedModalMobile
+              key={index}
+              openNthModal={openNthModal[index]}
+              title={object.title}
+              text1={object.text1}
+              text2={object.text2}
+              text3={object.text3}
+            />
+          )
         })
       }
 

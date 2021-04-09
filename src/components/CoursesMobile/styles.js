@@ -145,16 +145,19 @@ export const useStyles = makeStyles((theme) => ({
     "0%": {
       left: '11.50vw',
       opacity: '100%',
-      display: 'initial'
+      display: 'initial',
+      height: '20vh',
     },
     "99%": {
       left: '99vw',
       opacity: '1%',
-      display: 'initial'
+      display: 'initial',
+      height: '20vh',
     },
     "100%": {
       left: '100vw',
       opacity: '0%',
+      height: '0px',
       display: 'none'
     },
   },
