@@ -467,7 +467,7 @@ function Home() {
       ) : (
         <CoursesList
           listStyle={listStyle}
-          // daqui para baixo é GAMBIARRA: passando as funções pro componente retornar
+          // feito estaticamente: implementar via .map igual no cursos do mobile
           openFirst={() => setOpenFirst(true)}
           openSecond={() => setOpenSecond(true)}
           openThird={() => setOpenThird(true)}
@@ -502,11 +502,15 @@ function Home() {
       }
 
       {
+        // Modais de transição MOBILE
         data.map((object, index) => {
           return (
             <AnimatedModalMobile
-              key={index}
-              openNthModal={openNthModal[index]}
+              key={index} // impossível acessar, 'key' é palavra reservada
+              index={index} 
+              openNthModal={openNthModal}
+              openNthModalIndex={openNthModal[index]}
+              setOpenNthModal={setOpenNthModal}
               title={object.title}
               text1={object.text1}
               text2={object.text2}

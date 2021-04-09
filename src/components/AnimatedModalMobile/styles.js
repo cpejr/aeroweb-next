@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme) => ({
   card: {
     // posição
     position: 'relative',
-    top: '-20vh',
+    top: '-10vh',
     left: '11.50vw',
 
     // dimensionamento
