@@ -90,7 +90,7 @@ function Home() {
     setOpenNthModal(auxArray)
   }, []);
 
-  useEffect(() => console.log(openNthModal), [openNthModal]);
+  useEffect(() => console.log(slideCourses), [slideCourses])
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -463,6 +463,7 @@ function Home() {
           slideCourses={slideCourses}
           openNthModal={openNthModal}
           setOpenNthModal={setOpenNthModal}
+          setSlideCourses={setSlideCourses}
         />
       ) : (
         <CoursesList
@@ -506,11 +507,12 @@ function Home() {
         data.map((object, index) => {
           return (
             <AnimatedModalMobile
-              key={index} // impossível acessar, 'key' é palavra reservada
-              index={index} 
+              key={index} 
+              index={index} // precisa desse pq key é impossível acessar, 'key' é palavra reservada
               openNthModal={openNthModal}
-              openNthModalIndex={openNthModal[index]}
+              openNthModalIndex={openNthModal[index]} // precisa desse para evitar crash
               setOpenNthModal={setOpenNthModal}
+              setSlideCourses={setSlideCourses}
               title={object.title}
               text1={object.text1}
               text2={object.text2}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { 
   Button, 
   Card, 
@@ -11,14 +11,23 @@ import { ExpandMore, ExpandLess } from "@material-ui/icons";
 import { useStyles } from "./styles";
 import LogomarcaAzul from "../../../public/assets/LogomarcaAzul.svg";
 
-function AnimatedModalMobile({ index, upStyle, openNthModal, openNthModalIndex, setOpenNthModal, title, text1, text2, text3, videoLink }) {
+function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNthModal, setSlideCourses, title, text1, text2, text3, videoLink }) {
   const classes = useStyles();
+  const [slideClass, setSlideClass] = useState(classes.card);
 
-  if (!openNthModalIndex){
+  useEffect(() => {
+    if (openNthModalIndex === true) {
+      setSlideClass(classes.cardUp);
+    } else {
+      setSlideClass(classes.cardDown);
+    }
+  }, [openNthModal])
+
+  if (!openNthModalIndex){ // só renderiza se clicou no botão correspondente
     return null;
   } else {
     return (
-      <Card className={classes.card} >
+      <Card className={slideClass} >
         <CardContent className={classes.cardContent} >
           <div className={classes.cardHeader}>
             <img className={classes.image} src={'/assets/LogomarcaAzul.svg'} />
@@ -30,7 +39,11 @@ function AnimatedModalMobile({ index, upStyle, openNthModal, openNthModalIndex, 
               onClick={() => {
                 let updatedArray = [...openNthModal ];
                 updatedArray[index] = false;
-                setOpenNthModal(updatedArray);
+                setSlideClass(classes.cardDown);
+                setSlideCourses('show');
+                setTimeout(() => { // espera a animação de down
+                  setOpenNthModal(updatedArray);
+                }, 1000); 
               }}
             />
 

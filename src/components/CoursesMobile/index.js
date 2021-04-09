@@ -10,7 +10,7 @@ import { ArrowForwardIos } from '@material-ui/icons';
 import { useStyles } from "./styles";
 import data from '../../../public/data'
 
-function CoursesMobile({ slideCourses, openNthModal, setOpenNthModal }) {
+function CoursesMobile({ slideCourses, setSlideCourses, openNthModal, setOpenNthModal }) {
   const classes = useStyles();
   const [slideClass, setSlideClass] = useState(classes.cardButtons)
   
@@ -42,7 +42,7 @@ function CoursesMobile({ slideCourses, openNthModal, setOpenNthModal }) {
                       let updatedArray = [...openNthModal ];
                       updatedArray[index] = true;
                       setOpenNthModal(updatedArray);
-                      setSlideClass(classes.cardButtonsHide)
+                      setSlideCourses('hide')
                     }}
                     style={{ textTransform: 'none' }}
                   > 

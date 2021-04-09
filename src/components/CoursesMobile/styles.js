@@ -158,7 +158,7 @@ export const useStyles = makeStyles((theme) => ({
       left: '100vw',
       opacity: '0%',
       height: '0px',
-      display: 'none'
+      display: 'none',
     },
   },
 
