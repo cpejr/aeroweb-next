@@ -19,8 +19,10 @@ function Home() {
 
   // variaveis da animacao
   let x1 = 90;
+  let selectedComp;
   let grad = Background1;
   const [posBackground, setPosBackground] = useState();
+  const [selected, setSelected] = useState();
   const [gradiente, setGradiente] = useState(grad);
   const [posX, setPosX] = useState("12vw");
   const [posXAngle, setPosXAngle] = useState(0);
@@ -138,6 +140,9 @@ function Home() {
     //Para a animação da linha:
     x1 = 90;
     setPosBackground(x1);
+    //Para saber em qual componente está:
+    selectedComp = 'HOME';
+    setSelected(selectedComp);
     // Para a animação do gradiente:
     setNewGradient(
       "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
@@ -181,6 +186,9 @@ function Home() {
     //Para a animação da linha:
     x1 = 60;
     setPosBackground(x1);
+    //Para saber em qual componente está:
+    selectedComp = 'CURSOS';
+    setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(cursos);
     setChange(true);
@@ -231,7 +239,9 @@ function Home() {
     //Para a animação da linha:
     x1 = 30;
     setPosBackground(x1);
-
+    //Para saber em qual componente está:
+    selectedComp = 'QUEMSOMOS';
+    setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(quemSomos);
     setChange(true);
@@ -279,7 +289,9 @@ function Home() {
     //Para a animação da linha:
     x1 = 0;
     setPosBackground(x1);
-
+    //Para saber em qual componente está:
+    selectedComp = 'CONTATO';
+    setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(contato);
     setChange(true);
@@ -412,7 +424,7 @@ function Home() {
             <p
               className={styles.name}
               onClick={spin1}
-              style={{ cursor: "pointer" }}
+              style={(selected === "HOME")? {cursor: 'pointer', transition: 'font-size 1.5s', fontSize: '1.25rem'}: {cursor: 'pointer'}}
             >
               HOME
             </p>
@@ -421,7 +433,7 @@ function Home() {
             <p
               className={styles.name}
               onClick={spin2}
-              style={{ cursor: "pointer" }}
+              style={(selected === "CURSOS")? {cursor: 'pointer', transition: 'font-size 1.5s', fontSize: '1.25rem'}: {cursor: 'pointer'}}
             >
               CURSOS
             </p>
@@ -432,7 +444,7 @@ function Home() {
             <p
               className={styles.name}
               onClick={spin3}
-              style={{ cursor: "pointer" }}
+              style={(selected === "QUEMSOMOS")? {cursor: 'pointer', transition: 'font-size 1.5s', fontSize: '1.25rem'}: {cursor: 'pointer'}}
             >
               QUEM SOMOS
             </p>
@@ -441,7 +453,7 @@ function Home() {
             <p
               className={styles.name}
               onClick={spin4}
-              style={{ cursor: "pointer" }}
+              style={(selected === "CONTATO")? {cursor: 'pointer', transition: 'font-size 1.5s', fontSize: '1.25rem'}: {cursor: 'pointer'}}
             >
               CONTATO
             </p>
