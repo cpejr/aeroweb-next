@@ -90,6 +90,8 @@ function Home() {
     setOpenNthModal(auxArray)
   }, []);
 
+  useEffect(() => console.log(slideCourses), [slideCourses])
+
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -473,12 +475,6 @@ function Home() {
           openThird={() => setOpenThird(true)}
         />
       )}
-
-      {
-        isMobile && (
-          <AnimatedModalMobile />
-        )
-      }
 
       { !isMobile && (
         <Footer />

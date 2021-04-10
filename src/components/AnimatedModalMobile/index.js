@@ -19,13 +19,13 @@ function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNt
     if (openNthModalIndex === true) {
       setTimeout(() => { // espera a animação do coursesMobile
         setSlideClass(classes.cardUp);
-      }, 1000);
+      }, 750);
     } else {
       if (slideClass !== classes.card) {
         setSlideClass(classes.cardDown)
         setTimeout(() => { // espera o down
           setSlideClass(classes.card);
-        }, 1000);
+        }, 750);
       }
       
     }

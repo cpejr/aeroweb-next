@@ -41,7 +41,7 @@ export const useStyles = makeStyles((theme) => ({
     overflowY: 'scroll',
 
     // animação
-    animation: '$showSlide 1000ms linear forwards'
+    animation: '$showSlide 750ms linear forwards'
   },
 
   cardButtonsHide: {
@@ -63,7 +63,7 @@ export const useStyles = makeStyles((theme) => ({
     overflowY: 'scroll',
 
     // animação
-    animation: '$hideSlide 1000ms linear forwards'
+    animation: '$hideSlide 750ms linear forwards'
   },
 
   cardContent: {

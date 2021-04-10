@@ -40,7 +40,7 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: '16px',
 
     // animaçao
-    animation: '$upSlide 1000ms linear forwards'
+    animation: '$upSlide 750ms linear forwards'
   },
 
   cardDown: {
@@ -61,7 +61,7 @@ export const useStyles = makeStyles((theme) => ({
     marginTop: '16px',
     
     // animaçao
-    animation: '$downSlide 1000ms linear forwards'
+    animation: '$downSlide 750ms linear forwards'
   },
 
   cardContent: {
