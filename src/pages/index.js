@@ -387,6 +387,7 @@ function Home() {
             className={classes.homeContainerChildren}
             style={{
               backgroundPositionX: posBackground,
+              transitionDuration: "2.5s",
               backgroundPositionY: -200,
               height: "100vh",
             }}
