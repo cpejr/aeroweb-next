@@ -80,6 +80,7 @@ export const useStyles = makeStyles((theme) => ({
 
   button: {
     backgroundColor: '#3467eb',
+    color: 'white',
     '&:hover': {
       backgroundColor: '#3467eb'
     }
