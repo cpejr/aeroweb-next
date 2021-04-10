@@ -7,7 +7,7 @@ import {
   Slide, 
   Typography 
 } from "@material-ui/core";
-import { ExpandMore, ExpandLess } from "@material-ui/icons";
+import { ExpandMore, ExpandLess, SingleBedSharp } from "@material-ui/icons";
 import { useStyles } from "./styles";
 import LogomarcaAzul from "../../../public/assets/LogomarcaAzul.svg";
 
@@ -17,13 +17,23 @@ function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNt
 
   useEffect(() => {
     if (openNthModalIndex === true) {
-      setSlideClass(classes.cardUp);
+      setTimeout(() => { // espera a animação do coursesMobile
+        setSlideClass(classes.cardUp);
+      }, 1000);
     } else {
-      setSlideClass(classes.cardDown);
+      if (slideClass !== classes.card) {
+        setSlideClass(classes.cardDown)
+        setTimeout(() => { // espera o down
+          setSlideClass(classes.card);
+        }, 1000);
+      }
+      
     }
-  }, [openNthModal])
+  }, [openNthModal]);
 
-  if (!openNthModalIndex){ // só renderiza se clicou no botão correspondente
+  useEffect(() => console.log(slideClass), [slideClass])
+
+  if (!openNthModalIndex && slideClass !== undefined) { // só renderiza se clicou no botão correspondente
     return null;
   } else {
     return (
@@ -40,9 +50,9 @@ function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNt
                 let updatedArray = [...openNthModal ];
                 updatedArray[index] = false;
                 setSlideClass(classes.cardDown);
-                setSlideCourses('show');
                 setTimeout(() => { // espera a animação de down
                   setOpenNthModal(updatedArray);
+                  setSlideCourses('show');
                 }, 1000); 
               }}
             />
@@ -83,7 +93,6 @@ function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNt
       </Card>
     );
   }
-
 }
 
 export default AnimatedModalMobile;

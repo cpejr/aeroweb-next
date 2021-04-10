@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme) => ({
   card: {
     // posição
     position: 'relative',
-    top: '-5vh',
+    top: '80vh',
     left: '11.50vw',
 
     // dimensionamento
@@ -24,7 +24,6 @@ export const useStyles = makeStyles((theme) => ({
   cardUp: {
     // posição
     position: 'relative',
-    top: '-5vh',
     left: '11.50vw',
 
     // dimensionamento
@@ -37,6 +36,8 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     borderRadius: '6px',
     overflowY: 'scroll',
+    marginTop: '16px',
+    marginBottom: '16px',
 
     // animaçao
     animation: '$upSlide 1000ms linear forwards'
@@ -45,7 +46,6 @@ export const useStyles = makeStyles((theme) => ({
   cardDown: {
     // posição
     position: 'relative',
-    top: '-5vh',
     left: '11.50vw',
 
     // dimensionamento
@@ -58,6 +58,7 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     borderRadius: '6px',
     overflowY: 'scroll',
+    marginTop: '16px',
     
     // animaçao
     animation: '$downSlide 1000ms linear forwards'
@@ -131,28 +132,28 @@ export const useStyles = makeStyles((theme) => ({
 
   "@keyframes upSlide": {
     "0%": {
-      top: '80vh',
+      top: '100vh',
       opacity: '0%',
     },
     "100%": {
-      top: '-5vh',
+      top: '0vh',
       opacity: '100%',
     }
   },
 
   "@keyframes downSlide": {
     "0%": {
-      top: '-5vh',
+      top: '0vh',
       opacity: '100%',
       display: 'initial'
     },
     "99%": {
-      top: '79vh',
+      top: '99vh',
       opacity: '1%',
       display: 'initial'
     },
     "100%": {
-      top: '80vh',
+      top: '100vh',
       opacity: '0%',
       display: 'none'
     },

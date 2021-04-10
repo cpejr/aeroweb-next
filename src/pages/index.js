@@ -90,7 +90,6 @@ function Home() {
     setOpenNthModal(auxArray)
   }, []);
 
-  useEffect(() => console.log(slideCourses), [slideCourses])
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -487,7 +486,7 @@ function Home() {
 
       {
         // Modais de transição DESKTOP
-        data.map((object, index) => {
+        !isMobile && data.map((object, index) => {
           return (
             <AnimatedModal
               key={index}
@@ -504,7 +503,7 @@ function Home() {
 
       {
         // Modais de transição MOBILE
-        data.map((object, index) => {
+        isMobile && data.map((object, index) => {
           return (
             <AnimatedModalMobile
               key={index} 
