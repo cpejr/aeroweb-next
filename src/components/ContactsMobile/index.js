@@ -155,12 +155,27 @@ function ContactsMobile ({ contactMobileStyle, close }) {
         );
     }
   }
+
+  function handleTitleClick() {
+    if (isUp) {
+      setContactMobileClass(classes.cardContactsMobileDown);
+      setIsUp(false);
+
+      resetFields();
+    } else {
+      setContactMobileClass(classes.cardContactsMobileUp);
+      setIsUp(true);
+    }
+  }
   
   return (
     <Card style={{ zIndex: "200" }} className={contactMobileClass}>
       <CardContent className={classes.cardContentContacts}>
         <div className={classes.titleContacts}>
-          <Typography style={{ color: "white", fontSize: '18px', textAlign: 'center', flex: 4 }} >
+          <Typography 
+            style={{ color: "white", fontSize: '18px', textAlign: 'center', cursor: 'pointer', flex: 4 }} 
+            onClick={ () => handleTitleClick() } 
+          >
             Mande sua mensagem
           </Typography>
           {
