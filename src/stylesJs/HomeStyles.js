@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     width: "4.5",
     height: "24px",
 
-    [theme.breakpoints.down("765")]: {
+    [theme.breakpoints.down("600")]: {
       paddingLeft: "5vw",
       width: "50px",
       height: "20px",
@@ -45,8 +45,8 @@ const useStyles = makeStyles((theme) => ({
     width: "4rem",
     height: "20px",
 
-    [theme.breakpoints.down("765")]: {
-      paddingLeft: "5vw",
+    [theme.breakpoints.down("600")]: {
+      marginLeft: "18vw",
       width: "50px",
       height: undefined,
     },
@@ -56,8 +56,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "17vw",
     width: "4rem",
     height: "20px",
-    [theme.breakpoints.down("765")]: {
-      paddingLeft: "5vw",
+    [theme.breakpoints.down("600")]: {
+      marginLeft: "5vw",
       width: "50px",
       height: "20px",
     },
@@ -68,8 +68,8 @@ const useStyles = makeStyles((theme) => ({
 
     width: "5.5rem",
     height: "22px",
-    [theme.breakpoints.down("765")]: {
-      paddingLeft: "5vw",
+    [theme.breakpoints.down("1050")]: {
+      marginLeft: "5vw",
       width: "50px",
       height: "20px",
     },
@@ -170,6 +170,19 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
+  footerTitle1: {
+    fontSize: '4.5vh',
+    [theme.breakpoints.down("1000")]: {
+      fontSize: '3.5vh',
+    },
+  },
+
+  footerTitle2: {
+    fontSize: '4.5vh',
+    [theme.breakpoints.down("1000")]: {
+      fontSize: '3.5vh',
+    },
+  },
 
   cardMobile: {
     width: "100%",
