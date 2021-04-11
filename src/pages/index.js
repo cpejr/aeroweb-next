@@ -417,7 +417,7 @@ function Home() {
               zIndex: "200",
             }}
           >
-            <img className={styles.logo} src="/assets/Logomarca.svg"></img>
+            <img className={styles.logo} src="/assets/Tailwind3.svg"></img>
           </div>
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>

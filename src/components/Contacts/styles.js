@@ -51,7 +51,7 @@ export const useStyles = makeStyles((theme) => ({
   titleContacts: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
 
     width: '95%',
   },

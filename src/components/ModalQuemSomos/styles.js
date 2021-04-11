@@ -67,7 +67,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   Title: {
-    marginLeft: '19vw',
+    marginRight: '3vw',
   },
 
   cardBody: {

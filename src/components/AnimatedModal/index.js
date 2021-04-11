@@ -28,6 +28,7 @@ function AnimatedModal({ open, close, title, text1, text2, text3, videoLink }) {
                 <CardContent>
                   <div className={classes.cardContent}>
                     <div className={classes.cardTitle}>
+                      <img src="/assets/Tailwind2.svg" style={{height:'5vh', fontFamily: 'Roboto'}}></img>
                       <Typography variant="h5" style={{ color: "#3467eb", fontFamily: 'Roboto' }}>
                         { title }
                       </Typography>
