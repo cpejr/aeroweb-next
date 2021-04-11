@@ -15,6 +15,7 @@ import Feed from "react-instagram-authless-feed";
 import FeedInstagram from "../components/FeedInstagram/index";
 
 import Contacts from "../components/Contacts/index";
+import ContactsMobile from "../components/ContactsMobile/index";
 import ModalQuemSomos from "../components/ModalQuemSomos";
 import QuemSomosMobile from "../components/QuemSomosMobile"
 import CoursesList from "../components/CoursesList";
@@ -70,6 +71,7 @@ function Home() {
   const [listStyle, setListStyle] = useState('standby');
   const [slideStyle, setSlideStyle] = useState('standby');
   const [contactStyle, setContactStyle] = useState('standby');
+  const [contactMobileStyle, setContactMobileStyle] = useState('standby');
 
   // gambiarra do data.js
   data[0].open = openFirst;
@@ -88,6 +90,7 @@ function Home() {
   useEffect(() => {
     setSize(windowSize());
   });
+
 
   useEffect(() => {
     var aux = window.innerWidth;
@@ -143,8 +146,9 @@ function Home() {
 
     // controla dos modais
     if(listStyle !== 'standby') setListStyle('hide');
-    if(contactStyle !== 'standby') setContactStyle('hide');
+    if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
     if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
+    if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
   }
 
   function spin2(e) {
@@ -188,7 +192,8 @@ function Home() {
     }, 1200);
 
     // controle dos modais
-    if(contactStyle !== 'standby') setContactStyle('hide');
+    if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
+    if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
     if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
     if(listStyle === 'standby' || listStyle === 'hide') {
       setListStyle('show')
@@ -242,7 +247,8 @@ function Home() {
 
     // controle dos modais
     if(listStyle !== 'standby') setListStyle('hide');
-    if(contactStyle !== 'standby') setContactStyle('hide');
+    if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
+    if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
     if(isMobile && slideStyle !== 'show') {
       setSlideStyle('show')
     } else {
@@ -289,10 +295,15 @@ function Home() {
     // controle dos modais
     if(listStyle !== 'standby') setListStyle('hide');
     if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
-    if(contactStyle === 'standby' || contactStyle === 'hide') {
+    if(!isMobile && contactStyle === 'standby' || contactStyle === 'hide') {
       setContactStyle('show')
     } else {
       setContactStyle("hide");
+    }
+    if(isMobile && contactMobileStyle === 'standby' || contactMobileStyle === 'hide') {
+      setContactMobileStyle('show')
+    } else {
+      setContactMobileStyle("hide");
     }
   }
 
@@ -425,16 +436,11 @@ function Home() {
         </div>
       </div>
 
-      { isMobile ? (
+      {/* { isMobile ? (
         <QuemSomosMobile slideStyle={slideStyle} close={ () => setSlideStyle('hide') } />
       ) : (
         <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
-      )}
-
-      <Contacts 
-        contactStyle={contactStyle}
-        close={() => setContactStyle("hide")}
-      />
+      )} */}
 
       <CoursesList
         listStyle={listStyle}
@@ -443,6 +449,21 @@ function Home() {
         openSecond={() => setOpenSecond(true)}
         openThird={() => setOpenThird(true)}
       />
+
+
+      {
+        isMobile ? (
+          <ContactsMobile 
+            contactMobileStyle={contactMobileStyle}
+            close={() => setContactMobileStyle("hide")}
+          />
+        ) : (
+          <Contacts 
+            contactStyle={contactStyle}
+            close={() => setContactStyle("hide")}
+          />
+        )
+      }
 
       {!isMobile && (
         <Footer />
