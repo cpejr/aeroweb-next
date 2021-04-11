@@ -60,9 +60,8 @@ function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNt
           </div>
           
           <Typography 
-            variant="h5" 
             className={classes.title}
-            style={{ color: "#3467eb", paddingBottom: '8px', flex: '9', textAlign: 'center', cursor: 'pointer' }}
+            style={{ color: "#3467eb", paddingBottom: '8px', flex: '9', textAlign: 'left', fontSize: '16px', cursor: 'pointer' }}
           >
             {title}
           </Typography>
@@ -76,6 +75,13 @@ function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNt
           <div className={classes.cardVideo}>
 
           </div>
+
+          <Typography 
+            style={{ color: "#3467eb", marginTop: '16px', textAlign: 'left', fontSize: '16px' }}
+          >
+            Formas de Pagamento
+          </Typography>
+
         </CardContent>
 
         <CardActions>

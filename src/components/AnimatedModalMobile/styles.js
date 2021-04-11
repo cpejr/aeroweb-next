@@ -130,6 +130,10 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
 
+  cardPayments: {
+    width: '100%',
+  },
+
   "@keyframes upSlide": {
     "0%": {
       top: '100vh',

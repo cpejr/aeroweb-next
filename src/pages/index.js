@@ -454,10 +454,10 @@ function Home() {
         <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
       )} */}
 
-      <Contacts 
+      {/* <Contacts 
         contactStyle={contactStyle}
         close={() => setContactStyle("hide")}
-      />
+      /> */}
 
       { isMobile ? (
         <CoursesMobile 

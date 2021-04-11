@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core'
 import { ArrowForwardIos } from '@material-ui/icons';
 import { useStyles } from "./styles";
-import data from '../../../public/data'
+import data from '../../../public/data';
 
 function CoursesMobile({ slideCourses, setSlideCourses, openNthModal, setOpenNthModal }) {
   const classes = useStyles();
@@ -18,12 +18,14 @@ function CoursesMobile({ slideCourses, setSlideCourses, openNthModal, setOpenNth
     if(slideCourses === 'standby') setSlideClass(classes.cardButtons);
     else if(slideCourses === 'hide') setSlideClass(classes.cardButtonsHide);
     else if(slideCourses === 'show') setSlideClass(classes.cardButtonsShow);
+    else if(slideCourses === 'fadeIn') setSlideClass(classes.cardButtonsFadeIn);
+    else if(slideCourses === 'fadeOut') setSlideClass(classes.cardButtonsFadeOut);
     // console.log(listStyle)
   }, [slideCourses]);
 
   return (
     <Card className={slideClass} >
-      <CardContent className={classes.cardContent} style={{ padding: '4px' }}>
+      <CardContent className={classes.cardContent}>
         <ButtonGroup
           orientation="vertical"
           color="primary"
@@ -42,7 +44,7 @@ function CoursesMobile({ slideCourses, setSlideCourses, openNthModal, setOpenNth
                       let updatedArray = [...openNthModal ];
                       updatedArray[index] = true;
                       setOpenNthModal(updatedArray);
-                      setSlideCourses('hide')
+                      setSlideCourses('hide');
                     }}
                     style={{ textTransform: 'none' }}
                   > 
@@ -54,6 +56,12 @@ function CoursesMobile({ slideCourses, setSlideCourses, openNthModal, setOpenNth
                   <ArrowForwardIos
                     style={{ color: 'white', cursor:  'pointer' }}
                     className={classes.icon}
+                    onClick={ () => {
+                      let updatedArray = [...openNthModal ];
+                      updatedArray[index] = true;
+                      setOpenNthModal(updatedArray);
+                      setSlideCourses('hide');
+                    }}
                   />
                 </div>
               )})

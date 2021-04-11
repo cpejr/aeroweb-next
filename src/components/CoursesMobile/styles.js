@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor:' #CCCCCC55',
     borderRadius: '6px',
     overflowY: 'scroll',
-    display: 'none'
+    display: 'none',
 
   },
 
@@ -66,6 +66,50 @@ export const useStyles = makeStyles((theme) => ({
     animation: '$hideSlide 750ms linear forwards'
   },
 
+  cardButtonsFadeIn: {
+    // posição
+    position: 'relative',
+    left: '11.50vw',
+    top: '80vh',
+
+    // dimensionamento
+    maxWidth: '80vw',
+    zIndex: 300,
+    height: '20vh',
+
+    // estilo
+    padding: 4,
+    elevation: 8,
+    backgroundColor:' #CCCCCC55',
+    borderRadius: '6px',
+    overflowY: 'scroll',
+
+    // animação
+    animation: '$slideFadeIn 750ms linear forwards'
+  },
+
+  cardButtonsFadeOut: {
+    // posição
+    position: 'relative',
+    left: '11.50vw',
+    top: '80vh',
+
+    // dimensionamento
+    maxWidth: '80vw',
+    zIndex: 300,
+    height: '20vh',
+
+    // estilo
+    padding: 4,
+    elevation: 8,
+    backgroundColor:' #CCCCCC55',
+    borderRadius: '6px',
+    overflowY: 'scroll',
+
+    // animação
+    animation: '$slideFadeOut 750ms linear forwards'
+  },
+
   cardContent: {
     display: 'flex',
     flexDirection: 'column',
@@ -74,6 +118,10 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
 
     width: '100%',
+    padding: '4px !important',
+    '&:last-child': {
+      paddingBottom: '4px !important'
+    }
   },
 
   buttonsLine: {
@@ -159,6 +207,30 @@ export const useStyles = makeStyles((theme) => ({
       opacity: '0%',
       height: '0px',
       display: 'none',
+    },
+  },
+
+  "@keyframes fadeInSlide": {
+    "0%": {
+      opacity: '100%',
+      display: 'initial',
+    },
+    "99%": {
+      opacity: '1%',
+      display: 'initial',
+    },
+    "100%": {
+      opacity: '0%',
+      display: 'none',
+    },
+  },
+
+  "@keyframes fadeOutSlide": {
+    "0%": {
+      opacity: '0%',
+    },
+    "100%": {
+      opacity: '100%',
     },
   },
 
