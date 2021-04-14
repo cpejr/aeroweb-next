@@ -115,5 +115,23 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-start',
 
     marginTop: '24px',
-  }
+  },
+
+  cardPayments2: {
+    width: '60%',
+    display: 'flex',
+    flexDirection: 'column',
+    marginLeft: '2vw',
+  },
+  cardPayments3: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  cardPayments4: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: '1vh'
+  },
 }));

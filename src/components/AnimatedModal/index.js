@@ -57,6 +57,22 @@ function AnimatedModal({ open, close, title, text1, text2, text3, videoLink }) {
                       <Typography style={{ fontSize: '18px', fontFamily: 'Roboto', color: "#3467eb", fontWeight: 500 }} >
                         Formas de pagamento
                       </Typography>
+                      <div className={classes.cardPayments2}>
+                        <div className={classes.cardPayments3}>
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Visa.png"></img>
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Mastercard.svg"></img>
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Paypal.png"></img>
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Samsungpay.png"></img>
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Hipercard.png"></img>
+                        </div>
+                        <div className={classes.cardPayments4}>
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Googlepay.png"></img>
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Hiper.png"></img>
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/American.png"></img>
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Diners.png"></img>
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Elo.png"></img>
+                        </div>
+                      </div>
                     </div>
 
                   </div>
