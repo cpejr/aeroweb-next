@@ -28,7 +28,7 @@ function AnimatedModal({ open, close, title, text1, text2, text3, videoLink }) {
                 <CardContent>
                   <div className={classes.cardContent}>
                     <div className={classes.cardTitle}>
-                      <img src="/assets/Tailwind2.svg" style={{height:'5vh', fontFamily: 'Roboto'}}></img>
+                      <img src="/assets/Tailwind2.svg" style={{height:'75px', fontFamily: 'Roboto'}}></img>
                       <Typography variant="h5" style={{ color: "#3467eb", fontFamily: 'Roboto' }}>
                         { title }
                       </Typography>
@@ -65,7 +65,7 @@ function AnimatedModal({ open, close, title, text1, text2, text3, videoLink }) {
                           <img style={{width: '4vw', height: '4vh'}} src="/assets/Samsungpay.png"></img>
                           <img style={{width: '4vw', height: '4vh'}} src="/assets/Hipercard.png"></img>
                         </div>
-                        <div className={classes.cardPayments4}>
+                        <div className={classes.cardPayments3}>
                           <img style={{width: '4vw', height: '4vh'}} src="/assets/Googlepay.png"></img>
                           <img style={{width: '4vw', height: '4vh'}} src="/assets/Hiper.png"></img>
                           <img style={{width: '4vw', height: '4vh'}} src="/assets/American.png"></img>

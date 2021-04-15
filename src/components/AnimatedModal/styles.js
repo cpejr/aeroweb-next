@@ -58,6 +58,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
 
     marginBottom: 16
   },
@@ -99,7 +100,7 @@ export const useStyles = makeStyles((theme) => ({
 
   cardVideo: {
     width: '60%',
-    height: '35vh',
+    height: '30vh',
 
     display: 'flex',
     flexDirection: 'column',
@@ -127,11 +128,12 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  cardPayments4: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: '1vh'
+    '& | &': {
+      marginTop: '16px',
+    },
+    '& img': {
+      width: '58px',
+      height: '30px',
+    }
   },
 }));

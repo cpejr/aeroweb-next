@@ -62,6 +62,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
 
     marginBottom: 16
   },
@@ -79,7 +80,7 @@ export const useStyles = makeStyles((theme) => ({
   
   cardVideo: {
     width: '95%',
-    height: '45vh',
+    height: '43vh',
 
     display: 'flex',
     flexDirection: 'column',
