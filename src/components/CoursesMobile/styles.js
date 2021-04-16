@@ -3,7 +3,7 @@ import {makeStyles} from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   cardButtons: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     left: '11.50vw',
     top: '80vh',
 
@@ -24,7 +24,7 @@ export const useStyles = makeStyles((theme) => ({
 
   cardButtonsShow: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     left: '11.50vw',
     top: '80vh',
 
@@ -41,12 +41,12 @@ export const useStyles = makeStyles((theme) => ({
     overflowY: 'scroll',
 
     // animação
-    animation: '$showSlide 750ms linear forwards'
+    animation: '$showSlide 1000ms linear forwards'
   },
 
   cardButtonsHide: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     left: '11.50vw',
     top: '80vh',
 
@@ -63,12 +63,12 @@ export const useStyles = makeStyles((theme) => ({
     overflowY: 'scroll',
 
     // animação
-    animation: '$hideSlide 750ms linear forwards'
+    animation: '$hideSlide 1000ms linear forwards'
   },
 
   cardButtonsFadeIn: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     left: '11.50vw',
     top: '80vh',
 
@@ -85,12 +85,12 @@ export const useStyles = makeStyles((theme) => ({
     overflowY: 'scroll',
 
     // animação
-    animation: '$slideFadeIn 750ms linear forwards'
+    // animation: '$fadeInSlide 1000ms linear forwards'
   },
 
   cardButtonsFadeOut: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     left: '11.50vw',
     top: '80vh',
 
@@ -107,7 +107,7 @@ export const useStyles = makeStyles((theme) => ({
     overflowY: 'scroll',
 
     // animação
-    animation: '$slideFadeOut 750ms linear forwards'
+    // animation: '$fadeOutSlide 250ms linear forwards'
   },
 
   cardContent: {

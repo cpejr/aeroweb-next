@@ -173,7 +173,7 @@ function ContactsMobile ({ contactMobileStyle, close }) {
       <CardContent className={classes.cardContentContacts}>
         <div className={classes.titleContacts}>
           <Typography 
-            style={{ color: "white", fontSize: '18px', textAlign: 'center', cursor: 'pointer', flex: 4 }} 
+            style={{ color: "white", fontSize: '18px', textAlign: 'center', cursor: 'pointer', flex: 9 }} 
             onClick={ () => handleTitleClick() } 
           >
             Mande sua mensagem
@@ -292,8 +292,9 @@ function ContactsMobile ({ contactMobileStyle, close }) {
 
         <Button
           variant="outlined"
-          className={classes.buttonContacts}
+          // className={classes.buttonContacts}
           onClick={() => handleSend()}
+          style={{ marginTop: '16px', backgroundColor: 'white' }}
         >
           {loading ? (
             <CircularProgress color="primary" size={32} thickness={2.5} />

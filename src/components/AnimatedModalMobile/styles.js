@@ -29,6 +29,7 @@ export const useStyles = makeStyles((theme) => ({
     // dimensionamento
     maxWidth: '80vw',
     zIndex: 300,
+    maxHeight: '98vh',
 
     // estilo
     padding: 4,
@@ -51,6 +52,7 @@ export const useStyles = makeStyles((theme) => ({
     // dimensionamento
     maxWidth: '80vw',
     zIndex: 300,
+    maxHeight: '98vh',
 
     // estilo
     padding: 4,
@@ -128,6 +130,8 @@ export const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "#3467eb",
     },
+
+    marginBottom: '16px'
   },
 
   cardPayments: {
@@ -136,7 +140,7 @@ export const useStyles = makeStyles((theme) => ({
 
   "@keyframes upSlide": {
     "0%": {
-      top: '100vh',
+      top: '80vh',
       opacity: '0%',
     },
     "100%": {
@@ -152,12 +156,12 @@ export const useStyles = makeStyles((theme) => ({
       display: 'initial'
     },
     "99%": {
-      top: '99vh',
+      top: '79vh',
       opacity: '1%',
       display: 'initial'
     },
     "100%": {
-      top: '100vh',
+      top: '80vh',
       opacity: '0%',
       display: 'none'
     },

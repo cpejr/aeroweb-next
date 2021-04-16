@@ -17,17 +17,14 @@ function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNt
 
   useEffect(() => {
     if (openNthModalIndex === true) {
-      setTimeout(() => { // espera a animação do coursesMobile
-        setSlideClass(classes.cardUp);
-      }, 750);
+      setSlideClass(classes.cardUp);
     } else {
       if (slideClass !== classes.card) {
         setSlideClass(classes.cardDown)
-        setTimeout(() => { // espera o down
+        setTimeout(() => { // evita bug de piscar
           setSlideClass(classes.card);
-        }, 750);
+        }, 1000);
       }
-      
     }
   }, [openNthModal]);
 
@@ -52,7 +49,7 @@ function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNt
                 setSlideClass(classes.cardDown);
                 setTimeout(() => { // espera a animação de down
                   setOpenNthModal(updatedArray);
-                  setSlideCourses('show');
+                  setSlideCourses('fadeOut');
                 }, 1000); 
               }}
             />

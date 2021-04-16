@@ -44,7 +44,7 @@ function CoursesMobile({ slideCourses, setSlideCourses, openNthModal, setOpenNth
                       let updatedArray = [...openNthModal ];
                       updatedArray[index] = true;
                       setOpenNthModal(updatedArray);
-                      setSlideCourses('hide');
+                      setSlideCourses('fadeIn');
                     }}
                     style={{ textTransform: 'none' }}
                   > 
@@ -60,7 +60,7 @@ function CoursesMobile({ slideCourses, setSlideCourses, openNthModal, setOpenNth
                       let updatedArray = [...openNthModal ];
                       updatedArray[index] = true;
                       setOpenNthModal(updatedArray);
-                      setSlideCourses('hide');
+                      setSlideCourses('fadeIn');
                     }}
                   />
                 </div>

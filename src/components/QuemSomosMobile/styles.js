@@ -11,13 +11,14 @@ export const useStyles = makeStyles((theme) => ({
   
   cardSlide: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     top: '80vh',
     left: '11.50vw',
 
     // dimensionamento
-    maxWidth: '80%',
+    width: '80vw',
     zIndex: 200,
+    maxHeight: '87.50vh',
 
     // estilo
     padding: 16,
@@ -25,20 +26,21 @@ export const useStyles = makeStyles((theme) => ({
     elevation: 8,
     backgroundColor: '#F9F9F922',
     borderRadius: '6px',
-    // overflow: 'scroll',
+    overflow: 'hidden',
 
     display: 'none',
   },
 
   cardSlideShow: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     top: '80vh',
     left: '11.50vw',
 
     // dimensionamento
-    maxWidth: '80%',
+    width: '80vw',
     zIndex: 200,
+    maxHeight: '87.50vh',
 
     // estilo
     padding: 16,
@@ -46,7 +48,7 @@ export const useStyles = makeStyles((theme) => ({
     elevation: 8,
     backgroundColor: '#F9F9F922',
     borderRadius: '6px',
-    // overflow: 'scroll',
+    overflow: 'hidden',
 
     // animação
     animation:' $showSlide 1000ms linear forwards'
@@ -54,12 +56,12 @@ export const useStyles = makeStyles((theme) => ({
 
   cardSlideHide: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     top: '80vh',
     left: '11.50vw',
 
     // dimensionamento
-    maxWidth: '80%',
+    width: '80vw',
     zIndex: 300,
 
     // estilo
@@ -68,7 +70,7 @@ export const useStyles = makeStyles((theme) => ({
     elevation: 8,
     backgroundColor: '#F9F9F922',
     borderRadius: '6px',
-    // overflow: 'scroll',
+    overflow: 'hidden',
 
     // animação
     animation:' $hideSlide 1000ms linear forwards'
@@ -76,12 +78,13 @@ export const useStyles = makeStyles((theme) => ({
 
   cardSlideUp: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     left: '11.50vw',
 
     // dimensionamento
     maxWidth: '80%',
     zIndex: 300,
+    maxHeight: '87.50vh',
 
     // estilo
     padding: 16,
@@ -97,12 +100,13 @@ export const useStyles = makeStyles((theme) => ({
 
   cardSlideDown: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     left: '11.50vw',
 
     // dimensionamento
     maxWidth: '80%',
     zIndex: 300,
+    maxHeight: '87.50vh',
 
     // estilo
     padding: 16,
@@ -110,7 +114,7 @@ export const useStyles = makeStyles((theme) => ({
     elevation: 8,
     backgroundColor:' #3467ebEE',
     borderRadius: '6px',
-    // overflow: 'scroll',
+    overflow: 'scroll',
 
     // animação
     animation: '$downSlide 1000ms linear forwards'
