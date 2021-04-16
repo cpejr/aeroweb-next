@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   card: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     top: '80vh',
     left: '11.50vw',
 
@@ -23,7 +23,7 @@ export const useStyles = makeStyles((theme) => ({
 
   cardUp: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     left: '11.50vw',
 
     // dimensionamento
@@ -45,7 +45,7 @@ export const useStyles = makeStyles((theme) => ({
 
   cardDown: {
     // posição
-    position: 'relative',
+    position: 'absolute',
     left: '11.50vw',
 
     // dimensionamento

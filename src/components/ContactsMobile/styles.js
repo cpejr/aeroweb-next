@@ -3,10 +3,10 @@ import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
   cardContactsMobile: {
-    maxWidth: '80vw',
-    height: 'auto',
+    width: '80vw',
+    maxHeight: '80vh',
 
-    position: 'relative',
+    position: 'absolute',
     left: '10vw',
     top: '12.50vh',
 
@@ -15,10 +15,10 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   cardContactsMobileShow: {
-    maxWidth: '80vw',
-    height: 'auto',
+    width: '80vw',
+    maxHeight: '80vh',
 
-    position: 'relative',
+    position: 'absolute',
     left: '10vw',
     top: '80vh',
 
@@ -29,10 +29,10 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   cardContactsMobileHide: {
-    maxWidth: '80vw',
-    height: 'auto',
+    width: '80vw',
+    maxHeight: '80vh',
 
-    position: 'relative',
+    position: 'absolute',
     left: '10vw',
     top: '80vh',
 
@@ -43,10 +43,10 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   cardContactsMobileUp: {
-    maxWidth: '80vw',
-    height: 'auto',
+    width: '80vw',
+    maxHeight: '80vh',
 
-    position: 'relative',
+    position: 'absolute',
     left: '10vw',
 
     backgroundColor: '#2234CCFF',
@@ -56,10 +56,10 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   cardContactsMobileDown: {
-    maxWidth: '80vw',
-    height: 'auto',
+    width: '80vw',
+    maxHeight: '80vh',
 
-    position: 'relative',
+    position: 'absolute',
     left: '10vw',
 
     backgroundColor: '#2234CCFF',
@@ -157,12 +157,12 @@ export const useStyles = makeStyles((theme) => ({
   "@keyframes hideContacts": {
     "0%": {
       opacity: '100%',
-      height: 'auto',
+      height: '80vh',
       left: '10vw'
     },
     "95%": {
       opacity: '5%',
-      height: 'auto',
+      height: '80vh',
       left: '98vw'
     },
     "100%": {
