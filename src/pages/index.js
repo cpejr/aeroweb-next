@@ -21,8 +21,35 @@ import CoursesMobile from "../components/CoursesMobile";
 import isMobile from './isMobile'; // usa para ver se é mobile ou não
 import data from "../../public/data";
 
+import { NextSeo } from "next-seo";
 
 function Home() {
+  <>
+    <NextSeo
+      title="Tailwind Aviation"
+      description="Os melhores cursos de aviação."
+      openGraph={{
+        url: "https://www.twcourses.com.br",
+        title: "Tailwind Aviation",
+        description: "Cursos de Aviação, confira nossas redes sociais",
+        images: [
+          {
+            url:
+              "https://images.pexels.com/photos/912050/pexels-photo-912050.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            width: 800,
+            height: 600,
+            alt: "Um avião",
+          },
+        ],
+        site_name: "Tailwind Aviation",
+      }}
+      instagram={{
+        handle: "@tailwindaviation_",
+        site: "@twcourses.com.br",
+        cardType: "Imagem",
+      }}
+    />
+  </>;
   const classes = useStyles();
 
   // variaveis da animacao
