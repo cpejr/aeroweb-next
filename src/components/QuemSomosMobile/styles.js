@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme) => ({
     // dimensionamento
     width: '80vw',
     zIndex: 200,
-    maxHeight: '87.50vh',
+    maxHeight: '90vh',
 
     // estilo
     padding: 16,
@@ -40,7 +40,7 @@ export const useStyles = makeStyles((theme) => ({
     // dimensionamento
     width: '80vw',
     zIndex: 200,
-    maxHeight: '87.50vh',
+    maxHeight: '90vh',
 
     // estilo
     padding: 16,
@@ -84,7 +84,7 @@ export const useStyles = makeStyles((theme) => ({
     // dimensionamento
     maxWidth: '80%',
     zIndex: 300,
-    maxHeight: '87.50vh',
+    maxHeight: '90vh',
 
     // estilo
     padding: 16,
@@ -106,7 +106,7 @@ export const useStyles = makeStyles((theme) => ({
     // dimensionamento
     maxWidth: '80%',
     zIndex: 300,
-    maxHeight: '87.50vh',
+    maxHeight: '90vh',
 
     // estilo
     padding: 16,
@@ -114,7 +114,7 @@ export const useStyles = makeStyles((theme) => ({
     elevation: 8,
     backgroundColor:' #3467ebEE',
     borderRadius: '6px',
-    overflow: 'scroll',
+    // overflow: 'scroll',
 
     // animação
     animation: '$downSlide 1000ms linear forwards'
@@ -164,13 +164,13 @@ export const useStyles = makeStyles((theme) => ({
 
   cardVideo: {
     width: '100%',
-    height: '15vh',
+    height: '25vh',
 
     display: 'flex',
     flexDirection: 'column',
     border: '1px solid white',
     marginTop: '24px',
-    marginBottom: '4px'
+    marginBottom: '16px'
   },
 
   "@keyframes showSlide": {
@@ -188,17 +188,10 @@ export const useStyles = makeStyles((theme) => ({
     "0%": {
       left: '11.50vw',
       opacity: '100%',
-      display: 'initial'
-    },
-    "99%": {
-      left: '99vw',
-      opacity: '1%',
-      display: 'initial'
     },
     "100%": {
       left: '100vw',
       opacity: '0%',
-      display: 'none'
     },
   },
 

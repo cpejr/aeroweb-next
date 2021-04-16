@@ -153,17 +153,10 @@ export const useStyles = makeStyles((theme) => ({
     "0%": {
       top: '0vh',
       opacity: '100%',
-      display: 'initial'
-    },
-    "99%": {
-      top: '79vh',
-      opacity: '1%',
-      display: 'initial'
     },
     "100%": {
       top: '80vh',
       opacity: '0%',
-      display: 'none'
-    },
+    }
   }
 }));

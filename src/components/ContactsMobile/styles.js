@@ -23,7 +23,7 @@ export const useStyles = makeStyles((theme) => ({
     top: '80vh',
 
     backgroundColor: '#F9F9F922',
-    overflowY: 'scroll',
+    // overflowY: 'scroll',
 
     animation: "$showContacts 1000ms linear forwards",
   },
@@ -37,7 +37,7 @@ export const useStyles = makeStyles((theme) => ({
     top: '80vh',
 
     backgroundColor: '#F9F9F922',
-    overflowY: 'scroll',
+    // overflowY: 'scroll',
 
     animation: "$hideContacts 1000ms linear forwards",
   },
@@ -63,7 +63,7 @@ export const useStyles = makeStyles((theme) => ({
     left: '10vw',
 
     backgroundColor: '#2234CCFF',
-    overflowY: 'scroll',
+    // overflowY: 'scroll',
 
     animation: "$downContacts 1000ms linear forwards",
   },
@@ -157,17 +157,10 @@ export const useStyles = makeStyles((theme) => ({
   "@keyframes hideContacts": {
     "0%": {
       opacity: '100%',
-      height: '80vh',
       left: '10vw'
-    },
-    "95%": {
-      opacity: '5%',
-      height: '80vh',
-      left: '98vw'
     },
     "100%": {
       opacity: '0%',
-      height: '0px',
       left: '100vw'
     },
   },
