@@ -10,17 +10,17 @@ import Logo from "../../public/assets/Logomarca.svg";
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
-
 import Feed from "react-instagram-authless-feed";
 import FeedInstagram from "../components/FeedInstagram/index";
-
 import Contacts from "../components/Contacts/index";
 import ContactsMobile from "../components/ContactsMobile/index";
 import ModalQuemSomos from "../components/ModalQuemSomos";
 import QuemSomosMobile from "../components/QuemSomosMobile"
 import CoursesList from "../components/CoursesList";
+import CoursesMobile from "../components/CoursesMobile";
 import isMobile from './isMobile'; // usa para ver se é mobile ou não
 import data from "../../public/data";
+
 
 function Home() {
   const classes = useStyles();
@@ -72,6 +72,8 @@ function Home() {
   const [slideStyle, setSlideStyle] = useState('standby');
   const [contactStyle, setContactStyle] = useState('standby');
   const [contactMobileStyle, setContactMobileStyle] = useState('standby');
+  const [slideCourses, setSlideCourses] = useState('standby');
+  const [openNthModal, setOpenNthModal] = useState([]);
 
   // gambiarra do data.js
   data[0].open = openFirst;
@@ -79,6 +81,19 @@ function Home() {
   data[2].open = openThird;
 
   // --------------------------------- //
+
+  // reset do array dos modais ao carregar pagina
+  useEffect(() => {
+    let auxArray = [];
+    for (let i = 0; i < data.length; ++i) {
+      auxArray.push(false);
+    }
+
+    setOpenNthModal(auxArray)
+  }, []);
+
+  useEffect(() => console.log(slideCourses), [slideCourses])
+
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -149,6 +164,7 @@ function Home() {
     if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
     if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
     if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
+    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
   }
 
   function spin2(e) {
@@ -199,6 +215,11 @@ function Home() {
       setListStyle('show')
     } else {
       setListStyle("hide");
+    }
+    if(isMobile && slideCourses !== 'show') {
+      setSlideCourses('show')
+    } else {
+      setSlideCourses('hide')
     }
   }
 
@@ -254,6 +275,7 @@ function Home() {
     } else {
       setSlideStyle('hide')
     }
+    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
   }
 
   function spin4(e) {
@@ -305,6 +327,7 @@ function Home() {
     } else {
       setContactMobileStyle("hide");
     }
+    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
   }
 
   function closeModal() {
@@ -434,23 +457,33 @@ function Home() {
             </p>
           </div>
         </div>
-      </div>
+      </div>    
 
-      {/* { isMobile ? (
-        <QuemSomosMobile slideStyle={slideStyle} close={ () => setSlideStyle('hide') } />
+      { isMobile ? (
+        <CoursesMobile 
+          slideCourses={slideCourses}
+          openNthModal={openNthModal}
+          setOpenNthModal={setOpenNthModal}
+          setSlideCourses={setSlideCourses}
+        />
       ) : (
-        <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
-      )} */}
+        <CoursesList
+          listStyle={listStyle}
+          // feito estaticamente: implementar via .map igual no cursos do mobile
+          openFirst={() => setOpenFirst(true)}
+          openSecond={() => setOpenSecond(true)}
+          openThird={() => setOpenThird(true)}
+        />
+      )}
 
-      <CoursesList
-        listStyle={listStyle}
-        // daqui para baixo é GAMBIARRA: passando as funções pro componente retornar
-        openFirst={() => setOpenFirst(true)}
-        openSecond={() => setOpenSecond(true)}
-        openThird={() => setOpenThird(true)}
-      />
-
-
+      {
+        isMobile ? (
+          <QuemSomosMobile slideStyle={slideStyle} close={ () => setSlideStyle('hide') } />
+        ) : (
+          <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
+        )
+      }
+      
       {
         isMobile ? (
           <ContactsMobile 
@@ -465,13 +498,13 @@ function Home() {
         )
       }
 
-      {!isMobile && (
+      { !isMobile && (
         <Footer />
       )}
 
       {
         // Modais de transição DESKTOP
-        data.map((object, index) => {
+        !isMobile && data.map((object, index) => {
           return (
             <AnimatedModal
               key={index}
@@ -483,6 +516,26 @@ function Home() {
               text3={object.text3}
             />
           );
+        })
+      }
+
+      {
+        // Modais de transição MOBILE
+        isMobile && data.map((object, index) => {
+          return (
+            <AnimatedModalMobile
+              key={index} 
+              index={index} // precisa desse pq key é impossível acessar, 'key' é palavra reservada
+              openNthModal={openNthModal}
+              openNthModalIndex={openNthModal[index]} // precisa desse para evitar crash
+              setOpenNthModal={setOpenNthModal}
+              setSlideCourses={setSlideCourses}
+              title={object.title}
+              text1={object.text1}
+              text2={object.text2}
+              text3={object.text3}
+            />
+          )
         })
       }
 

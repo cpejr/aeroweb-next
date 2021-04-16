@@ -1,46 +1,67 @@
 import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-
-    paddingTop: "5%",
-  },
-
-  root: {
-    width: "100%",
-    maxWidth: 360,
-  },
-
-  modalBackground: {
-    backgroundColor: " #3467eb77",
-  },
-
-  fadeRoot: {
-    width: "100%",
-    height: "100%",
-
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-
-    backgroundColor: "#3467eb77",
-  },
-
-  backDrop: {
-    backdropFilter: "blur(3px)",
-    backgroundColor: "rgba(0,0,30,0.4)",
-  },
-
   card: {
-    maxWidth: "50%",
+    // posição
+    position: 'relative',
+    top: '80vh',
+    left: '11.50vw',
 
-    padding: 16,
+    // dimensionamento
+    maxWidth: '80vw',
+    zIndex: 300,
+
+    // estilo
+    padding: 4,
     elevation: 8,
+    backgroundColor: 'white',
+    borderRadius: '6px',
+    overflowY: 'scroll',
+
+    display: 'none'
+  },
+
+  cardUp: {
+    // posição
+    position: 'relative',
+    left: '11.50vw',
+
+    // dimensionamento
+    maxWidth: '80vw',
+    zIndex: 300,
+
+    // estilo
+    padding: 4,
+    elevation: 8,
+    backgroundColor: 'white',
+    borderRadius: '6px',
+    overflowY: 'scroll',
+    marginTop: '16px',
+    marginBottom: '16px',
+
+    // animaçao
+    animation: '$upSlide 750ms linear forwards'
+  },
+
+  cardDown: {
+    // posição
+    position: 'relative',
+    left: '11.50vw',
+
+    // dimensionamento
+    maxWidth: '80vw',
+    zIndex: 300,
+
+    // estilo
+    padding: 4,
+    elevation: 8,
+    backgroundColor: 'white',
+    borderRadius: '6px',
+    overflowY: 'scroll',
+    marginTop: '16px',
+    
+    // animaçao
+    animation: '$downSlide 750ms linear forwards'
   },
 
   cardContent: {
@@ -48,15 +69,42 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
 
-  cardTitle: {
-    width: "95%",
-
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-
-    marginBottom: 16,
+  image: {
+ 
   },
+
+  cardHeader: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+
+    width: '100%',
+  },
+
+  icon: {
+    width: '20%',
+  },
+
+  text: {
+    fontSize: '12px',
+    lineHeight: '15px',
+  },
+
+  line: {
+    lineHeight: '13px',
+  },
+
+  cardVideo: {
+    width: '100%',
+    height: '25vh',
+
+    display: 'flex',
+    flexDirection: 'column',
+
+    border: '1px solid #3467eb',
+    marginTop: '2vh',
+  },
+
 
   cardBody: {
     width: "95%",
@@ -75,19 +123,43 @@ export const useStyles = makeStyles((theme) => ({
 
   button: {
     backgroundColor: "#3467eb",
+    color: 'white',
+    width: '80%',
     "&:hover": {
       backgroundColor: "#3467eb",
     },
   },
 
-  buttonOut: {
-    "&:hover": {
-      borderBottom: "4px solid",
-    },
+  cardPayments: {
+    width: '100%',
   },
 
-  media: {
-    height: "30%",
-    width: "30%",
+  "@keyframes upSlide": {
+    "0%": {
+      top: '100vh',
+      opacity: '0%',
+    },
+    "100%": {
+      top: '0vh',
+      opacity: '100%',
+    }
   },
+
+  "@keyframes downSlide": {
+    "0%": {
+      top: '0vh',
+      opacity: '100%',
+      display: 'initial'
+    },
+    "99%": {
+      top: '99vh',
+      opacity: '1%',
+      display: 'initial'
+    },
+    "100%": {
+      top: '100vh',
+      opacity: '0%',
+      display: 'none'
+    },
+  }
 }));

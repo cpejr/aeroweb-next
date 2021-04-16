@@ -25,7 +25,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   growContent: {
-    backgroundColor:' #3467eb77',
+    backgroundColor:'#0E41C5',
     color: 'white',
 
     display: 'flex',
