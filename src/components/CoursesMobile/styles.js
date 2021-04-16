@@ -118,9 +118,9 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
 
     width: '100%',
-    padding: '4px !important',
+    padding: '3px',
     '&:last-child': {
-      paddingBottom: '4px !important'
+      paddingBottom: '3px'
     }
   },
 
