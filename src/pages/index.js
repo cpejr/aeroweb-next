@@ -14,6 +14,7 @@ import Contacts from "../components/Contacts/index";
 import ModalQuemSomos from "../components/ModalQuemSomos";
 import CoursesList from "../components/CoursesList";
 import { NextSeo } from "next-seo";
+import InstagramCarousel from "../components/InstagramCarousel";
 
 function Home() {
   <>
@@ -346,6 +347,8 @@ function Home() {
 
   return (
     <div className={classes.homeContainer}>
+      <InstagramCarousel />
+
       <div className={classes.homeContainerChildren}>
         <div
           className={classes.planeContainer}
