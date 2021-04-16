@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Button,
   Modal,
@@ -11,12 +10,13 @@ import {
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
 import { useStyles } from "./styles";
+import React, { useState } from "react";
 
-function AnimatedModal({ open, close, title, text1, text2, text3, videoLink }) {
+function AnimatedModal({ close, title, text1, text2, text3, videoLink }) {
   const classes = useStyles();
-
+  const [open, setOpen] = useState("");
   return (
-    <div className={classes.container} >
+    <div className={classes.container}>
       <Modal
         open={open}
         onBackdropClick={() => setOpen(false)}
@@ -39,17 +39,19 @@ function AnimatedModal({ open, close, title, text1, text2, text3, videoLink }) {
                       />
                     </div>
 
-                    <div className={classes.cardBody}>
-                      <Typography style={{ fontSize: '12px', fontFamily: 'Roboto' }} >
-                        { text1 }
-                        <br />
-                        { text2 }
-                        <br />
-                        { text3 }
-                      </Typography>
-                    </div>
+                  <div className={classes.cardBody}>
+                    <Typography
+                      style={{ fontSize: "12px", fontFamily: "Roboto" }}
+                    >
+                      {text1}
+                      <br />
+                      {text2}
+                      <br />
+                      {text3}
+                    </Typography>
+                  </div>
 
-                    <div className={classes.cardVideo}>
+                  <div className={classes.cardVideo}></div>
 
                     </div>
 
@@ -76,21 +78,21 @@ function AnimatedModal({ open, close, title, text1, text2, text3, videoLink }) {
                     </div>
 
                   </div>
-                </CardContent>
+                </div>
+              </CardContent>
 
-                <CardActions>
-                  <div className={classes.buttonContainer}>
-                    <Button
-                      variant="contained"
-                      className={classes.button}
-                      onClick={close}
-                    >
-                      Garanta sua vaga
-                    </Button>
-                    
-                  </div>
-                </CardActions>
-              </Card>
+              <CardActions>
+                <div className={classes.buttonContainer}>
+                  <Button
+                    variant="contained"
+                    className={classes.button}
+                    onClick={close}
+                  >
+                    Garanta sua vaga
+                  </Button>
+                </div>
+              </CardActions>
+            </Card>
           </Fade>
         </Grow>
       </Modal>
