@@ -1,71 +1,101 @@
-import React from "react";
-import { Modal, Card, CardContent, Slide, Typography } from "@material-ui/core";
-import { ExpandMore, ExpandLess } from "@material-ui/icons";
+import React, { useState, useEffect } from "react";
+import { 
+  Button, 
+  Card, 
+  CardContent, 
+  CardActions, 
+  Slide, 
+  Typography 
+} from "@material-ui/core";
+import { ExpandMore, ExpandLess, SingleBedSharp } from "@material-ui/icons";
 import { useStyles } from "./styles";
+import LogomarcaAzul from "../../../public/assets/LogomarcaAzul.svg";
 
-function AnimatedModal({ open, setOpen, slideStyle, setSlideStyle }) {
+function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNthModal, setSlideCourses, title, text1, text2, text3, videoLink }) {
   const classes = useStyles();
+  const [slideClass, setSlideClass] = useState(classes.card);
 
-  return (
-    <div className={classes.container}>
-      <Modal
-        open={open}
-        onBackdropClick={() => setOpen(false)}
-        classNme={classes.modalBackground}
-      >
-        <Slide direction="left" in={open} timeout={1500}>
-          <div className={slideStyle}>
-            <Card className={classes.card}>
-              <CardContent>
-                <div className={classes.cardContent}>
-                  <div className={classes.cardTitle}>
-                    <Typography variant="h4" style={{ color: "#3467eb" }}>
-                      Quem Somos
-                    </Typography>
-                    {slideStyle === classes.cardMobileUp && (
-                      <ExpandMore
-                        onClick={() => {
-                          setSlideStyle(classes.cardMobileDown);
-                          setTimeout(() => {
-                            setSlideStyle(classes.cardMobile);
-                          }, 1500); // epsera a animação acaba
-                        }}
-                        fontSize="large"
-                      />
-                    )}
-                    {slideStyle !== classes.cardMobileUp && (
-                      <ExpandLess
-                        onClick={() => setSlideStyle(classes.cardMobileUp)}
-                        fontSize="large"
-                      />
-                    )}
-                  </div>
+  useEffect(() => {
+    if (openNthModalIndex === true) {
+      setSlideClass(classes.cardUp);
+    } else {
+      if (slideClass !== classes.card) {
+        setSlideClass(classes.cardDown)
+        setTimeout(() => { // evita bug de piscar
+          setSlideClass(classes.card);
+        }, 1000);
+      }
+    }
+  }, [openNthModal]);
 
-                  <div className={classes.cardBody}>
-                    <Typography>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Aliquam auctor in mi ut egestas. Phasellus mi neque,
-                      viverra sed pulvinar sit amet, eleifend non ante.
-                      Phasellus vel nibh tempor, tincidunt tortor nec, molestie
-                      nibh. Morbi nec odio volutpat, mollis quam a, fringilla
-                      urna. Cras iaculis velit risus, convallis vestibulum urna
-                      sollicitudin et. Aenean id ex finibus, rutrum enim sed,
-                      semper ante. In aliquam, arcu id consectetur euismod,
-                      purus turpis tincidunt felis, vitae dapibus erat sem quis
-                      turpis. Mauris non scelerisque lorem, ac ornare nulla.
-                      Mauris venenatis elit id tellus convallis tempus. In
-                      blandit vulputate eros, a rutrum purus. Aliquam eu mi at
-                      diam bibendum mollis convallis et sem.
-                    </Typography>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+  useEffect(() => console.log(slideClass), [slideClass])
+
+  if (!openNthModalIndex && slideClass !== undefined) { // só renderiza se clicou no botão correspondente
+    return null;
+  } else {
+    return (
+      <Card className={slideClass} >
+        <CardContent className={classes.cardContent} >
+          <div className={classes.cardHeader}>
+            <img className={classes.image} src={'/assets/LogomarcaAzul.svg'} />
+
+            <ExpandMore
+              fontSize='large'
+              className={classes.icon}
+              style={{ color: '#3467eb', cursor: 'pointer' }}
+              onClick={() => {
+                let updatedArray = [...openNthModal ];
+                updatedArray[index] = false;
+                setSlideClass(classes.cardDown);
+                setTimeout(() => { // espera a animação de down
+                  setOpenNthModal(updatedArray);
+                  setSlideCourses('fadeOut');
+                }, 1000); 
+              }}
+            />
+
           </div>
-        </Slide>
-      </Modal>
-    </div>
-  );
+          
+          <Typography 
+            className={classes.title}
+            style={{ color: "#3467eb", paddingBottom: '8px', flex: '9', textAlign: 'left', fontSize: '16px', cursor: 'pointer' }}
+          >
+            {title}
+          </Typography>
+
+          <Typography style={{ fontFamily: 'Roboto', color: 'black' }} className={classes.text} >
+            {text1} <br/> <br className={classes.line} />
+            {text2} <br/> <br className={classes.line} />
+            {text3} <br/> <br className={classes.line} />
+          </Typography>
+
+          <div className={classes.cardVideo}>
+
+          </div>
+
+          <Typography 
+            style={{ color: "#3467eb", marginTop: '16px', textAlign: 'left', fontSize: '16px' }}
+          >
+            Formas de Pagamento
+          </Typography>
+
+        </CardContent>
+
+        <CardActions>
+          <div className={classes.buttonContainer}>
+            <Button
+              variant="contained"
+              className={classes.button}
+              onClick={close}
+            >
+              Garanta sua vaga
+            </Button>
+            
+          </div>
+        </CardActions>
+      </Card>
+    );
+  }
 }
 
-export default AnimatedModal;
+export default AnimatedModalMobile;

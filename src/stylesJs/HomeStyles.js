@@ -1,15 +1,19 @@
 import { makeStyles } from "@material-ui/core";
+
 import { red } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   homeContainer: {
     width: "100%",
-    height: "100%",
+    height: "100vh",
     display: "flex",
     flexDirection: "column",
     backgroundSize: "1700px",
+    [theme.breakpoints.down("500")]: {
+      position: "fixed",
+    },
 
-    overflow: 'hidden'
+    // overflow: 'hidden'
   },
   homeContainerChildren: {
     width: "100%",
@@ -19,8 +23,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url(/assets/ImagemDeFundo.svg)",
     backgroundSize: "cover",
     position: "absolute",
+    [theme.breakpoints.down("500")]: {
+      position: "absolute",
+    },
 
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   homeGeneral: {
     display: "flex",
@@ -78,7 +85,8 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: "33vh",
       marginLeft: "20vw",
       width: "50px",
-      height: undefined,
+      height: "20px",
+      marginLeft: "15vw",
     },
   },
   button3: {
@@ -105,6 +113,7 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: "12vw",
       width: "8rem",
       height: "20px",
+      marginLeft: "14vw",
     },
   },
   button4: {
@@ -133,15 +142,47 @@ const useStyles = makeStyles((theme) => ({
       width: "50px",
       height: "20px",
     },
+    [theme.breakpoints.down("500")]: {
+      marginLeft: "0vw",
+    },
   },
   flying: {
     animation: "fly 0.5s",
   },
   planeContainer: {
-    left: 0,
-    top: 0,
+    position: "absolute",
+    left: "44vw",
+    top: "0.1vh",
+
+    transformOrigin: "center",
+    zIndex: "200",
     transition:
       "top 1.5s ease-in-out, left 1.5s ease-in-out, width 1.5s ease-in-out, height 1.5s ease-in-out",
+    [theme.breakpoints.down("500")]: {
+      left: "28vw",
+      top: "6vh",
+    },
+    [theme.breakpoints.down("376")]: {
+      left: "24vw",
+      top: "6vh",
+    },
+  },
+  planeContainerMobile: {
+    position: "absolute",
+    left: "30vw",
+    top: "0.1vh",
+    [theme.breakpoints.down("500")]: {
+      left: "4.5rem",
+      top: "6vh",
+    },
+    [theme.breakpoints.down("376")]: {
+      left: "2.9rem",
+      top: "6vh",
+    },
+    [theme.breakpoints.down("361")]: {
+      left: "2.6rem",
+      top: "6vh",
+    },
   },
   container: {
     display: "flex",
@@ -213,8 +254,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-
-    
   },
 
   button: {
@@ -229,7 +268,6 @@ const useStyles = makeStyles((theme) => ({
       borderBottom: "4px solid",
     },
   },
-
 
   cardMobile: {
     width: "100%",
@@ -274,25 +312,23 @@ const useStyles = makeStyles((theme) => ({
     animation: "$downCard 1500ms linear forwards",
   },
 
-  
-
   // animações de transição dos modais
   "@keyframes upCard": {
     "0%": {
-      transform: "translateY(0)"
+      transform: "translateY(0)",
     },
     "100%": {
       transform: "translateY(-75%)",
-    }
+    },
   },
 
   "@keyframes downCard": {
     "0%": {
-      transform: "translateY(-75%)"
+      transform: "translateY(-75%)",
     },
     "100%": {
       transform: "translateY(0)",
-    }
+    },
   },
 }));
 

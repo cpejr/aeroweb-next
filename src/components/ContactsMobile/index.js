@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
 import { useStyles } from "./styles";
 import MuiAlert from "@material-ui/lab/Alert";
-import { Clear } from "@material-ui/icons";
+import { ExpandMore, ExpandLess, Facebook, Instagram, YouTube } from "@material-ui/icons";
 import {
   Button,
   Card,
@@ -13,10 +13,11 @@ import {
   Typography,
 } from "@material-ui/core";
 
-function Contacts({ contactStyle, close }) {
+function ContactsMobile ({ contactMobileStyle, close }) {
   // variaveis de estilização
   const classes = useStyles();
-  const [contactClass, setContactClass] = useState(classes.cardContacts);
+  const [contactMobileClass, setContactMobileClass] = useState(classes.cardContactsMobile);
+  const [isUp, setIsUp] = useState(false);
 
   // variaveis de configuração do emailJs
   const serviceId = "service_p5jlw0d";
@@ -43,20 +44,24 @@ function Contacts({ contactStyle, close }) {
   const [errorMsgMessage, setErrorMsgMessage] = useState("");
 
   useEffect(() => {
-    if (contactStyle === "standby") setContactClass(classes.cardContacts);
-    else if (contactStyle === "show") setContactClass(classes.cardContactsShow);
-    else if (contactStyle === "hide") {
-      setContactClass(classes.cardContactsHide);
+    if (contactMobileStyle === "standby") setContactMobileClass(classes.cardContactsMobile);
+    else if (contactMobileStyle === "show") setContactMobileClass(classes.cardContactsMobileShow);
+    else if (contactMobileStyle === "hide") {
+      setContactMobileClass(classes.cardContactsMobileHide);
 
-      // reseta os campos todos
-      setErrorName(false);
-      setErrorNameMessage("");
-      setErrorEmail(false);
-      setErrorEmailMessage("");
-      setErrorMsg(false);
-      setErrorMsgMessage("");
+      resetFields();
     }
-  }, [contactStyle]);
+  }, [contactMobileStyle]);
+
+  function resetFields() {
+    // reseta os campos todos
+    setErrorName(false);
+    setErrorNameMessage("");
+    setErrorEmail(false);
+    setErrorEmailMessage("");
+    setErrorMsg(false);
+    setErrorMsgMessage("");
+  }
 
   // função de validação
   function validateInput(type, value) {
@@ -151,18 +156,50 @@ function Contacts({ contactStyle, close }) {
     }
   }
 
+  function handleTitleClick() {
+    if (isUp) {
+      setContactMobileClass(classes.cardContactsMobileDown);
+      setIsUp(false);
+
+      resetFields();
+    } else {
+      setContactMobileClass(classes.cardContactsMobileUp);
+      setIsUp(true);
+    }
+  }
+  
   return (
-    <Card style={{ zIndex: "200" }} className={contactClass}>
+    <Card style={{ zIndex: "200" }} className={contactMobileClass}>
       <CardContent className={classes.cardContentContacts}>
         <div className={classes.titleContacts}>
-          <Typography variant="h5" style={{ color: "white", flex: 12, textAlign: 'center' }} >
+          <Typography 
+            style={{ color: "white", fontSize: '18px', textAlign: 'center', cursor: 'pointer', flex: 9 }} 
+            onClick={ () => handleTitleClick() } 
+          >
             Mande sua mensagem
           </Typography>
-          <Clear 
-            fontSize="large"
-            style={{ color: 'white', cursor: "pointer", flex: 1 }}
-            onClick={ close }
-          />
+          {
+            isUp ? (
+              <ExpandMore
+                fontSize="large"
+                style={{ color: 'white', cursor: "pointer", flex: 1 }}
+                onClick={ () => {
+                  setContactMobileClass(classes.cardContactsMobileDown);
+                  setIsUp(false);
+                  resetFields();
+                }}
+              />
+            ) : (
+              <ExpandLess
+                fontSize="large"
+                style={{ color: 'white', cursor: "pointer", flex: 1 }}
+                onClick={ () => {
+                  setContactMobileClass(classes.cardContactsMobileUp);
+                  setIsUp(true);
+                }}
+              />
+            )
+          }
         </div>
 
         <TextField
@@ -231,7 +268,7 @@ function Contacts({ contactStyle, close }) {
           style={{ marginTop: "8px" }}
           inputRef={msgInput}
           multiline={true}
-          rows="3"
+          rows="5"
           InputLabelProps={{
             classes: {
               root: classes.cssLabel,
@@ -255,8 +292,9 @@ function Contacts({ contactStyle, close }) {
 
         <Button
           variant="outlined"
-          className={classes.buttonContacts}
+          // className={classes.buttonContacts}
           onClick={() => handleSend()}
+          style={{ marginTop: '16px', backgroundColor: 'white' }}
         >
           {loading ? (
             <CircularProgress color="primary" size={32} thickness={2.5} />
@@ -274,9 +312,51 @@ function Contacts({ contactStyle, close }) {
             {snackbarMessage}
           </MuiAlert>
         </Snackbar>
+
+        <Typography style={{ color: "white", fontSize: '14px', width: '100%', marginTop: '16px' }} >
+          contato@tailwind.com
+        </Typography>
+        <Typography style={{ color: "white", fontSize: '14px', width: '100%', marginTop: '8px' }} >
+          31 0000-0000
+        </Typography>
+        <Typography style={{ color: "white", fontSize: '14px', width: '100%', marginTop: '8px' }} >
+          endereço, n° 00
+        </Typography>
+        <Typography style={{ color: "white", fontSize: '14px', width: '100%', marginTop: '8px' }} >
+          Bairro
+        </Typography>
+        <Typography style={{ color: "white", fontSize: '14px', width: '100%', marginTop: '8px' }} >
+          Belo Horizonte
+        </Typography> 
+
+        <div className={classes.appBarIcons}>
+          <a
+            href="https://www.instagram.com/?hl=pt-br"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Instagram className={classes.icon} />
+          </a>
+          <a
+            href="https://pt-br.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Facebook className={classes.icon} style={{ marginLeft: '16px' }} />
+          </a>
+          <a
+            href="https://www.youtube.com/?hl=pt&gl=BR"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <YouTube className={classes.icon} style={{ marginLeft: '16px' }} />
+          </a>
+        </div>
+
+
       </CardContent>
     </Card>
   );
 }
 
-export default Contacts;
+export default ContactsMobile;
