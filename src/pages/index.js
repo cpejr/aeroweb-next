@@ -119,7 +119,7 @@ function Home() {
     setOpenNthModal(auxArray)
   }, []);
 
-  useEffect(() => console.log(slideCourses), [slideCourses])
+  useEffect(() => console.log(openFirst), [openFirst])
 
 
   function windowSize() {
