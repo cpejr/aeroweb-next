@@ -49,9 +49,9 @@ function Home() {
   let grad = Background1;
   const [posBackground, setPosBackground] = useState();
   const [gradiente, setGradiente] = useState(grad);
-  const [posX, setPosX] = useState("12vw");
+  const [posX, setPosX] = useState("18vw");
   const [posXAngle, setPosXAngle] = useState(0);
-  const [posY, setPosY] = useState("15vh");
+  const [posY, setPosY] = useState("22vh");
   const [posYAngle, setPosYAngle] = useState(0);
   const [angle, setAngle] = useState(0);
   const [colorHome, setColorHome] = useState("#100554");
@@ -152,6 +152,19 @@ function Home() {
     setSize(windowSize());
   });
 
+  const [isPhone, setPhone] = useState();
+
+  useEffect(()=>{
+    const checkDisplay = () =>{
+        setPhone(window.matchMedia("(max-width: 800px)").matches);
+    }
+
+    window.addEventListener('resize',checkDisplay);
+    return () => {
+        window.removeEventListener('resize',checkDisplay);
+    }
+  },[isPhone])
+
   function spin1(e) {
     //Para a animação da linha:
     x1 = 90;
@@ -185,8 +198,8 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("12vw");
-    setPosY("15vh");
+    setPosX("18vw");
+    setPosY("22vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -225,8 +238,8 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("33vw");
-    setPosY("30vh");
+    setPosX("39vw");
+    setPosY("31vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -277,7 +290,7 @@ function Home() {
     setAngle(360 - newAngle);
 
     setPosX("55vw");
-    setPosY("48vh");
+    setPosY("59vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -324,8 +337,8 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("85vw");
-    setPosY("68vh");
+    setPosX("71vw");
+    setPosY("76vh");
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -422,6 +435,11 @@ function Home() {
             }}
           >
             <img className={styles.logo} src="/assets/Logomarca.svg"></img>
+          </div>
+
+          <div className={classes.rotaContainer} style={{position: 'absolute', zIndex: '90'}}>
+            {(isPhone)? <img src="/assets/RotaMobile.svg" style={{height: '75vh', width: '83vw', marginTop: '15vh'}}/>:
+            <img src="/assets/RotaDesktop.svg" style={{height: '75vh', width: '83vw', marginTop: '15vh'}}/>}
           </div>
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
