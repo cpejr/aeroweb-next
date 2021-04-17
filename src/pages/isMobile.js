@@ -1,3 +1,9 @@
-export const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-  ? true
-  : window.innerWidth <= 450;
+let isMobile = false;
+
+if (typeof window !== "undefined") {
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth <= 765) isMobile = true;
+}
+
+export default isMobile;
