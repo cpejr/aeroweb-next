@@ -153,17 +153,21 @@ function Home() {
   });
 
   const [isPhone, setPhone] = useState();
+  const [isResponsive1, setResponsive1] = useState();
+  const [isResponsive2, setResponsive2] = useState();
 
   useEffect(()=>{
     const checkDisplay = () =>{
-        setPhone(window.matchMedia("(max-width: 800px)").matches);
+        setPhone(window.matchMedia("(max-width: 415px)").matches);
+        setResponsive1(window.matchMedia("(max-width: 800px)").matches);
+        setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
     }
 
     window.addEventListener('resize',checkDisplay);
     return () => {
         window.removeEventListener('resize',checkDisplay);
     }
-  },[isPhone])
+  },[isPhone], [isResponsive1], [isResponsive2])
 
   function spin1(e) {
     //Para a animação da linha:
@@ -198,8 +202,19 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("18vw");
-    setPosY("22vh");
+    if(isPhone){
+      setPosX("20vw");
+      setPosY("37vh");      
+    }else if(isResponsive1){
+      setPosX("26vw");
+      setPosY("26vh"); 
+    }else if(isResponsive2){
+      setPosX("18vw");
+      setPosY("33vh");
+    }else{
+      setPosX("18vw");
+      setPosY("22vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -238,8 +253,19 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("39vw");
-    setPosY("31vh");
+    if(isPhone){
+      setPosX("40vw");
+      setPosY("45vh");      
+    }else if(isResponsive1){
+      setPosX("42vw");
+      setPosY("41vh");
+    }else if(isResponsive2){
+      setPosX("39vw");
+      setPosY("39vh"); 
+    }else{
+      setPosX("39vw");
+      setPosY("31vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -289,8 +315,19 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("55vw");
-    setPosY("59vh");
+    if(isPhone){
+      setPosX("49vw");
+      setPosY("57vh"); 
+    }else if(isResponsive1){
+      setPosX("47vw");
+      setPosY("60vh");
+    }else if(isResponsive2){
+      setPosX("55vw");
+      setPosY("57vh");     
+    }else{
+      setPosX("55vw");
+      setPosY("59vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -337,8 +374,19 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("71vw");
-    setPosY("76vh");
+    if(isPhone){
+      setPosX("69vw");
+      setPosY("70vh");
+    }else if(isResponsive1){
+      setPosX("60vw");
+      setPosY("80vh");
+    }else if(isResponsive2){
+      setPosX("71vw");
+      setPosY("68vh");    
+    }else{
+      setPosX("71vw");
+      setPosY("76vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -438,7 +486,7 @@ function Home() {
           </div>
 
           <div className={classes.rotaContainer} style={{position: 'absolute', zIndex: '90'}}>
-            {(isPhone)? <img src="/assets/RotaMobile.svg" style={{height: '75vh', width: '83vw', marginTop: '15vh'}}/>:
+            {(isPhone || isResponsive1)? <img src="/assets/RotaMobile.svg" style={{height: '75vh', width: '83vw', marginTop: '15vh'}}/>:
             <img src="/assets/RotaDesktop.svg" style={{height: '75vh', width: '83vw', marginTop: '15vh'}}/>}
           </div>
 
