@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
 
+import isMobile from "./isMobile";
+
 // imagens
 import Background1 from "../../public/assets/GradienteHome.svg";
 import Logo from "../../public/assets/Logomarca.svg";
@@ -347,8 +349,7 @@ function Home() {
 
   return (
     <div className={classes.homeContainer}>
-      <InstagramCarousel />
-
+      {!isMobile && <InstagramCarousel />}
       <div className={classes.homeContainerChildren}>
         <div
           className={classes.planeContainer}

@@ -8,8 +8,8 @@ export const useStyles = makeStyles(() => ({
     top: "15vh",
 
     // dimensionamento
-    maxWidth: "450px", // deixa em pxels porque as imagens estao em pixels
-    height: "auto",
+    maxWidth: "30%",
+    maxHeight: "auto",
 
     // estilo
     display: "flex",
