@@ -24,6 +24,9 @@ export const useStyles = makeStyles(() => ({
 
   logoTitle: {
     marginTop: "8px",
+    width: "80%",
+    position: "relative",
+    top: "10px",
   },
 
   CarouselItem: {

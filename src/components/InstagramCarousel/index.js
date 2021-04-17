@@ -96,9 +96,9 @@ function InstagramCarousel() {
       <Typography
         style={{
           position: "relative",
-          bottom: "24px",
+          bottom: "1.7vh",
           color: "white",
-          fontSize: "24px",
+          fontSize: "1.8vw",
           fontFamily: "Roboto",
         }}
       >
