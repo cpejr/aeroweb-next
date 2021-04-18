@@ -151,12 +151,13 @@ function Contacts({ contactStyle, close }) {
       <CardContent className={classes.cardContentContacts}>
 
         <div className={classes.titleContacts}>
+        <img src="/assets/Tailwind3.svg" style={{height:'75px', fontFamily: 'Roboto'}}></img>
         <Typography variant="h5" style={{ color: "white" }} >
           Mande sua mensagem
         </Typography>
         <Clear 
           fontSize="large"
-          style={{ color: 'white', marginLeft: '25%', cursor: "pointer" }}
+          style={{ color: 'white', cursor: "pointer" }}
           onClick={ close }
         />
         </div>

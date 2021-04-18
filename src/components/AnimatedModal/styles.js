@@ -58,6 +58,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
 
     marginBottom: 16
   },
@@ -80,6 +81,7 @@ export const useStyles = makeStyles((theme) => ({
 
   button: {
     backgroundColor: '#3467eb',
+    color: 'white',
     '&:hover': {
       backgroundColor: '#3467eb'
     }
@@ -98,7 +100,7 @@ export const useStyles = makeStyles((theme) => ({
 
   cardVideo: {
     width: '60%',
-    height: '35vh',
+    height: '30vh',
 
     display: 'flex',
     flexDirection: 'column',
@@ -114,5 +116,24 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-start',
 
     marginTop: '24px',
-  }
+  },
+
+  cardPayments2: {
+    width: '60%',
+    display: 'flex',
+    flexDirection: 'column',
+    marginLeft: '2vw',
+  },
+  cardPayments3: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    '& | &': {
+      marginTop: '16px',
+    },
+    '& img': {
+      width: '58px',
+      height: '30px',
+    }
+  },
 }));

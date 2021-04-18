@@ -27,6 +27,7 @@ function ModalQuemSomos({ open, setOpen }) {
                 <CardContent>
                   <div className={classes.cardContent}>
                     <div className={classes.cardTitle}>
+                      <img src="/assets/Tailwind3.svg" style={{height:'75px', fontFamily: 'Roboto'}}></img>
                       <Typography className={classes.Title} variant="h7" style={{ color: "white" }}>
                           <b>
                             Nossa História
