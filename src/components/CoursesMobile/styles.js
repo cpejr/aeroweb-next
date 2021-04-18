@@ -118,9 +118,9 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
 
     width: '100%',
-    padding: '3px',
+    padding: '4px !important',
     '&:last-child': {
-      paddingBottom: '3px'
+      paddingBottom: '4px !important'
     }
   },
 
@@ -136,6 +136,8 @@ export const useStyles = makeStyles((theme) => ({
   buttonsList: {
     marginTop: '10px',
     marginBottom: '10px',
+
+    backgroundColor: 'inherit !important',
 
     flex: 9,
   },

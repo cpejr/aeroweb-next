@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
+import buttonOverride from '../theme/buttonOverride';
+import cardContentOverride from '../theme/cardContentOverride';
+import { ThemeProvider } from '@material-ui/core/styles'
 
 // imagens
 import Background1 from "../../public/assets/GradienteHome.svg";
@@ -486,21 +489,24 @@ function Home() {
         </div>
       </div>    
 
-      { isMobile ? (
-        <CoursesMobile 
-          slideCourses={slideCourses}
-          openNthModal={openNthModal}
-          setOpenNthModal={setOpenNthModal}
-          setSlideCourses={setSlideCourses}
-        />
-      ) : (
-        <CoursesList
-          listStyle={listStyle}
-          // feito estaticamente: implementar via .map igual no cursos do mobile
-          openFirst={() => setOpenFirst(true)}
-          openSecond={() => setOpenSecond(true)}
-          openThird={() => setOpenThird(true)}
-        />
+      { 
+        isMobile ? (
+          <ThemeProvider theme={cardContentOverride} > 
+            <CoursesMobile 
+              slideCourses={slideCourses}
+              openNthModal={openNthModal}
+              setOpenNthModal={setOpenNthModal}
+              setSlideCourses={setSlideCourses}
+            />
+          </ThemeProvider>
+        ) : (
+          <CoursesList
+            listStyle={listStyle}
+            // feito estaticamente: implementar via .map igual no cursos do mobile
+            openFirst={() => setOpenFirst(true)}
+            openSecond={() => setOpenSecond(true)}
+            openThird={() => setOpenThird(true)}
+          />
       )}
 
       {
@@ -513,10 +519,12 @@ function Home() {
       
       {
         isMobile ? (
-          <ContactsMobile 
-            contactMobileStyle={contactMobileStyle}
-            close={() => setContactMobileStyle("hide")}
-          />
+          <ThemeProvider theme={buttonOverride}>
+            <ContactsMobile 
+              contactMobileStyle={contactMobileStyle}
+              close={() => setContactMobileStyle("hide")}
+            />
+          </ThemeProvider>
         ) : (
           <Contacts 
             contactStyle={contactStyle}

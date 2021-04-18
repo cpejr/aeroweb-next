@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
+import isMobile from '../../pages/isMobile'
 import { useStyles } from "./styles";
 import MuiAlert from "@material-ui/lab/Alert";
 import { Clear } from "@material-ui/icons";
@@ -158,11 +159,16 @@ function Contacts({ contactStyle, close }) {
           <Typography variant="h5" style={{ color: "white", flex: 12, textAlign: 'center' }} >
             Mande sua mensagem
           </Typography>
-          <Clear 
-            fontSize="large"
-            style={{ color: 'white', cursor: "pointer", flex: 1 }}
-            onClick={ close }
-          />
+          { // precisa disso por causa do SSR
+            contactStyle !== 'standby' && (
+              <Clear 
+                fontSize="large"
+                style={{ color: 'white', cursor: "pointer", flex: 1 }}
+                onClick={ close }
+              />
+            )
+          }
+          
         </div>
 
         <TextField
