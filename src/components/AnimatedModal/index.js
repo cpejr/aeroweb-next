@@ -28,7 +28,7 @@ function AnimatedModal({ close, title, text1, text2, text3, videoLink }) {
                 <CardContent>
                   <div className={classes.cardContent}>
                     <div className={classes.cardTitle}>
-                      <img src="/assets/Tailwind2.svg" style={{height:'75px', fontFamily: 'Roboto'}}></img>
+                      <img src="/assets/Tailwind2.svg" style={{height:'75px', fontFamily: 'Roboto'}} />
                       <Typography variant="h5" style={{ color: "#3467eb", fontFamily: 'Roboto' }}>
                         { title }
                       </Typography>
@@ -39,21 +39,19 @@ function AnimatedModal({ close, title, text1, text2, text3, videoLink }) {
                       />
                     </div>
 
-                  <div className={classes.cardBody}>
-                    <Typography
-                      style={{ fontSize: "12px", fontFamily: "Roboto" }}
-                    >
-                      {text1}
-                      <br />
-                      {text2}
-                      <br />
-                      {text3}
-                    </Typography>
-                  </div>
-
-                  <div className={classes.cardVideo}></div>
-
+                    <div className={classes.cardBody}>
+                      <Typography
+                        style={{ fontSize: "12px", fontFamily: "Roboto" }}
+                      >
+                        {text1}
+                        <br />
+                        {text2}
+                        <br />
+                        {text3}
+                      </Typography>
                     </div>
+
+                    <div className={classes.cardVideo} />
 
                     <div className={classes.cardPayments}>
                       <Typography style={{ fontSize: '18px', fontFamily: 'Roboto', color: "#3467eb", fontWeight: 500 }} >
@@ -61,24 +59,22 @@ function AnimatedModal({ close, title, text1, text2, text3, videoLink }) {
                       </Typography>
                       <div className={classes.cardPayments2}>
                         <div className={classes.cardPayments3}>
-                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Visa.png"></img>
-                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Mastercard.svg"></img>
-                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Paypal.png"></img>
-                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Samsungpay.png"></img>
-                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Hipercard.png"></img>
+                          <img src="/assets/Visa.png" alt="Forma de pagamento" />
+                          <img src="/assets/Mastercard.svg" alt="Forma de pagamento" />
+                          <img src="/assets/Paypal.png" alt="Forma de pagamento" />
+                          <img src="/assets/Samsungpay.png" alt="Forma de pagamento" />
+                          <img src="/assets/Hipercard.png" alt="Forma de pagamento" />
                         </div>
                         <div className={classes.cardPayments3}>
-                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Googlepay.png"></img>
-                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Hiper.png"></img>
-                          <img style={{width: '4vw', height: '4vh'}} src="/assets/American.png"></img>
-                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Diners.png"></img>
-                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Elo.png"></img>
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Googlepay.png" />
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Hiper.png" />
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/American.png" />
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Diners.png" />
+                          <img style={{width: '4vw', height: '4vh'}} src="/assets/Elo.png" />
                         </div>
                       </div>
                     </div>
-
                   </div>
-                </div>
               </CardContent>
 
               <CardActions>

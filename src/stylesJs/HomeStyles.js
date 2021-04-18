@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     backgroundSize: "1700px",
 
-    overflow: 'hidden'
+    overflow: "hidden",
   },
   homeContainerChildren: {
     width: "100%",
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
     position: "absolute",
 
-    overflow: 'hidden',
+    overflow: "hidden",
   },
   homeGeneral: {
     display: "flex",
@@ -153,8 +153,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-
-    
   },
 
   button: {
@@ -171,16 +169,16 @@ const useStyles = makeStyles((theme) => ({
   },
 
   footerTitle1: {
-    fontSize: '4.5vh',
+    fontSize: "4.5vh",
     [theme.breakpoints.down("1000")]: {
-      fontSize: '3.5vh',
+      fontSize: "3.5vh",
     },
   },
 
   footerTitle2: {
-    fontSize: '4.5vh',
+    fontSize: "4.5vh",
     [theme.breakpoints.down("1000")]: {
-      fontSize: '3.5vh',
+      fontSize: "3.5vh",
     },
   },
 
@@ -227,25 +225,23 @@ const useStyles = makeStyles((theme) => ({
     animation: "$downCard 1500ms linear forwards",
   },
 
-  
-
   // animações de transição dos modais
   "@keyframes upCard": {
     "0%": {
-      transform: "translateY(0)"
+      transform: "translateY(0)",
     },
     "100%": {
       transform: "translateY(-75%)",
-    }
+    },
   },
 
   "@keyframes downCard": {
     "0%": {
-      transform: "translateY(-75%)"
+      transform: "translateY(-75%)",
     },
     "100%": {
       transform: "translateY(0)",
-    }
+    },
   },
 }));
 
