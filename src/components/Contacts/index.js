@@ -156,19 +156,18 @@ function Contacts({ contactStyle, close }) {
     <Card style={{ zIndex: "200" }} className={contactClass}>
       <CardContent className={classes.cardContentContacts}>
         <div className={classes.titleContacts}>
-          <Typography variant="h5" style={{ color: "white", flex: 12, textAlign: 'center' }} >
+          <img
+            src="/assets/Tailwind3.svg"
+            style={{ height: "75px", fontFamily: "Roboto" }}
+          ></img>
+          <Typography variant="h5" style={{ color: "white" }}>
             Mande sua mensagem
           </Typography>
-          { // precisa disso por causa do SSR
-            contactStyle !== 'standby' && (
-              <Clear 
-                fontSize="large"
-                style={{ color: 'white', cursor: "pointer", flex: 1 }}
-                onClick={ close }
-              />
-            )
-          }
-          
+          <Clear
+            fontSize="large"
+            style={{ color: "white", cursor: "pointer" }}
+            onClick={close}
+          />
         </div>
 
         <TextField
