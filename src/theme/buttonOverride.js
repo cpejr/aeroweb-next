@@ -4,11 +4,11 @@ const buttonOverride = createMuiTheme({
   overrides: {
     MuiButton: {
       root: {
-        marginTop: '16px',
-        backgroundColor: 'white',
+        marginTop: "16px",
+        backgroundColor: "white",
         // transition: 'background-color 0.2s',
 
-        borderRadius: '8px',
+        borderRadius: "8px",
         "&:hover": {
           backgroundColor: "#ffffffbb",
         },

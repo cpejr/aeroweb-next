@@ -68,9 +68,9 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   cardContentButtons: {
-    padding: '4px !important',
-    '&:last-child': {
-      paddingBottom: '4px !important'
+    padding: "4px !important",
+    "&:last-child": {
+      paddingBottom: "4px !important",
     },
   },
 
