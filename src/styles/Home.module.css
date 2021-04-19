@@ -57,7 +57,19 @@
   font-weight: 530;
 }
 
-
 .logo {
-  width: 16vw;
+  width: 18vw;
+}
+
+@media (max-width: 500px) {
+  .logo {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo2 {
+    width: 310px;
+    padding-right: 5vw;
+  }
 }

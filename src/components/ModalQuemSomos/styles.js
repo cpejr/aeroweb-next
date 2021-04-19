@@ -62,12 +62,13 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
 
     marginBottom: 16,
   },
 
   Title: {
-    marginLeft: "19vw",
+    marginRight: "3vw",
   },
 
   cardBody: {
@@ -79,7 +80,7 @@ export const useStyles = makeStyles((theme) => ({
 
   cardVideo: {
     width: "95%",
-    height: "45vh",
+    height: "43vh",
 
     display: "flex",
     flexDirection: "column",

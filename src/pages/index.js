@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
+import buttonOverride from '../theme/buttonOverride';
+import cardContentOverride from '../theme/cardContentOverride';
+import { ThemeProvider } from '@material-ui/core/styles'
 
 import isMobile from "./isMobile";
 
@@ -12,9 +15,17 @@ import Logo from "../../public/assets/Logomarca.svg";
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
+import Feed from "react-instagram-authless-feed";
+import FeedInstagram from "../components/FeedInstagram/index";
 import Contacts from "../components/Contacts/index";
+import ContactsMobile from "../components/ContactsMobile/index";
 import ModalQuemSomos from "../components/ModalQuemSomos";
+import QuemSomosMobile from "../components/QuemSomosMobile"
 import CoursesList from "../components/CoursesList";
+import CoursesMobile from "../components/CoursesMobile";
+import isMobile from './isMobile'; // usa para ver se é mobile ou não
+import data from "../../public/data";
+
 import { NextSeo } from "next-seo";
 import InstagramCarousel from "../components/InstagramCarousel";
 
@@ -49,8 +60,14 @@ function Home() {
 
   // variaveis da animacao
   let x1 = 90;
+  let selectedComp;
   let grad = Background1;
+  const [responseSize, setResponseSize] = useState("");
+  const [union, setUnion] = useState("");
+  const [title1, setTitle1] = useState("INVISTA HOJE NO SEU FUTURO");
+  const [title2, setTitle2] = useState("E DÊ ASAS AO SEU SONHO");
   const [posBackground, setPosBackground] = useState();
+  const [selected, setSelected] = useState();
   const [gradiente, setGradiente] = useState(grad);
   const [posX, setPosX] = useState("12vw");
   const [posXAngle, setPosXAngle] = useState(0);
@@ -86,67 +103,36 @@ function Home() {
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
   const [openThird, setOpenThird] = useState(false);
-  const [listStyle, setListStyle] = useState("standby");
-  const [slideStyle, setSlideStyle] = useState(classes.cardMobile);
-  const [contactStyle, setContactStyle] = useState("standby");
+  const [listStyle, setListStyle] = useState('standby');
+  const [slideStyle, setSlideStyle] = useState('standby');
+  const [contactStyle, setContactStyle] = useState('standby');
+  const [contactMobileStyle, setContactMobileStyle] = useState('standby');
+  const [slideCourses, setSlideCourses] = useState('standby');
+  const [openNthModal, setOpenNthModal] = useState([]);
 
-  // vetor de objetos com os dados a serem mostrados nos modais do Cursos
-  const data = [
-    {
-      open: openFirst,
-      title: "Simulados ICAO - COMENTADOS",
-      text1: `Os simulados comentados do teste ICAO da ANAC elaborados pela Tailwind Aviation Courses 
-      foram todos criteriosamente desenvolvidos por uma equipe formada por pilotos comerciais e professores 
-      especialistas na área de inglês voltado para a aviação.`,
-      text2: `Nossos simulados trazem situações corriqueiras 
-      apresentadas nas provas oficiais e têm o grau de dificuldade compatível com os exigidos no teste da ANAC. 
-      A qualidade dos áudios, imagens e das questões elaboradas fazem toda a diferença tanto para aqueles que já 
-      são certificados e buscam uma melhora em seu nível de proficiência, quanto para os candidatos que buscam 
-      a qualificação pela primeira vez.`,
-      text3: `Há ainda uma oportunidade de se obter um feedback personalizado de 
-      proficiência e orientações de estudo diretamente da nossa equipe pedagógica.`,
-      videoLink: "youtube.com",
-    },
-
-    {
-      open: openSecond,
-      title: "Curso Inglês ICAO",
-      text1: `O domínio da língua inglesa é imprescindível não somente para os pilotos que estão iniciando a carreira, 
-      mas também para profissionais consolidados que buscam a renovação de sua certificação ICAO ou a melhora 
-      do nível obtido em exames anteriores.`,
-      text2: `O curso preparatório para o exame de inglês da ANAC oferecido pela Tailwind Aviation Courses tem por 
-      objetivo não somente a familiarização com as etapas do teste, mas também a melhora da proficiência 
-      linguística do aluno, através da apresentação de termos técnicos, estruturas vitais para o melhor 
-      aproveitamento na prova, assim como oportunidades de desenvolver habilidades de comunicação, interação e 
-      fraseologia em inglês, tão necessárias para a obtenção da certificação.`,
-      text3: `O curso foi preparado por profissionais que contam com larga experiência na preparação de alunos 
-      para a prova, com grande histórico de aprovações, certificações internacionais e formação superior em 
-      ensino de língua estrangeira.`,
-      videoLink: "youtube.com",
-    },
-
-    {
-      open: openThird,
-      title: "Curso Cartas Jappesen",
-      text1: `A interpretação e manuseio de cartas aeronáuticas é uma habilidade que todo piloto deve ter, 
-      sendo ela necessária tanto para a manutenção da padronização quanto, como consequência, para a 
-      segurança de voo. Além disso, essas habilidades demonstram-se essenciais para aqueles candidatos 
-      que buscam o ingresso em uma linha área ou taxi aéreo.`,
-      text2: `O curso de Cartas Jeppesen da Tailwind Aviation Courses foi elaborado por profissionais capacitados e 
-      estruturado de maneira lógica para facilitar o entendimento e proporcionar uma 
-      abordagem prática do tema.`,
-      text3: `Dessa maneira, o curso tem como objetivo a demonstração da correta utilização dos materiais 
-      relacionados à cartografia aeronáutica Jeppesen, no que diz respeito à utilização do Jeppesen 
-      General Airway Manual, assim como, e não menos importante, a interpretação, entendimento e briefing de 
-      cartas aeronáuticas.`,
-      videoLink: "youtube.com",
-    },
-  ];
+  // gambiarra do data.js
+  data[0].open = openFirst;
+  data[1].open = openSecond;
+  data[2].open = openThird;
 
   // --------------------------------- //
 
+  // reset do array dos modais ao carregar pagina
+  useEffect(() => {
+    let auxArray = [];
+    for (let i = 0; i < data.length; ++i) {
+      auxArray.push(false);
+    }
+
+    setOpenNthModal(auxArray)
+  }, []);
+
+  useEffect(() => console.log(openFirst), [openFirst])
+
+
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
+
     if (proposedWidth < 20) proposedWidth = 20;
     return proposedWidth;
   }
@@ -155,10 +141,28 @@ function Home() {
     setSize(windowSize());
   });
 
+
+  useEffect(() => {
+    var aux = window.innerWidth;
+    if (aux < 500) {
+      setResponseSize("/assets/TAILWINDAVIATION.svg");
+      setUnion("/assets/Union.svg");
+      setTitle1("");
+      setTitle2("");
+    } else {
+      setResponseSize("/assets/Logomarca.svg");
+      setUnion("");
+    }
+    return responseSize;
+  });
+
   function spin1(e) {
     //Para a animação da linha:
     x1 = 90;
     setPosBackground(x1);
+    //Para saber em qual componente está:
+    selectedComp = "HOME";
+    setSelected(selectedComp);
     // Para a animação do gradiente:
     setNewGradient(
       "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
@@ -194,14 +198,20 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controla dos modais
-    if (listStyle !== "standby") setListStyle("hide");
-    if (contactStyle !== "standby") setContactStyle("hide");
+    if(listStyle !== 'standby') setListStyle('hide');
+    if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
+    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
+    if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
+    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
   }
 
   function spin2(e) {
     //Para a animação da linha:
     x1 = 60;
     setPosBackground(x1);
+    //Para saber em qual componente está:
+    selectedComp = "CURSOS";
+    setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(cursos);
     setChange(true);
@@ -239,12 +249,18 @@ function Home() {
     }, 1200);
 
     // controle dos modais
-    if (contactStyle !== "standby") setContactStyle("hide");
-
-    if (listStyle === "standby" || listStyle === "hide") {
-      setListStyle("show");
+    if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
+    if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
+    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
+    if(listStyle === 'standby' || listStyle === 'hide') {
+      setListStyle('show')
     } else {
       setListStyle("hide");
+    }
+    if(isMobile && slideCourses !== 'show') {
+      setSlideCourses('show')
+    } else {
+      setSlideCourses('hide')
     }
   }
 
@@ -252,7 +268,9 @@ function Home() {
     //Para a animação da linha:
     x1 = 30;
     setPosBackground(x1);
-
+    //Para saber em qual componente está:
+    selectedComp = "QUEMSOMOS";
+    setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(quemSomos);
     setChange(true);
@@ -292,15 +310,24 @@ function Home() {
     }, 1200);
 
     // controle dos modais
-    if (listStyle !== "standby") setListStyle("hide");
-    if (contactStyle !== "standby") setContactStyle("hide");
+    if(listStyle !== 'standby') setListStyle('hide');
+    if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
+    if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
+    if(isMobile && slideStyle !== 'show') {
+      setSlideStyle('show')
+    } else {
+      setSlideStyle('hide')
+    }
+    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
   }
 
   function spin4(e) {
     //Para a animação da linha:
     x1 = 0;
     setPosBackground(x1);
-
+    //Para saber em qual componente está:
+    selectedComp = "CONTATO";
+    setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(contato);
     setChange(true);
@@ -333,12 +360,19 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controle dos modais
-    if (listStyle !== "standby") setListStyle("hide");
-    if (contactStyle === "standby" || contactStyle === "hide") {
-      setContactStyle("show");
+    if(listStyle !== 'standby') setListStyle('hide');
+    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
+    if(!isMobile && contactStyle === 'standby' || contactStyle === 'hide') {
+      setContactStyle('show')
     } else {
       setContactStyle("hide");
     }
+    if(isMobile && contactMobileStyle === 'standby' || contactMobileStyle === 'hide') {
+      setContactMobileStyle('show')
+    } else {
+      setContactMobileStyle("hide");
+    }
+    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
   }
 
   function closeModal() {
@@ -367,8 +401,8 @@ function Home() {
           <img
             className={"plane" + (flying ? " flying" : "")}
             src="/assets/AviaoIcon.svg"
-            width={size}
-            height={size}
+            width={40}
+            height={40}
             onAnimationEnd={(e) => {
               setFlying(false);
             }}
@@ -401,38 +435,50 @@ function Home() {
               color: "#fff",
             }}
           >
-            <h1>INVISTA HOJE NO SEU FUTURO</h1>
-            <h1>E DÊ ASAS AO SEU SONHO</h1>
+            <h1 className={classes.footerTitle1}>INVISTA HOJE NO SEU FUTURO</h1>
+            <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
           </div>
           <div
             className={classes.homeContainerChildren}
             style={{
               backgroundPositionX: posBackground,
+              transitionDuration: "2.5s",
               backgroundPositionY: -200,
               height: "100vh",
             }}
           ></div>
           <div
-            className={classes.planeContainer}
+            className={classes.planeContainerMobile}
             style={{
-              position: "absolute",
-              left: "44vw",
-              top: "0.1vh",
-
-              transformOrigin: "center",
               width: size,
               height: size,
-              zIndex: "200",
             }}
           >
-            <img className={styles.logo} src="/assets/Logomarca.svg"></img>
+            <img className={styles.logo2} src={union} />
+          </div>
+          <div
+            className={classes.planeContainer}
+            style={{
+              width: size,
+              height: size,
+            }}
+          >
+            <img className={styles.logo} src={responseSize}></img>
           </div>
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
             <p
               className={styles.name}
               onClick={spin1}
-              style={{ cursor: "pointer" }}
+              style={
+                selected === "HOME"
+                  ? {
+                      cursor: "pointer",
+                      transition: "font-size 1.5s",
+                      fontSize: "1.25rem",
+                    }
+                  : { cursor: "pointer" }
+              }
             >
               HOME
             </p>
@@ -441,7 +487,15 @@ function Home() {
             <p
               className={styles.name}
               onClick={spin2}
-              style={{ cursor: "pointer" }}
+              style={
+                selected === "CURSOS"
+                  ? {
+                      cursor: "pointer",
+                      transition: "font-size 1.5s",
+                      fontSize: "1.25rem",
+                    }
+                  : { cursor: "pointer" }
+              }
             >
               CURSOS
             </p>
@@ -451,7 +505,15 @@ function Home() {
             <p
               className={styles.name}
               onClick={spin3}
-              style={{ cursor: "pointer" }}
+              style={
+                selected === "QUEMSOMOS"
+                  ? {
+                      cursor: "pointer",
+                      transition: "font-size 1.5s",
+                      fontSize: "1.25rem",
+                    }
+                  : { cursor: "pointer" }
+              }
             >
               QUEM SOMOS
             </p>
@@ -460,32 +522,73 @@ function Home() {
             <p
               className={styles.name}
               onClick={spin4}
-              style={{ cursor: "pointer" }}
+              style={
+                selected === "CONTATO"
+                  ? {
+                      cursor: "pointer",
+                      transition: "font-size 1.5s",
+                      fontSize: "1.25rem",
+                    }
+                  : { cursor: "pointer" }
+              }
             >
               CONTATO
             </p>
           </div>
         </div>
-      </div>
+      </div>    
 
-      <Contacts
-        contactStyle={contactStyle}
-        close={() => setContactStyle("hide")}
-      />
+      { 
+        isMobile ? (
+          <ThemeProvider theme={cardContentOverride} > 
+            <CoursesMobile 
+              slideCourses={slideCourses}
+              openNthModal={openNthModal}
+              setOpenNthModal={setOpenNthModal}
+              setSlideCourses={setSlideCourses}
+            />
+          </ThemeProvider>
+        ) : (
+          <CoursesList
+            listStyle={listStyle}
+            // feito estaticamente: implementar via .map igual no cursos do mobile
+            openFirst={() => setOpenFirst(true)}
+            openSecond={() => setOpenSecond(true)}
+            openThird={() => setOpenThird(true)}
+          />
+      )}
 
-      <CoursesList
-        listStyle={listStyle}
-        // daqui para baixo é GAMBIARRA: passando as funções pro componente retornar
-        openFirst={() => setOpenFirst(true)}
-        openSecond={() => setOpenSecond(true)}
-        openThird={() => setOpenThird(true)}
-      />
+      {
+        isMobile ? (
+          <QuemSomosMobile slideStyle={slideStyle} close={ () => setSlideStyle('hide') } />
+        ) : (
+          <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
+        )
+      }
+      
+      {
+        isMobile ? (
+          <ThemeProvider theme={buttonOverride}>
+            <ContactsMobile 
+              contactMobileStyle={contactMobileStyle}
+              close={() => setContactMobileStyle("hide")}
+            />
+          </ThemeProvider>
+        ) : (
+          <Contacts 
+            contactStyle={contactStyle}
+            close={() => setContactStyle("hide")}
+          />
+        )
+      }
 
-      <Footer />
+      { !isMobile && (
+        <Footer />
+      )}
 
       {
         // Modais de transição DESKTOP
-        data.map((object, index) => {
+        !isMobile && data.map((object, index) => {
           return (
             <AnimatedModal
               key={index}
@@ -500,7 +603,26 @@ function Home() {
         })
       }
 
-      <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
+      {
+        // Modais de transição MOBILE
+        isMobile && data.map((object, index) => {
+          return (
+            <AnimatedModalMobile
+              key={index} 
+              index={index} // precisa desse pq key é impossível acessar, 'key' é palavra reservada
+              openNthModal={openNthModal}
+              openNthModalIndex={openNthModal[index]} // precisa desse para evitar crash
+              setOpenNthModal={setOpenNthModal}
+              setSlideCourses={setSlideCourses}
+              title={object.title}
+              text1={object.text1}
+              text2={object.text2}
+              text3={object.text3}
+            />
+          )
+        })
+      }
+
     </div>
   );
 }
