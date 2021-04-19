@@ -1,15 +1,20 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles((theme) => ({
   divFeedInstagram: {
     // posição
     position: "relative",
     left: "62.50vw",
     top: "15vh",
+    [theme.breakpoints.down("xs")]: {
+      top: "0vh",
+      left: "10vw",
+      maxWidth: "80%",
+      marginTop: "75vh",
+    },
 
     // dimensionamento
     maxWidth: "30%",
-    maxHeight: "auto",
 
     // estilo
     display: "flex",
@@ -24,7 +29,8 @@ export const useStyles = makeStyles(() => ({
 
   logoTitle: {
     marginTop: "8px",
-    width: "80%",
+    width: "60%",
+    minWidth: "200px",
     position: "relative",
     top: "10px",
   },
