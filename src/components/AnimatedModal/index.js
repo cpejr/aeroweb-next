@@ -12,9 +12,9 @@ import { ExpandMore } from "@material-ui/icons";
 import { useStyles } from "./styles";
 import React, { useState } from "react";
 
-function AnimatedModal({ close, title, text1, text2, text3, videoLink }) {
+function AnimatedModal({ close, open, title, text1, text2, text3, videoLink }) {
   const classes = useStyles();
-  const [open, setOpen] = useState("");
+
   return (
     <div className={classes.container}>
       <Modal

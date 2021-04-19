@@ -53,7 +53,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     alignItems: "center",
 
-    width: "95%",
+    width: "100%",
   },
 
   buttonContacts: {
