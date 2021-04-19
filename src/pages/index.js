@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
-import buttonOverride from '../theme/buttonOverride';
-import cardContentOverride from '../theme/cardContentOverride';
-import { ThemeProvider } from '@material-ui/core/styles'
+import buttonOverride from "../theme/buttonOverride";
+import cardContentOverride from "../theme/cardContentOverride";
+import { ThemeProvider } from "@material-ui/core/styles";
 
 // imagens
 import Background1 from "../../public/assets/GradienteHome.svg";
@@ -13,18 +13,17 @@ import Logo from "../../public/assets/Logomarca.svg";
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
-import Feed from "react-instagram-authless-feed";
-import FeedInstagram from "../components/FeedInstagram/index";
 import Contacts from "../components/Contacts/index";
 import ContactsMobile from "../components/ContactsMobile/index";
 import ModalQuemSomos from "../components/ModalQuemSomos";
-import QuemSomosMobile from "../components/QuemSomosMobile"
+import QuemSomosMobile from "../components/QuemSomosMobile";
 import CoursesList from "../components/CoursesList";
 import CoursesMobile from "../components/CoursesMobile";
-import isMobile from './isMobile'; // usa para ver se é mobile ou não
+import isMobile from "./isMobile"; // usa para ver se é mobile ou não
 import data from "../../public/data";
 
 import { NextSeo } from "next-seo";
+import InstagramCarousel from "../components/InstagramCarousel";
 
 function Home() {
   <>
@@ -100,11 +99,11 @@ function Home() {
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
   const [openThird, setOpenThird] = useState(false);
-  const [listStyle, setListStyle] = useState('standby');
-  const [slideStyle, setSlideStyle] = useState('standby');
-  const [contactStyle, setContactStyle] = useState('standby');
-  const [contactMobileStyle, setContactMobileStyle] = useState('standby');
-  const [slideCourses, setSlideCourses] = useState('standby');
+  const [listStyle, setListStyle] = useState("standby");
+  const [slideStyle, setSlideStyle] = useState("standby");
+  const [contactStyle, setContactStyle] = useState("standby");
+  const [contactMobileStyle, setContactMobileStyle] = useState("standby");
+  const [slideCourses, setSlideCourses] = useState("standby");
   const [openNthModal, setOpenNthModal] = useState([]);
 
   // gambiarra do data.js
@@ -121,11 +120,10 @@ function Home() {
       auxArray.push(false);
     }
 
-    setOpenNthModal(auxArray)
+    setOpenNthModal(auxArray);
   }, []);
 
-  useEffect(() => console.log(openFirst), [openFirst])
-
+  useEffect(() => console.log(openFirst), [openFirst]);
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -137,7 +135,6 @@ function Home() {
   useEffect(() => {
     setSize(windowSize());
   });
-
 
   useEffect(() => {
     var aux = window.innerWidth;
@@ -195,11 +192,12 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controla dos modais
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
-    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
-    if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
-    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
+    if (listStyle !== "standby") setListStyle("hide");
+    if (!isMobile && contactStyle !== "standby") setContactStyle("hide");
+    if (isMobile && slideStyle !== "standby") setSlideStyle("hide");
+    if (isMobile && contactMobileStyle !== "standby")
+      setContactMobileStyle("hide");
+    if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
   }
 
   function spin2(e) {
@@ -246,18 +244,19 @@ function Home() {
     }, 1200);
 
     // controle dos modais
-    if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
-    if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
-    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
-    if(listStyle === 'standby' || listStyle === 'hide') {
-      setListStyle('show')
+    if (!isMobile && contactStyle !== "standby") setContactStyle("hide");
+    if (isMobile && contactMobileStyle !== "standby")
+      setContactMobileStyle("hide");
+    if (isMobile && slideStyle !== "standby") setSlideStyle("hide");
+    if (listStyle === "standby" || listStyle === "hide") {
+      setListStyle("show");
     } else {
       setListStyle("hide");
     }
-    if(isMobile && slideCourses !== 'show') {
-      setSlideCourses('show')
+    if (isMobile && slideCourses !== "show") {
+      setSlideCourses("show");
     } else {
-      setSlideCourses('hide')
+      setSlideCourses("hide");
     }
   }
 
@@ -307,15 +306,16 @@ function Home() {
     }, 1200);
 
     // controle dos modais
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
-    if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
-    if(isMobile && slideStyle !== 'show') {
-      setSlideStyle('show')
+    if (listStyle !== "standby") setListStyle("hide");
+    if (!isMobile && contactStyle !== "standby") setContactStyle("hide");
+    if (isMobile && contactMobileStyle !== "standby")
+      setContactMobileStyle("hide");
+    if (isMobile && slideStyle !== "show") {
+      setSlideStyle("show");
     } else {
-      setSlideStyle('hide')
+      setSlideStyle("hide");
     }
-    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
+    if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
   }
 
   function spin4(e) {
@@ -357,19 +357,22 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controle dos modais
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
-    if(!isMobile && contactStyle === 'standby' || contactStyle === 'hide') {
-      setContactStyle('show')
+    if (listStyle !== "standby") setListStyle("hide");
+    if (isMobile && slideStyle !== "standby") setSlideStyle("hide");
+    if ((!isMobile && contactStyle === "standby") || contactStyle === "hide") {
+      setContactStyle("show");
     } else {
       setContactStyle("hide");
     }
-    if(isMobile && contactMobileStyle === 'standby' || contactMobileStyle === 'hide') {
-      setContactMobileStyle('show')
+    if (
+      (isMobile && contactMobileStyle === "standby") ||
+      contactMobileStyle === "hide"
+    ) {
+      setContactMobileStyle("show");
     } else {
       setContactMobileStyle("hide");
     }
-    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
+    if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
   }
 
   function closeModal() {
@@ -380,6 +383,7 @@ function Home() {
 
   return (
     <div className={classes.homeContainer}>
+      <InstagramCarousel />
       <div className={classes.homeContainerChildren}>
         <div
           className={classes.planeContainer}
@@ -532,93 +536,90 @@ function Home() {
             </p>
           </div>
         </div>
-      </div>    
+      </div>
 
-      { 
-        isMobile ? (
-          <ThemeProvider theme={cardContentOverride} > 
-            <CoursesMobile 
-              slideCourses={slideCourses}
-              openNthModal={openNthModal}
-              setOpenNthModal={setOpenNthModal}
-              setSlideCourses={setSlideCourses}
-            />
-          </ThemeProvider>
-        ) : (
-          <CoursesList
-            listStyle={listStyle}
-            // feito estaticamente: implementar via .map igual no cursos do mobile
-            openFirst={() => setOpenFirst(true)}
-            openSecond={() => setOpenSecond(true)}
-            openThird={() => setOpenThird(true)}
+      {isMobile ? (
+        <ThemeProvider theme={cardContentOverride}>
+          <CoursesMobile
+            slideCourses={slideCourses}
+            openNthModal={openNthModal}
+            setOpenNthModal={setOpenNthModal}
+            setSlideCourses={setSlideCourses}
           />
+        </ThemeProvider>
+      ) : (
+        <CoursesList
+          listStyle={listStyle}
+          // feito estaticamente: implementar via .map igual no cursos do mobile
+          openFirst={() => setOpenFirst(true)}
+          openSecond={() => setOpenSecond(true)}
+          openThird={() => setOpenThird(true)}
+        />
       )}
 
-      {
-        isMobile ? (
-          <QuemSomosMobile slideStyle={slideStyle} close={ () => setSlideStyle('hide') } />
-        ) : (
-          <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
-        )
-      }
-      
-      {
-        isMobile ? (
-          <ThemeProvider theme={buttonOverride}>
-            <ContactsMobile 
-              contactMobileStyle={contactMobileStyle}
-              close={() => setContactMobileStyle("hide")}
-            />
-          </ThemeProvider>
-        ) : (
-          <Contacts 
-            contactStyle={contactStyle}
-            close={() => setContactStyle("hide")}
-          />
-        )
-      }
-
-      { !isMobile && (
-        <Footer />
+      {isMobile ? (
+        <QuemSomosMobile
+          slideStyle={slideStyle}
+          close={() => setSlideStyle("hide")}
+        />
+      ) : (
+        <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
       )}
+
+      {isMobile ? (
+        <ThemeProvider theme={buttonOverride}>
+          <ContactsMobile
+            contactMobileStyle={contactMobileStyle}
+            close={() => setContactMobileStyle("hide")}
+          />
+        </ThemeProvider>
+      ) : (
+        <Contacts
+          contactStyle={contactStyle}
+          close={() => setContactStyle("hide")}
+        />
+      )}
+
+      {!isMobile && <Footer />}
 
       {
         // Modais de transição DESKTOP
-        !isMobile && data.map((object, index) => {
-          return (
-            <AnimatedModal
-              key={index}
-              open={object.open}
-              close={closeModal}
-              title={object.title}
-              text1={object.text1}
-              text2={object.text2}
-              text3={object.text3}
-            />
-          );
-        })
+        !isMobile &&
+          data.map((object, index) => {
+            return (
+              <AnimatedModal
+                key={index}
+                open={object.open}
+                close={closeModal}
+                title={object.title}
+                text1={object.text1}
+                text2={object.text2}
+                text3={object.text3}
+              />
+            );
+          })
       }
 
       {
         // Modais de transição MOBILE
-        isMobile && data.map((object, index) => {
-          return (
-            <AnimatedModalMobile
-              key={index} 
-              index={index} // precisa desse pq key é impossível acessar, 'key' é palavra reservada
-              openNthModal={openNthModal}
-              openNthModalIndex={openNthModal[index]} // precisa desse para evitar crash
-              setOpenNthModal={setOpenNthModal}
-              setSlideCourses={setSlideCourses}
-              title={object.title}
-              text1={object.text1}
-              text2={object.text2}
-              text3={object.text3}
-            />
-          )
-        })
+        isMobile &&
+          data.map((object, index) => {
+            return (
+              <AnimatedModalMobile
+                key={index}
+                index={index} // precisa desse pq key é impossível acessar, 'key' é palavra reservada
+                openNthModal={openNthModal}
+                openNthModalIndex={openNthModal[index]} // precisa desse para evitar crash
+                setOpenNthModal={setOpenNthModal}
+                setSlideCourses={setSlideCourses}
+                title={object.title}
+                text1={object.text1}
+                text2={object.text2}
+                text3={object.text3}
+              />
+            );
+          })
       }
-
     </div>
   );
 }

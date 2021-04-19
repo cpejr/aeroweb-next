@@ -2,7 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
 import { useStyles } from "./styles";
 import MuiAlert from "@material-ui/lab/Alert";
-import { ExpandMore, ExpandLess, Facebook, Instagram, YouTube } from "@material-ui/icons";
+import {
+  ExpandMore,
+  ExpandLess,
+  Facebook,
+  Instagram,
+  YouTube,
+} from "@material-ui/icons";
 import {
   Button,
   Card,
@@ -13,10 +19,12 @@ import {
   Typography,
 } from "@material-ui/core";
 
-function ContactsMobile ({ contactMobileStyle, close }) {
+function ContactsMobile({ contactMobileStyle, close }) {
   // variaveis de estilização
   const classes = useStyles();
-  const [contactMobileClass, setContactMobileClass] = useState(classes.cardContactsMobile);
+  const [contactMobileClass, setContactMobileClass] = useState(
+    classes.cardContactsMobile,
+  );
   const [isUp, setIsUp] = useState(false);
 
   // variaveis de configuração do emailJs
@@ -44,8 +52,10 @@ function ContactsMobile ({ contactMobileStyle, close }) {
   const [errorMsgMessage, setErrorMsgMessage] = useState("");
 
   useEffect(() => {
-    if (contactMobileStyle === "standby") setContactMobileClass(classes.cardContactsMobile);
-    else if (contactMobileStyle === "show") setContactMobileClass(classes.cardContactsMobileShow);
+    if (contactMobileStyle === "standby")
+      setContactMobileClass(classes.cardContactsMobile);
+    else if (contactMobileStyle === "show")
+      setContactMobileClass(classes.cardContactsMobileShow);
     else if (contactMobileStyle === "hide") {
       setContactMobileClass(classes.cardContactsMobileHide);
 
@@ -167,39 +177,43 @@ function ContactsMobile ({ contactMobileStyle, close }) {
       setIsUp(true);
     }
   }
-  
+
   return (
     <Card style={{ zIndex: "200" }} className={contactMobileClass}>
       <CardContent className={classes.cardContentContacts}>
         <div className={classes.titleContacts}>
-          <Typography 
-            style={{ color: "white", fontSize: '18px', textAlign: 'center', cursor: 'pointer', flex: 9 }} 
-            onClick={ () => handleTitleClick() } 
+          <Typography
+            style={{
+              color: "white",
+              fontSize: "18px",
+              textAlign: "center",
+              cursor: "pointer",
+              flex: 9,
+            }}
+            onClick={() => handleTitleClick()}
           >
             Mande sua mensagem
           </Typography>
-          {
-            isUp ? (
-              <ExpandMore
-                fontSize="large"
-                style={{ color: 'white', cursor: "pointer", flex: 1 }}
-                onClick={ () => {
-                  setContactMobileClass(classes.cardContactsMobileDown);
-                  setIsUp(false);
-                  resetFields();
-                }}
-              />
-            ) : (
-              <ExpandLess
-                fontSize="large"
-                style={{ color: 'white', cursor: "pointer", flex: 1 }}
-                onClick={ () => {
-                  setContactMobileClass(classes.cardContactsMobileUp);
-                  setIsUp(true);
-                }}
-              />
-            )
-          }
+          {isUp ? (
+            <ExpandMore
+              fontSize="large"
+              style={{ color: "white", cursor: "pointer", flex: 1 }}
+              onClick={() => {
+                setContactMobileClass(classes.cardContactsMobileDown);
+                setIsUp(false);
+                resetFields();
+              }}
+            />
+          ) : (
+            <ExpandLess
+              fontSize="large"
+              style={{ color: "white", cursor: "pointer", flex: 1 }}
+              onClick={() => {
+                setContactMobileClass(classes.cardContactsMobileUp);
+                setIsUp(true);
+              }}
+            />
+          )}
         </div>
 
         <TextField
@@ -294,7 +308,7 @@ function ContactsMobile ({ contactMobileStyle, close }) {
           variant="outlined"
           // className={classes.buttonContacts}
           onClick={() => handleSend()}
-          style={{ marginTop: '16px', backgroundColor: 'white' }}
+          style={{ marginTop: "16px", backgroundColor: "white" }}
         >
           {loading ? (
             <CircularProgress color="primary" size={32} thickness={2.5} />
@@ -313,21 +327,56 @@ function ContactsMobile ({ contactMobileStyle, close }) {
           </MuiAlert>
         </Snackbar>
 
-        <Typography style={{ color: "white", fontSize: '14px', width: '100%', marginTop: '16px' }} >
+        <Typography
+          style={{
+            color: "white",
+            fontSize: "14px",
+            width: "100%",
+            marginTop: "16px",
+          }}
+        >
           contato@tailwind.com
         </Typography>
-        <Typography style={{ color: "white", fontSize: '14px', width: '100%', marginTop: '8px' }} >
+        <Typography
+          style={{
+            color: "white",
+            fontSize: "14px",
+            width: "100%",
+            marginTop: "8px",
+          }}
+        >
           31 0000-0000
         </Typography>
-        <Typography style={{ color: "white", fontSize: '14px', width: '100%', marginTop: '8px' }} >
+        <Typography
+          style={{
+            color: "white",
+            fontSize: "14px",
+            width: "100%",
+            marginTop: "8px",
+          }}
+        >
           endereço, n° 00
         </Typography>
-        <Typography style={{ color: "white", fontSize: '14px', width: '100%', marginTop: '8px' }} >
+        <Typography
+          style={{
+            color: "white",
+            fontSize: "14px",
+            width: "100%",
+            marginTop: "8px",
+          }}
+        >
           Bairro
         </Typography>
-        <Typography style={{ color: "white", fontSize: '14px', width: '100%', marginTop: '8px' }} >
+        <Typography
+          style={{
+            color: "white",
+            fontSize: "14px",
+            width: "100%",
+            marginTop: "8px",
+          }}
+        >
           Belo Horizonte
-        </Typography> 
+        </Typography>
 
         <div className={classes.appBarIcons}>
           <a
@@ -342,18 +391,16 @@ function ContactsMobile ({ contactMobileStyle, close }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Facebook className={classes.icon} style={{ marginLeft: '16px' }} />
+            <Facebook className={classes.icon} style={{ marginLeft: "16px" }} />
           </a>
           <a
             href="https://www.youtube.com/?hl=pt&gl=BR"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <YouTube className={classes.icon} style={{ marginLeft: '16px' }} />
+            <YouTube className={classes.icon} style={{ marginLeft: "16px" }} />
           </a>
         </div>
-
-
       </CardContent>
     </Card>
   );

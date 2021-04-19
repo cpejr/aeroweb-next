@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { 
-  Button, 
-  Card, 
-  CardContent, 
-  CardActions, 
-  Slide, 
-  Typography 
+import {
+  Button,
+  Card,
+  CardContent,
+  CardActions,
+  Slide,
+  Typography,
 } from "@material-ui/core";
 import { ExpandMore, ExpandLess, SingleBedSharp } from "@material-ui/icons";
 import { useStyles } from "./styles";
 import LogomarcaAzul from "../../../public/assets/LogomarcaAzul.svg";
 
-function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNthModal, setSlideCourses, title, text1, text2, text3, videoLink }) {
+function AnimatedModalMobile({
+  index,
+  openNthModal,
+  openNthModalIndex,
+  setOpenNthModal,
+  setSlideCourses,
+  title,
+  text1,
+  text2,
+  text3,
+  videoLink,
+}) {
   const classes = useStyles();
   const [slideClass, setSlideClass] = useState(classes.card);
 
@@ -20,65 +31,79 @@ function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNt
       setSlideClass(classes.cardUp);
     } else {
       if (slideClass !== classes.card) {
-        setSlideClass(classes.cardDown)
-        setTimeout(() => { // evita bug de piscar
+        setSlideClass(classes.cardDown);
+        setTimeout(() => {
+          // evita bug de piscar
           setSlideClass(classes.card);
         }, 1000);
       }
     }
   }, [openNthModal]);
 
-  useEffect(() => console.log(slideClass), [slideClass])
+  useEffect(() => console.log(slideClass), [slideClass]);
 
-  if (!openNthModalIndex && slideClass !== undefined) { // só renderiza se clicou no botão correspondente
+  if (!openNthModalIndex && slideClass !== undefined) {
+    // só renderiza se clicou no botão correspondente
     return null;
   } else {
     return (
-      <Card className={slideClass} >
-        <CardContent className={classes.cardContent} >
+      <Card className={slideClass}>
+        <CardContent className={classes.cardContent}>
           <div className={classes.cardHeader}>
-            <img className={classes.image} src={'/assets/LogomarcaAzul.svg'} />
+            <img className={classes.image} src={"/assets/LogomarcaAzul.svg"} />
 
             <ExpandMore
-              fontSize='large'
+              fontSize="large"
               className={classes.icon}
-              style={{ color: '#3467eb', cursor: 'pointer' }}
+              style={{ color: "#3467eb", cursor: "pointer" }}
               onClick={() => {
-                let updatedArray = [...openNthModal ];
+                let updatedArray = [...openNthModal];
                 updatedArray[index] = false;
                 setSlideClass(classes.cardDown);
-                setTimeout(() => { // espera a animação de down
+                setTimeout(() => {
+                  // espera a animação de down
                   setOpenNthModal(updatedArray);
-                  setSlideCourses('fadeOut');
-                }, 1000); 
+                  setSlideCourses("fadeOut");
+                }, 1000);
               }}
             />
-
           </div>
-          
-          <Typography 
+
+          <Typography
             className={classes.title}
-            style={{ color: "#3467eb", paddingBottom: '8px', flex: '9', textAlign: 'left', fontSize: '16px', cursor: 'pointer' }}
+            style={{
+              color: "#3467eb",
+              paddingBottom: "8px",
+              flex: "9",
+              textAlign: "left",
+              fontSize: "16px",
+              cursor: "pointer",
+            }}
           >
             {title}
           </Typography>
 
-          <Typography style={{ fontFamily: 'Roboto', color: 'black' }} className={classes.text} >
-            {text1} <br/> <br className={classes.line} />
-            {text2} <br/> <br className={classes.line} />
-            {text3} <br/> <br className={classes.line} />
+          <Typography
+            style={{ fontFamily: "Roboto", color: "black" }}
+            className={classes.text}
+          >
+            {text1} <br /> <br className={classes.line} />
+            {text2} <br /> <br className={classes.line} />
+            {text3} <br /> <br className={classes.line} />
           </Typography>
 
-          <div className={classes.cardVideo}>
+          <div className={classes.cardVideo}></div>
 
-          </div>
-
-          <Typography 
-            style={{ color: "#3467eb", marginTop: '16px', textAlign: 'left', fontSize: '16px' }}
+          <Typography
+            style={{
+              color: "#3467eb",
+              marginTop: "16px",
+              textAlign: "left",
+              fontSize: "16px",
+            }}
           >
             Formas de Pagamento
           </Typography>
-
         </CardContent>
 
         <CardActions>
@@ -90,7 +115,6 @@ function AnimatedModalMobile({ index, openNthModal, openNthModalIndex, setOpenNt
             >
               Garanta sua vaga
             </Button>
-            
           </div>
         </CardActions>
       </Card>

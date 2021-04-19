@@ -23,7 +23,7 @@
     "next-seo": "^4.23.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-instagram-authless-feed": "jamesmoriarty/react-instagram-authless-feed#v2.0.0"
+    "react-material-ui-carousel": "^2.2.4"
   },
   "eslintConfig": {
     "extends": [

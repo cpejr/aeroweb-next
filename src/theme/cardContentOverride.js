@@ -4,10 +4,10 @@ const cardContentOverride = createMuiTheme({
   overrides: {
     MuiCardContent: {
       root: {
-        padding:'4px',
+        padding: "4px",
         "&:last-child": {
-          paddingBottom: '4px'
-        }
+          paddingBottom: "4px",
+        },
       },
     },
   },

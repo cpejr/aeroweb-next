@@ -16,7 +16,8 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   modalBackground: {
-    backgroundColor: '#3467eb77',
+    backgroundColor: " #3467eb77",
+
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
