@@ -59,7 +59,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   icon: {
-    minWidth: '100px',
+    minWidth: '75px',
   },
 
   buttonContacts: {

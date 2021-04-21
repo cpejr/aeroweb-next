@@ -523,7 +523,6 @@ function Home() {
               }
              
             </div>
-            )
           
           <div
             className={classes.homeContainerChildren}
