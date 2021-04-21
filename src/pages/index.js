@@ -24,6 +24,7 @@ import data from "../../public/data";
 
 import { NextSeo } from "next-seo";
 import InstagramCarousel from "../components/InstagramCarousel";
+import { SettingsPhone } from "@material-ui/icons";
 
 function Home() {
   <>
@@ -65,9 +66,9 @@ function Home() {
   const [posBackground, setPosBackground] = useState();
   const [selected, setSelected] = useState();
   const [gradiente, setGradiente] = useState(grad);
-  const [posX, setPosX] = useState("12vw");
+  const [posX, setPosX] = useState("18vw");
   const [posXAngle, setPosXAngle] = useState(0);
-  const [posY, setPosY] = useState("15vh");
+  const [posY, setPosY] = useState("22vh");
   const [posYAngle, setPosYAngle] = useState(0);
   const [angle, setAngle] = useState(0);
   const [colorHome, setColorHome] = useState("#100554");
@@ -107,6 +108,11 @@ function Home() {
   const [slideCourses, setSlideCourses] = useState("standby");
   const [openNthModal, setOpenNthModal] = useState([]);
 
+  // variaveis das linhas do avião
+  const [isPhone, setPhone] = useState();
+  const [isResponsive1, setResponsive1] = useState();
+  const [isResponsive2, setResponsive2] = useState();
+
   // gambiarra do data.js
   data[0].open = openFirst;
   data[1].open = openSecond;
@@ -122,6 +128,8 @@ function Home() {
     }
 
     setOpenNthModal(auxArray);
+
+    if (isMobile) setPhone(true);
   }, []);
 
   useEffect(() => console.log(openFirst), [openFirst]);
@@ -136,6 +144,19 @@ function Home() {
   useEffect(() => {
     setSize(windowSize());
   });
+
+  useEffect(()=>{
+    const checkDisplay = () =>{
+        setPhone(window.matchMedia("(max-width: 415px)").matches);
+        setResponsive1(window.matchMedia("(max-width: 800px)").matches);
+        setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
+    }
+
+    window.addEventListener('resize',checkDisplay);
+    return () => {
+        window.removeEventListener('resize',checkDisplay);
+    }
+  }, [isPhone], [isResponsive1], [isResponsive2])
 
   useEffect(() => {
     var aux = window.innerWidth;
@@ -187,8 +208,19 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("12vw");
-    setPosY("15vh");
+    if(isPhone){
+      setPosX("20vw");
+      setPosY("37vh");      
+    }else if(isResponsive1){
+      setPosX("26vw");
+      setPosY("26vh"); 
+    }else if(isResponsive2){
+      setPosX("18vw");
+      setPosY("33vh");
+    }else{
+      setPosX("18vw");
+      setPosY("22vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -236,8 +268,19 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("33vw");
-    setPosY("30vh");
+    if(isPhone){
+      setPosX("40vw");
+      setPosY("45vh");      
+    }else if(isResponsive1){
+      setPosX("42vw");
+      setPosY("41vh");
+    }else if(isResponsive2){
+      setPosX("39vw");
+      setPosY("39vh"); 
+    }else{
+      setPosX("39vw");
+      setPosY("31vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -298,8 +341,19 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("55vw");
-    setPosY("48vh");
+    if(isPhone){
+      setPosX("49vw");
+      setPosY("57vh"); 
+    }else if(isResponsive1){
+      setPosX("47vw");
+      setPosY("60vh");
+    }else if(isResponsive2){
+      setPosX("55vw");
+      setPosY("57vh");     
+    }else{
+      setPosX("55vw");
+      setPosY("59vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -358,8 +412,19 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("85vw");
-    setPosY("68vh");
+    if(isPhone){
+      setPosX("69vw");
+      setPosY("70vh");
+    }else if(isResponsive1){
+      setPosX("60vw");
+      setPosY("80vh");
+    }else if(isResponsive2){
+      setPosX("71vw");
+      setPosY("68vh");    
+    }else{
+      setPosX("71vw");
+      setPosY("76vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -486,6 +551,11 @@ function Home() {
             }}
           >
             <img className={styles.logo} src={responseSize}></img>
+          </div>
+
+          <div className={classes.rotaContainer} style={{position: 'absolute', zIndex: '90'}}>
+            {(isPhone || isResponsive1)? <img src="/assets/RotaMobile.svg" style={{height: '75vh', width: '83vw', marginTop: '15vh'}}/>:
+            <img src="/assets/RotaDesktop.svg" style={{height: '75vh', width: '83vw', marginTop: '15vh'}}/>}
           </div>
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
