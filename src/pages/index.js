@@ -103,6 +103,7 @@ function Home() {
   const [slideStyle, setSlideStyle] = useState("standby");
   const [contactStyle, setContactStyle] = useState("standby");
   const [contactMobileStyle, setContactMobileStyle] = useState("standby");
+  const [carouselStyle, setCarouselStyle] = useState('standby');
   const [slideCourses, setSlideCourses] = useState("standby");
   const [openNthModal, setOpenNthModal] = useState([]);
 
@@ -198,6 +199,8 @@ function Home() {
     if (isMobile && contactMobileStyle !== "standby")
       setContactMobileStyle("hide");
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
+    if (isMobile && carouselStyle === 'hide') setCarouselStyle('show');
+    if (!isMobile && carouselStyle !== 'standby') setCarouselStyle('show');
   }
 
   function spin2(e) {
@@ -258,6 +261,8 @@ function Home() {
     } else {
       setSlideCourses("hide");
     }
+    if (isMobile && carouselStyle !== 'hide') setCarouselStyle('hide');
+    if (!isMobile && carouselStyle !== 'standby') setCarouselStyle('show');
   }
 
   function spin3(e) {
@@ -316,6 +321,8 @@ function Home() {
       setSlideStyle("hide");
     }
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
+    if (isMobile && carouselStyle !== 'hide') setCarouselStyle('hide');
+    if (!isMobile && carouselStyle !== 'standby') setCarouselStyle('show');
   }
 
   function spin4(e) {
@@ -373,6 +380,12 @@ function Home() {
       setContactMobileStyle("hide");
     }
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
+    if (isMobile && carouselStyle !== 'hide') setCarouselStyle('hide');
+    if (!isMobile && carouselStyle === 'show' || carouselStyle === 'standby') {
+      setCarouselStyle('hide');
+    } else if (!isMobile && carouselStyle === 'hide') {
+      setCarouselStyle('show');
+    }
   }
 
   function closeModal() {
@@ -383,7 +396,7 @@ function Home() {
 
   return (
     <div className={classes.homeContainer}>
-      <InstagramCarousel />
+      <InstagramCarousel carouselStyle={carouselStyle} /> 
       <div className={classes.homeContainerChildren}>
         <div
           className={classes.planeContainer}
@@ -422,22 +435,31 @@ function Home() {
             }}
             style={{ backgroundImage: newGradient }}
           ></div>
-          <div
-            className={classes.planeContainer}
-            style={{
-              position: "absolute",
-              left: "4vw",
-              top: "65vh",
-              margin: "0",
-              transformOrigin: "center",
-              width: "38vw",
-              zIndex: "200",
-              color: "#fff",
-            }}
-          >
-            <h1 className={classes.footerTitle1}>INVISTA HOJE NO SEU FUTURO</h1>
-            <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
-          </div>
+            <div
+              className={classes.planeContainer}
+              style={{
+                position: "absolute",
+                left: "4vw",
+                top: "65vh",
+                margin: "0",
+                transformOrigin: "center",
+                width: "38vw",
+                zIndex: "200",
+                color: "#fff",
+              }}
+            >
+              {
+                !isMobile && (
+                  <>
+                    <h1 className={classes.footerTitle1}>INVISTA HOJE NO SEU FUTURO</h1>
+                    <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
+                  </>
+                )
+              }
+             
+            </div>
+            )
+          
           <div
             className={classes.homeContainerChildren}
             style={{
@@ -576,7 +598,10 @@ function Home() {
       ) : (
         <Contacts
           contactStyle={contactStyle}
-          close={() => setContactStyle("hide")}
+          close={() => {
+            setContactStyle("hide");
+            setCarouselStyle('show');
+          }}
         />
       )}
 

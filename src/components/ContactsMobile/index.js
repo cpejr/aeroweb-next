@@ -335,7 +335,7 @@ function ContactsMobile({ contactMobileStyle, close }) {
             marginTop: "16px",
           }}
         >
-          contato@tailwind.com
+          contato@twcourses.com.br
         </Typography>
         <Typography
           style={{
@@ -380,21 +380,21 @@ function ContactsMobile({ contactMobileStyle, close }) {
 
         <div className={classes.appBarIcons}>
           <a
-            href="https://www.instagram.com/?hl=pt-br"
+            href="https://www.instagram.com/tailwindaviation_/?igshid=e1xunf1mbnxw"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Instagram className={classes.icon} />
           </a>
           <a
-            href="https://pt-br.facebook.com/"
+            href="https://www.facebook.com/tailwindaviation_-101677271700685/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Facebook className={classes.icon} style={{ marginLeft: "16px" }} />
           </a>
           <a
-            href="https://www.youtube.com/?hl=pt&gl=BR"
+            href="https://www.youtube.com/channel/UCKyRogxlGFKulDlpBgfnokA/featured"
             target="_blank"
             rel="noopener noreferrer"
           >

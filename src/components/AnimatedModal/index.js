@@ -19,7 +19,7 @@ function AnimatedModal({ close, open, title, text1, text2, text3, videoLink }) {
     <div className={classes.container}>
       <Modal
         open={open}
-        onBackdropClick={() => setOpen(false)}
+        // onBackdropClick={() => setOpen(false)}
         className={classes.modalBackground}
       >
         <Grow in={open} timeout={2500} className={classes.growContent}>
@@ -30,18 +30,18 @@ function AnimatedModal({ close, open, title, text1, text2, text3, videoLink }) {
                   <div className={classes.cardTitle}>
                     <img
                       src="/assets/Tailwind2.svg"
-                      style={{ height: "75px", fontFamily: "Roboto" }}
+                      style={{ height: "100px", fontFamily: "Roboto", flex: 2 }}
                     />
                     <Typography
                       variant="h5"
-                      style={{ color: "#3467eb", fontFamily: "Roboto" }}
+                      style={{ color: "#3467eb", fontFamily: "Roboto", flex: 10, textAlign:'center' }}
                     >
                       {title}
                     </Typography>
                     <ExpandMore
                       onClick={close}
                       fontSize="large"
-                      style={{ cursor: "pointer" }}
+                      style={{ cursor: "pointer", flex: 2 }}
                     />
                   </div>
 
@@ -66,6 +66,7 @@ function AnimatedModal({ close, open, title, text1, text2, text3, videoLink }) {
                         fontFamily: "Roboto",
                         color: "#3467eb",
                         fontWeight: 500,
+                        textAlign: 'center',
                       }}
                     >
                       Formas de pagamento
@@ -90,7 +91,7 @@ function AnimatedModal({ close, open, title, text1, text2, text3, videoLink }) {
                           alt="Forma de pagamento"
                         />
                       </div>
-                      <div className={classes.cardPayments3}>
+                      <div className={classes.cardPayments4}>
                         <img
                           style={{ width: "4vw", height: "4vh" }}
                           src="/assets/Googlepay.png"

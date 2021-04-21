@@ -94,29 +94,78 @@ function AnimatedModalMobile({
 
           <div className={classes.cardVideo}></div>
 
-          <Typography
-            style={{
-              color: "#3467eb",
-              marginTop: "16px",
-              textAlign: "left",
-              fontSize: "16px",
-            }}
-          >
-            Formas de Pagamento
-          </Typography>
-        </CardContent>
+          <div className={classes.cardPayments}>
+            <Typography
+              style={{
+                fontSize: "18px",
+                fontFamily: "Roboto",
+                color: "#3467eb",
+                fontWeight: 500,
+              }}
+            >
+              Formas de pagamento
+            </Typography>
+            <div className={classes.cardPayments2}>
+              <div className={classes.cardPayments3}>
+                <img 
+                  src="/assets/Visa.png" 
+                  alt="Forma de pagamento" 
+                />
+                <img
+                  src="/assets/Mastercard.svg"
+                  alt="Forma de pagamento"
+                />
+                <img
+                  src="/assets/Paypal.png"
+                  alt="Forma de pagamento"
+                />
+              </div>
+              <div className={classes.cardPayments3}>
+                <img
+                  alt="Forma de pagamento"
+                  src="/assets/Hiper.png"
+                />
+                <img
+                  src="/assets/Hipercard.png"
+                  alt="Forma de pagamento"
+                />
+                <img
+                  alt="Forma de pagamento"
+                  src="/assets/Googlepay.png"
+                />
+              </div>
+              <div className={classes.cardPayments3}>
+                <img
+                  src="/assets/Samsungpay.png"
+                  alt="Forma de pagamento"
+                />
+                <img
+                  alt="Forma de pagamento"
+                  src="/assets/American.png"
+                />
+                <img
+                  alt="Forma de pagamento"
+                  src="/assets/Diners.png"
+                />
+                <img
+                  alt="Forma de pagamento"
+                  src="/assets/Elo.png"
+                />
+              </div>
+            </div>
+          </div>
 
-        <CardActions>
           <div className={classes.buttonContainer}>
             <Button
               variant="contained"
               className={classes.button}
-              onClick={close}
+              // onClick={close}
             >
               Garanta sua vaga
             </Button>
           </div>
-        </CardActions>
+        </CardContent>
+
       </Card>
     );
   }

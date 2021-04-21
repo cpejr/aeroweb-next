@@ -22,6 +22,7 @@ export const useStyles = makeStyles((theme) => ({
     zIndex: "200",
 
     // dimensionamento
+    height: 'auto',
     width: "20vw",
     [theme.breakpoints.down("1000")]: {
       width: "40vw",
@@ -48,6 +49,7 @@ export const useStyles = makeStyles((theme) => ({
     zIndex: "200",
 
     // dimensionamento
+    height: 'auto',
     width: "20vw",
     [theme.breakpoints.down("1100")]: {
       width: "40vw",
@@ -105,24 +107,24 @@ export const useStyles = makeStyles((theme) => ({
 
   "@keyframes downList": {
     "0%": {
-      height: "0%",
+      maxHeight: '0vh',
     },
     "99%": {
       overflowY: "hidden",
     },
     "100%": {
-      height: "26vh",
+      maxHeight: '25vh',
       overflowY: "auto",
     },
   },
 
   "@keyframes upList": {
     "0%": {
-      height: "26vh",
+      maxHeight: '25vh',
       overflowY: "hidden",
     },
     "100%": {
-      height: "0%",
+      maxHeight: "0vh",
       overflowY: "hidden",
     },
   },

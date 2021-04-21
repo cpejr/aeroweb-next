@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useStyles } from "./styles";
 import { Card, Typography } from "@material-ui/core";
 import Carousel from "react-material-ui-carousel";
@@ -9,7 +9,12 @@ function Item(props) {
       style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
     >
       {props.item.map((item) => (
-        <a href={item.href} style={{ padding: "2%" }}>
+        <a 
+          href={item.href} 
+          style={{ padding: "2%" }} 
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src={item.src} alt={item.alt} width="100%" height="100%" />
         </a>
       ))}
@@ -17,8 +22,18 @@ function Item(props) {
   );
 }
 
-function InstagramCarousel() {
+function InstagramCarousel({ carouselStyle }) {
   const classes = useStyles();
+  const [carouselClass, setCarouselClass] = useState(classes.carouselCard);
+
+  useEffect(() => {
+    if (carouselStyle === 'standby') setCarouselClass(classes.carouselCard);
+    if (carouselStyle === 'show') setCarouselClass(classes.carouselCardShow);
+    if (carouselStyle === 'hide') setCarouselClass(classes.carouselCardHide);
+
+    console.log(carouselStyle);
+  }, [carouselStyle])
+
   var items = [
     [
       {
@@ -91,14 +106,14 @@ function InstagramCarousel() {
   ];
 
   return (
-    <Card className={classes.divFeedInstagram}>
+    <Card className={carouselClass}>
       <img src="/assets/union.svg" className={classes.logoTitle} />
       <Typography
         style={{
-          position: "relative",
-          bottom: "1vh",
+          marginBottom: '8px',
           color: "white",
           fontFamily: "Roboto",
+          fontSize: '20px',
         }}
       >
         Últimos Posts

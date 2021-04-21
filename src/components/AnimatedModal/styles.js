@@ -22,6 +22,7 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+
   },
 
   growContent: {
@@ -31,6 +32,10 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     width: "50vw",
     outline: "0",
+    overflowY: 'scroll',
+    // maxHeight: '600px',
+    // marginTop: '32px',
+    // marginBottom: '32px',
   },
 
   backDrop: {
@@ -39,10 +44,14 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   card: {
-    maxWidth: "50%",
+    maxWidth: "50vw",
+    // maxHeight: '600px',
+
 
     padding: 16,
     elevation: 8,
+
+    overflowY: 'scroll',
   },
 
   cardContent: {
@@ -50,6 +59,9 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
 
     alignItems: "center",
+
+    marginTop: '16px',
+    marginBottom: '16px',
   },
 
   cardTitle: {
@@ -113,13 +125,14 @@ export const useStyles = makeStyles((theme) => ({
     width: "95%",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "flex-start",
+    justifyContent: "center",
+    alignItems: 'center',
 
     marginTop: "24px",
   },
 
   cardPayments2: {
-    width: "60%",
+    width: "90%",
     display: "flex",
     flexDirection: "column",
     marginLeft: "2vw",
@@ -135,5 +148,19 @@ export const useStyles = makeStyles((theme) => ({
       width: "58px",
       height: "30px",
     },
+  },
+  cardPayments4: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    "& | &": {
+      marginTop: "16px",
+    },
+    "& img": {
+      width: "58px",
+      height: "30px",
+    },
+
+    marginTop: '24px',
   },
 }));
