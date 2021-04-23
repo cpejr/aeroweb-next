@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
+import isMobile from "../../pages/isMobile";
 import { useStyles } from "./styles";
 import MuiAlert from "@material-ui/lab/Alert";
 import { Clear } from "@material-ui/icons";
@@ -155,13 +156,17 @@ function Contacts({ contactStyle, close }) {
     <Card style={{ zIndex: "200" }} className={contactClass}>
       <CardContent className={classes.cardContentContacts}>
         <div className={classes.titleContacts}>
-          <Typography variant="h5" style={{ color: "white", flex: 12, textAlign: 'center' }} >
+          <img
+            src="/assets/Tailwind3.svg"
+            style={{ height: "75px", fontFamily: "Roboto" }}
+          ></img>
+          <Typography variant="h5" style={{ color: "white" }}>
             Mande sua mensagem
           </Typography>
-          <Clear 
+          <Clear
             fontSize="large"
-            style={{ color: 'white', cursor: "pointer", flex: 1 }}
-            onClick={ close }
+            style={{ color: "white", cursor: "pointer" }}
+            onClick={close}
           />
         </div>
 

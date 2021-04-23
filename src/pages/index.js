@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
+import buttonOverride from "../theme/buttonOverride";
+import cardContentOverride from "../theme/cardContentOverride";
+import { ThemeProvider } from "@material-ui/core/styles";
 
 // imagens
 import Background1 from "../../public/assets/GradienteHome.svg";
@@ -10,18 +13,17 @@ import Logo from "../../public/assets/Logomarca.svg";
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
-import Feed from "react-instagram-authless-feed";
-import FeedInstagram from "../components/FeedInstagram/index";
 import Contacts from "../components/Contacts/index";
 import ContactsMobile from "../components/ContactsMobile/index";
 import ModalQuemSomos from "../components/ModalQuemSomos";
-import QuemSomosMobile from "../components/QuemSomosMobile"
+import QuemSomosMobile from "../components/QuemSomosMobile";
 import CoursesList from "../components/CoursesList";
 import CoursesMobile from "../components/CoursesMobile";
-import isMobile from './isMobile'; // usa para ver se é mobile ou não
+import isMobile from "./isMobile"; // usa para ver se é mobile ou não
 import data from "../../public/data";
 
 import { NextSeo } from "next-seo";
+import InstagramCarousel from "../components/InstagramCarousel";
 import { SettingsPhone } from "@material-ui/icons";
 
 function Home() {
@@ -55,12 +57,14 @@ function Home() {
 
   // variaveis da animacao
   let x1 = 90;
+  let selectedComp;
   let grad = Background1;
   const [responseSize, setResponseSize] = useState("");
   const [union, setUnion] = useState("");
   const [title1, setTitle1] = useState("INVISTA HOJE NO SEU FUTURO");
   const [title2, setTitle2] = useState("E DÊ ASAS AO SEU SONHO");
   const [posBackground, setPosBackground] = useState();
+  const [selected, setSelected] = useState();
   const [gradiente, setGradiente] = useState(grad);
   const [posX, setPosX] = useState("18vw");
   const [posXAngle, setPosXAngle] = useState(0);
@@ -96,11 +100,11 @@ function Home() {
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
   const [openThird, setOpenThird] = useState(false);
-  const [listStyle, setListStyle] = useState('standby');
-  const [slideStyle, setSlideStyle] = useState('standby');
-  const [contactStyle, setContactStyle] = useState('standby');
-  const [contactMobileStyle, setContactMobileStyle] = useState('standby');
-  const [slideCourses, setSlideCourses] = useState('standby');
+  const [listStyle, setListStyle] = useState("standby");
+  const [slideStyle, setSlideStyle] = useState("standby");
+  const [contactStyle, setContactStyle] = useState("standby");
+  const [contactMobileStyle, setContactMobileStyle] = useState("standby");
+  const [slideCourses, setSlideCourses] = useState("standby");
   const [openNthModal, setOpenNthModal] = useState([]);
 
   // variaveis das linhas do avião
@@ -123,12 +127,9 @@ function Home() {
     }
 
     setOpenNthModal(auxArray);
-
-    if (isMobile) setPhone(true);
   }, []);
 
-  useEffect(() => console.log(openFirst), [openFirst])
-
+  useEffect(() => console.log(openFirst), [openFirst]);
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -172,6 +173,9 @@ function Home() {
     //Para a animação da linha:
     x1 = 90;
     setPosBackground(x1);
+    //Para saber em qual componente está:
+    selectedComp = "HOME";
+    setSelected(selectedComp);
     // Para a animação do gradiente:
     setNewGradient(
       "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
@@ -218,17 +222,21 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controla dos modais
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
-    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
-    if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
-    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
+    if (listStyle !== "standby") setListStyle("hide");
+    if (!isMobile && contactStyle !== "standby") setContactStyle("hide");
+    if (isMobile && slideStyle !== "standby") setSlideStyle("hide");
+    if (isMobile && contactMobileStyle !== "standby")
+      setContactMobileStyle("hide");
+    if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
   }
 
   function spin2(e) {
     //Para a animação da linha:
     x1 = 60;
     setPosBackground(x1);
+    //Para saber em qual componente está:
+    selectedComp = "CURSOS";
+    setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(cursos);
     setChange(true);
@@ -277,18 +285,19 @@ function Home() {
     }, 1200);
 
     // controle dos modais
-    if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
-    if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
-    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
-    if(listStyle === 'standby' || listStyle === 'hide') {
-      setListStyle('show')
+    if (!isMobile && contactStyle !== "standby") setContactStyle("hide");
+    if (isMobile && contactMobileStyle !== "standby")
+      setContactMobileStyle("hide");
+    if (isMobile && slideStyle !== "standby") setSlideStyle("hide");
+    if (listStyle === "standby" || listStyle === "hide") {
+      setListStyle("show");
     } else {
       setListStyle("hide");
     }
-    if(isMobile && slideCourses !== 'show') {
-      setSlideCourses('show')
+    if (isMobile && slideCourses !== "show") {
+      setSlideCourses("show");
     } else {
-      setSlideCourses('hide')
+      setSlideCourses("hide");
     }
   }
 
@@ -296,7 +305,9 @@ function Home() {
     //Para a animação da linha:
     x1 = 30;
     setPosBackground(x1);
-
+    //Para saber em qual componente está:
+    selectedComp = "QUEMSOMOS";
+    setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(quemSomos);
     setChange(true);
@@ -347,22 +358,25 @@ function Home() {
     }, 1200);
 
     // controle dos modais
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(!isMobile && contactStyle !== 'standby') setContactStyle('hide');
-    if(isMobile && contactMobileStyle !== 'standby') setContactMobileStyle('hide');
-    if(isMobile && slideStyle !== 'show') {
-      setSlideStyle('show')
+    if (listStyle !== "standby") setListStyle("hide");
+    if (!isMobile && contactStyle !== "standby") setContactStyle("hide");
+    if (isMobile && contactMobileStyle !== "standby")
+      setContactMobileStyle("hide");
+    if (isMobile && slideStyle !== "show") {
+      setSlideStyle("show");
     } else {
-      setSlideStyle('hide')
+      setSlideStyle("hide");
     }
-    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
+    if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
   }
 
   function spin4(e) {
     //Para a animação da linha:
     x1 = 0;
     setPosBackground(x1);
-
+    //Para saber em qual componente está:
+    selectedComp = "CONTATO";
+    setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(contato);
     setChange(true);
@@ -406,19 +420,22 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controle dos modais
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
-    if(!isMobile && contactStyle === 'standby' || contactStyle === 'hide') {
-      setContactStyle('show')
+    if (listStyle !== "standby") setListStyle("hide");
+    if (isMobile && slideStyle !== "standby") setSlideStyle("hide");
+    if ((!isMobile && contactStyle === "standby") || contactStyle === "hide") {
+      setContactStyle("show");
     } else {
       setContactStyle("hide");
     }
-    if(isMobile && contactMobileStyle === 'standby' || contactMobileStyle === 'hide') {
-      setContactMobileStyle('show')
+    if (
+      (isMobile && contactMobileStyle === "standby") ||
+      contactMobileStyle === "hide"
+    ) {
+      setContactMobileStyle("show");
     } else {
       setContactMobileStyle("hide");
     }
-    if(isMobile && slideCourses !== 'standby') setSlideCourses('hide');
+    if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
   }
 
   function closeModal() {
@@ -429,6 +446,7 @@ function Home() {
 
   return (
     <div className={classes.homeContainer}>
+      <InstagramCarousel />
       <div className={classes.homeContainerChildren}>
         <div
           className={classes.planeContainer}
@@ -480,13 +498,14 @@ function Home() {
               color: "#fff",
             }}
           >
-            <h1>{title1}</h1>
-            <h1>{title2}</h1>
+            <h1 className={classes.footerTitle1}>INVISTA HOJE NO SEU FUTURO</h1>
+            <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
           </div>
           <div
             className={classes.homeContainerChildren}
             style={{
               backgroundPositionX: posBackground,
+              transitionDuration: "2.5s",
               backgroundPositionY: -200,
               height: "100vh",
             }}
@@ -507,7 +526,7 @@ function Home() {
               height: size,
             }}
           >
-            <img className={styles.logo} src={responseSize} />
+            <img className={styles.logo} src={responseSize}></img>
           </div>
 
           <div className={classes.rotaContainer} style={{position: 'absolute', zIndex: '90'}}>
@@ -519,7 +538,15 @@ function Home() {
             <p
               className={styles.name}
               onClick={spin1}
-              style={{ cursor: "pointer" }}
+              style={
+                selected === "HOME"
+                  ? {
+                      cursor: "pointer",
+                      transition: "font-size 1.5s",
+                      fontSize: "1.25rem",
+                    }
+                  : { cursor: "pointer" }
+              }
             >
               HOME
             </p>
@@ -528,7 +555,15 @@ function Home() {
             <p
               className={styles.name}
               onClick={spin2}
-              style={{ cursor: "pointer" }}
+              style={
+                selected === "CURSOS"
+                  ? {
+                      cursor: "pointer",
+                      transition: "font-size 1.5s",
+                      fontSize: "1.25rem",
+                    }
+                  : { cursor: "pointer" }
+              }
             >
               CURSOS
             </p>
@@ -538,7 +573,15 @@ function Home() {
             <p
               className={styles.name}
               onClick={spin3}
-              style={{ cursor: "pointer" }}
+              style={
+                selected === "QUEMSOMOS"
+                  ? {
+                      cursor: "pointer",
+                      transition: "font-size 1.5s",
+                      fontSize: "1.25rem",
+                    }
+                  : { cursor: "pointer" }
+              }
             >
               QUEM SOMOS
             </p>
@@ -547,21 +590,31 @@ function Home() {
             <p
               className={styles.name}
               onClick={spin4}
-              style={{ cursor: "pointer" }}
+              style={
+                selected === "CONTATO"
+                  ? {
+                      cursor: "pointer",
+                      transition: "font-size 1.5s",
+                      fontSize: "1.25rem",
+                    }
+                  : { cursor: "pointer" }
+              }
             >
               CONTATO
             </p>
           </div>
         </div>
-      </div>    
+      </div>
 
-      { isMobile ? (
-        <CoursesMobile 
-          slideCourses={slideCourses}
-          openNthModal={openNthModal}
-          setOpenNthModal={setOpenNthModal}
-          setSlideCourses={setSlideCourses}
-        />
+      {isMobile ? (
+        <ThemeProvider theme={cardContentOverride}>
+          <CoursesMobile
+            slideCourses={slideCourses}
+            openNthModal={openNthModal}
+            setOpenNthModal={setOpenNthModal}
+            setSlideCourses={setSlideCourses}
+          />
+        </ThemeProvider>
       ) : (
         <CoursesList
           listStyle={listStyle}
@@ -572,69 +625,69 @@ function Home() {
         />
       )}
 
-      {
-        isMobile ? (
-          <QuemSomosMobile slideStyle={slideStyle} close={ () => setSlideStyle('hide') } />
-        ) : (
-          <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
-        )
-      }
-      
-      {
-        isMobile ? (
-          <ContactsMobile 
+      {isMobile ? (
+        <QuemSomosMobile
+          slideStyle={slideStyle}
+          close={() => setSlideStyle("hide")}
+        />
+      ) : (
+        <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
+      )}
+
+      {isMobile ? (
+        <ThemeProvider theme={buttonOverride}>
+          <ContactsMobile
             contactMobileStyle={contactMobileStyle}
             close={() => setContactMobileStyle("hide")}
           />
-        ) : (
-          <Contacts 
-            contactStyle={contactStyle}
-            close={() => setContactStyle("hide")}
-          />
-        )
-      }
-
-      { !isMobile && (
-        <Footer />
+        </ThemeProvider>
+      ) : (
+        <Contacts
+          contactStyle={contactStyle}
+          close={() => setContactStyle("hide")}
+        />
       )}
+
+      {!isMobile && <Footer />}
 
       {
         // Modais de transição DESKTOP
-        !isMobile && data.map((object, index) => {
-          return (
-            <AnimatedModal
-              key={index}
-              open={object.open}
-              close={closeModal}
-              title={object.title}
-              text1={object.text1}
-              text2={object.text2}
-              text3={object.text3}
-            />
-          );
-        })
+        !isMobile &&
+          data.map((object, index) => {
+            return (
+              <AnimatedModal
+                key={index}
+                open={object.open}
+                close={closeModal}
+                title={object.title}
+                text1={object.text1}
+                text2={object.text2}
+                text3={object.text3}
+              />
+            );
+          })
       }
 
       {
         // Modais de transição MOBILE
-        isMobile && data.map((object, index) => {
-          return (
-            <AnimatedModalMobile
-              key={index} 
-              index={index} // precisa desse pq key é impossível acessar, 'key' é palavra reservada
-              openNthModal={openNthModal}
-              openNthModalIndex={openNthModal[index]} // precisa desse para evitar crash
-              setOpenNthModal={setOpenNthModal}
-              setSlideCourses={setSlideCourses}
-              title={object.title}
-              text1={object.text1}
-              text2={object.text2}
-              text3={object.text3}
-            />
-          )
-        })
+        isMobile &&
+          data.map((object, index) => {
+            return (
+              <AnimatedModalMobile
+                key={index}
+                index={index} // precisa desse pq key é impossível acessar, 'key' é palavra reservada
+                openNthModal={openNthModal}
+                openNthModalIndex={openNthModal[index]} // precisa desse para evitar crash
+                setOpenNthModal={setOpenNthModal}
+                setSlideCourses={setSlideCourses}
+                title={object.title}
+                text1={object.text1}
+                text2={object.text2}
+                text3={object.text3}
+              />
+            );
+          })
       }
-
     </div>
   );
 }

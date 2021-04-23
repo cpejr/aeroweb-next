@@ -28,6 +28,10 @@ function AnimatedModal({ close, open, title, text1, text2, text3, videoLink }) {
               <CardContent>
                 <div className={classes.cardContent}>
                   <div className={classes.cardTitle}>
+                    <img
+                      src="/assets/Tailwind2.svg"
+                      style={{ height: "75px", fontFamily: "Roboto" }}
+                    />
                     <Typography
                       variant="h5"
                       style={{ color: "#3467eb", fontFamily: "Roboto" }}
@@ -53,7 +57,7 @@ function AnimatedModal({ close, open, title, text1, text2, text3, videoLink }) {
                     </Typography>
                   </div>
 
-                  <div className={classes.cardVideo}></div>
+                  <div className={classes.cardVideo} />
 
                   <div className={classes.cardPayments}>
                     <Typography
@@ -66,6 +70,49 @@ function AnimatedModal({ close, open, title, text1, text2, text3, videoLink }) {
                     >
                       Formas de pagamento
                     </Typography>
+                    <div className={classes.cardPayments2}>
+                      <div className={classes.cardPayments3}>
+                        <img src="/assets/Visa.png" alt="Forma de pagamento" />
+                        <img
+                          src="/assets/Mastercard.svg"
+                          alt="Forma de pagamento"
+                        />
+                        <img
+                          src="/assets/Paypal.png"
+                          alt="Forma de pagamento"
+                        />
+                        <img
+                          src="/assets/Samsungpay.png"
+                          alt="Forma de pagamento"
+                        />
+                        <img
+                          src="/assets/Hipercard.png"
+                          alt="Forma de pagamento"
+                        />
+                      </div>
+                      <div className={classes.cardPayments3}>
+                        <img
+                          style={{ width: "4vw", height: "4vh" }}
+                          src="/assets/Googlepay.png"
+                        />
+                        <img
+                          style={{ width: "4vw", height: "4vh" }}
+                          src="/assets/Hiper.png"
+                        />
+                        <img
+                          style={{ width: "4vw", height: "4vh" }}
+                          src="/assets/American.png"
+                        />
+                        <img
+                          style={{ width: "4vw", height: "4vh" }}
+                          src="/assets/Diners.png"
+                        />
+                        <img
+                          style={{ width: "4vw", height: "4vh" }}
+                          src="/assets/Elo.png"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </CardContent>

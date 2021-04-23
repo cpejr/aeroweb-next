@@ -3,67 +3,67 @@ import { makeStyles } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   card: {
     // posição
-    position: 'absolute',
-    top: '80vh',
-    left: '11.50vw',
+    position: "absolute",
+    top: "80vh",
+    left: "11.50vw",
 
     // dimensionamento
-    maxWidth: '80vw',
+    maxWidth: "80vw",
     zIndex: 300,
 
     // estilo
     padding: 4,
     elevation: 8,
-    backgroundColor: 'white',
-    borderRadius: '6px',
-    overflowY: 'scroll',
+    backgroundColor: "white",
+    borderRadius: "6px",
+    overflowY: "scroll",
 
-    display: 'none'
+    display: "none",
   },
 
   cardUp: {
     // posição
-    position: 'absolute',
-    left: '11.50vw',
+    position: "absolute",
+    left: "11.50vw",
 
     // dimensionamento
-    maxWidth: '80vw',
+    maxWidth: "80vw",
     zIndex: 300,
-    maxHeight: '98vh',
+    maxHeight: "98vh",
 
     // estilo
     padding: 4,
     elevation: 8,
-    backgroundColor: 'white',
-    borderRadius: '6px',
-    overflowY: 'scroll',
-    marginTop: '16px',
-    marginBottom: '16px',
+    backgroundColor: "white",
+    borderRadius: "6px",
+    overflowY: "scroll",
+    marginTop: "16px",
+    marginBottom: "16px",
 
     // animaçao
-    animation: '$upSlide 750ms linear forwards'
+    animation: "$upSlide 750ms linear forwards",
   },
 
   cardDown: {
     // posição
-    position: 'absolute',
-    left: '11.50vw',
+    position: "absolute",
+    left: "11.50vw",
 
     // dimensionamento
-    maxWidth: '80vw',
+    maxWidth: "80vw",
     zIndex: 300,
-    maxHeight: '98vh',
+    maxHeight: "98vh",
 
     // estilo
     padding: 4,
     elevation: 8,
-    backgroundColor: 'white',
-    borderRadius: '6px',
-    overflowY: 'scroll',
-    marginTop: '16px',
-    
+    backgroundColor: "white",
+    borderRadius: "6px",
+    overflowY: "scroll",
+    marginTop: "16px",
+
     // animaçao
-    animation: '$downSlide 750ms linear forwards'
+    animation: "$downSlide 750ms linear forwards",
   },
 
   cardContent: {
@@ -71,42 +71,39 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
 
-  image: {
- 
-  },
+  image: {},
 
   cardHeader: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
 
-    width: '100%',
+    width: "100%",
   },
 
   icon: {
-    width: '20%',
+    width: "20%",
   },
 
   text: {
-    fontSize: '12px',
-    lineHeight: '15px',
+    fontSize: "12px",
+    lineHeight: "15px",
   },
 
   line: {
-    lineHeight: '13px',
+    lineHeight: "13px",
   },
 
   cardVideo: {
-    width: '100%',
-    height: '25vh',
+    width: "100%",
+    height: "25vh",
 
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
 
-    border: '1px solid #3467eb',
-    marginTop: '2vh',
+    border: "1px solid #3467eb",
+    marginTop: "2vh",
   },
-
 
   cardBody: {
     width: "95%",
@@ -125,38 +122,38 @@ export const useStyles = makeStyles((theme) => ({
 
   button: {
     backgroundColor: "#3467eb",
-    color: 'white',
-    width: '80%',
+    color: "white",
+    width: "80%",
     "&:hover": {
       backgroundColor: "#3467eb",
     },
 
-    marginBottom: '16px'
+    marginBottom: "16px",
   },
 
   cardPayments: {
-    width: '100%',
+    width: "100%",
   },
 
   "@keyframes upSlide": {
     "0%": {
-      top: '80vh',
-      opacity: '0%',
+      top: "80vh",
+      opacity: "0%",
     },
     "100%": {
-      top: '0vh',
-      opacity: '100%',
-    }
+      top: "0vh",
+      opacity: "100%",
+    },
   },
 
   "@keyframes downSlide": {
     "0%": {
-      top: '0vh',
-      opacity: '100%',
+      top: "0vh",
+      opacity: "100%",
     },
     "100%": {
-      top: '80vh',
-      opacity: '0%',
-    }
-  }
+      top: "80vh",
+      opacity: "0%",
+    },
+  },
 }));

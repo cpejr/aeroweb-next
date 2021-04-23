@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       position: "fixed",
     },
 
-    // overflow: 'hidden'
+    overflow: "hidden",
   },
   homeContainerChildren: {
     width: "100%",
@@ -266,6 +266,20 @@ const useStyles = makeStyles((theme) => ({
   buttonOut: {
     "&:hover": {
       borderBottom: "4px solid",
+    },
+  },
+
+  footerTitle1: {
+    fontSize: "4.5vh",
+    [theme.breakpoints.down("1000")]: {
+      fontSize: "3.5vh",
+    },
+  },
+
+  footerTitle2: {
+    fontSize: "4.5vh",
+    [theme.breakpoints.down("1000")]: {
+      fontSize: "3.5vh",
     },
   },
 

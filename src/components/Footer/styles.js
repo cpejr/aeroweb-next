@@ -12,7 +12,7 @@ export const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("600")]: {
       height: "0%",
-      display: 'none'
+      display: "none",
     },
   },
 
