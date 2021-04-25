@@ -6,7 +6,7 @@ export const useStyles = makeStyles((theme) => ({
     // posição
     position: "absolute",
     top: "42vh",
-    left: "26.5vw",
+    left: "32vw",
     zIndex: "200",
 
     // dimensionamento
@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme) => ({
     // posição
     position: "absolute",
     top: "42vh",
-    left: "26.5vw",
+    left: "32vw",
     zIndex: "200",
 
     // dimensionamento
@@ -45,7 +45,7 @@ export const useStyles = makeStyles((theme) => ({
     // posição
     position: "absolute",
     top: "42vh",
-    left: "26.5vw",
+    left: "32vw",
     zIndex: "200",
 
     // dimensionamento

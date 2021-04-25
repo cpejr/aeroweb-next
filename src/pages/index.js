@@ -80,7 +80,7 @@ function Home() {
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
   const [open, setOpen] = useState(false);
-  const [openQuemSomos, setOpenQuemSomos] = useState(false);
+  const [quemSomosStyle, setQuemSomosStyle] = useState('standby');
   const [openMobile, setOpenMobile] = useState(false);
 
   // Parâmetros para o novo gradiente:
@@ -97,9 +97,9 @@ function Home() {
   const [size, setSize] = useState(null);
 
   // variaveis da animacao dos modais
-  const [openFirst, setOpenFirst] = useState(false);
-  const [openSecond, setOpenSecond] = useState(false);
-  const [openThird, setOpenThird] = useState(false);
+  const [styleFirst, setStyleFirst] = useState('standby');
+  const [styleSecond, setStyleSecond] = useState('standby');
+  const [styleThird, setStyleThird] = useState('standby');
   const [listStyle, setListStyle] = useState("standby");
   const [slideStyle, setSlideStyle] = useState("standby");
   const [contactStyle, setContactStyle] = useState("standby");
@@ -107,6 +107,7 @@ function Home() {
   const [carouselStyle, setCarouselStyle] = useState('standby');
   const [slideCourses, setSlideCourses] = useState("standby");
   const [openNthModal, setOpenNthModal] = useState([]);
+  const [modalStyle, setModalStyle] = useState('standby');
 
   // variaveis das linhas do avião
   const [isPhone, setPhone] = useState();
@@ -114,9 +115,9 @@ function Home() {
   const [isResponsive2, setResponsive2] = useState();
 
   // gambiarra do data.js
-  data[0].open = openFirst;
-  data[1].open = openSecond;
-  data[2].open = openThird;
+  data[0].open = styleFirst;
+  data[1].open = styleSecond;
+  data[2].open = styleThird;
 
   // --------------------------------- //
 
@@ -132,7 +133,7 @@ function Home() {
     if (isMobile) setPhone(true);
   }, []);
 
-  useEffect(() => console.log(openFirst), [openFirst]);
+  // useEffect(() => console.log(openFirst), [openFirst]);
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -233,6 +234,9 @@ function Home() {
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
     if (isMobile && carouselStyle === 'hide') setCarouselStyle('show');
     if (!isMobile && carouselStyle !== 'standby') setCarouselStyle('show');
+    if (!isMobile && modalStyle !== "standby") setModalStyle("hide");
+
+    if (!isMobile && quemSomosStyle !== 'standby') setQuemSomosStyle('hide');
   }
 
   function spin2(e) {
@@ -306,6 +310,13 @@ function Home() {
     }
     if (isMobile && carouselStyle !== 'hide') setCarouselStyle('hide');
     if (!isMobile && carouselStyle !== 'standby') setCarouselStyle('show');
+    if (!isMobile && modalStyle !== "show") {
+      setModalStyle("show");
+    } else {
+      setModalStyle("hide");
+    }
+
+    if (!isMobile && quemSomosStyle !== 'standby') setQuemSomosStyle('hide');
   }
 
   function spin3(e) {
@@ -359,11 +370,6 @@ function Home() {
 
     setOpenMobile(true);
 
-    //Para a animação do modal:
-    setTimeout(() => {
-      setOpenQuemSomos(true);
-    }, 1200);
-
     // controle dos modais
     if (listStyle !== "standby") setListStyle("hide");
     if (!isMobile && contactStyle !== "standby") setContactStyle("hide");
@@ -377,6 +383,12 @@ function Home() {
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
     if (isMobile && carouselStyle !== 'hide') setCarouselStyle('hide');
     if (!isMobile && carouselStyle !== 'standby') setCarouselStyle('show');
+    if (!isMobile && modalStyle !== "standby") setModalStyle("hide");
+    if (!isMobile && quemSomosStyle !== "show") {
+      setTimeout(() => setQuemSomosStyle("show"), 1000);
+    } else {
+      setQuemSomosStyle("hide");
+    }
   }
 
   function spin4(e) {
@@ -451,12 +463,14 @@ function Home() {
     } else if (!isMobile && carouselStyle === 'hide') {
       setCarouselStyle('show');
     }
+    if (!isMobile && modalStyle !== "standby") setModalStyle("hide");
+    if (!isMobile && quemSomosStyle !== 'standby') setQuemSomosStyle('hide');
   }
 
   function closeModal() {
-    setOpenFirst(false);
-    setOpenSecond(false);
-    setOpenThird(false);
+    setStyleFirst('hide');
+    setStyleSecond('hide');
+    setStyleThird('hide');
   }
 
   return (
@@ -642,9 +656,9 @@ function Home() {
         <CoursesList
           listStyle={listStyle}
           // feito estaticamente: implementar via .map igual no cursos do mobile
-          openFirst={() => setOpenFirst(true)}
-          openSecond={() => setOpenSecond(true)}
-          openThird={() => setOpenThird(true)}
+          openFirst={() => setStyleFirst('show')}
+          openSecond={() => setStyleSecond('show')}
+          openThird={() => setStyleThird('show')}
         />
       )}
 
@@ -654,7 +668,7 @@ function Home() {
           close={() => setSlideStyle("hide")}
         />
       ) : (
-        <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
+        <ModalQuemSomos styleModal={quemSomosStyle} close={() => setQuemSomosStyle('hide')} />
       )}
 
       {isMobile ? (
@@ -676,7 +690,9 @@ function Home() {
 
       {!isMobile && <Footer />}
 
-      {
+      
+
+      {/* {
         // Modais de transição DESKTOP
         !isMobile &&
           data.map((object, index) => {
@@ -684,6 +700,24 @@ function Home() {
               <AnimatedModal
                 key={index}
                 open={object.open}
+                close={closeModal}
+                title={object.title}
+                text1={object.text1}
+                text2={object.text2}
+                text3={object.text3}
+              />
+            );
+          })
+      } */}
+
+      {
+        // Modais de transição DESKTOP
+        !isMobile &&
+          data.map((object, index) => {
+            return (
+              <AnimatedModal
+                key={index}
+                styleModal={object.open}
                 close={closeModal}
                 title={object.title}
                 text1={object.text1}

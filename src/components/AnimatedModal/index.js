@@ -10,130 +10,152 @@ import {
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
 import { useStyles } from "./styles";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function AnimatedModal({ close, open, title, text1, text2, text3, videoLink }) {
+function AnimatedModal({ styleModal, close, title, text1, text2, text3, videoLink }) {
   const classes = useStyles();
+  const [cardClass, setCardClass] = useState(classes.card);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (styleModal === 'standby') {
+      setCardClass(classes.card);
+    }
+    else if (styleModal === 'show') {
+      setCardClass(classes.cardShow);
+      setOpen(true);
+    }
+    else if (styleModal === 'hide') {
+      setCardClass(classes.cardHide);
+      setOpen(false);     
+    }
+  }, [styleModal])
+
+  const handleClose = () => {
+    setCardClass(classes.cardHide);
+    setTimeout(() => {
+      close();
+    }, 1000)
+  }
 
   return (
-    <div className={classes.container}>
-      <Modal
-        open={open}
-        // onBackdropClick={() => setOpen(false)}
-        className={classes.modalBackground}
-      >
-        <Grow in={open} timeout={2500} className={classes.growContent}>
-          <Fade in={open} timeout={2500}>
-            <Card className={classes.card}>
-              <CardContent>
-                <div className={classes.cardContent}>
-                  <div className={classes.cardTitle}>
-                    <img
-                      src="/assets/Tailwind2.svg"
-                      style={{ height: "100px", fontFamily: "Roboto", flex: 2 }}
-                    />
-                    <Typography
-                      variant="h5"
-                      style={{ color: "#3467eb", fontFamily: "Roboto", flex: 10, textAlign:'center' }}
-                    >
-                      {title}
-                    </Typography>
-                    <ExpandMore
-                      onClick={close}
-                      fontSize="large"
-                      style={{ cursor: "pointer", flex: 2 }}
-                    />
-                  </div>
+    // <div className={classes.background}>
+    <Modal
+      open={open}
+      onClose={handleClose}
+      onBackdropClick={handleClose}
+    >
+      <Card className={cardClass}>
+        <CardContent className={classes.cardContentContainer}>
+          <div className={classes.cardContent}>
+            <div className={classes.cardTitle}>
+              <img
+                src="/assets/Tailwind2.svg"
+                style={{ height: "100px", width: '100px', fontFamily: "Roboto" }}
+              />
+              <Typography
+                variant="h5"
+                style={{ color: "#3467eb", fontFamily: "Roboto", flex: 10, textAlign:'center' }}
+              >
+                {title}
+              </Typography>
+              <ExpandMore
+                onClick={handleClose}
+                fontSize="large"
+                style={{ cursor: "pointer", flex: 2 }}
+              />
+            </div>
 
-                  <div className={classes.cardBody}>
-                    <Typography
-                      style={{ fontSize: "12px", fontFamily: "Roboto" }}
-                    >
-                      {text1}
-                      <br />
-                      {text2}
-                      <br />
-                      {text3}
-                    </Typography>
-                  </div>
+            <div className={classes.cardBody}>
+            <Typography
+              style={{ fontFamily: "Roboto", color: "black" }}
+              className={classes.text}
+            >
+              {text1} <br /> <br />
+              {text2} <br /> <br />
+              {text3} <br /> <br />
+            </Typography>
+            </div>
 
-                  <div className={classes.cardVideo} />
+            <div className={classes.cardVideo} />
 
-                  <div className={classes.cardPayments}>
-                    <Typography
-                      style={{
-                        fontSize: "18px",
-                        fontFamily: "Roboto",
-                        color: "#3467eb",
-                        fontWeight: 500,
-                        textAlign: 'center',
-                      }}
-                    >
-                      Formas de pagamento
-                    </Typography>
-                    <div className={classes.cardPayments2}>
-                      <div className={classes.cardPayments3}>
-                        <img src="/assets/Visa.png" alt="Forma de pagamento" />
-                        <img
-                          src="/assets/Mastercard.svg"
-                          alt="Forma de pagamento"
-                        />
-                        <img
-                          src="/assets/Paypal.png"
-                          alt="Forma de pagamento"
-                        />
-                        <img
-                          src="/assets/Samsungpay.png"
-                          alt="Forma de pagamento"
-                        />
-                        <img
-                          src="/assets/Hipercard.png"
-                          alt="Forma de pagamento"
-                        />
-                      </div>
-                      <div className={classes.cardPayments4}>
-                        <img
-                          style={{ width: "4vw", height: "4vh" }}
-                          src="/assets/Googlepay.png"
-                        />
-                        <img
-                          style={{ width: "4vw", height: "4vh" }}
-                          src="/assets/Hiper.png"
-                        />
-                        <img
-                          style={{ width: "4vw", height: "4vh" }}
-                          src="/assets/American.png"
-                        />
-                        <img
-                          style={{ width: "4vw", height: "4vh" }}
-                          src="/assets/Diners.png"
-                        />
-                        <img
-                          style={{ width: "4vw", height: "4vh" }}
-                          src="/assets/Elo.png"
-                        />
-                      </div>
-                    </div>
-                  </div>
+            <div className={classes.cardPayments}>
+              <Typography
+                style={{
+                  fontSize: "18px",
+                  fontFamily: "Roboto",
+                  color: "#3467eb",
+                  fontWeight: 500,
+                  textAlign: 'center',
+                }}
+              >
+                Formas de pagamento
+              </Typography>
+              <div className={classes.cardPayments2}>
+                <div className={classes.cardPayments3}>
+                  <img src="/assets/Visa.png" alt="Forma de pagamento" />
+                  <img
+                    src="/assets/Mastercard.svg"
+                    alt="Forma de pagamento"
+                  />
+                  <img
+                    src="/assets/Paypal.png"
+                    alt="Forma de pagamento"
+                  />
+                  <img
+                    src="/assets/Samsungpay.png"
+                    alt="Forma de pagamento"
+                  />
+                  <img
+                    src="/assets/Hipercard.png"
+                    alt="Forma de pagamento"
+                  />
                 </div>
-              </CardContent>
-
-              <CardActions>
-                <div className={classes.buttonContainer}>
-                  <Button
-                    variant="contained"
-                    className={classes.button}
-                    onClick={close}
-                  >
-                    Garanta sua vaga
-                  </Button>
+                <div className={classes.cardPayments4}>
+                  <img
+                    style={{ width: "4vw", height: "4vh" }}
+                    src="/assets/Googlepay.png"
+                  />
+                  <img
+                    style={{ width: "4vw", height: "4vh" }}
+                    src="/assets/Hiper.png"
+                  />
+                  <img
+                    style={{ width: "4vw", height: "4vh" }}
+                    src="/assets/American.png"
+                  />
+                  <img
+                    style={{ width: "4vw", height: "4vh" }}
+                    src="/assets/Diners.png"
+                  />
+                  <img
+                    style={{ width: "4vw", height: "4vh" }}
+                    src="/assets/Elo.png"
+                  />
                 </div>
-              </CardActions>
-            </Card>
-          </Fade>
-        </Grow>
-      </Modal>
-    </div>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+
+        <CardActions>
+          <div className={classes.buttonContainer}>
+            <Button
+              variant="contained"
+              className={classes.button}
+              onClick={close}
+            >
+              Garanta sua vaga
+            </Button>
+          </div>
+        </CardActions>
+      </Card>
+
+    </Modal>
+      
+
+    // </div>
+    
   );
 }
 

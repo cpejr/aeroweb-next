@@ -129,7 +129,8 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: "center",
 
     width: "100%",
-    padddingLeft: "2px !important",
+    padddingLeft: "4px !important",
+    padding: '4px !important'
   },
 
   titleSlide: {

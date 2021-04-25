@@ -32,7 +32,7 @@ function QuemSomosMobile({ slideStyle }) {
   return (
     // <div className={backdropClass}>
     <Card className={slideClass}>
-      <CardContent className={classes.cardContent} style={{ padding: "2px" }}>
+      <CardContent className={classes.cardContent} style={{ padding: "4px !important" }}>
         <div className={classes.titleSlide}>
           <Typography
             variant="h5"
