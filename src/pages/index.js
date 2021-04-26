@@ -5,10 +5,6 @@ import buttonOverride from "../theme/buttonOverride";
 import cardContentOverride from "../theme/cardContentOverride";
 import { ThemeProvider } from "@material-ui/core/styles";
 
-// imagens
-import Background1 from "../../public/assets/GradienteHome.svg";
-import Logo from "../../public/assets/Logomarca.svg";
-
 // componentes
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
@@ -57,23 +53,15 @@ function Home() {
   // variaveis da animacao
   let x1 = 90;
   let selectedComp;
-  let grad = Background1;
   const [responseSize, setResponseSize] = useState("");
   const [union, setUnion] = useState("");
-  const [title1, setTitle1] = useState("INVISTA HOJE NO SEU FUTURO");
-  const [title2, setTitle2] = useState("E DÊ ASAS AO SEU SONHO");
   const [posBackground, setPosBackground] = useState();
   const [selected, setSelected] = useState();
-  const [gradiente, setGradiente] = useState(grad);
   const [posX, setPosX] = useState("12vw");
   const [posXAngle, setPosXAngle] = useState(0);
   const [posY, setPosY] = useState("15vh");
   const [posYAngle, setPosYAngle] = useState(0);
   const [angle, setAngle] = useState(0);
-  const [colorHome, setColorHome] = useState("#100554");
-  const [colorCursos, setColorCursos] = useState("#100554");
-  const [colorQuemSomos, setColorQuemSomos] = useState("#100554");
-  const [colorContato, setColorContato] = useState("#100554");
 
   const [flying, setFlying] = useState(true);
   const animating = useRef(false);
@@ -141,8 +129,6 @@ function Home() {
     if (aux < 500) {
       setResponseSize("/assets/TAILWINDAVIATION.svg");
       setUnion("/assets/Union.svg");
-      setTitle1("");
-      setTitle2("");
     } else {
       setResponseSize("/assets/Logomarca.svg");
       setUnion("");
