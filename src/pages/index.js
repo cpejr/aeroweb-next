@@ -75,11 +75,10 @@ function Home() {
     "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
   );
   const [change, setChange] = useState(false);
-  const home = "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)";
-  const cursos = "linear-gradient(258.81deg, #78CBEE -18.81%, #0E41C5 109.84%)";
-  const quemSomos =
+  const cursosGradient = "linear-gradient(258.81deg, #78CBEE -18.81%, #0E41C5 109.84%)";
+  const quemSomosGradient =
     "linear-gradient(346.31deg, #78CBEE 16.62%, #0E41C5 99.07%)";
-  const contato = "linear-gradient(83.83deg, #78CBEE 3.06%, #0E41C5 96.88%)";
+  const contatoGradient = "linear-gradient(83.83deg, #78CBEE 3.06%, #0E41C5 96.88%)";
   const [size, setSize] = useState(null);
 
   // variaveis da animacao dos modais
@@ -135,7 +134,7 @@ function Home() {
     return responseSize;
   });
 
-  function spin1(e) {
+  function home(e) {
     //Para a animação da linha:
     setPosBackground(90);
     //Para saber em qual componente está:
@@ -184,18 +183,17 @@ function Home() {
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
   }
 
-  function spin2(e) {
+  function cursos(e) {
     //Para a animação da linha:
     setPosBackground(60);
     //Para saber em qual componente está:
     selectedComp = "CURSOS";
     setSelected(selectedComp);
     //Para a animação do gradiente:
-    setNewGradient(cursos);
+    setNewGradient(cursosGradient);
     setChange(true);
     setTimeout(() => {
-      setOldGradient(cursos);
-      console.log("cabou Cursos");
+      setOldGradient(cursosGradient);
     }, 1000);
 
     //Para a animação do avião:
@@ -243,18 +241,17 @@ function Home() {
     }
   }
 
-  function spin3(e) {
+  function quemSomos(e) {
     //Para a animação da linha:
     setPosBackground(30);
     //Para saber em qual componente está:
     selectedComp = "QUEMSOMOS";
     setSelected(selectedComp);
     //Para a animação do gradiente:
-    setNewGradient(quemSomos);
+    setNewGradient(quemSomosGradient);
     setChange(true);
     setTimeout(() => {
-      setOldGradient(quemSomos);
-      console.log("cabou quem somos");
+      setOldGradient(quemSomosGradient);
     }, 1000);
 
     //Para a animação do avião:
@@ -300,18 +297,17 @@ function Home() {
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
   }
 
-  function spin4(e) {
+  function contato(e) {
     //Para a animação da linha:
     setPosBackground(0);
     //Para saber em qual componente está:
     selectedComp = "CONTATO";
     setSelected(selectedComp);
     //Para a animação do gradiente:
-    setNewGradient(contato);
+    setNewGradient(contatoGradient);
     setChange(true);
     setTimeout(() => {
-      setOldGradient(contato);
-      console.log("cabou contato");
+      setOldGradient(contatoGradient);
     }, 1000);
 
     //Para a animação do avião:
@@ -450,7 +446,7 @@ function Home() {
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
             <p
               className={styles.name}
-              onClick={spin1}
+              onClick={home}
               style={
                 selected === "HOME"
                   ? {
@@ -467,7 +463,7 @@ function Home() {
           <div className={classes.button2} style={{ zIndex: "100" }}>
             <p
               className={styles.name}
-              onClick={spin2}
+              onClick={cursos}
               style={
                 selected === "CURSOS"
                   ? {
@@ -485,7 +481,7 @@ function Home() {
           <div className={classes.button3} style={{ zIndex: "100" }}>
             <p
               className={styles.name}
-              onClick={spin3}
+              onClick={quemSomos}
               style={
                 selected === "QUEMSOMOS"
                   ? {
@@ -502,7 +498,7 @@ function Home() {
           <div className={classes.button4} style={{ zIndex: "100" }}>
             <p
               className={styles.name}
-              onClick={spin4}
+              onClick={contato}
               style={
                 selected === "CONTATO"
                   ? {
