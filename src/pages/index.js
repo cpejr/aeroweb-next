@@ -51,15 +51,14 @@ function Home() {
   const classes = useStyles();
 
   // variaveis da animacao
-  let x1 = 90;
   let selectedComp;
   const [responseSize, setResponseSize] = useState("");
   const [union, setUnion] = useState("");
   const [posBackground, setPosBackground] = useState();
   const [selected, setSelected] = useState();
   const [posX, setPosX] = useState("12vw");
-  const [posXAngle, setPosXAngle] = useState(0);
   const [posY, setPosY] = useState("15vh");
+  const [posXAngle, setPosXAngle] = useState(0);
   const [posYAngle, setPosYAngle] = useState(0);
   const [angle, setAngle] = useState(0);
 
@@ -138,8 +137,7 @@ function Home() {
 
   function spin1(e) {
     //Para a animação da linha:
-    x1 = 90;
-    setPosBackground(x1);
+    setPosBackground(90);
     //Para saber em qual componente está:
     selectedComp = "HOME";
     setSelected(selectedComp);
@@ -188,8 +186,7 @@ function Home() {
 
   function spin2(e) {
     //Para a animação da linha:
-    x1 = 60;
-    setPosBackground(x1);
+    setPosBackground(60);
     //Para saber em qual componente está:
     selectedComp = "CURSOS";
     setSelected(selectedComp);
@@ -248,8 +245,7 @@ function Home() {
 
   function spin3(e) {
     //Para a animação da linha:
-    x1 = 30;
-    setPosBackground(x1);
+    setPosBackground(30);
     //Para saber em qual componente está:
     selectedComp = "QUEMSOMOS";
     setSelected(selectedComp);
@@ -306,8 +302,7 @@ function Home() {
 
   function spin4(e) {
     //Para a animação da linha:
-    x1 = 0;
-    setPosBackground(x1);
+    setPosBackground(0);
     //Para saber em qual componente está:
     selectedComp = "CONTATO";
     setSelected(selectedComp);
