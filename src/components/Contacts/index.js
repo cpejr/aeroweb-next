@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import emailjs from "emailjs-com";
 import isMobile from "../../pages/isMobile";
 import { useStyles } from "./styles";
 import MuiAlert from "@material-ui/lab/Alert";
@@ -14,7 +13,15 @@ import {
   Typography,
 } from "@material-ui/core";
 
+const sgMail = require('@sendgrid/mail');
+require('dotenv').config();
+
 function Contacts({ contactStyle, close }) {
+  // const SENDGRID_API_KEY = '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'
+
+  // configura sendGrid
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
   // variaveis de estilização
   const classes = useStyles();
   const [contactClass, setContactClass] = useState(classes.cardContacts);
@@ -117,38 +124,68 @@ function Contacts({ contactStyle, close }) {
     ) {
       setLoading(true);
 
+      console.log(process.env.SENDGRID_API_KEY);
+
       // envia o email
-      emailjs
-        .send(
-          serviceId,
-          templateId,
-          {
-            name: nameInput.current.value,
-            email: emailInput.current.value,
-            message: msgInput.current.value,
-          },
-          userId,
-        )
-        .then(
-          (result) => {
-            console.log(result.text);
-            setTimeout(() => {
-              setSnackbarMessage("Email enviado com sucesso!");
-              setSnackbarType("success");
-              setOpenSnackbar(true);
-              setLoading(false);
-            }, 1000);
-          },
-          (error) => {
-            console.log(error.text);
-            setTimeout(() => {
-              setSnackbarMessage("Falha no envio do email.");
-              setSnackbarType("error");
-              setOpenSnackbar(true);
-              setLoading(false);
-            }, 1000);
-          },
-        );
+      const emailData = {
+        to: emailInput.current.value,
+        from: 'raphaelleivas@gmail.com',
+        subject: 'Nova mensagem enviada pelo site Tailwind',
+        text: msgInput.current.value,
+      }
+
+      sgMail 
+        .send(emailData)
+        .then(() => {
+          console.log('email enviado com sucesso');
+          setTimeout(() => {
+            setSnackbarMessage("Email enviado com sucesso!");
+            setSnackbarType("success");
+            setOpenSnackbar(true);
+            setLoading(false);
+          }, 1000);
+        })
+        .catch(error => {
+          console.log(error.help);
+          setTimeout(() => {
+            setSnackbarMessage("Falha no envio do email.");
+            setSnackbarType("error");
+            setOpenSnackbar(true);
+            setLoading(false);
+          }, 1000);
+        })
+
+      // emailjs
+      //   .send(
+      //     serviceId,
+      //     templateId,
+      //     {
+      //       name: nameInput.current.value,
+      //       email: emailInput.current.value,
+      //       message: msgInput.current.value,
+      //     },
+      //     userId,
+      //   )
+      //   .then(
+      //     (result) => {
+      //       console.log(result.text);
+      //       setTimeout(() => {
+      //         setSnackbarMessage("Email enviado com sucesso!");
+      //         setSnackbarType("success");
+      //         setOpenSnackbar(true);
+      //         setLoading(false);
+      //       }, 1000);
+      //     },
+      //     (error) => {
+      //       console.log(error.text);
+      //       setTimeout(() => {
+      //         setSnackbarMessage("Falha no envio do email.");
+      //         setSnackbarType("error");
+      //         setOpenSnackbar(true);
+      //         setLoading(false);
+      //       }, 1000);
+      //     },
+      //   );
     }
   }
 

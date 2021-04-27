@@ -383,7 +383,7 @@ function Home() {
 
   return (
     <div className={classes.homeContainer}>
-      <InstagramCarousel />
+      {/* <InstagramCarousel /> */}
       <div className={classes.homeContainerChildren}>
         <div
           className={classes.planeContainer}
