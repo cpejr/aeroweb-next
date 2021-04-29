@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     overflow: "hidden",
+    // filter: 'blur(5px)',
   },
   homeContainerChildren: {
     width: "100%",
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     overflow: "hidden",
+    // filter: 'blur(5px)',
   },
   homeGeneral: {
     display: "flex",
@@ -35,50 +37,110 @@ const useStyles = makeStyles((theme) => ({
 
   buttonHome: {
     paddingTop: "15vh",
-    paddingLeft: "12vw",
+    paddingLeft: "18vw",
     width: "4.5",
     height: "24px",
 
-    [theme.breakpoints.down("600")]: {
-      paddingLeft: "5vw",
+    [theme.breakpoints.down("415")]: {
+      paddingTop: "30vh",
+      paddingLeft: "23vw",
+      width: "50px",
+      height: "20px",
+    },
+
+    [theme.breakpoints.between("415", "800")]: {
+      paddingTop: "20vh",
+      paddingLeft: "29vw",
+      width: "50px",
+      height: "20px",
+    },
+
+    [theme.breakpoints.between("800", "1000")]: {
+      paddingTop: "27vh",
+      paddingLeft: "20vw",
       width: "50px",
       height: "20px",
     },
   },
 
   button2: {
-    paddingTop: "30vh",
+    paddingTop: "26vh",
     marginLeft: "18vw",
     width: "4rem",
     height: "20px",
 
-    [theme.breakpoints.down("600")]: {
-      marginLeft: "18vw",
+    [theme.breakpoints.down("415")]: {
+      paddingTop: "39vh",
+      marginLeft: "20vw",
+      width: "50px",
+      height: undefined,
+    },
+
+    [theme.breakpoints.between("415", "800")]: {
+      paddingTop: "35vh",
+      marginLeft: "16vw",
+      width: "50px",
+      height: undefined,
+    },
+
+    [theme.breakpoints.between("800", "1000")]: {
+      paddingTop: "33vh",
+      marginLeft: "20vw",
       width: "50px",
       height: "20px",
       marginLeft: "15vw",
     },
   },
   button3: {
-    paddingTop: "48vh",
-    marginLeft: "17vw",
-    width: "4rem",
+    paddingTop: "53vh",
+    marginLeft: "11vw",
+    width: "8rem",
     height: "20px",
-    [theme.breakpoints.down("600")]: {
-      marginLeft: "5vw",
-      width: "50px",
+    [theme.breakpoints.down("415")]: {
+      paddingTop: "51vh",
+      marginLeft: "0vw",
+      width: "60px",
+      height: "20px",
+    },
+
+    [theme.breakpoints.between("415", "800")]: {
+      paddingTop: "51vh",
+      marginLeft: "0vw",
+      width: "60px",
+      height: "20px",
+    },
+
+    [theme.breakpoints.between("800", "1000")]: {
+      paddingTop: "50vh",
+      marginLeft: "12vw",
+      width: "8rem",
       height: "20px",
       marginLeft: "14vw",
     },
   },
   button4: {
-    paddingTop: "68vh",
-    marginLeft: "28vw",
+    paddingTop: "70vh",
+    marginLeft: "8vw",
 
     width: "5.5rem",
     height: "22px",
-    [theme.breakpoints.down("1050")]: {
-      marginLeft: "5vw",
+    [theme.breakpoints.down("415")]: {
+      paddingTop: "65vh",
+      marginLeft: "0vw",
+      width: "50px",
+      height: "20px",
+    },
+
+    [theme.breakpoints.between("415", "800")]: {
+      paddingTop: "70vh",
+      marginLeft: "1vw",
+      width: "50px",
+      height: "20px",
+    },
+
+    [theme.breakpoints.between("800", "1000")]: {
+      paddingTop: "62vh",
+      marginLeft: "1vw",
       width: "50px",
       height: "20px",
     },

@@ -158,13 +158,13 @@ function Contacts({ contactStyle, close }) {
         <div className={classes.titleContacts}>
           <img
             src="/assets/Tailwind3.svg"
-            style={{ height: "75px", fontFamily: "Roboto" }}
+            style={{ height: "75px", fontFamily: "Roboto"}}
           ></img>
-          <Typography variant="h5" style={{ color: "white" }}>
+          <Typography variant="h5" style={{ color: "white", textAlign: 'center' }}>
             Mande sua mensagem
           </Typography>
           <Clear
-            fontSize="large"
+            className={classes.icon}
             style={{ color: "white", cursor: "pointer" }}
             onClick={close}
           />

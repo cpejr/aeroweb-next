@@ -20,6 +20,7 @@ import data from "../../public/data";
 
 import { NextSeo } from "next-seo";
 import InstagramCarousel from "../components/InstagramCarousel";
+import { SettingsPhone } from "@material-ui/icons";
 
 function Home() {
   <>
@@ -56,9 +57,10 @@ function Home() {
   const [union, setUnion] = useState("");
   const [posBackground, setPosBackground] = useState();
   const [selected, setSelected] = useState();
-  const [posX, setPosX] = useState("12vw");
-  const [posY, setPosY] = useState("15vh");
+  const [gradiente, setGradiente] = useState(grad);
+  const [posX, setPosX] = useState("18vw");
   const [posXAngle, setPosXAngle] = useState(0);
+  const [posY, setPosY] = useState("22vh");
   const [posYAngle, setPosYAngle] = useState(0);
   const [angle, setAngle] = useState(0);
 
@@ -66,7 +68,7 @@ function Home() {
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
   const [open, setOpen] = useState(false);
-  const [openQuemSomos, setOpenQuemSomos] = useState(false);
+  const [quemSomosStyle, setQuemSomosStyle] = useState('standby');
   const [openMobile, setOpenMobile] = useState(false);
 
   // Parâmetros para o novo gradiente:
@@ -82,20 +84,27 @@ function Home() {
   const [size, setSize] = useState(null);
 
   // variaveis da animacao dos modais
-  const [openFirst, setOpenFirst] = useState(false);
-  const [openSecond, setOpenSecond] = useState(false);
-  const [openThird, setOpenThird] = useState(false);
+  const [styleFirst, setStyleFirst] = useState('standby');
+  const [styleSecond, setStyleSecond] = useState('standby');
+  const [styleThird, setStyleThird] = useState('standby');
   const [listStyle, setListStyle] = useState("standby");
   const [slideStyle, setSlideStyle] = useState("standby");
   const [contactStyle, setContactStyle] = useState("standby");
   const [contactMobileStyle, setContactMobileStyle] = useState("standby");
+  const [carouselStyle, setCarouselStyle] = useState('standby');
   const [slideCourses, setSlideCourses] = useState("standby");
   const [openNthModal, setOpenNthModal] = useState([]);
+  const [modalStyle, setModalStyle] = useState('standby');
+
+  // variaveis das linhas do avião
+  const [isPhone, setPhone] = useState();
+  const [isResponsive1, setResponsive1] = useState();
+  const [isResponsive2, setResponsive2] = useState();
 
   // gambiarra do data.js
-  data[0].open = openFirst;
-  data[1].open = openSecond;
-  data[2].open = openThird;
+  data[0].open = styleFirst;
+  data[1].open = styleSecond;
+  data[2].open = styleThird;
 
   // --------------------------------- //
 
@@ -107,9 +116,11 @@ function Home() {
     }
 
     setOpenNthModal(auxArray);
+
+    if (isMobile) setPhone(true);
   }, []);
 
-  useEffect(() => console.log(openFirst), [openFirst]);
+  // useEffect(() => console.log(openFirst), [openFirst]);
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -121,6 +132,19 @@ function Home() {
   useEffect(() => {
     setSize(windowSize());
   });
+
+  useEffect(()=>{
+    const checkDisplay = () =>{
+        setPhone(window.matchMedia("(max-width: 415px)").matches);
+        setResponsive1(window.matchMedia("(max-width: 800px)").matches);
+        setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
+    }
+
+    window.addEventListener('resize',checkDisplay);
+    return () => {
+        window.removeEventListener('resize',checkDisplay);
+    }
+  }, [isPhone], [isResponsive1], [isResponsive2])
 
   useEffect(() => {
     var aux = window.innerWidth;
@@ -169,8 +193,19 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("12vw");
-    setPosY("15vh");
+    if(isPhone){
+      setPosX("20vw");
+      setPosY("37vh");      
+    }else if(isResponsive1){
+      setPosX("26vw");
+      setPosY("26vh"); 
+    }else if(isResponsive2){
+      setPosX("18vw");
+      setPosY("33vh");
+    }else{
+      setPosX("18vw");
+      setPosY("22vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -181,6 +216,11 @@ function Home() {
     if (isMobile && contactMobileStyle !== "standby")
       setContactMobileStyle("hide");
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
+    if (isMobile && carouselStyle === 'hide') setCarouselStyle('show');
+    if (!isMobile && carouselStyle !== 'standby') setCarouselStyle('show');
+    if (!isMobile && modalStyle !== "standby") setModalStyle("hide");
+
+    if (!isMobile && quemSomosStyle !== 'standby') setQuemSomosStyle('hide');
   }
 
   function cursos(e) {
@@ -214,8 +254,19 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("33vw");
-    setPosY("30vh");
+    if(isPhone){
+      setPosX("40vw");
+      setPosY("45vh");      
+    }else if(isResponsive1){
+      setPosX("42vw");
+      setPosY("41vh");
+    }else if(isResponsive2){
+      setPosX("39vw");
+      setPosY("39vh"); 
+    }else{
+      setPosX("39vw");
+      setPosY("31vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -239,6 +290,15 @@ function Home() {
     } else {
       setSlideCourses("hide");
     }
+    if (isMobile && carouselStyle !== 'hide') setCarouselStyle('hide');
+    if (!isMobile && carouselStyle !== 'standby') setCarouselStyle('show');
+    if (!isMobile && modalStyle !== "show") {
+      setModalStyle("show");
+    } else {
+      setModalStyle("hide");
+    }
+
+    if (!isMobile && quemSomosStyle !== 'standby') setQuemSomosStyle('hide');
   }
 
   function quemSomos(e) {
@@ -272,17 +332,23 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("55vw");
-    setPosY("48vh");
+    if(isPhone){
+      setPosX("49vw");
+      setPosY("57vh"); 
+    }else if(isResponsive1){
+      setPosX("47vw");
+      setPosY("60vh");
+    }else if(isResponsive2){
+      setPosX("55vw");
+      setPosY("57vh");     
+    }else{
+      setPosX("55vw");
+      setPosY("59vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
     setOpenMobile(true);
-
-    //Para a animação do modal:
-    setTimeout(() => {
-      setOpenQuemSomos(true);
-    }, 1200);
 
     // controle dos modais
     if (listStyle !== "standby") setListStyle("hide");
@@ -295,6 +361,14 @@ function Home() {
       setSlideStyle("hide");
     }
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
+    if (isMobile && carouselStyle !== 'hide') setCarouselStyle('hide');
+    if (!isMobile && carouselStyle !== 'standby') setCarouselStyle('show');
+    if (!isMobile && modalStyle !== "standby") setModalStyle("hide");
+    if (!isMobile && quemSomosStyle !== "show") {
+      setTimeout(() => setQuemSomosStyle("show"), 1000);
+    } else {
+      setQuemSomosStyle("hide");
+    }
   }
 
   function contato(e) {
@@ -328,8 +402,19 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("85vw");
-    setPosY("68vh");
+    if(isPhone){
+      setPosX("69vw");
+      setPosY("70vh");
+    }else if(isResponsive1){
+      setPosX("60vw");
+      setPosY("80vh");
+    }else if(isResponsive2){
+      setPosX("71vw");
+      setPosY("68vh");    
+    }else{
+      setPosX("71vw");
+      setPosY("76vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -350,17 +435,25 @@ function Home() {
       setContactMobileStyle("hide");
     }
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
+    if (isMobile && carouselStyle !== 'hide') setCarouselStyle('hide');
+    if (!isMobile && carouselStyle === 'show' || carouselStyle === 'standby') {
+      setCarouselStyle('hide');
+    } else if (!isMobile && carouselStyle === 'hide') {
+      setCarouselStyle('show');
+    }
+    if (!isMobile && modalStyle !== "standby") setModalStyle("hide");
+    if (!isMobile && quemSomosStyle !== 'standby') setQuemSomosStyle('hide');
   }
 
   function closeModal() {
-    setOpenFirst(false);
-    setOpenSecond(false);
-    setOpenThird(false);
+    setStyleFirst('hide');
+    setStyleSecond('hide');
+    setStyleThird('hide');
   }
 
   return (
     <div className={classes.homeContainer}>
-      <InstagramCarousel />
+      <InstagramCarousel carouselStyle={carouselStyle} /> 
       <div className={classes.homeContainerChildren}>
         <div
           className={classes.planeContainer}
@@ -399,22 +492,30 @@ function Home() {
             }}
             style={{ backgroundImage: newGradient }}
           ></div>
-          <div
-            className={classes.planeContainer}
-            style={{
-              position: "absolute",
-              left: "4vw",
-              top: "65vh",
-              margin: "0",
-              transformOrigin: "center",
-              width: "38vw",
-              zIndex: "200",
-              color: "#fff",
-            }}
-          >
-            <h1 className={classes.footerTitle1}>INVISTA HOJE NO SEU FUTURO</h1>
-            <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
-          </div>
+            <div
+              className={classes.planeContainer}
+              style={{
+                position: "absolute",
+                left: "4vw",
+                top: "65vh",
+                margin: "0",
+                transformOrigin: "center",
+                width: "38vw",
+                zIndex: "200",
+                color: "#fff",
+              }}
+            >
+              {
+                !isMobile && (
+                  <>
+                    <h1 className={classes.footerTitle1}>INVISTA HOJE NO SEU FUTURO</h1>
+                    <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
+                  </>
+                )
+              }
+             
+            </div>
+          
           <div
             className={classes.homeContainerChildren}
             style={{
@@ -441,6 +542,11 @@ function Home() {
             }}
           >
             <img className={styles.logo} src={responseSize}></img>
+          </div>
+
+          <div className={classes.rotaContainer} style={{position: 'absolute', zIndex: '90'}}>
+            {(isPhone || isResponsive1)? <img src="/assets/RotaMobile.svg" style={{height: '75vh', width: '83vw', marginTop: '15vh'}}/>:
+            <img src="/assets/RotaDesktop.svg" style={{height: '75vh', width: '83vw', marginTop: '15vh'}}/>}
           </div>
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
@@ -528,9 +634,9 @@ function Home() {
         <CoursesList
           listStyle={listStyle}
           // feito estaticamente: implementar via .map igual no cursos do mobile
-          openFirst={() => setOpenFirst(true)}
-          openSecond={() => setOpenSecond(true)}
-          openThird={() => setOpenThird(true)}
+          openFirst={() => setStyleFirst('show')}
+          openSecond={() => setStyleSecond('show')}
+          openThird={() => setStyleThird('show')}
         />
       )}
 
@@ -540,7 +646,7 @@ function Home() {
           close={() => setSlideStyle("hide")}
         />
       ) : (
-        <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
+        <ModalQuemSomos styleModal={quemSomosStyle} close={() => setQuemSomosStyle('hide')} />
       )}
 
       {isMobile ? (
@@ -553,11 +659,34 @@ function Home() {
       ) : (
         <Contacts
           contactStyle={contactStyle}
-          close={() => setContactStyle("hide")}
+          close={() => {
+            setContactStyle("hide");
+            setCarouselStyle('show');
+          }}
         />
       )}
 
       {!isMobile && <Footer />}
+
+      
+
+      {/* {
+        // Modais de transição DESKTOP
+        !isMobile &&
+          data.map((object, index) => {
+            return (
+              <AnimatedModal
+                key={index}
+                open={object.open}
+                close={closeModal}
+                title={object.title}
+                text1={object.text1}
+                text2={object.text2}
+                text3={object.text3}
+              />
+            );
+          })
+      } */}
 
       {
         // Modais de transição DESKTOP
@@ -566,7 +695,7 @@ function Home() {
             return (
               <AnimatedModal
                 key={index}
-                open={object.open}
+                styleModal={object.open}
                 close={closeModal}
                 title={object.title}
                 text1={object.text1}

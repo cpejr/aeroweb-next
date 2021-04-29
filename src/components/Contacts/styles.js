@@ -5,21 +5,21 @@ export const useStyles = makeStyles((theme) => ({
     maxWidth: "50vw",
     height: "auto",
 
-    position: "relative",
+    position: "absolute",
     left: "25vw",
-    top: "25vh",
+    top: "30vh",
 
     opacity: "0%",
     display: "none",
   },
 
   cardContactsShow: {
-    maxWidth: "50vw",
+    width: "50vw",
     height: "auto",
 
-    position: "relative",
+    position: "absolute",
     left: "25vw",
-    top: "25vh",
+    top: "30vh",
 
     backgroundColor: "#0E41C5",
 
@@ -27,12 +27,12 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   cardContactsHide: {
-    maxWidth: "50vw",
+    width: "50vw",
     height: "auto",
 
-    position: "relative",
+    position: "absolute",
     left: "25vw",
-    top: "25vh",
+    top: "30vh",
 
     backgroundColor: "#0E41C5",
 
@@ -45,6 +45,8 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+
+    paddingTop: '4px',
   },
 
   titleContacts: {
@@ -54,6 +56,10 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: "center",
 
     width: "100%",
+  },
+
+  icon: {
+    minWidth: '75px',
   },
 
   buttonContacts: {
