@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
-  cardContacts: {
+  card: {
     maxWidth: "50vw",
     height: "auto",
 
@@ -13,7 +13,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "none",
   },
 
-  cardContactsShow: {
+  cardShow: {
     width: "50vw",
     height: "auto",
 
@@ -23,10 +23,10 @@ export const useStyles = makeStyles((theme) => ({
 
     backgroundColor: "#0E41C5",
 
-    animation: "$showContacts 1000ms linear forwards",
+    animation: "$showCard 1000ms linear forwards",
   },
 
-  cardContactsHide: {
+  cardHide: {
     width: "50vw",
     height: "auto",
 
@@ -36,10 +36,10 @@ export const useStyles = makeStyles((theme) => ({
 
     backgroundColor: "#0E41C5",
 
-    animation: "$hideContacts 1000ms linear forwards",
+    animation: "$hideCard 1000ms linear forwards",
   },
 
-  cardContentContacts: {
+  cardContent: {
     width: "100%",
 
     display: "flex",
@@ -49,7 +49,7 @@ export const useStyles = makeStyles((theme) => ({
     paddingTop: '4px',
   },
 
-  titleContacts: {
+  title: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -62,7 +62,7 @@ export const useStyles = makeStyles((theme) => ({
     minWidth: '75px',
   },
 
-  buttonContacts: {
+  button: {
     marginTop: "16px",
     backgroundColor: "white",
     transition: "background-color 0.2s",
@@ -84,7 +84,6 @@ export const useStyles = makeStyles((theme) => ({
 
   textfieldMsg: {
     color: "white",
-    // height: 24,
   },
 
   textfieldFont: {
@@ -107,7 +106,7 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
 
-  "@keyframes showContacts": {
+  "@keyframes showCard": {
     "0%": {
       opacity: "0%",
     },
@@ -116,13 +115,9 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
 
-  "@keyframes hideContacts": {
+  "@keyframes hideCard": {
     "0%": {
       opacity: "100%",
-      height: "auto",
-    },
-    "50%": {
-      opacity: "50%",
       height: "auto",
     },
     "95%": {

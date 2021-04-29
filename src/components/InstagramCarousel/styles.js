@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
-  carouselCard: {
+  card: {
     // posição
     position: "absolute",
     left: "62.50vw",
@@ -27,7 +27,7 @@ export const useStyles = makeStyles((theme) => ({
     padding: "4px !important",
   },
 
-  carouselCardShow: {
+  cardShow: {
     // posição
     position: "absolute",
     left: "62.50vw",
@@ -56,7 +56,7 @@ export const useStyles = makeStyles((theme) => ({
     animation: "$showCarousel 1000ms linear forwards",
   },
 
-  carouselCardHide: {
+  cardHide: {
     // posição
     position: "absolute",
     left: "62.50vw",

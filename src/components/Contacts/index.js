@@ -14,10 +14,10 @@ import {
   Typography,
 } from "@material-ui/core";
 
-function Contacts({ contactStyle, close }) {
+function Contacts({ animationControl, close }) {
   // variaveis de estilização
   const classes = useStyles();
-  const [contactClass, setContactClass] = useState(classes.cardContacts);
+  const [contactsClass, setContactsClass] = useState(classes.card);
 
   // variaveis de configuração do emailJs
   const serviceId = "service_p5jlw0d";
@@ -44,10 +44,10 @@ function Contacts({ contactStyle, close }) {
   const [errorMsgMessage, setErrorMsgMessage] = useState("");
 
   useEffect(() => {
-    if (contactStyle === "standby") setContactClass(classes.cardContacts);
-    else if (contactStyle === "show") setContactClass(classes.cardContactsShow);
-    else if (contactStyle === "hide") {
-      setContactClass(classes.cardContactsHide);
+    if (animationControl === "standby") setContactsClass(classes.card);
+    else if (animationControl === "show") setContactsClass(classes.cardShow);
+    else if (animationControl === "hide") {
+      setContactsClass(classes.cardHide);
 
       // reseta os campos todos
       setErrorName(false);
@@ -57,7 +57,7 @@ function Contacts({ contactStyle, close }) {
       setErrorMsg(false);
       setErrorMsgMessage("");
     }
-  }, [contactStyle]);
+  }, [animationControl]);
 
   // função de validação
   function validateInput(type, value) {
@@ -153,9 +153,9 @@ function Contacts({ contactStyle, close }) {
   }
 
   return (
-    <Card style={{ zIndex: "200" }} className={contactClass}>
-      <CardContent className={classes.cardContentContacts}>
-        <div className={classes.titleContacts}>
+    <Card style={{ zIndex: "200" }} className={contactsClass}>
+      <CardContent className={classes.cardContent}>
+        <div className={classes.title}>
           <img
             src="/assets/Tailwind3.svg"
             style={{ height: "75px", fontFamily: "Roboto"}}
@@ -260,7 +260,7 @@ function Contacts({ contactStyle, close }) {
 
         <Button
           variant="outlined"
-          className={classes.buttonContacts}
+          className={classes.button}
           onClick={() => handleSend()}
         >
           {loading ? (

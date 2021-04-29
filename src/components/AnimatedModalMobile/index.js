@@ -40,8 +40,6 @@ function AnimatedModalMobile({
     }
   }, [openNthModal]);
 
-  useEffect(() => console.log(slideClass), [slideClass]);
-
   if (!openNthModalIndex && slideClass !== undefined) {
     // só renderiza se clicou no botão correspondente
     return null;

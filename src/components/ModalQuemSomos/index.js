@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+import { useStyles } from "./styles";
 import {
   Button,
   Modal,
@@ -8,35 +10,28 @@ import {
   CardActions,
   Typography,
 } from "@material-ui/core";
-import { ExpandMore } from "@material-ui/icons";
-import { useStyles } from "./styles";
-import React, { useState, useEffect } from "react";
 
-function ModalQuemSomos({ styleModal, close }) {
+function ModalQuemSomos({ animationControl, close }) {
   const classes = useStyles();
-  const [cardClass, setCardClass] = useState(classes.card);
+  const [quemSomosClass, setQuemSomosClass] = useState(classes.card);
   const [open, setOpen] = useState(false);
-  const [imgWidth, setImgWidth] = useState(0);
 
   useEffect(() => {
-    if (styleModal === 'standby') {
-      setCardClass(classes.card);
+    if (animationControl === 'standby') {
+      setQuemSomosClass(classes.card);
     }
-    else if (styleModal === 'show') {
-      setCardClass(classes.cardShow);
+    else if (animationControl === 'show') {
+      setQuemSomosClass(classes.cardShow);
       setOpen(true);
-
-      setImgWidth(0)
-      setTimeout(() => setImgWidth(100), 1000);
     }
-    else if (styleModal === 'hide') {
-      setCardClass(classes.cardHide);
+    else if (animationControl === 'hide') {
+      setQuemSomosClass(classes.cardHide);
       setOpen(false);     
     }
-  }, [styleModal])
+  }, [animationControl])
 
   const handleClose = () => {
-    setCardClass(classes.cardHide);
+    setQuemSomosClass(classes.cardHide);
     setTimeout(() => {
       close();
     }, 1000)
@@ -48,7 +43,7 @@ function ModalQuemSomos({ styleModal, close }) {
       onClose={handleClose}
       onBackdropClick={handleClose}
     >
-      <Card className={cardClass}>
+      <Card className={quemSomosClass}>
         <CardContent>
           <div className={classes.cardContent}>
             <div className={classes.cardTitle}>
@@ -57,7 +52,6 @@ function ModalQuemSomos({ styleModal, close }) {
                 style={{ width: '100px', fontFamily: "Roboto", transition: 'width 0.5s', objectFit: 'cover' }}
               ></img>
               <Typography
-                className={classes.Title}
                 style={{ color: "white", fontSize: '24px', fontWeight: 400, flex: 10, textAlign: 'center' }}
               >
                 <b>Nossa História</b>

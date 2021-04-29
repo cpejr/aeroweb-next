@@ -109,10 +109,6 @@ export const useStyles = makeStyles((theme) => ({
     marginBottom: 16,
   },
 
-  Title: {
-    // marginRight: "2.5vw",
-  },
-
   text: {
     fontSize: "13x",
     lineHeight: "20px",

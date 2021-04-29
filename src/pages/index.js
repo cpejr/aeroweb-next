@@ -1,4 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
+import isMobile from "./isMobile"; // usa para ver se é mobile ou não
+import data from "../../public/data";
+
+// estilização
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
 import buttonOverride from "../theme/buttonOverride";
@@ -15,11 +19,9 @@ import ModalQuemSomos from "../components/ModalQuemSomos";
 import QuemSomosMobile from "../components/QuemSomosMobile";
 import CoursesList from "../components/CoursesList";
 import CoursesMobile from "../components/CoursesMobile";
-import isMobile from "./isMobile"; // usa para ver se é mobile ou não
-import data from "../../public/data";
+import InstagramCarousel from "../components/InstagramCarousel";
 
 import { NextSeo } from "next-seo";
-import InstagramCarousel from "../components/InstagramCarousel";
 import { SettingsPhone } from "@material-ui/icons";
 
 function Home() {
@@ -49,6 +51,7 @@ function Home() {
       }}
     />
   </>;
+
   const classes = useStyles();
 
   // variaveis da animacao
@@ -57,7 +60,6 @@ function Home() {
   const [union, setUnion] = useState("");
   const [posBackground, setPosBackground] = useState();
   const [selected, setSelected] = useState();
-  const [gradiente, setGradiente] = useState(grad);
   const [posX, setPosX] = useState("18vw");
   const [posXAngle, setPosXAngle] = useState(0);
   const [posY, setPosY] = useState("22vh");
@@ -68,7 +70,7 @@ function Home() {
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
   const [open, setOpen] = useState(false);
-  const [quemSomosStyle, setQuemSomosStyle] = useState('standby');
+  const [quemSomosControl, setQuemSomosControl] = useState('standby');
   const [openMobile, setOpenMobile] = useState(false);
 
   // Parâmetros para o novo gradiente:
@@ -88,10 +90,10 @@ function Home() {
   const [styleSecond, setStyleSecond] = useState('standby');
   const [styleThird, setStyleThird] = useState('standby');
   const [listStyle, setListStyle] = useState("standby");
-  const [slideStyle, setSlideStyle] = useState("standby");
-  const [contactStyle, setContactStyle] = useState("standby");
-  const [contactMobileStyle, setContactMobileStyle] = useState("standby");
-  const [carouselStyle, setCarouselStyle] = useState('standby');
+  const [quemSomosMobileControl, setQuemSomosMobileControl] = useState("standby");
+  const [contactsControl, setContactsControl] = useState("standby");
+  const [contactsMobileControl, setContactsMobileControl] = useState("standby");
+  const [carouselControl, setCarouselControl] = useState('standby');
   const [slideCourses, setSlideCourses] = useState("standby");
   const [openNthModal, setOpenNthModal] = useState([]);
   const [modalStyle, setModalStyle] = useState('standby');
@@ -119,8 +121,6 @@ function Home() {
 
     if (isMobile) setPhone(true);
   }, []);
-
-  // useEffect(() => console.log(openFirst), [openFirst]);
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -211,16 +211,16 @@ function Home() {
 
     // controla dos modais
     if (listStyle !== "standby") setListStyle("hide");
-    if (!isMobile && contactStyle !== "standby") setContactStyle("hide");
-    if (isMobile && slideStyle !== "standby") setSlideStyle("hide");
-    if (isMobile && contactMobileStyle !== "standby")
-      setContactMobileStyle("hide");
+    if (!isMobile && contactsControl !== "standby") setContactsControl("hide");
+    if (isMobile && quemSomosMobileControl !== "standby") setQuemSomosMobileControl("hide");
+    if (isMobile && contactsMobileControl !== "standby")
+      setContactsMobileControl("hide");
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
-    if (isMobile && carouselStyle === 'hide') setCarouselStyle('show');
-    if (!isMobile && carouselStyle !== 'standby') setCarouselStyle('show');
+    if (isMobile && carouselControl === 'hide') setCarouselControl('show');
+    if (!isMobile && carouselControl !== 'standby') setCarouselControl('show');
     if (!isMobile && modalStyle !== "standby") setModalStyle("hide");
 
-    if (!isMobile && quemSomosStyle !== 'standby') setQuemSomosStyle('hide');
+    if (!isMobile && quemSomosControl !== 'standby') setQuemSomosControl('hide');
   }
 
   function cursos(e) {
@@ -270,16 +270,17 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
+
     //Para a animação do modalQuemSomos:
     setTimeout(() => {
       setOpen(true);
     }, 1200);
 
     // controle dos modais
-    if (!isMobile && contactStyle !== "standby") setContactStyle("hide");
-    if (isMobile && contactMobileStyle !== "standby")
-      setContactMobileStyle("hide");
-    if (isMobile && slideStyle !== "standby") setSlideStyle("hide");
+    if (!isMobile && contactsControl !== "standby") setContactsControl("hide");
+    if (isMobile && contactsMobileControl !== "standby")
+      setContactsMobileControl("hide");
+    if (isMobile && quemSomosMobileControl !== "standby") setQuemSomosMobileControl("hide");
     if (listStyle === "standby" || listStyle === "hide") {
       setListStyle("show");
     } else {
@@ -290,15 +291,15 @@ function Home() {
     } else {
       setSlideCourses("hide");
     }
-    if (isMobile && carouselStyle !== 'hide') setCarouselStyle('hide');
-    if (!isMobile && carouselStyle !== 'standby') setCarouselStyle('show');
+    if (isMobile && carouselControl !== 'hide') setCarouselControl('hide');
+    if (!isMobile && carouselControl !== 'standby') setCarouselControl('show');
     if (!isMobile && modalStyle !== "show") {
       setModalStyle("show");
     } else {
       setModalStyle("hide");
     }
 
-    if (!isMobile && quemSomosStyle !== 'standby') setQuemSomosStyle('hide');
+    if (!isMobile && quemSomosControl !== 'standby') setQuemSomosControl('hide');
   }
 
   function quemSomos(e) {
@@ -352,22 +353,22 @@ function Home() {
 
     // controle dos modais
     if (listStyle !== "standby") setListStyle("hide");
-    if (!isMobile && contactStyle !== "standby") setContactStyle("hide");
-    if (isMobile && contactMobileStyle !== "standby")
-      setContactMobileStyle("hide");
-    if (isMobile && slideStyle !== "show") {
-      setSlideStyle("show");
+    if (!isMobile && contactsControl !== "standby") setContactsControl("hide");
+    if (isMobile && contactsMobileControl !== "standby")
+      setContactsMobileControl("hide");
+    if (isMobile && quemSomosMobileControl !== "show") {
+      setQuemSomosMobileControl("show");
     } else {
-      setSlideStyle("hide");
+      setQuemSomosMobileControl("hide");
     }
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
-    if (isMobile && carouselStyle !== 'hide') setCarouselStyle('hide');
-    if (!isMobile && carouselStyle !== 'standby') setCarouselStyle('show');
+    if (isMobile && carouselControl !== 'hide') setCarouselControl('hide');
+    if (!isMobile && carouselControl !== 'standby') setCarouselControl('show');
     if (!isMobile && modalStyle !== "standby") setModalStyle("hide");
-    if (!isMobile && quemSomosStyle !== "show") {
-      setTimeout(() => setQuemSomosStyle("show"), 1000);
+    if (!isMobile && quemSomosControl !== "show") {
+      setTimeout(() => setQuemSomosControl("show"), 1000);
     } else {
-      setQuemSomosStyle("hide");
+      setQuemSomosControl("hide");
     }
   }
 
@@ -420,29 +421,29 @@ function Home() {
 
     // controle dos modais
     if (listStyle !== "standby") setListStyle("hide");
-    if (isMobile && slideStyle !== "standby") setSlideStyle("hide");
-    if ((!isMobile && contactStyle === "standby") || contactStyle === "hide") {
-      setContactStyle("show");
+    if (isMobile && quemSomosMobileControl !== "standby") setQuemSomosMobileControl("hide");
+    if ((!isMobile && contactsControl === "standby") || contactsControl === "hide") {
+      setContactsControl("show");
     } else {
-      setContactStyle("hide");
+      setContactsControl("hide");
     }
     if (
-      (isMobile && contactMobileStyle === "standby") ||
-      contactMobileStyle === "hide"
+      (isMobile && contactsMobileControl === "standby") ||
+      contactsMobileControl === "hide"
     ) {
-      setContactMobileStyle("show");
+      setContactsMobileControl("show");
     } else {
-      setContactMobileStyle("hide");
+      setContactsMobileControl("hide");
     }
     if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
-    if (isMobile && carouselStyle !== 'hide') setCarouselStyle('hide');
-    if (!isMobile && carouselStyle === 'show' || carouselStyle === 'standby') {
-      setCarouselStyle('hide');
-    } else if (!isMobile && carouselStyle === 'hide') {
-      setCarouselStyle('show');
+    if (isMobile && carouselControl !== 'hide') setCarouselControl('hide');
+    if (!isMobile && carouselControl === 'show' || carouselControl === 'standby') {
+      setCarouselControl('hide');
+    } else if (!isMobile && carouselControl === 'hide') {
+      setCarouselControl('show');
     }
     if (!isMobile && modalStyle !== "standby") setModalStyle("hide");
-    if (!isMobile && quemSomosStyle !== 'standby') setQuemSomosStyle('hide');
+    if (!isMobile && quemSomosControl !== 'standby') setQuemSomosControl('hide');
   }
 
   function closeModal() {
@@ -453,7 +454,6 @@ function Home() {
 
   return (
     <div className={classes.homeContainer}>
-      <InstagramCarousel carouselStyle={carouselStyle} /> 
       <div className={classes.homeContainerChildren}>
         <div
           className={classes.planeContainer}
@@ -621,6 +621,8 @@ function Home() {
         </div>
       </div>
 
+      <InstagramCarousel animationControl={carouselControl} /> 
+
       {isMobile ? (
         <ThemeProvider theme={cardContentOverride}>
           <CoursesMobile
@@ -641,27 +643,31 @@ function Home() {
       )}
 
       {isMobile ? (
+        
         <QuemSomosMobile
-          slideStyle={slideStyle}
-          close={() => setSlideStyle("hide")}
+          animationControl={quemSomosMobileControl}
+          close={ () => setQuemSomosMobileControl("hide") }
         />
       ) : (
-        <ModalQuemSomos styleModal={quemSomosStyle} close={() => setQuemSomosStyle('hide')} />
+        <ModalQuemSomos 
+          animationControl={quemSomosControl} 
+          close={() => setQuemSomosControl('hide')} 
+        />
       )}
 
       {isMobile ? (
         <ThemeProvider theme={buttonOverride}>
           <ContactsMobile
-            contactMobileStyle={contactMobileStyle}
-            close={() => setContactMobileStyle("hide")}
+            animationControl={contactsMobileControl}
+            close={() => setContactsMobileControl("hide")}
           />
         </ThemeProvider>
       ) : (
         <Contacts
-          contactStyle={contactStyle}
+          animationControl={contactsControl}
           close={() => {
-            setContactStyle("hide");
-            setCarouselStyle('show');
+            setContactsControl("hide");
+            setCarouselControl('show');
           }}
         />
       )}

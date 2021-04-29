@@ -27,7 +27,6 @@ function CoursesMobile({
       setSlideClass(classes.cardButtonsFadeIn);
     else if (slideCourses === "fadeOut")
       setSlideClass(classes.cardButtonsFadeOut);
-    // console.log(listStyle)
   }, [slideCourses]);
 
   return (

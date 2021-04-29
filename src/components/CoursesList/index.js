@@ -23,7 +23,6 @@ function CoursesList({
     if (listStyle === "standby") setListClass(classes.cardButtons);
     else if (listStyle === "hide") setListClass(classes.cardButtonsUp);
     else if (listStyle === "show") setListClass(classes.cardButtonsDown);
-    // console.log(listStyle)
   }, [listStyle]);
 
   return (

@@ -22,17 +22,16 @@ function Item(props) {
   );
 }
 
-function InstagramCarousel({ carouselStyle }) {
+function InstagramCarousel({ animationControl }) {
   const classes = useStyles();
-  const [carouselClass, setCarouselClass] = useState(classes.carouselCard);
+  const [carouselClass, setCarouselClass] = useState(classes.card);
 
   useEffect(() => {
-    if (carouselStyle === 'standby') setCarouselClass(classes.carouselCard);
-    if (carouselStyle === 'show') setCarouselClass(classes.carouselCardShow);
-    if (carouselStyle === 'hide') setCarouselClass(classes.carouselCardHide);
+    if (animationControl === 'standby') setCarouselClass(classes.card);
+    if (animationControl === 'show') setCarouselClass(classes.cardShow);
+    if (animationControl === 'hide') setCarouselClass(classes.cardHide);
 
-    console.log(carouselStyle);
-  }, [carouselStyle])
+  }, [animationControl])
 
   var items = [
     [

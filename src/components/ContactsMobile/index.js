@@ -19,11 +19,11 @@ import {
   Typography,
 } from "@material-ui/core";
 
-function ContactsMobile({ contactMobileStyle, close }) {
+function ContactsMobile({ animationControl, close }) {
   // variaveis de estilização
   const classes = useStyles();
-  const [contactMobileClass, setContactMobileClass] = useState(
-    classes.cardContactsMobile,
+  const [contactsMobileClass, setContactsMobileClass] = useState(
+    classes.card,
   );
   const [isUp, setIsUp] = useState(false);
 
@@ -52,16 +52,16 @@ function ContactsMobile({ contactMobileStyle, close }) {
   const [errorMsgMessage, setErrorMsgMessage] = useState("");
 
   useEffect(() => {
-    if (contactMobileStyle === "standby")
-      setContactMobileClass(classes.cardContactsMobile);
-    else if (contactMobileStyle === "show")
-      setContactMobileClass(classes.cardContactsMobileShow);
-    else if (contactMobileStyle === "hide") {
-      setContactMobileClass(classes.cardContactsMobileHide);
+    if (animationControl === "standby")
+      setContactsMobileClass(classes.card);
+    else if (animationControl === "show")
+      setContactsMobileClass(classes.cardShow);
+    else if (animationControl === "hide") {
+      setContactsMobileClass(classes.cardHide);
 
       resetFields();
     }
-  }, [contactMobileStyle]);
+  }, [animationControl]);
 
   function resetFields() {
     // reseta os campos todos
@@ -168,20 +168,20 @@ function ContactsMobile({ contactMobileStyle, close }) {
 
   function handleTitleClick() {
     if (isUp) {
-      setContactMobileClass(classes.cardContactsMobileDown);
+      setContactsMobileClass(classes.cardDown);
       setIsUp(false);
 
       resetFields();
     } else {
-      setContactMobileClass(classes.cardContactsMobileUp);
+      setContactsMobileClass(classes.cardUp);
       setIsUp(true);
     }
   }
 
   return (
-    <Card style={{ zIndex: "200" }} className={contactMobileClass}>
-      <CardContent className={classes.cardContentContacts}>
-        <div className={classes.titleContacts}>
+    <Card style={{ zIndex: "200" }} className={contactsMobileClass}>
+      <CardContent className={classes.cardContent}>
+        <div className={classes.title}>
           <Typography
             style={{
               color: "white",
@@ -199,7 +199,7 @@ function ContactsMobile({ contactMobileStyle, close }) {
               fontSize="large"
               style={{ color: "white", cursor: "pointer", flex: 1 }}
               onClick={() => {
-                setContactMobileClass(classes.cardContactsMobileDown);
+                setContactsMobileClass(classes.cardDown);
                 setIsUp(false);
                 resetFields();
               }}
@@ -209,7 +209,7 @@ function ContactsMobile({ contactMobileStyle, close }) {
               fontSize="large"
               style={{ color: "white", cursor: "pointer", flex: 1 }}
               onClick={() => {
-                setContactMobileClass(classes.cardContactsMobileUp);
+                setContactsMobileClass(classes.cardUp);
                 setIsUp(true);
               }}
             />
