@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.css";
 import buttonOverride from "../theme/buttonOverride";
 import cardContentOverride from "../theme/cardContentOverride";
 import { ThemeProvider } from "@material-ui/core/styles";
+import dynamic from "next/dynamic";
 
 // imagens
 import Background1 from "../../public/assets/GradienteHome.svg";
@@ -140,6 +141,9 @@ function Home() {
 
   useEffect(() => {
     setSize(windowSize());
+    setPhone(window.matchMedia("(max-width: 415px)").matches);
+    setResponsive1(window.matchMedia("(max-width: 800px)").matches);
+    setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
   });
 
   useEffect(()=>{
