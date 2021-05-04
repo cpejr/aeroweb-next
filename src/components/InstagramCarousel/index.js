@@ -118,7 +118,7 @@ function InstagramCarousel({ carouselStyle }) {
       >
         Últimos Posts
       </Typography>
-      <Carousel animation="slide" indicators={false}>
+      <Carousel animation="slide" indicators={false} interval={3000} >
         {items.map((item, i) => (
           <Item key={i} item={item} />
         ))}

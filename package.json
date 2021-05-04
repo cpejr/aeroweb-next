@@ -8,6 +8,7 @@
     "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build",
     "lint": "eslint . --ext .js --fix",
+    "lint:list": "eslint . --ext .js",
     "pretty": "prettier --write \"./src/**/*.{js,json}\""
   },
   "dependencies": {
