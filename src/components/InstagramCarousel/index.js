@@ -92,7 +92,7 @@ function InstagramCarousel() {
 
   return (
     <Card className={classes.divFeedInstagram}>
-      <img src="/assets/union.svg" className={classes.logoTitle} />
+      <img src="/assets/Union.svg" className={classes.logoTitle} />
       <Typography
         style={{
           position: "relative",
@@ -103,7 +103,7 @@ function InstagramCarousel() {
       >
         Últimos Posts
       </Typography>
-      <Carousel animation="slide" indicators={false}>
+      <Carousel animation="slide" indicators={false} interval={3000} >
         {items.map((item, i) => (
           <Item key={i} item={item} />
         ))}
