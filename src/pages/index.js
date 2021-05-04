@@ -20,7 +20,7 @@ import ModalQuemSomos from "../components/ModalQuemSomos";
 import QuemSomosMobile from "../components/QuemSomosMobile";
 import CoursesList from "../components/CoursesList";
 import CoursesMobile from "../components/CoursesMobile";
-import isMobile from "./isMobile"; // usa para ver se é mobile ou não
+import isMobile from "../utils/isMobile"; // usa para ver se é mobile ou não
 import data from "../../public/data";
 
 import { NextSeo } from "next-seo";
@@ -146,18 +146,23 @@ function Home() {
     setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
   });
 
-  useEffect(()=>{
-    const checkDisplay = () =>{
+  useEffect(
+    () => {
+      const checkDisplay = () => {
         setPhone(window.matchMedia("(max-width: 415px)").matches);
         setResponsive1(window.matchMedia("(max-width: 800px)").matches);
         setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
-    }
+      };
 
-    window.addEventListener('resize',checkDisplay);
-    return () => {
-        window.removeEventListener('resize',checkDisplay);
-    }
-  }, [isPhone], [isResponsive1], [isResponsive2])
+      window.addEventListener("resize", checkDisplay);
+      return () => {
+        window.removeEventListener("resize", checkDisplay);
+      };
+    },
+    [isPhone],
+    [isResponsive1],
+    [isResponsive2],
+  );
 
   useEffect(() => {
     var aux = window.innerWidth;
@@ -209,16 +214,16 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    if(isPhone){
+    if (isPhone) {
       setPosX("20vw");
-      setPosY("37vh");      
-    }else if(isResponsive1){
+      setPosY("37vh");
+    } else if (isResponsive1) {
       setPosX("26vw");
-      setPosY("26vh"); 
-    }else if(isResponsive2){
+      setPosY("26vh");
+    } else if (isResponsive2) {
       setPosX("18vw");
       setPosY("33vh");
-    }else{
+    } else {
       setPosX("18vw");
       setPosY("22vh");
     }
@@ -267,16 +272,16 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    if(isPhone){
+    if (isPhone) {
       setPosX("40vw");
-      setPosY("45vh");      
-    }else if(isResponsive1){
+      setPosY("45vh");
+    } else if (isResponsive1) {
       setPosX("42vw");
       setPosY("41vh");
-    }else if(isResponsive2){
+    } else if (isResponsive2) {
       setPosX("39vw");
-      setPosY("39vh"); 
-    }else{
+      setPosY("39vh");
+    } else {
       setPosX("39vw");
       setPosY("31vh");
     }
@@ -338,16 +343,16 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    if(isPhone){
+    if (isPhone) {
       setPosX("49vw");
-      setPosY("57vh"); 
-    }else if(isResponsive1){
+      setPosY("57vh");
+    } else if (isResponsive1) {
       setPosX("47vw");
       setPosY("60vh");
-    }else if(isResponsive2){
+    } else if (isResponsive2) {
       setPosX("55vw");
-      setPosY("57vh");     
-    }else{
+      setPosY("57vh");
+    } else {
       setPosX("55vw");
       setPosY("59vh");
     }
@@ -407,16 +412,16 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    if(isPhone){
+    if (isPhone) {
       setPosX("69vw");
       setPosY("70vh");
-    }else if(isResponsive1){
+    } else if (isResponsive1) {
       setPosX("60vw");
       setPosY("80vh");
-    }else if(isResponsive2){
+    } else if (isResponsive2) {
       setPosX("71vw");
-      setPosY("68vh");    
-    }else{
+      setPosY("68vh");
+    } else {
       setPosX("71vw");
       setPosY("76vh");
     }
@@ -533,9 +538,21 @@ function Home() {
             <img className={styles.logo} src={responseSize}></img>
           </div>
 
-          <div className={classes.rotaContainer} style={{position: 'absolute', zIndex: '90'}}>
-            {(isPhone || isResponsive1)? <img src="/assets/RotaMobile.svg" style={{height: '75vh', width: '83vw', marginTop: '15vh'}}/>:
-            <img src="/assets/RotaDesktop.svg" style={{height: '75vh', width: '83vw', marginTop: '15vh'}}/>}
+          <div
+            className={classes.rotaContainer}
+            style={{ position: "absolute", zIndex: "90" }}
+          >
+            {isPhone || isResponsive1 ? (
+              <img
+                src="/assets/RotaMobile.svg"
+                style={{ height: "75vh", width: "83vw", marginTop: "15vh" }}
+              />
+            ) : (
+              <img
+                src="/assets/RotaDesktop.svg"
+                style={{ height: "75vh", width: "83vw", marginTop: "15vh" }}
+              />
+            )}
           </div>
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
