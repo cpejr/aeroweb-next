@@ -507,8 +507,14 @@ function Home() {
               color: "#fff",
             }}
           >
-            <h1 className={classes.footerTitle1}>INVISTA HOJE NO SEU FUTURO</h1>
-            <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
+            {
+              !isMobile && (
+                <>
+                  <h1 className={classes.footerTitle1}>INVISTA HOJE NO SEU FUTURO</h1>
+                  <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
+                </>
+              )
+            }
           </div>
           <div
             className={classes.homeContainerChildren}
