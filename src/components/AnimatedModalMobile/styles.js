@@ -128,11 +128,54 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: "#3467eb",
     },
 
-    marginBottom: "16px",
+    marginTop: '32px',
   },
 
   cardPayments: {
     width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: 'center',
+
+    marginTop: "24px",
+  },
+
+  cardPayments2: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+  },
+
+  cardPayments3: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    "& | &": {
+      marginTop: "16px",
+    },
+    "& img": {
+      width: "50px",
+      height: "27px",
+    },
+
+    marginTop: '24px',
+  },
+
+  cardPayments4: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    "& | &": {
+      marginTop: "16px",
+    },
+    "& img": {
+      width: "50px",
+      height: "27px",
+    },
+
+    marginTop: '24px',
+    marginBottom: '24px',
   },
 
   "@keyframes upSlide": {

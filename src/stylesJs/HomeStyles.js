@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     overflow: "hidden",
+    // filter: 'blur(5px)',
   },
   homeContainerChildren: {
     width: "100%",
@@ -28,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     overflow: "hidden",
+    // filter: 'blur(5px)',
   },
   homeGeneral: {
     display: "flex",
