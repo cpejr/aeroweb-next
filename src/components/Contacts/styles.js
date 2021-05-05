@@ -22,7 +22,7 @@ export const useStyles = makeStyles((theme) => ({
     left: '25vw',
     top: '25vh',
 
-    backgroundColor: '#2234CCFF',
+    backgroundColor: '#0E41C5',
 
     animation: "$showContacts 1000ms linear forwards",
   },
@@ -35,7 +35,7 @@ export const useStyles = makeStyles((theme) => ({
     left: '25vw',
     top: '25vh',
 
-    backgroundColor: '#2234CCFF',
+    backgroundColor: '#0E41C5',
 
     animation: "$hideContacts 1000ms linear forwards",
   },
