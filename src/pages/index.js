@@ -11,7 +11,7 @@ import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
 
-import Feed from "react-instagram-authless-feed";
+
 import FeedInstagram from "../components/FeedInstagram/index";
 
 import Contacts from "../components/Contacts/index";

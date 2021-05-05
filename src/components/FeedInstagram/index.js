@@ -1,6 +1,5 @@
 import React from "react";
 import { useStyles } from "./styles";
-import Feed from "react-instagram-authless-feed";
 
 function FeedInstagram() {
   const classes = useStyles();
