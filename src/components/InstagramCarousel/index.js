@@ -107,7 +107,7 @@ function InstagramCarousel({ carouselStyle }) {
 
   return (
     <Card className={carouselClass}>
-      <img src="/assets/union.svg" className={classes.logoTitle} />
+      <img src="/assets/Union.svg" className={classes.logoTitle} />
       <Typography
         style={{
           marginBottom: '8px',
