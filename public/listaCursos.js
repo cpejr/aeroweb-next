@@ -58,6 +58,25 @@ const listaCursos = [
     General Airway Manual, assim como, e não menos importante, a interpretação, entendimento e briefing de 
     cartas aeronáuticas.`,
     videoLink: "youtube.com"
+  },
+  {
+    open: 'openThird',
+    title: "Curso Cartas Jappesen - duplicado",
+    text1: 
+    `A interpretação e manuseio de cartas aeronáuticas é uma habilidade que todo piloto deve ter, 
+    sendo ela necessária tanto para a manutenção da padronização quanto, como consequência, para a 
+    segurança de voo. Além disso, essas habilidades demonstram-se essenciais para aqueles candidatos 
+    que buscam o ingresso em uma linha área ou taxi aéreo.`,
+    text2: 
+    `O curso de Cartas Jeppesen da Tailwind Aviation Courses foi elaborado por profissionais capacitados e 
+    estruturado de maneira lógica para facilitar o entendimento e proporcionar uma 
+    abordagem prática do tema.`,
+    text3: 
+    `Dessa maneira, o curso tem como objetivo a demonstração da correta utilização dos materiais 
+    relacionados à cartografia aeronáutica Jeppesen, no que diz respeito à utilização do Jeppesen 
+    General Airway Manual, assim como, e não menos importante, a interpretação, entendimento e briefing de 
+    cartas aeronáuticas.`,
+    videoLink: "youtube.com"
   }
 ];
 

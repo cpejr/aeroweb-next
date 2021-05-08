@@ -693,20 +693,14 @@ function Home() {
         (
           // Modais de transição MOBILE
           isMobile ?
-              <AnimatedModalMobile
-                key={openCurso.index}
-                index={openCurso.index} // precisa desse pq key é impossível acessar, 'key' é palavra reservada
-                openNthModal={openNthModal}
-                openNthModalIndex={openNthModal[openCurso.index]} // precisa desse para evitar crash
-                styleModal={openCurso.style}
-                close={closeModal}
-                setOpenNthModal={setOpenNthModal}
-                setSlideCourses={setSlideCourses}
-                indexCurso={openCurso.index}
-              />
+            <AnimatedModalMobile
+              styleModal={openCurso.style}
+              indexCurso={openCurso.index}
+              setOpenCurso={setOpenCurso}
+              setSlideCourses={setSlideCourses}
+            />
             :
             <AnimatedModal
-              key={openCurso.index}
               styleModal={openCurso.style}
               close={closeModal}
               indexCurso={openCurso.index}

@@ -11,12 +11,12 @@ import { useStyles } from "./courseListMobileStyle";
 import listaCursos from "../../../public/listaCursos";
 
 function CoursesListMobile({
-                         setOpenCurso,
-                         slideCourses,
-                         setSlideCourses,
-                         openNthModal,
-                         setOpenNthModal,
-                       }) {
+  setOpenCurso,
+  slideCourses,
+  setSlideCourses,
+  openNthModal,
+  setOpenNthModal,
+}) {
   const classes = useStyles();
   const [slideClass, setSlideClass] = useState(classes.cardButtons);
 
