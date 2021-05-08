@@ -41,7 +41,6 @@ function AnimatedModalCoursesDesktop({  close, animationControl, videoLink, inde
   }
 
   return (
-    // <div className={classes.background}>
     <Modal
       open={open}
       onClose={handleClose}
@@ -154,10 +153,6 @@ function AnimatedModalCoursesDesktop({  close, animationControl, videoLink, inde
       </Card>
 
     </Modal>
-      
-
-    // </div>
-    
   );
 }
 

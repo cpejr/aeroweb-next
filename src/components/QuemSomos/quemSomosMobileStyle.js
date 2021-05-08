@@ -107,7 +107,6 @@ export const useStyles = makeStyles((theme) => ({
     elevation: 8,
     backgroundColor: " #3467ebEE",
     borderRadius: "6px",
-    // overflow: 'scroll',
 
     // animação
     animation: "$downSlide 1000ms linear forwards",

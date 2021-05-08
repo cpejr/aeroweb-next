@@ -32,6 +32,7 @@ function CoursesListDesktop({ animationControl, setOpenCurso }) {
             {listaCursos.map((curso, index) => {
               return (
                 <Button
+                  key={index}
                   className={index === 0 ? classes.buttonsListFirst : (index === listaCursos.length - 1 ? classes.buttonsListLast : classes.buttonsList)}
                   onClick={()=>{setOpenCurso({open: true, index: index, style: 'show'})}}
                   variant="text"

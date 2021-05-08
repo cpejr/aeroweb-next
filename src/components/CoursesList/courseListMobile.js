@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  ButtonGroup,
   Button,
   Card,
   CardContent,
@@ -27,62 +26,48 @@ function CoursesListMobile({
   return (
     <Card className={coursesMobileClass}>
       <CardContent className={classes.cardContent}>
-        <ButtonGroup
-          orientation="vertical"
-          color="primary"
-          size="small"
-          className={classes.buttonsGroup}
-        >
-          {listaCursos.map((curso, index) => {
-            return (
-              <div className={classes.buttonsLine}>
-                <Button
-                  key={index}
-                  className={classes.buttonsList}
-                  variant="text"
-                  onClick={() => {
-                    setOpenCurso({open: true, index: index, style: 'up'});
-                    // let updatedArray = [...openNthModal];
-                    // updatedArray[index] = true;
-                    // setOpenNthModal(updatedArray);
-                    setAnimationControl("fadeIn");
+        {listaCursos.map((curso, index) => {
+          return (
+            <div className={classes.buttonsLine} key={index}> 
+              <Button
+                className={classes.buttonsList}
+                variant="text"
+                onClick={() => {
+                  setOpenCurso({open: true, index: index, style: 'up'});
+                  setAnimationControl("fadeIn");
+                }}
+                style={{ textTransform: "none" }}
+              >
+                <Typography
+                  style={{
+                    color: "#ffffff",
+                    fontWeight: 500,
+                    fontSize: 15,
+                    cursor: "pointer",
                   }}
-                  style={{ textTransform: "none" }}
                 >
-                  <Typography
-                    style={{
-                      color: "#ffffff",
-                      fontWeight: 500,
-                      fontSize: 15,
-                      cursor: "pointer",
-                    }}
-                  >
-                    {curso.title}
-                  </Typography>
-                  {curso.subtitle &&
-                  <Typography
-                    style={{ color: "#ffffff", fontSize: 12, marginLeft: "8px" }}
-                  >
-                    {curso.subtitle}
-                  </Typography>
-                  }
-                </Button>
+                  {curso.title}
+                </Typography>
+                {curso.subtitle &&
+                <Typography
+                  style={{ color: "#ffffff", fontSize: 12, marginLeft: "8px" }}
+                >
+                  {curso.subtitle}
+                </Typography>
+                }
+              </Button>
 
-                <ArrowForwardIos
-                  style={{ color: "white", cursor: "pointer" }}
-                  className={classes.icon}
-                  onClick={() => {
-                    setOpenCurso({open: true, index: index, style: 'up'});
-                    // let updatedArray = [...openNthModal];
-                    // updatedArray[index] = true;
-                    // setOpenNthModal(updatedArray);
-                    setAnimationControl("fadeIn");
-                  }}
-                />
-              </div>
-            );
-          })}
-        </ButtonGroup>
+              <ArrowForwardIos
+                style={{ color: "white", cursor: "pointer" }}
+                className={classes.icon}
+                onClick={() => {
+                  setOpenCurso({open: true, index: index, style: 'up'});
+                  setAnimationControl("fadeIn");
+                }}
+              />
+            </div>
+          );
+        })}
       </CardContent>
     </Card>
   );

@@ -19,7 +19,6 @@ export const useStyles = makeStyles((theme) => ({
     // estilo
     display: "flex",
     flexDirection: "column",
-    // justifyContent: 'center',
     alignItems: "center",
     borderRadius: "8px",
     zIndex: 250,
@@ -45,7 +44,6 @@ export const useStyles = makeStyles((theme) => ({
     // estilo
     display: "flex",
     flexDirection: "column",
-    // justifyContent: 'center',
     alignItems: "center",
     borderRadius: "8px",
     zIndex: 250,
@@ -74,7 +72,6 @@ export const useStyles = makeStyles((theme) => ({
     // estilo
     display: "flex",
     flexDirection: "column",
-    // justifyContent: 'center',
     alignItems: "center",
     borderRadius: "8px",
     zIndex: 250,

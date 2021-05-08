@@ -57,7 +57,6 @@ export const useStyles = makeStyles((theme) => ({
       left: '12.50vw'
     },
 
-    // filter: 'blur(5px)',
   },
 
   cardHide: {

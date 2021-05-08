@@ -306,7 +306,6 @@ function ContactsMobile({ animationControl, close }) {
 
         <Button
           variant="outlined"
-          // className={classes.buttonContacts}
           onClick={() => handleSend()}
           style={{ marginTop: "16px", backgroundColor: "white" }}
         >

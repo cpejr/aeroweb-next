@@ -8,8 +8,9 @@ function Item(props) {
     <div
       style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
     >
-      {props.item.map((item) => (
+      {props.item.map((item, index) => (
         <a 
+          key={index}
           href={item.href} 
           style={{ padding: "2%" }} 
           target="_blank"

@@ -22,7 +22,6 @@ export const useStyles = makeStyles((theme) => ({
     top: "80vh",
 
     backgroundColor: "#F9F9F922",
-    // overflowY: 'scroll',
 
     animation: "$showContacts 1000ms linear forwards",
   },
@@ -36,7 +35,6 @@ export const useStyles = makeStyles((theme) => ({
     top: "80vh",
 
     backgroundColor: "#F9F9F922",
-    // overflowY: 'scroll',
 
     animation: "$hideContacts 1000ms linear forwards",
   },
@@ -62,7 +60,6 @@ export const useStyles = makeStyles((theme) => ({
     left: "10vw",
 
     backgroundColor: "#2234CCFF",
-    // overflowY: 'scroll',
 
     animation: "$downContacts 1000ms linear forwards",
   },
@@ -94,7 +91,6 @@ export const useStyles = makeStyles((theme) => ({
 
   textfieldMsg: {
     color: "white",
-    // height: 24,
   },
 
   textfieldFont: {
