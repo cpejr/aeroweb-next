@@ -8,9 +8,10 @@ import {
 } from "@material-ui/core";
 import { ArrowForwardIos } from "@material-ui/icons";
 import { useStyles } from "./styles";
-import data from "../../../public/data";
+import listaCursos from "../../../public/listaCursos";
 
 function CoursesMobile({
+  setOpenCurso,
   slideCourses,
   setSlideCourses,
   openNthModal,
@@ -38,7 +39,7 @@ function CoursesMobile({
           size="small"
           className={classes.buttonsGroup}
         >
-          {data.map((object, index) => {
+          {listaCursos.map((curso, index) => {
             return (
               <div className={classes.buttonsLine}>
                 <Button
@@ -46,9 +47,10 @@ function CoursesMobile({
                   className={classes.buttonsList}
                   variant="text"
                   onClick={() => {
-                    let updatedArray = [...openNthModal];
-                    updatedArray[index] = true;
-                    setOpenNthModal(updatedArray);
+                    setOpenCurso({open: true, index: index, style: 'up'});
+                    // let updatedArray = [...openNthModal];
+                    // updatedArray[index] = true;
+                    // setOpenNthModal(updatedArray);
                     setSlideCourses("fadeIn");
                   }}
                   style={{ textTransform: "none" }}
@@ -61,17 +63,25 @@ function CoursesMobile({
                       cursor: "pointer",
                     }}
                   >
-                    {object.title}
+                    {curso.title}
                   </Typography>
+                  {curso.subtitle &&
+                  <Typography
+                    style={{ color: "#ffffff", fontSize: 12, marginLeft: "8px" }}
+                  >
+                    {curso.subtitle}
+                  </Typography>
+                  }
                 </Button>
 
                 <ArrowForwardIos
                   style={{ color: "white", cursor: "pointer" }}
                   className={classes.icon}
                   onClick={() => {
-                    let updatedArray = [...openNthModal];
-                    updatedArray[index] = true;
-                    setOpenNthModal(updatedArray);
+                    setOpenCurso({open: true, index: index, style: 'up'});
+                    // let updatedArray = [...openNthModal];
+                    // updatedArray[index] = true;
+                    // setOpenNthModal(updatedArray);
                     setSlideCourses("fadeIn");
                   }}
                 />

@@ -11,9 +11,11 @@ import {
 import { ExpandMore } from "@material-ui/icons";
 import { useStyles } from "./styles";
 import React, { useState, useEffect } from "react";
+import listaCursos from "../../../public/listaCursos";
 
-function AnimatedModal({ styleModal, close, title, text1, text2, text3, videoLink }) {
+function AnimatedModal({  close, styleModal, videoLink, indexCurso }) {
   const classes = useStyles();
+  const curso = listaCursos[indexCurso];
   const [cardClass, setCardClass] = useState(classes.card);
   const [open, setOpen] = useState(false);
 
@@ -57,7 +59,7 @@ function AnimatedModal({ styleModal, close, title, text1, text2, text3, videoLin
                 variant="h5"
                 style={{ color: "#3467eb", fontFamily: "Roboto", flex: 10, textAlign:'center' }}
               >
-                {title}
+                {curso.title}
               </Typography>
               <ExpandMore
                 onClick={handleClose}
@@ -71,9 +73,9 @@ function AnimatedModal({ styleModal, close, title, text1, text2, text3, videoLin
               style={{ fontFamily: "Roboto", color: "black" }}
               className={classes.text}
             >
-              {text1} <br /> <br />
-              {text2} <br /> <br />
-              {text3} <br /> <br />
+              {curso.text1} <br /> <br />
+              {curso.text2} <br /> <br />
+              {curso.text3} <br /> <br />
             </Typography>
             </div>
 

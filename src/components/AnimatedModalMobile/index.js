@@ -10,24 +10,24 @@ import {
 import { ExpandMore, ExpandLess, SingleBedSharp } from "@material-ui/icons";
 import { useStyles } from "./styles";
 import LogomarcaAzul from "../../../public/assets/LogomarcaAzul.svg";
+import listaCursos from "../../../public/listaCursos";
 
 function AnimatedModalMobile({
+  indexCurso,
+  styleModal,
   index,
   openNthModal,
   openNthModalIndex,
   setOpenNthModal,
   setSlideCourses,
-  title,
-  text1,
-  text2,
-  text3,
   videoLink,
 }) {
   const classes = useStyles();
+  const curso = listaCursos[indexCurso];
   const [slideClass, setSlideClass] = useState(classes.card);
 
   useEffect(() => {
-    if (openNthModalIndex === true) {
+    if (styleModal === 'up') {
       setSlideClass(classes.cardUp);
     } else {
       if (slideClass !== classes.card) {
@@ -38,7 +38,7 @@ function AnimatedModalMobile({
         }, 1000);
       }
     }
-  }, [openNthModal]);
+  }, [styleModal]);
 
   if (!openNthModalIndex && slideClass !== undefined) {
     // só renderiza se clicou no botão correspondente
@@ -55,12 +55,13 @@ function AnimatedModalMobile({
               className={classes.icon}
               style={{ color: "#3467eb", cursor: "pointer" }}
               onClick={() => {
-                let updatedArray = [...openNthModal];
-                updatedArray[index] = false;
+                // let updatedArray = [...openNthModal];
+                // updatedArray[index] = false;
                 setSlideClass(classes.cardDown);
                 setTimeout(() => {
                   // espera a animação de down
-                  setOpenNthModal(updatedArray);
+                  // setOpenNthModal(updatedArray);
+                  close();
                   setSlideCourses("fadeOut");
                 }, 1000);
               }}
@@ -78,16 +79,16 @@ function AnimatedModalMobile({
               cursor: "pointer",
             }}
           >
-            {title}
+            {curso.title}
           </Typography>
 
           <Typography
             style={{ fontFamily: "Roboto", color: "black" }}
             className={classes.text}
           >
-            {text1} <br /> <br className={classes.line} />
-            {text2} <br /> <br className={classes.line} />
-            {text3} <br /> <br className={classes.line} />
+            {curso.text1} <br /> <br className={classes.line} />
+            {curso.text2} <br /> <br className={classes.line} />
+            {curso.text3} <br /> <br className={classes.line} />
           </Typography>
 
           <div className={classes.cardVideo}></div>

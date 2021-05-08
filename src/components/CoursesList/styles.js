@@ -2,6 +2,10 @@ import { makeStyles } from "@material-ui/core";
 import transitions from "@material-ui/core/styles/transitions";
 
 export const useStyles = makeStyles((theme) => ({
+  scrollList: {
+    overflowY: 'auto',
+    maxHeight: '150px'
+  },
   cardButtons: {
     // posição
     position: "absolute",
@@ -51,6 +55,7 @@ export const useStyles = makeStyles((theme) => ({
     // dimensionamento
     height: 'auto',
     width: "20vw",
+    padding: '5px',
     [theme.breakpoints.down("1100")]: {
       width: "40vw",
       left: "18vw",
@@ -86,8 +91,8 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   buttonsListFirst: {
-    marginTop: "8px",
-    marginBottom: "24px",
+    marginTop: "5px",
+    marginBottom: "21px",
 
     display: "flex",
     flexDirection: "row",
@@ -96,13 +101,13 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   buttonsList: {
-    marginTop: "24px",
-    marginBottom: "24px",
+    marginTop: "21px",
+    marginBottom: "21px",
   },
 
   buttonsListLast: {
-    marginTop: "24px",
-    marginBottom: "8px",
+    marginTop: "21px",
+    marginBottom: "5px",
   },
 
   "@keyframes downList": {
@@ -114,7 +119,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     "100%": {
       maxHeight: '25vh',
-      overflowY: "auto",
+      overflowY: "hidden",
     },
   },
 

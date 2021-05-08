@@ -7,12 +7,11 @@ import {
   Typography,
 } from "@material-ui/core";
 import { useStyles } from "./styles";
+import listaCursos from "../../../public/listaCursos";
 
 function CoursesList({
   listStyle,
-  openFirst,
-  openSecond,
-  openThird,
+  setOpenCurso,
   slideStyle,
   setSlideStyle,
 }) {
@@ -26,59 +25,41 @@ function CoursesList({
   }, [listStyle]);
 
   return (
-    <Card className={listClass} class="scroll">
-      <CardContent className={classes.cardContentButtons}>
-        <ButtonGroup
-          orientation="vertical"
-          color="primary"
-          size="small"
-          className={classes.buttonsGroup}
-        >
-          <Button
-            className={classes.buttonsListFirst}
-            onClick={openFirst}
-            variant="text"
-            style={{ textTransform: "none" }}
+    <Card className={listClass}>
+      <div className={classes.scrollList}>
+        <CardContent className={classes.cardContentButtons}>
+          <ButtonGroup
+            orientation="vertical"
+            color="primary"
+            size="small"
+            className={classes.buttonsGroup}
           >
-            <Typography
-              style={{ color: "#ffffff", fontWeight: 600, fontSize: 14 }}
-            >
-              Simulados ICAO
-            </Typography>
-            <Typography
-              style={{ color: "#ffffff", fontSize: 12, marginLeft: "8px" }}
-            >
-              - COMENTADOS
-            </Typography>
-          </Button>
-
-          <Button
-            className={classes.buttonsList}
-            onClick={openSecond}
-            variant="text"
-            style={{ textTransform: "none" }}
-          >
-            <Typography
-              style={{ color: "#ffffff", fontWeight: 600, fontSize: 14 }}
-            >
-              Curso Inglês ICAO
-            </Typography>
-          </Button>
-
-          <Button
-            className={classes.buttonsListLast}
-            onClick={openThird}
-            variant="text"
-            style={{ textTransform: "none" }}
-          >
-            <Typography
-              style={{ color: "#ffffff", fontWeight: 600, fontSize: 14 }}
-            >
-              Curso Cartas Jappesen
-            </Typography>
-          </Button>
-        </ButtonGroup>
-      </CardContent>
+            {listaCursos.map((curso, index) => {
+              return (
+                <Button
+                  className={index === 0 ? classes.buttonsListFirst : (index === listaCursos.length - 1 ? classes.buttonsListLast : classes.buttonsList)}
+                  onClick={()=>{setOpenCurso({open: true, index: index, style: 'show'})}}
+                  variant="text"
+                  style={{ textTransform: "none" }}
+                >
+                  <Typography
+                    style={{ color: "#ffffff", fontWeight: 600, fontSize: 14 }}
+                  >
+                    {curso.title}
+                  </Typography>
+                  {curso.subtitle &&
+                <Typography
+                  style={{ color: "#ffffff", fontSize: 12, marginLeft: "8px" }}
+                >
+                  {curso.subtitle}
+                </Typography>
+                }
+                </Button>
+              )
+            })}
+          </ButtonGroup>
+        </CardContent>
+      </div>
     </Card>
   );
 }
