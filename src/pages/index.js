@@ -11,8 +11,7 @@ import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
 import Contacts from "../components/Contacts/contacts";
-import ModalQuemSomos from "../components/ModalQuemSomos";
-import QuemSomosMobile from "../components/QuemSomosMobile";
+import QuemSomos from "../components/QuemSomos/quemSomos";
 import CoursesList from "../components/CoursesList/courseList";
 
 import InstagramCarousel from "../components/InstagramCarousel";
@@ -632,18 +631,12 @@ function Home() {
           setOpenCurso={setOpenCurso}
         />
 
-      {isMobile ? (
-        
-        <QuemSomosMobile
-          animationControl={quemSomosMobileControl}
-          close={ () => setQuemSomosMobileControl("hide") }
+        <QuemSomos
+          quemSomosMobileControl={quemSomosMobileControl}
+          setQuemSomosMobileControl={setQuemSomosMobileControl}
+          quemSomosControl={quemSomosControl}
+          setQuemSomosControl={setQuemSomosControl}
         />
-      ) : (
-        <ModalQuemSomos 
-          animationControl={quemSomosControl} 
-          close={() => setQuemSomosControl('hide')} 
-        />
-      )}
         <Contacts
           contactsMobileControl={contactsMobileControl}
           setContactsMobileControl={setContactsMobileControl}

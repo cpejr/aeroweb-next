@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card, Typography } from "@material-ui/core";
-import { useStyles } from "./styles";
+import { useStyles } from "./quemSomosMobileStyle";
 import { ExpandMore, ExpandLess } from "@material-ui/icons";
 
 function QuemSomosMobile({ animationControl }) {
