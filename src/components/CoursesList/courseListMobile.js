@@ -12,24 +12,20 @@ import listaCursos from "../../../public/listaCursos";
 
 function CoursesListMobile({
   setOpenCurso,
-  slideCourses,
-  setSlideCourses,
+  animationControl,
+  setAnimationControl,
 }) {
   const classes = useStyles();
-  const [slideClass, setSlideClass] = useState(classes.cardButtons);
+  const [coursesMobileClass, setCoursesMobileClass] = useState(classes.card);
 
   useEffect(() => {
-    if (slideCourses === "standby") setSlideClass(classes.cardButtons);
-    else if (slideCourses === "hide") setSlideClass(classes.cardButtonsHide);
-    else if (slideCourses === "show") setSlideClass(classes.cardButtonsShow);
-    else if (slideCourses === "fadeIn")
-      setSlideClass(classes.cardButtonsFadeIn);
-    else if (slideCourses === "fadeOut")
-      setSlideClass(classes.cardButtonsFadeOut);
-  }, [slideCourses]);
+    if (animationControl === "standby") setCoursesMobileClass(classes.card);
+    else if (animationControl === "hide") setCoursesMobileClass(classes.cardHide);
+    else if (animationControl === "show") setCoursesMobileClass(classes.cardShow);
+  }, [animationControl]);
 
   return (
-    <Card className={slideClass}>
+    <Card className={coursesMobileClass}>
       <CardContent className={classes.cardContent}>
         <ButtonGroup
           orientation="vertical"
@@ -49,7 +45,7 @@ function CoursesListMobile({
                     // let updatedArray = [...openNthModal];
                     // updatedArray[index] = true;
                     // setOpenNthModal(updatedArray);
-                    setSlideCourses("fadeIn");
+                    setAnimationControl("fadeIn");
                   }}
                   style={{ textTransform: "none" }}
                 >
@@ -80,7 +76,7 @@ function CoursesListMobile({
                     // let updatedArray = [...openNthModal];
                     // updatedArray[index] = true;
                     // setOpenNthModal(updatedArray);
-                    setSlideCourses("fadeIn");
+                    setAnimationControl("fadeIn");
                   }}
                 />
               </div>

@@ -13,25 +13,25 @@ import { useStyles } from "./animatedModalCoursesDesktopStyle";
 import React, { useState, useEffect } from "react";
 import listaCursos from "../../../public/listaCursos";
 
-function AnimatedModalCoursesDesktop({  close, styleModal, videoLink, indexCurso }) {
+function AnimatedModalCoursesDesktop({  close, animationControl, videoLink, indexCurso }) {
   const classes = useStyles();
   const curso = listaCursos[indexCurso];
   const [cardClass, setCardClass] = useState(classes.card);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (styleModal === 'standby') {
+    if (animationControl === 'standby') {
       setCardClass(classes.card);
     }
-    else if (styleModal === 'show') {
+    else if (animationControl === 'show') {
       setCardClass(classes.cardShow);
       setOpen(true);
     }
-    else if (styleModal === 'hide') {
+    else if (animationControl === 'hide') {
       setCardClass(classes.cardHide);
       setOpen(false);     
     }
-  }, [styleModal])
+  }, [animationControl])
 
   const handleClose = () => {
     setCardClass(classes.cardHide);

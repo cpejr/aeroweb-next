@@ -5,25 +5,24 @@ import React from "react";
 import CoursesListMobile from "./courseListMobile";
 import CoursesListDesktop from "./courseListDesktop";
 
-function CoursesList(props) {
-  const {slideCourses, setSlideCourses, setOpenCurso, listStyle} = props;
+function CoursesList({ coursesMobileControl, setCoursesMobileControl, setOpenCurso, coursesDesktopControl }) {
   return (
     <>
-    {isMobile ? (
-        <ThemeProvider theme={cardContentOverride}>
-          <CoursesListMobile
-            slideCourses={slideCourses}
-            setSlideCourses={setSlideCourses}
+      {isMobile ? (
+          <ThemeProvider theme={cardContentOverride}>
+            <CoursesListMobile
+              animationControl={coursesMobileControl}
+              setAnimationControl={setCoursesMobileControl}
+              setOpenCurso={setOpenCurso}
+            />
+          </ThemeProvider>
+        ) : (
+          <CoursesListDesktop
+            animationControl={coursesDesktopControl}
             setOpenCurso={setOpenCurso}
           />
-        </ThemeProvider>
-      ) : (
-        <CoursesListDesktop
-          listStyle={listStyle}
-          setOpenCurso={setOpenCurso}
-        />
       )}
-      </>
+    </>
   )
 }
 

@@ -9,25 +9,20 @@ import {
 import { useStyles } from "./courseListDesktopStyle";
 import listaCursos from "../../../public/listaCursos";
 
-function CoursesListDesktop({
-                       listStyle,
-                       setOpenCurso,
-                       slideStyle,
-                       setSlideStyle,
-                     }) {
+function CoursesListDesktop({ animationControl, setOpenCurso }) {
   const classes = useStyles();
-  const [listClass, setListClass] = useState(classes.cardButtons);
+  const [coursesDesktopClass, setCoursesDesktopClass] = useState(classes.card);
 
   useEffect(() => {
-    if (listStyle === "standby") setListClass(classes.cardButtons);
-    else if (listStyle === "hide") setListClass(classes.cardButtonsUp);
-    else if (listStyle === "show") setListClass(classes.cardButtonsDown);
-  }, [listStyle]);
+    if (animationControl === "standby") setCoursesDesktopClass(classes.card);
+    else if (animationControl === "hide") setCoursesDesktopClass(classes.cardUp);
+    else if (animationControl === "show") setCoursesDesktopClass(classes.cardDown);
+  }, [animationControl]);
 
   return (
-    <Card className={listClass}>
+    <Card className={coursesDesktopClass}>
       <div className={classes.scrollList}>
-        <CardContent className={classes.cardContentButtons}>
+        <CardContent className={classes.cardContent}>
           <ButtonGroup
             orientation="vertical"
             color="primary"

@@ -6,7 +6,8 @@ export const useStyles = makeStyles((theme) => ({
     overflowY: 'auto',
     maxHeight: '150px'
   },
-  cardButtons: {
+
+  card: {
     // posição
     position: "absolute",
     top: "42vh",
@@ -15,10 +16,10 @@ export const useStyles = makeStyles((theme) => ({
 
     // dimensionamento
     maxWidth: "30vw",
-    height: "0px", // começa sem nada
+    height: "0px", 
   },
 
-  cardButtonsUp: {
+  cardUp: {
     // posição
     position: "absolute",
     top: "42vh",
@@ -45,7 +46,7 @@ export const useStyles = makeStyles((theme) => ({
     transition: "background-color 0.5s",
   },
 
-  cardButtonsDown: {
+  cardDown: {
     // posição
     position: "absolute",
     top: "42vh",
@@ -74,7 +75,7 @@ export const useStyles = makeStyles((theme) => ({
     transition: "background-color 1s",
   },
 
-  cardContentButtons: {
+  cardContent: {
     padding: "4px !important",
     "&:last-child": {
       paddingBottom: "4px !important",

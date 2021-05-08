@@ -4,19 +4,19 @@ import React from "react";
 import AnimatedModalCoursesMobile from "./animatedModalCoursesMobile";
 
 function AnimatedModalCourses (props) {
-  const {openCurso, setOpenCurso, setSlideCourses, closeModal} = props;
+  const {openCurso, setOpenCurso, setCoursesMobileControl, closeModal} = props;
   return (
     <>
       {isMobile ?
         <AnimatedModalCoursesMobile
-          styleModal={openCurso.style}
+          animationControl={openCurso.style}
           indexCurso={openCurso.index}
           setOpenCurso={setOpenCurso}
-          setSlideCourses={setSlideCourses}
+          setCoursesMobileControl={setCoursesMobileControl}
         />
         :
         <AnimatedModalCoursesDesktop
-          styleModal={openCurso.style}
+          animationControl={openCurso.style}
           close={closeModal}
           indexCurso={openCurso.index}
         />}

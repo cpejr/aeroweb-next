@@ -15,8 +15,8 @@ import listaCursos from "../../../public/listaCursos";
 function AnimatedModalCoursesMobile({
   indexCurso,
   setOpenCurso,
-  styleModal,
-  setSlideCourses,
+  animationControl,
+  setCoursesMobileControl,
   videoLink,
 }) {
   const classes = useStyles();
@@ -24,7 +24,7 @@ function AnimatedModalCoursesMobile({
   const [slideClass, setSlideClass] = useState(classes.card);
 
   useEffect(() => {
-    if (styleModal === 'up') {
+    if (animationControl === 'up') {
       setSlideClass(classes.cardUp);
     } else {
       if (slideClass !== classes.card) {
@@ -35,7 +35,7 @@ function AnimatedModalCoursesMobile({
         }, 1000);
       }
     }
-  }, [styleModal]);
+  }, [animationControl]);
 
   return (
     <Card className={slideClass}>
@@ -50,7 +50,7 @@ function AnimatedModalCoursesMobile({
             onClick={() => {
               setSlideClass(classes.cardDown);
               setTimeout(() => {
-                setSlideCourses("fadeOut");
+                setCoursesMobileControl("fadeOut");
                 setOpenCurso({open: false, index: indexCurso, style: 'down'});
               }, 1000);
             }}

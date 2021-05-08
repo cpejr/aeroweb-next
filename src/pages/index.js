@@ -56,11 +56,10 @@ function Home() {
   const [posY, setPosY] = useState("22vh");
   const [posYAngle, setPosYAngle] = useState(0);
   const [angle, setAngle] = useState(0);
-
   const [flying, setFlying] = useState(true);
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
-  const [quemSomosControl, setQuemSomosControl] = useState('standby');
+
 
   // Parâmetros para o novo gradiente:
   const [newGradient, setNewGradient] = useState();
@@ -74,25 +73,26 @@ function Home() {
   const contatoGradient = "linear-gradient(83.83deg, #78CBEE 3.06%, #0E41C5 96.88%)";
   const [size, setSize] = useState(null);
 
-  // variaveis da animacao dos modais
-  const [listStyle, setListStyle] = useState("standby");
+  // controle das animações
+  const [coursesDesktopControl, setCoursesDesktopControl] = useState("standby");
+  const [coursesMobileControl, setCoursesMobileControl] = useState("standby");
+  
+  const [quemSomosControl, setQuemSomosControl] = useState('standby');
   const [quemSomosMobileControl, setQuemSomosMobileControl] = useState("standby");
+
   const [contactsControl, setContactsControl] = useState("standby");
   const [contactsMobileControl, setContactsMobileControl] = useState("standby");
+
   const [carouselControl, setCarouselControl] = useState('standby');
-  const [slideCourses, setSlideCourses] = useState("standby");
-
+  
   const [openCurso, setOpenCurso] = useState({open: false, index: null, style: ''});
-
-  const [modalStyle, setModalStyle] = useState('standby');
+  const [modalControl, setModalControl] = useState('standby');
 
   // variaveis das linhas do avião
   const [isPhone, setPhone] = useState();
   const [isResponsive1, setResponsive1] = useState();
   const [isResponsive2, setResponsive2] = useState();
 
-
-  // --------------------------------- //
 
   // reset do array dos modais ao carregar pagina
   useEffect(() => {
@@ -110,8 +110,8 @@ function Home() {
     setSize(windowSize());
   }, []);
 
-  useEffect(()=>{
-    const checkDisplay = () =>{
+  useEffect(() => {
+    const checkDisplay = () => {
       setPhone(window.matchMedia("(max-width: 415px)").matches);
       setResponsive1(window.matchMedia("(max-width: 800px)").matches);
       setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
@@ -170,16 +170,16 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    if(isPhone){
+    if (isPhone) {
       setPosX("20vw");
       setPosY("37vh");
-    }else if(isResponsive1){
+    } else if (isResponsive1) {
       setPosX("26vw");
       setPosY("26vh");
-    }else if(isResponsive2){
+    } else if (isResponsive2) {
       setPosX("18vw");
       setPosY("33vh");
-    }else{
+    } else {
       setPosX("18vw");
       setPosY("22vh");
     }
@@ -187,15 +187,15 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controla dos modais
-    if (listStyle !== "standby") setListStyle("hide");
+    if (coursesDesktopControl !== "standby") setCoursesDesktopControl("hide");
     if (!isMobile && contactsControl !== "standby") setContactsControl("hide");
     if (isMobile && quemSomosMobileControl !== "standby") setQuemSomosMobileControl("hide");
     if (isMobile && contactsMobileControl !== "standby")
       setContactsMobileControl("hide");
-    if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
+    if (isMobile && coursesMobileControl !== "standby") setCoursesMobileControl("hide");
     if (isMobile && carouselControl === 'hide') setCarouselControl('show');
     if (!isMobile && carouselControl !== 'standby') setCarouselControl('show');
-    if (!isMobile && modalStyle !== "standby") setModalStyle("hide");
+    if (!isMobile && modalControl !== "standby") setModalControl("hide");
 
     if (!isMobile && quemSomosControl !== 'standby') setQuemSomosControl('hide');
   }
@@ -252,22 +252,22 @@ function Home() {
     if (isMobile && contactsMobileControl !== "standby")
       setContactsMobileControl("hide");
     if (isMobile && quemSomosMobileControl !== "standby") setQuemSomosMobileControl("hide");
-    if (listStyle === "standby" || listStyle === "hide") {
-      setListStyle("show");
+    if (coursesDesktopControl === "standby" || coursesDesktopControl === "hide") {
+      setCoursesDesktopControl("show");
     } else {
-      setListStyle("hide");
+      setCoursesDesktopControl("hide");
     }
-    if (isMobile && slideCourses !== "show") {
-      setSlideCourses("show");
+    if (isMobile && coursesMobileControl !== "show") {
+      setCoursesMobileControl("show");
     } else {
-      setSlideCourses("hide");
+      setCoursesMobileControl("hide");
     }
     if (isMobile && carouselControl !== 'hide') setCarouselControl('hide');
     if (!isMobile && carouselControl !== 'standby') setCarouselControl('show');
-    if (!isMobile && modalStyle !== "show") {
-      setModalStyle("show");
+    if (!isMobile && modalControl !== "show") {
+      setModalControl("show");
     } else {
-      setModalStyle("hide");
+      setModalControl("hide");
     }
 
     if (!isMobile && quemSomosControl !== 'standby') setQuemSomosControl('hide');
@@ -321,7 +321,7 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controle dos modais
-    if (listStyle !== "standby") setListStyle("hide");
+    if (coursesDesktopControl !== "standby") setCoursesDesktopControl("hide");
     if (!isMobile && contactsControl !== "standby") setContactsControl("hide");
     if (isMobile && contactsMobileControl !== "standby")
       setContactsMobileControl("hide");
@@ -330,10 +330,10 @@ function Home() {
     } else {
       setQuemSomosMobileControl("hide");
     }
-    if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
+    if (isMobile && coursesMobileControl !== "standby") setCoursesMobileControl("hide");
     if (isMobile && carouselControl !== 'hide') setCarouselControl('hide');
     if (!isMobile && carouselControl !== 'standby') setCarouselControl('show');
-    if (!isMobile && modalStyle !== "standby") setModalStyle("hide");
+    if (!isMobile && modalControl !== "standby") setModalControl("hide");
     if (!isMobile && quemSomosControl !== "show") {
       setTimeout(() => setQuemSomosControl("show"), 1000);
     } else {
@@ -389,7 +389,7 @@ function Home() {
     setPosYAngle(y - size / 2 + 40);
 
     // controle dos modais
-    if (listStyle !== "standby") setListStyle("hide");
+    if (coursesDesktopControl !== "standby") setCoursesDesktopControl("hide");
     if (isMobile && quemSomosMobileControl !== "standby") setQuemSomosMobileControl("hide");
     if ((!isMobile && contactsControl === "standby") || contactsControl === "hide") {
       setContactsControl("show");
@@ -404,22 +404,19 @@ function Home() {
     } else {
       setContactsMobileControl("hide");
     }
-    if (isMobile && slideCourses !== "standby") setSlideCourses("hide");
+    if (isMobile && coursesMobileControl !== "standby") setCoursesMobileControl("hide");
     if (isMobile && carouselControl !== 'hide') setCarouselControl('hide');
     if (!isMobile && carouselControl === 'show' || carouselControl === 'standby') {
       setCarouselControl('hide');
     } else if (!isMobile && carouselControl === 'hide') {
       setCarouselControl('show');
     }
-    if (!isMobile && modalStyle !== "standby") setModalStyle("hide");
+    if (!isMobile && modalControl !== "standby") setModalControl("hide");
     if (!isMobile && quemSomosControl !== 'standby') setQuemSomosControl('hide');
   }
 
   function closeModal() {
     setOpenCurso({open: false, index: null, style: ''})
-    // setStyleFirst('hide');
-    // setStyleSecond('hide');
-    // setStyleThird('hide');
   }
 
   return (
@@ -593,37 +590,39 @@ function Home() {
 
       <InstagramCarousel animationControl={carouselControl} />
 
-        <CoursesList
-          slideCourses={slideCourses}
-          setSlideCourses={setSlideCourses}
-          listStyle={listStyle}
-          setOpenCurso={setOpenCurso}
-        />
+      <CoursesList
+        coursesMobileControl={coursesMobileControl}
+        setCoursesMobileControl={setCoursesMobileControl}
+        coursesDesktopControl={coursesDesktopControl}
+        setOpenCurso={setOpenCurso}
+      />
 
-        <QuemSomos
-          quemSomosMobileControl={quemSomosMobileControl}
-          setQuemSomosMobileControl={setQuemSomosMobileControl}
-          quemSomosControl={quemSomosControl}
-          setQuemSomosControl={setQuemSomosControl}
-        />
-        <Contacts
-          contactsMobileControl={contactsMobileControl}
-          setContactsMobileControl={setContactsMobileControl}
-          contactsControl={contactsControl}
-          setContactsControl={setContactsControl}
-          setCarouselControl={setCarouselControl}
-        />
+      <QuemSomos
+        quemSomosMobileControl={quemSomosMobileControl}
+        setQuemSomosMobileControl={setQuemSomosMobileControl}
+        quemSomosControl={quemSomosControl}
+        setQuemSomosControl={setQuemSomosControl}
+      />
+      
+      <Contacts
+        contactsMobileControl={contactsMobileControl}
+        setContactsMobileControl={setContactsMobileControl}
+        contactsControl={contactsControl}
+        setContactsControl={setContactsControl}
+        setCarouselControl={setCarouselControl}
+      />
 
       {!isMobile && <Footer />}
 
-      {openCurso.open &&
+      { openCurso.open &&
         <AnimatedModalCourses
           openCurso={openCurso}
           setOpenCurso={setOpenCurso}
-          setSlideCourses={setSlideCourses}
+          setCoursesMobileControl={setCoursesMobileControl}
           closeModal={closeModal}
         />
       }
+
     </div>
   );
 }
