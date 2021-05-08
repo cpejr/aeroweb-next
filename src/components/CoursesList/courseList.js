@@ -1,4 +1,4 @@
-import isMobile from "../../pages/isMobile";
+import isMobile from "../../utils/isMobile";
 import React from "react";
 import CoursesListMobile from "./courseListMobile";
 import CoursesListDesktop from "./courseListDesktop";

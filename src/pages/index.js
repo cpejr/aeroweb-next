@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import isMobile from "./isMobile"; // usa para ver se é mobile ou não
+import isMobile from "../utils/isMobile"; // usa para ver se é mobile ou não
 
 // estilização
 import useStyles from "../stylesJs/HomeStyles";
@@ -114,20 +114,28 @@ function Home() {
 
   useEffect(() => {
     setSize(windowSize());
-  }, []);
+    setPhone(window.matchMedia("(max-width: 415px)").matches);
+    setResponsive1(window.matchMedia("(max-width: 800px)").matches);
+    setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
+  });
 
-  useEffect(() => {
-    const checkDisplay = () => {
-      setPhone(window.matchMedia("(max-width: 415px)").matches);
-      setResponsive1(window.matchMedia("(max-width: 800px)").matches);
-      setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
-    };
+  useEffect(
+    () => {
+      const checkDisplay = () => {
+        setPhone(window.matchMedia("(max-width: 415px)").matches);
+        setResponsive1(window.matchMedia("(max-width: 800px)").matches);
+        setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
+      };
 
-    window.addEventListener("resize", checkDisplay);
-    return () => {
-      window.removeEventListener("resize", checkDisplay);
-    };
-  }, [isPhone, isResponsive1, isResponsive2]);
+      window.addEventListener("resize", checkDisplay);
+      return () => {
+        window.removeEventListener("resize", checkDisplay);
+      };
+    },
+    [isPhone],
+    [isResponsive1],
+    [isResponsive2],
+  );
 
   useEffect(() => {
     var aux = window.innerWidth;

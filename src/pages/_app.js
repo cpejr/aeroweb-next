@@ -6,15 +6,15 @@
 
 // export default MyApp;
 
-// SSR do next desablitado
-import "../styles/globals.css";
+// SSR do next desabilitado
+import '../styles/globals.css'
 
 function SafeHydrate({ children }) {
   return (
     <div suppressHydrationWarning>
-      {typeof window === "undefined" ? null : children}
+      {typeof window === 'undefined' ? null : children}
     </div>
-  );
+  )
 }
 
 function MyApp({ Component, pageProps }) {

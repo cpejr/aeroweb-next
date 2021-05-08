@@ -1,4 +1,4 @@
-import isMobile from "../../pages/isMobile";
+import isMobile from "../../utils/isMobile";
 import AnimatedModalCoursesDesktop from "./animatedModalCoursesDesktop";
 import React from "react";
 import AnimatedModalCoursesMobile from "./animatedModalCoursesMobile";
