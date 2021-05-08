@@ -5,15 +5,12 @@ import listaCursos from "../../public/listaCursos";
 // estilização
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
-import buttonOverride from "../theme/buttonOverride";
-import { ThemeProvider } from "@material-ui/core/styles";
 
 // componentes
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
-import Contacts from "../components/Contacts/index";
-import ContactsMobile from "../components/ContactsMobile/index";
+import Contacts from "../components/Contacts/contacts";
 import ModalQuemSomos from "../components/ModalQuemSomos";
 import QuemSomosMobile from "../components/QuemSomosMobile";
 import CoursesList from "../components/CoursesList/courseList";
@@ -647,23 +644,13 @@ function Home() {
           close={() => setQuemSomosControl('hide')} 
         />
       )}
-
-      {isMobile ? (
-        <ThemeProvider theme={buttonOverride}>
-          <ContactsMobile
-            animationControl={contactsMobileControl}
-            close={() => setContactsMobileControl("hide")}
-          />
-        </ThemeProvider>
-      ) : (
         <Contacts
-          animationControl={contactsControl}
-          close={() => {
-            setContactsControl("hide");
-            setCarouselControl('show');
-          }}
+          contactsMobileControl={contactsMobileControl}
+          setContactsMobileControl={setContactsMobileControl}
+          contactsControl={contactsControl}
+          setContactsControl={setContactsControl}
+          setCarouselControl={setCarouselControl}
         />
-      )}
 
       {!isMobile && <Footer />}
 

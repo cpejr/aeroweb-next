@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
 import isMobile from "../../pages/isMobile";
-import { useStyles } from "./styles";
+import { useStyles } from "./contactsDesktopStyle";
 import MuiAlert from "@material-ui/lab/Alert";
 import { Clear } from "@material-ui/icons";
 import {
@@ -14,7 +14,7 @@ import {
   Typography,
 } from "@material-ui/core";
 
-function Contacts({ animationControl, close }) {
+function ContactsDesktop({ animationControl, close }) {
   // variaveis de estilização
   const classes = useStyles();
   const [contactsClass, setContactsClass] = useState(classes.card);
@@ -284,4 +284,4 @@ function Contacts({ animationControl, close }) {
   );
 }
 
-export default Contacts;
+export default ContactsDesktop;

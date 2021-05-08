@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
-import { useStyles } from "./styles";
+import { useStyles } from "./contactsMobileStyle";
 import MuiAlert from "@material-ui/lab/Alert";
 import {
   ExpandMore,
