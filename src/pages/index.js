@@ -5,17 +5,13 @@ import listaCursos from "../../public/listaCursos";
 // estilização
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
-import buttonOverride from "../theme/buttonOverride";
-import { ThemeProvider } from "@material-ui/core/styles";
 
 // componentes
 import AnimatedModal from "../components/AnimatedModal/index";
 import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
 import Footer from "../components/Footer/index";
-import Contacts from "../components/Contacts/index";
-import ContactsMobile from "../components/ContactsMobile/index";
-import ModalQuemSomos from "../components/ModalQuemSomos";
-import QuemSomosMobile from "../components/QuemSomosMobile";
+import Contacts from "../components/Contacts/contacts";
+import QuemSomos from "../components/QuemSomos/quemSomos";
 import CoursesList from "../components/CoursesList/courseList";
 
 import InstagramCarousel from "../components/InstagramCarousel";
@@ -635,35 +631,19 @@ function Home() {
           setOpenCurso={setOpenCurso}
         />
 
-      {isMobile ? (
-        
-        <QuemSomosMobile
-          animationControl={quemSomosMobileControl}
-          close={ () => setQuemSomosMobileControl("hide") }
+        <QuemSomos
+          quemSomosMobileControl={quemSomosMobileControl}
+          setQuemSomosMobileControl={setQuemSomosMobileControl}
+          quemSomosControl={quemSomosControl}
+          setQuemSomosControl={setQuemSomosControl}
         />
-      ) : (
-        <ModalQuemSomos 
-          animationControl={quemSomosControl} 
-          close={() => setQuemSomosControl('hide')} 
-        />
-      )}
-
-      {isMobile ? (
-        <ThemeProvider theme={buttonOverride}>
-          <ContactsMobile
-            animationControl={contactsMobileControl}
-            close={() => setContactsMobileControl("hide")}
-          />
-        </ThemeProvider>
-      ) : (
         <Contacts
-          animationControl={contactsControl}
-          close={() => {
-            setContactsControl("hide");
-            setCarouselControl('show');
-          }}
+          contactsMobileControl={contactsMobileControl}
+          setContactsMobileControl={setContactsMobileControl}
+          contactsControl={contactsControl}
+          setContactsControl={setContactsControl}
+          setCarouselControl={setCarouselControl}
         />
-      )}
 
       {!isMobile && <Footer />}
 

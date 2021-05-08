@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useStyles } from "./styles";
+import { useStyles } from "./quemSomosDesktopStyle";
 import {
   Button,
   Modal,
@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@material-ui/core";
 
-function ModalQuemSomos({ animationControl, close }) {
+function QuemSomosDesktop({ animationControl, close }) {
   const classes = useStyles();
   const [quemSomosClass, setQuemSomosClass] = useState(classes.card);
   const [open, setOpen] = useState(false);
@@ -108,4 +108,4 @@ function ModalQuemSomos({ animationControl, close }) {
   );
 }
 
-export default ModalQuemSomos;
+export default QuemSomosDesktop;
