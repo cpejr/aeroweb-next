@@ -6,7 +6,6 @@ import listaCursos from "../../public/listaCursos";
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
 import buttonOverride from "../theme/buttonOverride";
-import cardContentOverride from "../theme/cardContentOverride";
 import { ThemeProvider } from "@material-ui/core/styles";
 
 // componentes
@@ -17,8 +16,8 @@ import Contacts from "../components/Contacts/index";
 import ContactsMobile from "../components/ContactsMobile/index";
 import ModalQuemSomos from "../components/ModalQuemSomos";
 import QuemSomosMobile from "../components/QuemSomosMobile";
-import CoursesList from "../components/CoursesList";
-import CoursesMobile from "../components/CoursesMobile";
+import CoursesList from "../components/CoursesList/courseList";
+
 import InstagramCarousel from "../components/InstagramCarousel";
 
 import { NextSeo } from "next-seo";
@@ -625,28 +624,16 @@ function Home() {
         </div>
       </div>
 
-      <InstagramCarousel animationControl={carouselControl} /> 
+      <InstagramCarousel animationControl={carouselControl} />
 
-      {isMobile ? (
-        <ThemeProvider theme={cardContentOverride}>
-          <CoursesMobile
-            slideCourses={slideCourses}
-            openNthModal={openNthModal}
-            setOpenNthModal={setOpenNthModal}
-            setSlideCourses={setSlideCourses}
-            setOpenCurso={setOpenCurso}
-          />
-        </ThemeProvider>
-      ) : (
         <CoursesList
+          slideCourses={slideCourses}
+          openNthModal={openNthModal}
+          setOpenNthModal={setOpenNthModal}
+          setSlideCourses={setSlideCourses}
           listStyle={listStyle}
           setOpenCurso={setOpenCurso}
-          // feito estaticamente: implementar via .map igual no cursos do mobile
-          // openFirst={() => setStyleFirst('show')}
-          // openSecond={() => setStyleSecond('show')}
-          // openThird={() => setStyleThird('show')}
         />
-      )}
 
       {isMobile ? (
         

@@ -6,15 +6,15 @@ import {
   CardContent,
   Typography,
 } from "@material-ui/core";
-import { useStyles } from "./styles";
+import { useStyles } from "./courseListDesktopStyle";
 import listaCursos from "../../../public/listaCursos";
 
-function CoursesList({
-  listStyle,
-  setOpenCurso,
-  slideStyle,
-  setSlideStyle,
-}) {
+function CoursesListDesktop({
+                       listStyle,
+                       setOpenCurso,
+                       slideStyle,
+                       setSlideStyle,
+                     }) {
   const classes = useStyles();
   const [listClass, setListClass] = useState(classes.cardButtons);
 
@@ -48,12 +48,12 @@ function CoursesList({
                     {curso.title}
                   </Typography>
                   {curso.subtitle &&
-                <Typography
-                  style={{ color: "#ffffff", fontSize: 12, marginLeft: "8px" }}
-                >
-                  {curso.subtitle}
-                </Typography>
-                }
+                  <Typography
+                    style={{ color: "#ffffff", fontSize: 12, marginLeft: "8px" }}
+                  >
+                    {curso.subtitle}
+                  </Typography>
+                  }
                 </Button>
               )
             })}
@@ -64,4 +64,4 @@ function CoursesList({
   );
 }
 
-export default CoursesList;
+export default CoursesListDesktop;

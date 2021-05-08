@@ -7,16 +7,16 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ArrowForwardIos } from "@material-ui/icons";
-import { useStyles } from "./styles";
+import { useStyles } from "./courseListMobileStyle";
 import listaCursos from "../../../public/listaCursos";
 
-function CoursesMobile({
-  setOpenCurso,
-  slideCourses,
-  setSlideCourses,
-  openNthModal,
-  setOpenNthModal,
-}) {
+function CoursesListMobile({
+                         setOpenCurso,
+                         slideCourses,
+                         setSlideCourses,
+                         openNthModal,
+                         setOpenNthModal,
+                       }) {
   const classes = useStyles();
   const [slideClass, setSlideClass] = useState(classes.cardButtons);
 
@@ -94,4 +94,4 @@ function CoursesMobile({
   );
 }
 
-export default CoursesMobile;
+export default CoursesListMobile;
