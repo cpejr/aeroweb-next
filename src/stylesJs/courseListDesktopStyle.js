@@ -1,10 +1,10 @@
 import { makeStyles } from "@material-ui/core";
 import transitions from "@material-ui/core/styles/transitions";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(theme => ({
   scrollList: {
-    overflowY: 'auto',
-    maxHeight: '150px'
+    overflowY: "auto",
+    maxHeight: "150px",
   },
 
   card: {
@@ -16,7 +16,7 @@ export const useStyles = makeStyles((theme) => ({
 
     // dimensionamento
     maxWidth: "30vw",
-    height: "0px", 
+    height: "0px",
   },
 
   cardUp: {
@@ -27,7 +27,7 @@ export const useStyles = makeStyles((theme) => ({
     zIndex: "200",
 
     // dimensionamento
-    height: 'auto',
+    height: "auto",
     width: "20vw",
     [theme.breakpoints.down("1000")]: {
       width: "40vw",
@@ -54,9 +54,9 @@ export const useStyles = makeStyles((theme) => ({
     zIndex: "200",
 
     // dimensionamento
-    height: 'auto',
+    height: "auto",
     width: "20vw",
-    padding: '5px',
+    padding: "5px",
     [theme.breakpoints.down("1100")]: {
       width: "40vw",
       left: "18vw",
@@ -113,20 +113,20 @@ export const useStyles = makeStyles((theme) => ({
 
   "@keyframes downList": {
     "0%": {
-      maxHeight: '0vh',
+      maxHeight: "0vh",
     },
     "99%": {
       overflowY: "hidden",
     },
     "100%": {
-      maxHeight: '25vh',
+      maxHeight: "25vh",
       overflowY: "hidden",
     },
   },
 
   "@keyframes upList": {
     "0%": {
-      maxHeight: '25vh',
+      maxHeight: "25vh",
       overflowY: "hidden",
     },
     "100%": {

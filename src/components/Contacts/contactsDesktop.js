@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
-import isMobile from "../../pages/isMobile";
 import { useStyles } from "../../stylesJs/contactsDesktopStyle";
 import MuiAlert from "@material-ui/lab/Alert";
 import { Clear } from "@material-ui/icons";
@@ -130,7 +129,7 @@ function ContactsDesktop({ animationControl, close }) {
           userId,
         )
         .then(
-          (result) => {
+          result => {
             console.log(result.text);
             setTimeout(() => {
               setSnackbarMessage("Email enviado com sucesso!");
@@ -139,7 +138,7 @@ function ContactsDesktop({ animationControl, close }) {
               setLoading(false);
             }, 1000);
           },
-          (error) => {
+          error => {
             console.log(error.text);
             setTimeout(() => {
               setSnackbarMessage("Falha no envio do email.");
@@ -158,9 +157,12 @@ function ContactsDesktop({ animationControl, close }) {
         <div className={classes.title}>
           <img
             src="/assets/Tailwind3.svg"
-            style={{ height: "75px", fontFamily: "Roboto"}}
+            style={{ height: "75px", fontFamily: "Roboto" }}
           ></img>
-          <Typography variant="h5" style={{ color: "white", textAlign: 'center' }}>
+          <Typography
+            variant="h5"
+            style={{ color: "white", textAlign: "center" }}
+          >
             Mande sua mensagem
           </Typography>
           <Clear

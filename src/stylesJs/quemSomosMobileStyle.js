@@ -1,7 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
-
+export const useStyles = makeStyles(theme => ({
   card: {
     // posição
     position: "absolute",
@@ -121,7 +120,7 @@ export const useStyles = makeStyles((theme) => ({
 
     width: "100%",
     padddingLeft: "4px !important",
-    padding: '4px !important'
+    padding: "4px !important",
   },
 
   titleSlide: {

@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: "50vw",
     height: "auto",
@@ -46,7 +46,7 @@ export const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
 
-    paddingTop: '4px',
+    paddingTop: "4px",
   },
 
   title: {
@@ -59,7 +59,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   icon: {
-    minWidth: '75px',
+    minWidth: "75px",
   },
 
   button: {

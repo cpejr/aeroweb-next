@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {
-  Button,
-  Card,
-  CardContent,
-  CardActions,
-  Slide,
-  Typography,
-} from "@material-ui/core";
-import { ExpandMore, ExpandLess, SingleBedSharp } from "@material-ui/icons";
+import { Button, Card, CardContent, Typography } from "@material-ui/core";
+import { ExpandMore } from "@material-ui/icons";
 import { useStyles } from "../../stylesJs/animatedModalCoursesMobileStyle";
-import LogomarcaAzul from "../../../public/assets/LogomarcaAzul.svg";
 import listaCursos from "../../../public/listaCursos";
 
 function AnimatedModalCoursesMobile({
@@ -24,7 +16,7 @@ function AnimatedModalCoursesMobile({
   const [slideClass, setSlideClass] = useState(classes.card);
 
   useEffect(() => {
-    if (animationControl === 'up') {
+    if (animationControl === "up") {
       setSlideClass(classes.cardUp);
     } else {
       if (slideClass !== classes.card) {
@@ -51,7 +43,7 @@ function AnimatedModalCoursesMobile({
               setSlideClass(classes.cardDown);
               setTimeout(() => {
                 setCoursesMobileControl("fadeOut");
-                setOpenCurso({open: false, index: indexCurso, style: 'down'});
+                setOpenCurso({ open: false, index: indexCurso, style: "down" });
               }, 1000);
             }}
           />
@@ -95,64 +87,30 @@ function AnimatedModalCoursesMobile({
           </Typography>
           <div className={classes.cardPayments2}>
             <div className={classes.cardPayments3}>
-              <img 
-                src="/assets/Visa.png" 
-                alt="Forma de pagamento" 
-              />
-              <img
-                src="/assets/Mastercard.svg"
-                alt="Forma de pagamento"
-              />
-              <img
-                src="/assets/Paypal.png"
-                alt="Forma de pagamento"
-              />
+              <img src="/assets/Visa.png" alt="Forma de pagamento" />
+              <img src="/assets/Mastercard.svg" alt="Forma de pagamento" />
+              <img src="/assets/Paypal.png" alt="Forma de pagamento" />
             </div>
             <div className={classes.cardPayments3}>
-              <img
-                alt="Forma de pagamento"
-                src="/assets/Hiper.png"
-              />
-              <img
-                src="/assets/Hipercard.png"
-                alt="Forma de pagamento"
-              />
-              <img
-                alt="Forma de pagamento"
-                src="/assets/Googlepay.png"
-              />
+              <img alt="Forma de pagamento" src="/assets/Hiper.png" />
+              <img src="/assets/Hipercard.png" alt="Forma de pagamento" />
+              <img alt="Forma de pagamento" src="/assets/Googlepay.png" />
             </div>
             <div className={classes.cardPayments3}>
-              <img
-                src="/assets/Samsungpay.png"
-                alt="Forma de pagamento"
-              />
-              <img
-                alt="Forma de pagamento"
-                src="/assets/American.png"
-              />
-              <img
-                alt="Forma de pagamento"
-                src="/assets/Diners.png"
-              />
-              <img
-                alt="Forma de pagamento"
-                src="/assets/Elo.png"
-              />
+              <img src="/assets/Samsungpay.png" alt="Forma de pagamento" />
+              <img alt="Forma de pagamento" src="/assets/American.png" />
+              <img alt="Forma de pagamento" src="/assets/Diners.png" />
+              <img alt="Forma de pagamento" src="/assets/Elo.png" />
             </div>
           </div>
         </div>
 
         <div className={classes.buttonContainer}>
-          <Button
-            variant="contained"
-            className={classes.button}
-          >
+          <Button variant="contained" className={classes.button}>
             Garanta sua vaga
           </Button>
         </div>
       </CardContent>
-
     </Card>
   );
 }

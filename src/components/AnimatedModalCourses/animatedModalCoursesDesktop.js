@@ -1,8 +1,6 @@
 import {
   Button,
   Modal,
-  Fade,
-  Grow,
   Card,
   CardContent,
   CardActions,
@@ -13,50 +11,58 @@ import { useStyles } from "../../stylesJs/animatedModalCoursesDesktopStyle";
 import React, { useState, useEffect } from "react";
 import listaCursos from "../../../public/listaCursos";
 
-function AnimatedModalCoursesDesktop({  close, animationControl, videoLink, indexCurso }) {
+function AnimatedModalCoursesDesktop({
+  close,
+  animationControl,
+  videoLink,
+  indexCurso,
+}) {
   const classes = useStyles();
   const curso = listaCursos[indexCurso];
   const [cardClass, setCardClass] = useState(classes.card);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (animationControl === 'standby') {
+    if (animationControl === "standby") {
       setCardClass(classes.card);
-    }
-    else if (animationControl === 'show') {
+    } else if (animationControl === "show") {
       setCardClass(classes.cardShow);
       setOpen(true);
-    }
-    else if (animationControl === 'hide') {
+    } else if (animationControl === "hide") {
       setCardClass(classes.cardHide);
-      setOpen(false);     
+      setOpen(false);
     }
-  }, [animationControl])
+  }, [animationControl]);
 
   const handleClose = () => {
     setCardClass(classes.cardHide);
     setTimeout(() => {
       close();
-    }, 1000)
-  }
+    }, 1000);
+  };
 
   return (
-    <Modal
-      open={open}
-      onClose={handleClose}
-      onBackdropClick={handleClose}
-    >
+    <Modal open={open} onClose={handleClose} onBackdropClick={handleClose}>
       <Card className={cardClass}>
         <CardContent className={classes.cardContentContainer}>
           <div className={classes.cardContent}>
             <div className={classes.cardTitle}>
               <img
                 src="/assets/Tailwind2.svg"
-                style={{ height: "100px", width: '100px', fontFamily: "Roboto" }}
+                style={{
+                  height: "100px",
+                  width: "100px",
+                  fontFamily: "Roboto",
+                }}
               />
               <Typography
                 variant="h5"
-                style={{ color: "#3467eb", fontFamily: "Roboto", flex: 10, textAlign:'center' }}
+                style={{
+                  color: "#3467eb",
+                  fontFamily: "Roboto",
+                  flex: 10,
+                  textAlign: "center",
+                }}
               >
                 {curso.title}
               </Typography>
@@ -68,14 +74,14 @@ function AnimatedModalCoursesDesktop({  close, animationControl, videoLink, inde
             </div>
 
             <div className={classes.cardBody}>
-            <Typography
-              style={{ fontFamily: "Roboto", color: "black" }}
-              className={classes.text}
-            >
-              {curso.text1} <br /> <br />
-              {curso.text2} <br /> <br />
-              {curso.text3} <br /> <br />
-            </Typography>
+              <Typography
+                style={{ fontFamily: "Roboto", color: "black" }}
+                className={classes.text}
+              >
+                {curso.text1} <br /> <br />
+                {curso.text2} <br /> <br />
+                {curso.text3} <br /> <br />
+              </Typography>
             </div>
 
             <div className={classes.cardVideo} />
@@ -87,7 +93,7 @@ function AnimatedModalCoursesDesktop({  close, animationControl, videoLink, inde
                   fontFamily: "Roboto",
                   color: "#3467eb",
                   fontWeight: 500,
-                  textAlign: 'center',
+                  textAlign: "center",
                 }}
               >
                 Formas de pagamento
@@ -95,22 +101,10 @@ function AnimatedModalCoursesDesktop({  close, animationControl, videoLink, inde
               <div className={classes.cardPayments2}>
                 <div className={classes.cardPayments3}>
                   <img src="/assets/Visa.png" alt="Forma de pagamento" />
-                  <img
-                    src="/assets/Mastercard.svg"
-                    alt="Forma de pagamento"
-                  />
-                  <img
-                    src="/assets/Paypal.png"
-                    alt="Forma de pagamento"
-                  />
-                  <img
-                    src="/assets/Samsungpay.png"
-                    alt="Forma de pagamento"
-                  />
-                  <img
-                    src="/assets/Hipercard.png"
-                    alt="Forma de pagamento"
-                  />
+                  <img src="/assets/Mastercard.svg" alt="Forma de pagamento" />
+                  <img src="/assets/Paypal.png" alt="Forma de pagamento" />
+                  <img src="/assets/Samsungpay.png" alt="Forma de pagamento" />
+                  <img src="/assets/Hipercard.png" alt="Forma de pagamento" />
                 </div>
                 <div className={classes.cardPayments4}>
                   <img
@@ -151,7 +145,6 @@ function AnimatedModalCoursesDesktop({  close, animationControl, videoLink, inde
           </div>
         </CardActions>
       </Card>
-
     </Modal>
   );
 }

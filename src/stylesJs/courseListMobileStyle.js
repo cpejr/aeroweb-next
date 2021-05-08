@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(theme => ({
   card: {
     // posição
     position: "absolute",
@@ -165,5 +165,5 @@ export const useStyles = makeStyles((theme) => ({
       height: "0px",
       display: "none",
     },
-  }
+  },
 }));

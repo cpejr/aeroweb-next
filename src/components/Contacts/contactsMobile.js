@@ -19,12 +19,10 @@ import {
   Typography,
 } from "@material-ui/core";
 
-function ContactsMobile({ animationControl, close }) {
+function ContactsMobile({ animationControl }) {
   // variaveis de estilização
   const classes = useStyles();
-  const [contactsMobileClass, setContactsMobileClass] = useState(
-    classes.card,
-  );
+  const [contactsMobileClass, setContactsMobileClass] = useState(classes.card);
   const [isUp, setIsUp] = useState(false);
 
   // variaveis de configuração do emailJs
@@ -52,8 +50,7 @@ function ContactsMobile({ animationControl, close }) {
   const [errorMsgMessage, setErrorMsgMessage] = useState("");
 
   useEffect(() => {
-    if (animationControl === "standby")
-      setContactsMobileClass(classes.card);
+    if (animationControl === "standby") setContactsMobileClass(classes.card);
     else if (animationControl === "show")
       setContactsMobileClass(classes.cardShow);
     else if (animationControl === "hide") {
@@ -144,7 +141,7 @@ function ContactsMobile({ animationControl, close }) {
           userId,
         )
         .then(
-          (result) => {
+          result => {
             console.log(result.text);
             setTimeout(() => {
               setSnackbarMessage("Email enviado com sucesso!");
@@ -153,7 +150,7 @@ function ContactsMobile({ animationControl, close }) {
               setLoading(false);
             }, 1000);
           },
-          (error) => {
+          error => {
             console.log(error.text);
             setTimeout(() => {
               setSnackbarMessage("Falha no envio do email.");

@@ -15,8 +15,10 @@ function CoursesListDesktop({ animationControl, setOpenCurso }) {
 
   useEffect(() => {
     if (animationControl === "standby") setCoursesDesktopClass(classes.card);
-    else if (animationControl === "hide") setCoursesDesktopClass(classes.cardUp);
-    else if (animationControl === "show") setCoursesDesktopClass(classes.cardDown);
+    else if (animationControl === "hide")
+      setCoursesDesktopClass(classes.cardUp);
+    else if (animationControl === "show")
+      setCoursesDesktopClass(classes.cardDown);
   }, [animationControl]);
 
   return (
@@ -33,8 +35,16 @@ function CoursesListDesktop({ animationControl, setOpenCurso }) {
               return (
                 <Button
                   key={index}
-                  className={index === 0 ? classes.buttonsListFirst : (index === listaCursos.length - 1 ? classes.buttonsListLast : classes.buttonsList)}
-                  onClick={()=>{setOpenCurso({open: true, index: index, style: 'show'})}}
+                  className={
+                    index === 0
+                      ? classes.buttonsListFirst
+                      : index === listaCursos.length - 1
+                      ? classes.buttonsListLast
+                      : classes.buttonsList
+                  }
+                  onClick={() => {
+                    setOpenCurso({ open: true, index: index, style: "show" });
+                  }}
                   variant="text"
                   style={{ textTransform: "none" }}
                 >
@@ -43,15 +53,19 @@ function CoursesListDesktop({ animationControl, setOpenCurso }) {
                   >
                     {curso.title}
                   </Typography>
-                  {curso.subtitle &&
-                  <Typography
-                    style={{ color: "#ffffff", fontSize: 12, marginLeft: "8px" }}
-                  >
-                    {curso.subtitle}
-                  </Typography>
-                  }
+                  {curso.subtitle && (
+                    <Typography
+                      style={{
+                        color: "#ffffff",
+                        fontSize: 12,
+                        marginLeft: "8px",
+                      }}
+                    >
+                      {curso.subtitle}
+                    </Typography>
+                  )}
                 </Button>
-              )
+              );
             })}
           </ButtonGroup>
         </CardContent>

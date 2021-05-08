@@ -5,16 +5,19 @@ import { ExpandMore, ExpandLess } from "@material-ui/icons";
 
 function QuemSomosMobile({ animationControl }) {
   const classes = useStyles();
-  const [quemSomosMobileClass, setQuemSomosMobileClass] = useState(classes.card);
+  const [quemSomosMobileClass, setQuemSomosMobileClass] = useState(
+    classes.card,
+  );
   const [isUp, setIsUp] = useState(false);
 
   useEffect(() => {
     if (animationControl === "standby") setQuemSomosMobileClass(classes.card);
-    else if (animationControl === "hide") setQuemSomosMobileClass(classes.cardHide);
-    else if (animationControl === "show") setQuemSomosMobileClass(classes.cardShow);
+    else if (animationControl === "hide")
+      setQuemSomosMobileClass(classes.cardHide);
+    else if (animationControl === "show")
+      setQuemSomosMobileClass(classes.cardShow);
     setIsUp(false);
   }, [animationControl]);
-
 
   function handleTitleClick() {
     if (isUp) {
@@ -69,15 +72,15 @@ function QuemSomosMobile({ animationControl }) {
       >
         A vontade de ajudar e difundir o conhecimento, assim como a crescente
         demanda por mão de obra qualificada no mercado aeronáutico resultou na
-        reunião de esforços para a criação da Tailwind Aviation Courses.{" "}
-        <br /> <br className={classes.line} />
+        reunião de esforços para a criação da Tailwind Aviation Courses. <br />{" "}
+        <br className={classes.line} />
         Com seu primeiro esboço tendo acontecido em 2020 e o início de suas
-        atividades no ano de 2021 a Tailwind Aviation Courses tem como
-        objetivo prover conteúdo de forma fácil, direta, interativa,
-        descomplicada para todos àqueles que buscam aprimorar seus
-        conhecimentos e alcançar uma melhor posição no mercado de trabalho,
-        priorizando sempre a qualidade em todos os serviços e materiais
-        oferecidos. <br /> <br className={classes.line} />
+        atividades no ano de 2021 a Tailwind Aviation Courses tem como objetivo
+        prover conteúdo de forma fácil, direta, interativa, descomplicada para
+        todos àqueles que buscam aprimorar seus conhecimentos e alcançar uma
+        melhor posição no mercado de trabalho, priorizando sempre a qualidade em
+        todos os serviços e materiais oferecidos. <br />{" "}
+        <br className={classes.line} />
         Para isso, nos dedicamos à elaboração de conteúdos completos e
         direcionados para as operações enfrentadas no dia-a-dia de um piloto.
         Além disso, para garantir a compreensão do conteúdo abordado, queremos

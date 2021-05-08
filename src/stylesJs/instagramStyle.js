@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(theme => ({
   card: {
     // posição
     position: "absolute",
@@ -83,7 +83,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   logoTitle: {
-    position: 'absolute',
+    position: "absolute",
     marginTop: "8px",
     width: "60%",
     minWidth: "200px",
@@ -106,15 +106,15 @@ export const useStyles = makeStyles((theme) => ({
   "@keyframes hideCarousel": {
     "0%": {
       opacity: "100%",
-      height: 'auto',
+      height: "auto",
     },
     "99%": {
       opacity: "1%",
-      height: 'auto',
+      height: "auto",
     },
     "100%": {
       opacity: "0%",
-      height: '0px',
+      height: "0px",
     },
   },
 }));

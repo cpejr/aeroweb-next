@@ -3,8 +3,14 @@ import React from "react";
 import ContactsMobile from "./contactsMobile";
 import ContactsDesktop from "./contactsDesktop";
 
-function Contacts (props) {
-  const {contactsMobileControl, setContactsMobileControl, contactsControl, setContactsControl, setCarouselControl} = props;
+function Contacts(props) {
+  const {
+    contactsMobileControl,
+    setContactsMobileControl,
+    contactsControl,
+    setContactsControl,
+    setCarouselControl,
+  } = props;
   return (
     <>
       {isMobile ? (
@@ -17,12 +23,12 @@ function Contacts (props) {
           animationControl={contactsControl}
           close={() => {
             setContactsControl("hide");
-            setCarouselControl('show');
+            setCarouselControl("show");
           }}
         />
       )}
     </>
-  )
+  );
 }
 
 export default Contacts;

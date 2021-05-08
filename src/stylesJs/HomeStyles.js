@@ -1,8 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-import { red } from "@material-ui/core/colors";
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   homeContainer: {
     width: "100%",
     height: "100vh",
@@ -83,7 +81,6 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.between("800", "1000")]: {
       paddingTop: "33vh",
-      marginLeft: "20vw",
       width: "50px",
       height: "20px",
       marginLeft: "15vw",
@@ -110,7 +107,6 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.between("800", "1000")]: {
       paddingTop: "50vh",
-      marginLeft: "12vw",
       width: "8rem",
       height: "20px",
       marginLeft: "14vw",

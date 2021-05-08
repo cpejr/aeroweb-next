@@ -9,10 +9,10 @@ function Item(props) {
       style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
     >
       {props.item.map((item, index) => (
-        <a 
+        <a
           key={index}
-          href={item.href} 
-          style={{ padding: "2%" }} 
+          href={item.href}
+          style={{ padding: "2%" }}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -28,11 +28,10 @@ function InstagramCarousel({ animationControl }) {
   const [carouselClass, setCarouselClass] = useState(classes.card);
 
   useEffect(() => {
-    if (animationControl === 'standby') setCarouselClass(classes.card);
-    if (animationControl === 'show') setCarouselClass(classes.cardShow);
-    if (animationControl === 'hide') setCarouselClass(classes.cardHide);
-
-  }, [animationControl])
+    if (animationControl === "standby") setCarouselClass(classes.card);
+    if (animationControl === "show") setCarouselClass(classes.cardShow);
+    if (animationControl === "hide") setCarouselClass(classes.cardHide);
+  }, [animationControl]);
 
   var items = [
     [
@@ -110,10 +109,10 @@ function InstagramCarousel({ animationControl }) {
       <img src="/assets/union.svg" className={classes.logoTitle} />
       <Typography
         style={{
-          marginBottom: '8px',
+          marginBottom: "8px",
           color: "white",
           fontFamily: "Roboto",
-          fontSize: '20px',
+          fontSize: "20px",
         }}
       >
         Últimos Posts
