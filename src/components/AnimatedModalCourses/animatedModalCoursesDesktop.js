@@ -9,11 +9,11 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
-import { useStyles } from "./styles";
+import { useStyles } from "./animatedModalCoursesDesktopStyle";
 import React, { useState, useEffect } from "react";
 import listaCursos from "../../../public/listaCursos";
 
-function AnimatedModal({  close, styleModal, videoLink, indexCurso }) {
+function AnimatedModalCoursesDesktop({  close, styleModal, videoLink, indexCurso }) {
   const classes = useStyles();
   const curso = listaCursos[indexCurso];
   const [cardClass, setCardClass] = useState(classes.card);
@@ -161,4 +161,4 @@ function AnimatedModal({  close, styleModal, videoLink, indexCurso }) {
   );
 }
 
-export default AnimatedModal;
+export default AnimatedModalCoursesDesktop;

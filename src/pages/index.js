@@ -1,23 +1,19 @@
 import React, { useState, useRef, useEffect } from "react";
 import isMobile from "./isMobile"; // usa para ver se é mobile ou não
-import listaCursos from "../../public/listaCursos";
 
 // estilização
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
 
 // componentes
-import AnimatedModal from "../components/AnimatedModal/index";
-import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
+import AnimatedModalCourses from "../components/AnimatedModalCourses/animatedModalCourses";
 import Footer from "../components/Footer/index";
 import Contacts from "../components/Contacts/contacts";
 import QuemSomos from "../components/QuemSomos/quemSomos";
 import CoursesList from "../components/CoursesList/courseList";
-
 import InstagramCarousel from "../components/InstagramCarousel";
 
 import { NextSeo } from "next-seo";
-import { SettingsPhone } from "@material-ui/icons";
 
 function Home() {
   <>
@@ -64,9 +60,7 @@ function Home() {
   const [flying, setFlying] = useState(true);
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
-  const [open, setOpen] = useState(false);
   const [quemSomosControl, setQuemSomosControl] = useState('standby');
-  const [openMobile, setOpenMobile] = useState(false);
 
   // Parâmetros para o novo gradiente:
   const [newGradient, setNewGradient] = useState();
@@ -81,9 +75,6 @@ function Home() {
   const [size, setSize] = useState(null);
 
   // variaveis da animacao dos modais
-  // const [styleFirst, setStyleFirst] = useState('standby');
-  // const [styleSecond, setStyleSecond] = useState('standby');
-  // const [styleThird, setStyleThird] = useState('standby');
   const [listStyle, setListStyle] = useState("standby");
   const [quemSomosMobileControl, setQuemSomosMobileControl] = useState("standby");
   const [contactsControl, setContactsControl] = useState("standby");
@@ -93,7 +84,6 @@ function Home() {
 
   const [openCurso, setOpenCurso] = useState({open: false, index: null, style: ''});
 
-  const [openNthModal, setOpenNthModal] = useState([]);
   const [modalStyle, setModalStyle] = useState('standby');
 
   // variaveis das linhas do avião
@@ -101,22 +91,11 @@ function Home() {
   const [isResponsive1, setResponsive1] = useState();
   const [isResponsive2, setResponsive2] = useState();
 
-  // gambiarra do listaCursos.js
-  // listaCursos[0].open = styleFirst;
-  // listaCursos[1].open = styleSecond;
-  // listaCursos[2].open = styleThird;
 
   // --------------------------------- //
 
   // reset do array dos modais ao carregar pagina
   useEffect(() => {
-    let auxArray = [];
-    for (let i = 0; i < listaCursos.length; ++i) {
-      auxArray.push(false);
-    }
-
-    setOpenNthModal(auxArray);
-
     if (isMobile) setPhone(true);
   }, []);
 
@@ -268,12 +247,6 @@ function Home() {
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
-
-    //Para a animação do modalQuemSomos:
-    setTimeout(() => {
-      setOpen(true);
-    }, 1200);
-
     // controle dos modais
     if (!isMobile && contactsControl !== "standby") setContactsControl("hide");
     if (isMobile && contactsMobileControl !== "standby")
@@ -346,8 +319,6 @@ function Home() {
     }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
-
-    setOpenMobile(true);
 
     // controle dos modais
     if (listStyle !== "standby") setListStyle("hide");
@@ -624,8 +595,6 @@ function Home() {
 
         <CoursesList
           slideCourses={slideCourses}
-          openNthModal={openNthModal}
-          setOpenNthModal={setOpenNthModal}
           setSlideCourses={setSlideCourses}
           listStyle={listStyle}
           setOpenCurso={setOpenCurso}
@@ -647,45 +616,13 @@ function Home() {
 
       {!isMobile && <Footer />}
 
-      
-
-      {/* {
-        // Modais de transição DESKTOP
-        !isMobile &&
-          listaCursos.map((object, index) => {
-            return (
-              <AnimatedModal
-                key={index}
-                open={object.open}
-                close={closeModal}
-                title={object.title}
-                text1={object.text1}
-                text2={object.text2}
-                text3={object.text3}
-              />
-            );
-          })
-      } */}
-
-      {
-        // Modais de transição DESKTOP
-        openCurso.open &&
-        (
-          // Modais de transição MOBILE
-          isMobile ?
-            <AnimatedModalMobile
-              styleModal={openCurso.style}
-              indexCurso={openCurso.index}
-              setOpenCurso={setOpenCurso}
-              setSlideCourses={setSlideCourses}
-            />
-            :
-            <AnimatedModal
-              styleModal={openCurso.style}
-              close={closeModal}
-              indexCurso={openCurso.index}
-            />
-        )
+      {openCurso.open &&
+        <AnimatedModalCourses
+          openCurso={openCurso}
+          setOpenCurso={setOpenCurso}
+          setSlideCourses={setSlideCourses}
+          closeModal={closeModal}
+        />
       }
     </div>
   );

@@ -8,11 +8,11 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ExpandMore, ExpandLess, SingleBedSharp } from "@material-ui/icons";
-import { useStyles } from "./styles";
+import { useStyles } from "./animatedModalCoursesMobileStyle";
 import LogomarcaAzul from "../../../public/assets/LogomarcaAzul.svg";
 import listaCursos from "../../../public/listaCursos";
 
-function AnimatedModalMobile({
+function AnimatedModalCoursesMobile({
   indexCurso,
   setOpenCurso,
   styleModal,
@@ -157,4 +157,4 @@ function AnimatedModalMobile({
   );
 }
 
-export default AnimatedModalMobile;
+export default AnimatedModalCoursesMobile;

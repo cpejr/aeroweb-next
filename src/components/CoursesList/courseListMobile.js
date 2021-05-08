@@ -14,8 +14,6 @@ function CoursesListMobile({
   setOpenCurso,
   slideCourses,
   setSlideCourses,
-  openNthModal,
-  setOpenNthModal,
 }) {
   const classes = useStyles();
   const [slideClass, setSlideClass] = useState(classes.cardButtons);

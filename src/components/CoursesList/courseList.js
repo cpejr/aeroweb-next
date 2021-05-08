@@ -6,15 +6,13 @@ import CoursesListMobile from "./courseListMobile";
 import CoursesListDesktop from "./courseListDesktop";
 
 function CoursesList(props) {
-  const {slideCourses, openNthModal, setOpenNthModal, setSlideCourses, setOpenCurso, listStyle} = props;
+  const {slideCourses, setSlideCourses, setOpenCurso, listStyle} = props;
   return (
     <>
     {isMobile ? (
         <ThemeProvider theme={cardContentOverride}>
           <CoursesListMobile
             slideCourses={slideCourses}
-            openNthModal={openNthModal}
-            setOpenNthModal={setOpenNthModal}
             setSlideCourses={setSlideCourses}
             setOpenCurso={setOpenCurso}
           />
@@ -23,10 +21,6 @@ function CoursesList(props) {
         <CoursesListDesktop
           listStyle={listStyle}
           setOpenCurso={setOpenCurso}
-          // feito estaticamente: implementar via .map igual no cursos do mobile
-          // openFirst={() => setStyleFirst('show')}
-          // openSecond={() => setStyleSecond('show')}
-          // openThird={() => setStyleThird('show')}
         />
       )}
       </>

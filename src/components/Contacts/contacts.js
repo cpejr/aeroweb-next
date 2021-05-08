@@ -8,7 +8,7 @@ import ContactsDesktop from "./contactsDesktop";
 function Contacts (props) {
   const {contactsMobileControl, setContactsMobileControl, contactsControl, setContactsControl, setCarouselControl} = props;
   return (
-    <div>
+    <>
       {isMobile ? (
         <ThemeProvider theme={buttonOverride}>
           <ContactsMobile
@@ -25,7 +25,7 @@ function Contacts (props) {
           }}
         />
       )}
-    </div>
+    </>
   )
 }
 

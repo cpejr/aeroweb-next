@@ -6,7 +6,7 @@ import QuemSomosMobile from "./quemSomosMobile";
 function QuemSomos (props) {
   const {quemSomosMobileControl, setQuemSomosMobileControl, quemSomosControl, setQuemSomosControl} = props;
   return (
-    <div>
+    <>
       {isMobile ? (
         <QuemSomosMobile
           animationControl={quemSomosMobileControl}
@@ -18,7 +18,7 @@ function QuemSomos (props) {
           close={() => setQuemSomosControl('hide')}
         />
       )}
-    </div>
+    </>
   )
 }
 
