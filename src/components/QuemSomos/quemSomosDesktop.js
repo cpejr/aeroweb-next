@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useStyles } from "./quemSomosDesktopStyle";
+import { useStyles } from "../../stylesJs/quemSomosDesktopStyle";
 import {
   Button,
   Modal,

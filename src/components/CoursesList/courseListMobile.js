@@ -6,7 +6,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ArrowForwardIos } from "@material-ui/icons";
-import { useStyles } from "./courseListMobileStyle";
+import { useStyles } from "../../stylesJs/courseListMobileStyle";
 import listaCursos from "../../../public/listaCursos";
 
 function CoursesListMobile({

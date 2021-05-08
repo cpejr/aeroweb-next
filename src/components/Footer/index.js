@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar } from "@material-ui/core";
 import { Instagram, YouTube, Facebook } from "@material-ui/icons";
-import { useStyles } from "./styles";
+import { useStyles } from "../../stylesJs/footerStyle";
 
 function Footer() {
   const classes = useStyles();

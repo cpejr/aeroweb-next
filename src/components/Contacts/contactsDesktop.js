@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
 import isMobile from "../../pages/isMobile";
-import { useStyles } from "./contactsDesktopStyle";
+import { useStyles } from "../../stylesJs/contactsDesktopStyle";
 import MuiAlert from "@material-ui/lab/Alert";
 import { Clear } from "@material-ui/icons";
 import {

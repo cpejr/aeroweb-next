@@ -60,7 +60,6 @@ function Home() {
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
 
-
   // Parâmetros para o novo gradiente:
   const [newGradient, setNewGradient] = useState();
   const [oldGradient, setOldGradient] = useState(

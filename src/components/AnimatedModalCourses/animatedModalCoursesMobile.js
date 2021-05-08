@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ExpandMore, ExpandLess, SingleBedSharp } from "@material-ui/icons";
-import { useStyles } from "./animatedModalCoursesMobileStyle";
+import { useStyles } from "../../stylesJs/animatedModalCoursesMobileStyle";
 import LogomarcaAzul from "../../../public/assets/LogomarcaAzul.svg";
 import listaCursos from "../../../public/listaCursos";
 

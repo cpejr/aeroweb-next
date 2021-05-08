@@ -6,7 +6,7 @@ import {
   CardContent,
   Typography,
 } from "@material-ui/core";
-import { useStyles } from "./courseListDesktopStyle";
+import { useStyles } from "../../stylesJs/courseListDesktopStyle";
 import listaCursos from "../../../public/listaCursos";
 
 function CoursesListDesktop({ animationControl, setOpenCurso }) {

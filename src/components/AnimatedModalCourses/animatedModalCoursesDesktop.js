@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
-import { useStyles } from "./animatedModalCoursesDesktopStyle";
+import { useStyles } from "../../stylesJs/animatedModalCoursesDesktopStyle";
 import React, { useState, useEffect } from "react";
 import listaCursos from "../../../public/listaCursos";
 

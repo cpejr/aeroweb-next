@@ -1,6 +1,4 @@
 import isMobile from "../../pages/isMobile";
-import {ThemeProvider} from "@material-ui/core/styles";
-import buttonOverride from "../../theme/buttonOverride";
 import React from "react";
 import ContactsMobile from "./contactsMobile";
 import ContactsDesktop from "./contactsDesktop";
@@ -10,12 +8,10 @@ function Contacts (props) {
   return (
     <>
       {isMobile ? (
-        <ThemeProvider theme={buttonOverride}>
-          <ContactsMobile
-            animationControl={contactsMobileControl}
-            close={() => setContactsMobileControl("hide")}
-          />
-        </ThemeProvider>
+        <ContactsMobile
+          animationControl={contactsMobileControl}
+          close={() => setContactsMobileControl("hide")}
+        />
       ) : (
         <ContactsDesktop
           animationControl={contactsControl}

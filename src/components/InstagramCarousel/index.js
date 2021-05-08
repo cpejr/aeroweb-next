@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useStyles } from "./styles";
+import { useStyles } from "../../stylesJs/instagramStyle";
 import { Card, Typography } from "@material-ui/core";
 import Carousel from "react-material-ui-carousel";
 
