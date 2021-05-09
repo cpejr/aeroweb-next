@@ -2,21 +2,25 @@ import React, { useState, useEffect } from "react";
 import { useStyles } from "../../stylesJs/instagramStyle";
 import { Card, Typography } from "@material-ui/core";
 import Carousel from "react-material-ui-carousel";
+import isMobile from "../../utils/isMobile";
 
 function Item(props) {
   return (
     <div
-      style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+      style={{ display: "flex", flexDirection: "row", alignItems: "center", overflow: "hidden" }}
     >
       {props.item.map((item, index) => (
         <a
           key={index}
           href={item.href}
-          style={{ padding: "2%" }}
+          style={{ padding: "2%", height: "100%", width: "100%" }}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={item.src} alt={item.alt} width="100%" height="100%" />
+          <img src={item.src} alt={item.alt} style={{
+            height: "100%",
+            width: "100%"
+          }} />
         </a>
       ))}
     </div>
@@ -117,11 +121,25 @@ function InstagramCarousel({ animationControl }) {
       >
         Últimos Posts
       </Typography>
-      <Carousel animation="slide" indicators={false} interval={3000} >
-        {items.map((item, i) => (
-          <Item key={i} item={item} />
-        ))}
-      </Carousel>
+      {/* precisa da div para esconder o overflow ao carregar imagem */}
+      <div className={classes.carouselContainer}> 
+        <Carousel 
+          animation="slide" 
+          indicators={false} 
+          timeout={{
+            appear: 5000,
+            enter: 2000,
+            exit: 1000
+          }} 
+          swipe={false} 
+          navButtonsAlwaysInvisible={isMobile} 
+        >
+          {items.map((item, i) => (
+            <Item key={i} item={item} />
+          ))}
+        </Carousel>
+      </div>
+      
     </Card>
   );
 }
