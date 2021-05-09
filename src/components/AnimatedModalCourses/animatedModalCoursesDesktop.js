@@ -1,63 +1,70 @@
 import {
   Button,
   Modal,
-  Fade,
-  Grow,
   Card,
   CardContent,
   CardActions,
   Typography,
 } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
-import { useStyles } from "./styles";
+import { useStyles } from "../../stylesJs/animatedModalCoursesDesktopStyle";
 import React, { useState, useEffect } from "react";
+import listaCursos from "../../../public/listaCursos";
 
-function AnimatedModal({ styleModal, close, title, text1, text2, text3, videoLink }) {
+function AnimatedModalCoursesDesktop({
+  close,
+  animationControl,
+  videoLink,
+  indexCurso,
+}) {
   const classes = useStyles();
+  const curso = listaCursos[indexCurso];
   const [cardClass, setCardClass] = useState(classes.card);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (styleModal === 'standby') {
+    if (animationControl === "standby") {
       setCardClass(classes.card);
-    }
-    else if (styleModal === 'show') {
+    } else if (animationControl === "show") {
       setCardClass(classes.cardShow);
       setOpen(true);
-    }
-    else if (styleModal === 'hide') {
+    } else if (animationControl === "hide") {
       setCardClass(classes.cardHide);
-      setOpen(false);     
+      setOpen(false);
     }
-  }, [styleModal])
+  }, [animationControl]);
 
   const handleClose = () => {
     setCardClass(classes.cardHide);
     setTimeout(() => {
       close();
-    }, 1000)
-  }
+    }, 1000);
+  };
 
   return (
-    // <div className={classes.background}>
-    <Modal
-      open={open}
-      onClose={handleClose}
-      onBackdropClick={handleClose}
-    >
+    <Modal open={open} onClose={handleClose} onBackdropClick={handleClose}>
       <Card className={cardClass}>
         <CardContent className={classes.cardContentContainer}>
           <div className={classes.cardContent}>
             <div className={classes.cardTitle}>
               <img
                 src="/assets/Tailwind2.svg"
-                style={{ height: "100px", width: '100px', fontFamily: "Roboto" }}
+                style={{
+                  height: "100px",
+                  width: "100px",
+                  fontFamily: "Roboto",
+                }}
               />
               <Typography
                 variant="h5"
-                style={{ color: "#3467eb", fontFamily: "Roboto", flex: 10, textAlign:'center' }}
+                style={{
+                  color: "#3467eb",
+                  fontFamily: "Roboto",
+                  flex: 10,
+                  textAlign: "center",
+                }}
               >
-                {title}
+                {curso.title}
               </Typography>
               <ExpandMore
                 onClick={handleClose}
@@ -67,14 +74,14 @@ function AnimatedModal({ styleModal, close, title, text1, text2, text3, videoLin
             </div>
 
             <div className={classes.cardBody}>
-            <Typography
-              style={{ fontFamily: "Roboto", color: "black" }}
-              className={classes.text}
-            >
-              {text1} <br /> <br />
-              {text2} <br /> <br />
-              {text3} <br /> <br />
-            </Typography>
+              <Typography
+                style={{ fontFamily: "Roboto", color: "black" }}
+                className={classes.text}
+              >
+                {curso.text1} <br /> <br />
+                {curso.text2} <br /> <br />
+                {curso.text3} <br /> <br />
+              </Typography>
             </div>
 
             <div className={classes.cardVideo} />
@@ -86,7 +93,7 @@ function AnimatedModal({ styleModal, close, title, text1, text2, text3, videoLin
                   fontFamily: "Roboto",
                   color: "#3467eb",
                   fontWeight: 500,
-                  textAlign: 'center',
+                  textAlign: "center",
                 }}
               >
                 Formas de pagamento
@@ -94,22 +101,10 @@ function AnimatedModal({ styleModal, close, title, text1, text2, text3, videoLin
               <div className={classes.cardPayments2}>
                 <div className={classes.cardPayments3}>
                   <img src="/assets/Visa.png" alt="Forma de pagamento" />
-                  <img
-                    src="/assets/Mastercard.svg"
-                    alt="Forma de pagamento"
-                  />
-                  <img
-                    src="/assets/Paypal.png"
-                    alt="Forma de pagamento"
-                  />
-                  <img
-                    src="/assets/Samsungpay.png"
-                    alt="Forma de pagamento"
-                  />
-                  <img
-                    src="/assets/Hipercard.png"
-                    alt="Forma de pagamento"
-                  />
+                  <img src="/assets/Mastercard.svg" alt="Forma de pagamento" />
+                  <img src="/assets/Paypal.png" alt="Forma de pagamento" />
+                  <img src="/assets/Samsungpay.png" alt="Forma de pagamento" />
+                  <img src="/assets/Hipercard.png" alt="Forma de pagamento" />
                 </div>
                 <div className={classes.cardPayments4}>
                   <img
@@ -150,13 +145,8 @@ function AnimatedModal({ styleModal, close, title, text1, text2, text3, videoLin
           </div>
         </CardActions>
       </Card>
-
     </Modal>
-      
-
-    // </div>
-    
   );
 }
 
-export default AnimatedModal;
+export default AnimatedModalCoursesDesktop;

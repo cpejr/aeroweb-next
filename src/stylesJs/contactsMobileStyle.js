@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
-  cardContactsMobile: {
+export const useStyles = makeStyles(theme => ({
+  card: {
     width: "80vw",
     maxHeight: "80vh",
 
@@ -13,7 +13,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "none",
   },
 
-  cardContactsMobileShow: {
+  cardShow: {
     width: "80vw",
     maxHeight: "80vh",
 
@@ -22,12 +22,11 @@ export const useStyles = makeStyles((theme) => ({
     top: "80vh",
 
     backgroundColor: "#F9F9F922",
-    // overflowY: 'scroll',
 
     animation: "$showContacts 1000ms linear forwards",
   },
 
-  cardContactsMobileHide: {
+  cardHide: {
     width: "80vw",
     maxHeight: "80vh",
 
@@ -36,12 +35,11 @@ export const useStyles = makeStyles((theme) => ({
     top: "80vh",
 
     backgroundColor: "#F9F9F922",
-    // overflowY: 'scroll',
 
     animation: "$hideContacts 1000ms linear forwards",
   },
 
-  cardContactsMobileUp: {
+  cardUp: {
     width: "80vw",
     maxHeight: "80vh",
 
@@ -54,7 +52,7 @@ export const useStyles = makeStyles((theme) => ({
     animation: "$upContacts 1000ms linear forwards",
   },
 
-  cardContactsMobileDown: {
+  cardDown: {
     width: "80vw",
     maxHeight: "80vh",
 
@@ -62,12 +60,11 @@ export const useStyles = makeStyles((theme) => ({
     left: "10vw",
 
     backgroundColor: "#2234CCFF",
-    // overflowY: 'scroll',
 
     animation: "$downContacts 1000ms linear forwards",
   },
 
-  cardContentContacts: {
+  cardContent: {
     width: "100%",
 
     display: "flex",
@@ -75,23 +72,12 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
 
-  titleContacts: {
+  title: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
 
     width: "100%",
-  },
-
-  buttonContacts: {
-    marginTop: "16px",
-    backgroundColor: "white",
-    // transition: 'background-color 0.2s',
-
-    borderRadius: "8px",
-    "&:hover": {
-      backgroundColor: "#ffffffbb",
-    },
   },
 
   cssLabel: {
@@ -105,7 +91,6 @@ export const useStyles = makeStyles((theme) => ({
 
   textfieldMsg: {
     color: "white",
-    // height: 24,
   },
 
   textfieldFont: {

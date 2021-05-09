@@ -1,14 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import emailjs from "emailjs-com";
-import { useStyles } from "./styles";
+import { useStyles } from "../../stylesJs/contactsDesktopStyle";
 import MuiAlert from "@material-ui/lab/Alert";
-import {
-  ExpandMore,
-  ExpandLess,
-  Facebook,
-  Instagram,
-  YouTube,
-} from "@material-ui/icons";
+import { Clear } from "@material-ui/icons";
 import {
   Button,
   Card,
@@ -19,13 +13,10 @@ import {
   Typography,
 } from "@material-ui/core";
 
-function ContactsMobile({ contactMobileStyle, close }) {
+function ContactsDesktop({ animationControl, close }) {
   // variaveis de estilização
   const classes = useStyles();
-  const [contactMobileClass, setContactMobileClass] = useState(
-    classes.cardContactsMobile,
-  );
-  const [isUp, setIsUp] = useState(false);
+  const [contactsClass, setContactsClass] = useState(classes.card);
 
   // variaveis de configuração do emailJs
   const serviceId = "service_p5jlw0d";
@@ -52,26 +43,20 @@ function ContactsMobile({ contactMobileStyle, close }) {
   const [errorMsgMessage, setErrorMsgMessage] = useState("");
 
   useEffect(() => {
-    if (contactMobileStyle === "standby")
-      setContactMobileClass(classes.cardContactsMobile);
-    else if (contactMobileStyle === "show")
-      setContactMobileClass(classes.cardContactsMobileShow);
-    else if (contactMobileStyle === "hide") {
-      setContactMobileClass(classes.cardContactsMobileHide);
+    if (animationControl === "standby") setContactsClass(classes.card);
+    else if (animationControl === "show") setContactsClass(classes.cardShow);
+    else if (animationControl === "hide") {
+      setContactsClass(classes.cardHide);
 
-      resetFields();
+      // reseta os campos todos
+      setErrorName(false);
+      setErrorNameMessage("");
+      setErrorEmail(false);
+      setErrorEmailMessage("");
+      setErrorMsg(false);
+      setErrorMsgMessage("");
     }
-  }, [contactMobileStyle]);
-
-  function resetFields() {
-    // reseta os campos todos
-    setErrorName(false);
-    setErrorNameMessage("");
-    setErrorEmail(false);
-    setErrorEmailMessage("");
-    setErrorMsg(false);
-    setErrorMsgMessage("");
-  }
+  }, [animationControl]);
 
   // função de validação
   function validateInput(type, value) {
@@ -144,7 +129,7 @@ function ContactsMobile({ contactMobileStyle, close }) {
           userId,
         )
         .then(
-          (result) => {
+          result => {
             console.log(result.text);
             setTimeout(() => {
               setSnackbarMessage("Email enviado com sucesso!");
@@ -153,7 +138,7 @@ function ContactsMobile({ contactMobileStyle, close }) {
               setLoading(false);
             }, 1000);
           },
-          (error) => {
+          error => {
             console.log(error.text);
             setTimeout(() => {
               setSnackbarMessage("Falha no envio do email.");
@@ -166,54 +151,25 @@ function ContactsMobile({ contactMobileStyle, close }) {
     }
   }
 
-  function handleTitleClick() {
-    if (isUp) {
-      setContactMobileClass(classes.cardContactsMobileDown);
-      setIsUp(false);
-
-      resetFields();
-    } else {
-      setContactMobileClass(classes.cardContactsMobileUp);
-      setIsUp(true);
-    }
-  }
-
   return (
-    <Card style={{ zIndex: "200" }} className={contactMobileClass}>
-      <CardContent className={classes.cardContentContacts}>
-        <div className={classes.titleContacts}>
+    <Card style={{ zIndex: "200" }} className={contactsClass}>
+      <CardContent className={classes.cardContent}>
+        <div className={classes.title}>
+          <img
+            src="/assets/Tailwind3.svg"
+            style={{ height: "75px", fontFamily: "Roboto" }}
+          ></img>
           <Typography
-            style={{
-              color: "white",
-              fontSize: "18px",
-              textAlign: "center",
-              cursor: "pointer",
-              flex: 9,
-            }}
-            onClick={() => handleTitleClick()}
+            variant="h5"
+            style={{ color: "white", textAlign: "center" }}
           >
             Mande sua mensagem
           </Typography>
-          {isUp ? (
-            <ExpandMore
-              fontSize="large"
-              style={{ color: "white", cursor: "pointer", flex: 1 }}
-              onClick={() => {
-                setContactMobileClass(classes.cardContactsMobileDown);
-                setIsUp(false);
-                resetFields();
-              }}
-            />
-          ) : (
-            <ExpandLess
-              fontSize="large"
-              style={{ color: "white", cursor: "pointer", flex: 1 }}
-              onClick={() => {
-                setContactMobileClass(classes.cardContactsMobileUp);
-                setIsUp(true);
-              }}
-            />
-          )}
+          <Clear
+            className={classes.icon}
+            style={{ color: "white", cursor: "pointer" }}
+            onClick={close}
+          />
         </div>
 
         <TextField
@@ -282,7 +238,7 @@ function ContactsMobile({ contactMobileStyle, close }) {
           style={{ marginTop: "8px" }}
           inputRef={msgInput}
           multiline={true}
-          rows="5"
+          rows="3"
           InputLabelProps={{
             classes: {
               root: classes.cssLabel,
@@ -306,9 +262,8 @@ function ContactsMobile({ contactMobileStyle, close }) {
 
         <Button
           variant="outlined"
-          // className={classes.buttonContacts}
+          className={classes.button}
           onClick={() => handleSend()}
-          style={{ marginTop: "16px", backgroundColor: "white" }}
         >
           {loading ? (
             <CircularProgress color="primary" size={32} thickness={2.5} />
@@ -326,84 +281,9 @@ function ContactsMobile({ contactMobileStyle, close }) {
             {snackbarMessage}
           </MuiAlert>
         </Snackbar>
-
-        <Typography
-          style={{
-            color: "white",
-            fontSize: "14px",
-            width: "100%",
-            marginTop: "16px",
-          }}
-        >
-          contato@twcourses.com.br
-        </Typography>
-        <Typography
-          style={{
-            color: "white",
-            fontSize: "14px",
-            width: "100%",
-            marginTop: "8px",
-          }}
-        >
-          31 0000-0000
-        </Typography>
-        <Typography
-          style={{
-            color: "white",
-            fontSize: "14px",
-            width: "100%",
-            marginTop: "8px",
-          }}
-        >
-          endereço, n° 00
-        </Typography>
-        <Typography
-          style={{
-            color: "white",
-            fontSize: "14px",
-            width: "100%",
-            marginTop: "8px",
-          }}
-        >
-          Bairro
-        </Typography>
-        <Typography
-          style={{
-            color: "white",
-            fontSize: "14px",
-            width: "100%",
-            marginTop: "8px",
-          }}
-        >
-          Belo Horizonte
-        </Typography>
-
-        <div className={classes.appBarIcons}>
-          <a
-            href="https://www.instagram.com/tailwindaviation_/?igshid=e1xunf1mbnxw"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Instagram className={classes.icon} />
-          </a>
-          <a
-            href="https://www.facebook.com/tailwindaviation_-101677271700685/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Facebook className={classes.icon} style={{ marginLeft: "16px" }} />
-          </a>
-          <a
-            href="https://www.youtube.com/channel/UCKyRogxlGFKulDlpBgfnokA/featured"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <YouTube className={classes.icon} style={{ marginLeft: "16px" }} />
-          </a>
-        </div>
       </CardContent>
     </Card>
   );
 }
 
-export default ContactsMobile;
+export default ContactsDesktop;

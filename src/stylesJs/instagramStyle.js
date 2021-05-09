@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
-  carouselCard: {
+export const useStyles = makeStyles(theme => ({
+  card: {
     // posição
     position: "absolute",
     left: "62.50vw",
@@ -19,7 +19,6 @@ export const useStyles = makeStyles((theme) => ({
     // estilo
     display: "flex",
     flexDirection: "column",
-    // justifyContent: 'center',
     alignItems: "center",
     borderRadius: "8px",
     zIndex: 250,
@@ -27,7 +26,7 @@ export const useStyles = makeStyles((theme) => ({
     padding: "4px !important",
   },
 
-  carouselCardShow: {
+  cardShow: {
     // posição
     position: "absolute",
     left: "62.50vw",
@@ -45,7 +44,6 @@ export const useStyles = makeStyles((theme) => ({
     // estilo
     display: "flex",
     flexDirection: "column",
-    // justifyContent: 'center',
     alignItems: "center",
     borderRadius: "8px",
     zIndex: 250,
@@ -56,7 +54,7 @@ export const useStyles = makeStyles((theme) => ({
     animation: "$showCarousel 1000ms linear forwards",
   },
 
-  carouselCardHide: {
+  cardHide: {
     // posição
     position: "absolute",
     left: "62.50vw",
@@ -74,7 +72,6 @@ export const useStyles = makeStyles((theme) => ({
     // estilo
     display: "flex",
     flexDirection: "column",
-    // justifyContent: 'center',
     alignItems: "center",
     borderRadius: "8px",
     zIndex: 250,
@@ -86,7 +83,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   logoTitle: {
-    position: 'absolute',
+    position: "absolute",
     marginTop: "8px",
     width: "60%",
     minWidth: "200px",
@@ -109,15 +106,15 @@ export const useStyles = makeStyles((theme) => ({
   "@keyframes hideCarousel": {
     "0%": {
       opacity: "100%",
-      height: 'auto',
+      height: "auto",
     },
     "99%": {
       opacity: "1%",
-      height: 'auto',
+      height: "auto",
     },
     "100%": {
       opacity: "0%",
-      height: '0px',
+      height: "0px",
     },
   },
 }));

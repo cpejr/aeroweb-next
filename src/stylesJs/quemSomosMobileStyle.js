@@ -1,16 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
-  backdrop: {
-    display: "contents",
-  },
-
-  backdropUp: {
-    // evita clicar nos botões de fundo
-    zIndex: 400,
-  },
-
-  cardSlide: {
+export const useStyles = makeStyles(theme => ({
+  card: {
     // posição
     position: "absolute",
     top: "80vh",
@@ -32,7 +23,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "none",
   },
 
-  cardSlideShow: {
+  cardShow: {
     // posição
     position: "absolute",
     top: "80vh",
@@ -55,7 +46,7 @@ export const useStyles = makeStyles((theme) => ({
     animation: " $showSlide 1000ms linear forwards",
   },
 
-  cardSlideHide: {
+  cardHide: {
     // posição
     position: "absolute",
     top: "80vh",
@@ -77,7 +68,7 @@ export const useStyles = makeStyles((theme) => ({
     animation: " $hideSlide 1000ms linear forwards",
   },
 
-  cardSlideUp: {
+  cardUp: {
     // posição
     position: "absolute",
     left: "11.50vw",
@@ -99,7 +90,7 @@ export const useStyles = makeStyles((theme) => ({
     animation: "$upSlide 1000ms linear forwards",
   },
 
-  cardSlideDown: {
+  cardDown: {
     // posição
     position: "absolute",
     left: "11.50vw",
@@ -115,7 +106,6 @@ export const useStyles = makeStyles((theme) => ({
     elevation: 8,
     backgroundColor: " #3467ebEE",
     borderRadius: "6px",
-    // overflow: 'scroll',
 
     // animação
     animation: "$downSlide 1000ms linear forwards",
@@ -130,7 +120,7 @@ export const useStyles = makeStyles((theme) => ({
 
     width: "100%",
     padddingLeft: "4px !important",
-    padding: '4px !important'
+    padding: "4px !important",
   },
 
   titleSlide: {

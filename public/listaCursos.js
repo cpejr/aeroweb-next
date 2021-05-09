@@ -1,8 +1,9 @@
 // vetor de objetos com os dados a serem mostrados nos modais do Cursos
-const data = [
+const listaCursos = [
   {
     open: "openFirst",
-    title: "Simulados ICAO - COMENTADOS",
+    title: "Simulados ICAO",
+    subtitle: " - COMENTADOS",
     text1: `Os simulados comentados do teste ICAO da ANAC elaborados pela Tailwind Aviation Courses 
     foram todos criteriosamente desenvolvidos por uma equipe formada por pilotos comerciais e professores 
     especialistas na área de inglês voltado para a aviação.`,
@@ -51,4 +52,4 @@ const data = [
   },
 ];
 
-export default data;
+export default listaCursos;

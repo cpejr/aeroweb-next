@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useStyles } from "./styles";
+import { useStyles } from "../../stylesJs/instagramStyle";
 import { Card, Typography } from "@material-ui/core";
 import Carousel from "react-material-ui-carousel";
 
@@ -8,10 +8,11 @@ function Item(props) {
     <div
       style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
     >
-      {props.item.map((item) => (
-        <a 
-          href={item.href} 
-          style={{ padding: "2%" }} 
+      {props.item.map((item, index) => (
+        <a
+          key={index}
+          href={item.href}
+          style={{ padding: "2%" }}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -22,17 +23,15 @@ function Item(props) {
   );
 }
 
-function InstagramCarousel({ carouselStyle }) {
+function InstagramCarousel({ animationControl }) {
   const classes = useStyles();
-  const [carouselClass, setCarouselClass] = useState(classes.carouselCard);
+  const [carouselClass, setCarouselClass] = useState(classes.card);
 
   useEffect(() => {
-    if (carouselStyle === 'standby') setCarouselClass(classes.carouselCard);
-    if (carouselStyle === 'show') setCarouselClass(classes.carouselCardShow);
-    if (carouselStyle === 'hide') setCarouselClass(classes.carouselCardHide);
-
-    console.log(carouselStyle);
-  }, [carouselStyle])
+    if (animationControl === "standby") setCarouselClass(classes.card);
+    if (animationControl === "show") setCarouselClass(classes.cardShow);
+    if (animationControl === "hide") setCarouselClass(classes.cardHide);
+  }, [animationControl]);
 
   var items = [
     [
@@ -110,10 +109,10 @@ function InstagramCarousel({ carouselStyle }) {
       <img src="/assets/Union.svg" className={classes.logoTitle} />
       <Typography
         style={{
-          marginBottom: '8px',
+          marginBottom: "8px",
           color: "white",
           fontFamily: "Roboto",
-          fontSize: '20px',
+          fontSize: "20px",
         }}
       >
         Últimos Posts

@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
-  cardButtons: {
+export const useStyles = makeStyles(theme => ({
+  card: {
     // posição
     position: "absolute",
     left: "11.50vw",
@@ -21,7 +21,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "none",
   },
 
-  cardButtonsShow: {
+  cardShow: {
     // posição
     position: "absolute",
     left: "11.50vw",
@@ -43,7 +43,7 @@ export const useStyles = makeStyles((theme) => ({
     animation: "$showSlide 1000ms linear forwards",
   },
 
-  cardButtonsHide: {
+  cardHide: {
     // posição
     position: "absolute",
     left: "11.50vw",
@@ -63,50 +63,6 @@ export const useStyles = makeStyles((theme) => ({
 
     // animação
     animation: "$hideSlide 1000ms linear forwards",
-  },
-
-  cardButtonsFadeIn: {
-    // posição
-    position: "absolute",
-    left: "11.50vw",
-    top: "80vh",
-
-    // dimensionamento
-    maxWidth: "80vw",
-    zIndex: 300,
-    height: "20vh",
-
-    // estilo
-    padding: 4,
-    elevation: 8,
-    backgroundColor: " #CCCCCC55",
-    borderRadius: "6px",
-    overflowY: "scroll",
-
-    // animação
-    // animation: '$fadeInSlide 1000ms linear forwards'
-  },
-
-  cardButtonsFadeOut: {
-    // posição
-    position: "absolute",
-    left: "11.50vw",
-    top: "80vh",
-
-    // dimensionamento
-    maxWidth: "80vw",
-    zIndex: 300,
-    height: "20vh",
-
-    // estilo
-    padding: 4,
-    elevation: 8,
-    backgroundColor: " #CCCCCC55",
-    borderRadius: "6px",
-    overflowY: "scroll",
-
-    // animação
-    // animation: '$fadeOutSlide 250ms linear forwards'
   },
 
   cardContent: {
@@ -208,30 +164,6 @@ export const useStyles = makeStyles((theme) => ({
       opacity: "0%",
       height: "0px",
       display: "none",
-    },
-  },
-
-  "@keyframes fadeInSlide": {
-    "0%": {
-      opacity: "100%",
-      display: "initial",
-    },
-    "99%": {
-      opacity: "1%",
-      display: "initial",
-    },
-    "100%": {
-      opacity: "0%",
-      display: "none",
-    },
-  },
-
-  "@keyframes fadeOutSlide": {
-    "0%": {
-      opacity: "0%",
-    },
-    "100%": {
-      opacity: "100%",
     },
   },
 }));

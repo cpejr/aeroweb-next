@@ -1,58 +1,57 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(theme => ({
   background: {
     background: "#FFFFFF",
   },
 
   card: {
     // posição
-    position: 'absolute',
-    top: '2.5vh',
-    left: '25vw',
+    position: "absolute",
+    top: "2.5vh",
+    left: "25vw",
 
     // dimensionamento
     maxWidth: "50vw",
-    maxHeight: '95vh',
+    maxHeight: "95vh",
 
     // estilo
     zIndex: 300,
     padding: 16,
     elevation: 8,
-    overflowY: 'scroll',
+    overflowY: "scroll",
 
     // animação
-    display: 'none',
+    display: "none",
 
-
-    [theme.breakpoints.down('1000')]: {
-      maxWidth: '75vw',
-      left: '12.50vw'
+    [theme.breakpoints.down("1000")]: {
+      maxWidth: "75vw",
+      left: "12.50vw",
     },
   },
 
   cardShow: {
     // posição
-    position: 'absolute',
-    top: '2.5vh',
-    left: '25vw',
+    position: "absolute",
+    top: "2.5vh",
+    left: "25vw",
 
     // dimensionamento
     maxWidth: "50vw",
-    maxHeight: '95vh',
+    maxHeight: "95vh",
 
     // estilo
     zIndex: 300,
     padding: 16,
     elevation: 8,
-    overflowY: 'scroll',
+    overflowY: "scroll",
 
     // animação
     animation: "$showModal 1500ms ease-out forwards",
 
-    [theme.breakpoints.down('1000')]: {
-      maxWidth: '75vw',
-      left: '12.50vw'
+    [theme.breakpoints.down("1000")]: {
+      maxWidth: "75vw",
+      left: "12.50vw",
     },
 
     // filter: 'blur(5px)',
@@ -60,31 +59,31 @@ export const useStyles = makeStyles((theme) => ({
 
   cardHide: {
     // posição
-    position: 'absolute',
-    top: '2.5vh',
-    left: '25vw',
+    position: "absolute",
+    top: "2.5vh",
+    left: "25vw",
 
     // dimensionamento
     maxWidth: "50vw",
-    maxHeight: '95vh',
+    maxHeight: "95vh",
 
     // estilo
     zIndex: 300,
     padding: 16,
     elevation: 8,
-    overflowY: 'scroll',
+    overflowY: "scroll",
 
     // animação
     animation: "$hideModal 1000ms ease-in forwards",
 
-    [theme.breakpoints.down('1000')]: {
-      maxWidth: '75vw',
-      left: '12.50vw'
+    [theme.breakpoints.down("1000")]: {
+      maxWidth: "75vw",
+      left: "12.50vw",
     },
   },
 
   cardContentContainer: {
-    paddingTop: '0px'
+    paddingTop: "0px",
   },
 
   cardContent: {
@@ -93,7 +92,7 @@ export const useStyles = makeStyles((theme) => ({
 
     alignItems: "center",
 
-    marginBottom: '16px',
+    marginBottom: "16px",
   },
 
   cardTitle: {
@@ -163,7 +162,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    alignItems: 'center',
+    alignItems: "center",
 
     marginTop: "24px",
   },
@@ -198,28 +197,28 @@ export const useStyles = makeStyles((theme) => ({
       height: "30px",
     },
 
-    marginTop: '24px',
+    marginTop: "24px",
   },
 
   "@keyframes showModal": {
     "0%": {
       opacity: "0%",
-      transform: 'scale(0.75, 0.5)',
+      transform: "scale(0.75, 0.5)",
     },
     "100%": {
       opacity: "100%",
-      transform: 'scale(1, 1)',
+      transform: "scale(1, 1)",
     },
   },
 
   "@keyframes hideModal": {
     "0%": {
       opacity: "100%",
-      transform: 'scale(1, 1)',
+      transform: "scale(1, 1)",
     },
     "100%": {
       opacity: "0%",
-      transform: 'scale(0.75, 0.5)',
+      transform: "scale(0.75, 0.5)",
     },
   },
 }));

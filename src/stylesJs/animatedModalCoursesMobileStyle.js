@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(theme => ({
   card: {
     // posição
     position: "absolute",
@@ -128,7 +128,7 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: "#3467eb",
     },
 
-    marginTop: '32px',
+    marginTop: "32px",
   },
 
   cardPayments: {
@@ -136,7 +136,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: 'center',
+    alignItems: "center",
 
     marginTop: "24px",
   },
@@ -159,7 +159,7 @@ export const useStyles = makeStyles((theme) => ({
       height: "27px",
     },
 
-    marginTop: '24px',
+    marginTop: "24px",
   },
 
   cardPayments4: {
@@ -174,8 +174,8 @@ export const useStyles = makeStyles((theme) => ({
       height: "27px",
     },
 
-    marginTop: '24px',
-    marginBottom: '24px',
+    marginTop: "24px",
+    marginBottom: "24px",
   },
 
   "@keyframes upSlide": {

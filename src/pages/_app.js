@@ -18,7 +18,11 @@ function SafeHydrate({ children }) {
 }
 
 function MyApp({ Component, pageProps }) {
-  return <SafeHydrate><Component {...pageProps} /></SafeHydrate>
+  return (
+    <SafeHydrate>
+      <Component {...pageProps} />
+    </SafeHydrate>
+  );
 }
 
 export default MyApp;

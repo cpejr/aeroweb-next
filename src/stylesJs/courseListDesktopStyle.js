@@ -1,8 +1,13 @@
 import { makeStyles } from "@material-ui/core";
 import transitions from "@material-ui/core/styles/transitions";
 
-export const useStyles = makeStyles((theme) => ({
-  cardButtons: {
+export const useStyles = makeStyles(theme => ({
+  scrollList: {
+    overflowY: "auto",
+    maxHeight: "150px",
+  },
+
+  card: {
     // posição
     position: "absolute",
     top: "42vh",
@@ -11,10 +16,10 @@ export const useStyles = makeStyles((theme) => ({
 
     // dimensionamento
     maxWidth: "30vw",
-    height: "0px", // começa sem nada
+    height: "0px",
   },
 
-  cardButtonsUp: {
+  cardUp: {
     // posição
     position: "absolute",
     top: "42vh",
@@ -22,7 +27,7 @@ export const useStyles = makeStyles((theme) => ({
     zIndex: "200",
 
     // dimensionamento
-    height: 'auto',
+    height: "auto",
     width: "20vw",
     [theme.breakpoints.down("1000")]: {
       width: "40vw",
@@ -41,7 +46,7 @@ export const useStyles = makeStyles((theme) => ({
     transition: "background-color 0.5s",
   },
 
-  cardButtonsDown: {
+  cardDown: {
     // posição
     position: "absolute",
     top: "42vh",
@@ -49,8 +54,9 @@ export const useStyles = makeStyles((theme) => ({
     zIndex: "200",
 
     // dimensionamento
-    height: 'auto',
+    height: "auto",
     width: "20vw",
+    padding: "5px",
     [theme.breakpoints.down("1100")]: {
       width: "40vw",
       left: "18vw",
@@ -69,7 +75,7 @@ export const useStyles = makeStyles((theme) => ({
     transition: "background-color 1s",
   },
 
-  cardContentButtons: {
+  cardContent: {
     padding: "4px !important",
     "&:last-child": {
       paddingBottom: "4px !important",
@@ -86,8 +92,8 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   buttonsListFirst: {
-    marginTop: "8px",
-    marginBottom: "24px",
+    marginTop: "5px",
+    marginBottom: "21px",
 
     display: "flex",
     flexDirection: "row",
@@ -96,31 +102,31 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   buttonsList: {
-    marginTop: "24px",
-    marginBottom: "24px",
+    marginTop: "21px",
+    marginBottom: "21px",
   },
 
   buttonsListLast: {
-    marginTop: "24px",
-    marginBottom: "8px",
+    marginTop: "21px",
+    marginBottom: "5px",
   },
 
   "@keyframes downList": {
     "0%": {
-      maxHeight: '0vh',
+      maxHeight: "0vh",
     },
     "99%": {
       overflowY: "hidden",
     },
     "100%": {
-      maxHeight: '25vh',
-      overflowY: "auto",
+      maxHeight: "25vh",
+      overflowY: "hidden",
     },
   },
 
   "@keyframes upList": {
     "0%": {
-      maxHeight: '25vh',
+      maxHeight: "25vh",
       overflowY: "hidden",
     },
     "100%": {
