@@ -9,12 +9,24 @@ export const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]: {
       top: "0vh",
       left: "10vw",
-      maxWidth: "80%",
+      width: "80%",
+      height: "150px",
       marginTop: "75vh",
+    },
+    [theme.breakpoints.between("450", "600")]: {
+      height: "175px",
     },
 
     // dimensionamento
-    maxWidth: "30%",
+    width: "30%",
+    height: "13vw",
+    [theme.breakpoints.between("800", "1200")]: {
+      height: "15vw",
+    },
+    [theme.breakpoints.between("600", "800")]: {
+      height: "20vw",
+      width: "40%",
+    },
 
     // estilo
     display: "flex",
@@ -34,12 +46,24 @@ export const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]: {
       top: "0vh",
       left: "10vw",
-      maxWidth: "80%",
+      width: "80%",
+      height: "150px",
       marginTop: "75vh",
+    },
+    [theme.breakpoints.between("450", "600")]: {
+      height: "175px",
     },
 
     // dimensionamento
-    maxWidth: "30%",
+    width: "30%",
+    height: "13vw",
+    [theme.breakpoints.between("800", "1200")]: {
+      height: "15vw",
+    },
+    [theme.breakpoints.between("600", "800")]: {
+      height: "20vw",
+      width: "40%",
+    },
 
     // estilo
     display: "flex",
@@ -62,12 +86,25 @@ export const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("xs")]: {
       top: "0vh",
       left: "10vw",
-      maxWidth: "80%",
+      width: "80%",
+      height: "150px",
       marginTop: "75vh",
+    },
+    [theme.breakpoints.between("450", "600")]: {
+      height: "175px",
     },
 
     // dimensionamento
-    maxWidth: "30%",
+    width: "30%",
+    height: "13vw",
+    [theme.breakpoints.between("800", "1200")]: {
+      height: "15vw",
+    },
+    [theme.breakpoints.between("600", "800")]: {
+      height: "20vw",
+      width: "40%",
+    },
+
 
     // estilo
     display: "flex",
@@ -92,6 +129,12 @@ export const useStyles = makeStyles(theme => ({
   CarouselItem: {
     display: "flex",
     justifyContent: "center",
+  },
+
+  carouselContainer: {
+    width: "auto",
+    height: "auto",
+    overflow: "hidden",
   },
 
   "@keyframes showCarousel": {
