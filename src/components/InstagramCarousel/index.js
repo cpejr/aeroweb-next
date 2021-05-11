@@ -37,7 +37,7 @@ function InstagramCarousel({ animationControl }) {
     if (animationControl === "hide") setCarouselClass(classes.cardHide);
   }, [animationControl]);
 
-  var items = [
+  let items = [
     [
       {
         src: "tailwindPost1.jpg",
@@ -125,11 +125,11 @@ function InstagramCarousel({ animationControl }) {
       <div className={classes.carouselContainer}> 
         <Carousel 
           animation="slide" 
-          indicators={false} 
+          indicators={false}
+          interval={13000}
           timeout={{
-            appear: 5000,
-            enter: 2000,
-            exit: 1000
+            enter: 5000,
+            exit: 5000
           }} 
           swipe={false} 
           navButtonsAlwaysInvisible={isMobile} 
