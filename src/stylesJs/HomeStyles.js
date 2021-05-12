@@ -38,14 +38,14 @@ const useStyles = makeStyles(theme => ({
     height: "24px",
 
     [theme.breakpoints.down("415")]: {
-      paddingTop: "30vh",
+      paddingTop: "20vh",
       paddingLeft: "23vw",
       width: "50px",
       height: "20px",
     },
 
     [theme.breakpoints.between("415", "800")]: {
-      paddingTop: "20vh",
+      paddingTop: "10vh",
       paddingLeft: "29vw",
       width: "50px",
       height: "20px",
@@ -66,14 +66,14 @@ const useStyles = makeStyles(theme => ({
     height: "20px",
 
     [theme.breakpoints.down("415")]: {
-      paddingTop: "39vh",
+      paddingTop: "29vh",
       marginLeft: "20vw",
       width: "50px",
       height: undefined,
     },
 
     [theme.breakpoints.between("415", "800")]: {
-      paddingTop: "35vh",
+      paddingTop: "25vh",
       marginLeft: "16vw",
       width: "50px",
       height: undefined,
@@ -92,14 +92,14 @@ const useStyles = makeStyles(theme => ({
     width: "8rem",
     height: "20px",
     [theme.breakpoints.down("415")]: {
-      paddingTop: "51vh",
+      paddingTop: "41vh",
       marginLeft: "0vw",
       width: "60px",
       height: "20px",
     },
 
     [theme.breakpoints.between("415", "800")]: {
-      paddingTop: "51vh",
+      paddingTop: "41vh",
       marginLeft: "0vw",
       width: "60px",
       height: "20px",
@@ -119,14 +119,14 @@ const useStyles = makeStyles(theme => ({
     width: "5.5rem",
     height: "22px",
     [theme.breakpoints.down("415")]: {
-      paddingTop: "65vh",
+      paddingTop: "55vh",
       marginLeft: "0vw",
       width: "50px",
       height: "20px",
     },
 
     [theme.breakpoints.between("415", "800")]: {
-      paddingTop: "70vh",
+      paddingTop: "60vh",
       marginLeft: "1vw",
       width: "50px",
       height: "20px",

@@ -7,7 +7,7 @@ export const useStyles = makeStyles(theme => ({
     left: "62.50vw",
     top: "15vh",
     [theme.breakpoints.down("xs")]: {
-      top: "0vh",
+      top: "-10vh",
       left: "10vw",
       width: "80%",
       height: "150px",
@@ -44,7 +44,7 @@ export const useStyles = makeStyles(theme => ({
     left: "62.50vw",
     top: "15vh",
     [theme.breakpoints.down("xs")]: {
-      top: "0vh",
+      top: "-10vh",
       left: "10vw",
       width: "80%",
       height: "150px",
@@ -84,7 +84,7 @@ export const useStyles = makeStyles(theme => ({
     left: "62.50vw",
     top: "15vh",
     [theme.breakpoints.down("xs")]: {
-      top: "0vh",
+      top: "-10vh",
       left: "10vw",
       width: "80%",
       height: "150px",

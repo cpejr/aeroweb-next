@@ -559,7 +559,7 @@ function Home() {
             {isPhone || isResponsive1 ? (
               <img
                 src="/assets/RotaMobile.svg"
-                style={{ height: "75vh", width: "83vw", marginTop: "15vh" }}
+                style={{ height: "75vh", width: "83vw", marginTop: "5vh" }}
               />
             ) : (
               <img
