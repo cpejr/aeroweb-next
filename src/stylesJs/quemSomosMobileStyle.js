@@ -10,7 +10,7 @@ export const useStyles = makeStyles(theme => ({
     // dimensionamento
     width: "80vw",
     zIndex: 200,
-    maxHeight: "90vh",
+    maxHeight: "80vh",
 
     // estilo
     padding: 16,
@@ -32,7 +32,7 @@ export const useStyles = makeStyles(theme => ({
     // dimensionamento
     width: "80vw",
     zIndex: 200,
-    maxHeight: "90vh",
+    maxHeight: "80vh",
 
     // estilo
     padding: 16,
@@ -76,7 +76,7 @@ export const useStyles = makeStyles(theme => ({
     // dimensionamento
     maxWidth: "80%",
     zIndex: 300,
-    maxHeight: "90vh",
+    maxHeight: "80vh",
 
     // estilo
     padding: 16,
@@ -98,7 +98,7 @@ export const useStyles = makeStyles(theme => ({
     // dimensionamento
     maxWidth: "80%",
     zIndex: 300,
-    maxHeight: "90vh",
+    maxHeight: "80vh",
 
     // estilo
     padding: 16,
