@@ -186,10 +186,10 @@ function Home() {
 
     if (isPhone) {
       setPosX("20vw");
-      setPosY("37vh");
+      setPosY("27vh");
     } else if (isResponsive1) {
       setPosX("26vw");
-      setPosY("26vh");
+      setPosY("36vh");
     } else if (isResponsive2) {
       setPosX("18vw");
       setPosY("33vh");
@@ -252,9 +252,9 @@ function Home() {
 
     if (isPhone) {
       setPosX("40vw");
-      setPosY("45vh");
+      setPosY("35vh");
     } else if (isResponsive1) {
-      setPosX("42vw");
+      setPosX("32vw");
       setPosY("41vh");
     } else if (isResponsive2) {
       setPosX("39vw");
@@ -332,10 +332,10 @@ function Home() {
 
     if (isPhone) {
       setPosX("49vw");
-      setPosY("57vh");
+      setPosY("47vh");
     } else if (isResponsive1) {
       setPosX("47vw");
-      setPosY("60vh");
+      setPosY("50vh");
     } else if (isResponsive2) {
       setPosX("55vw");
       setPosY("57vh");
@@ -404,10 +404,10 @@ function Home() {
 
     if (isPhone) {
       setPosX("69vw");
-      setPosY("70vh");
+      setPosY("60vh");
     } else if (isResponsive1) {
       setPosX("60vw");
-      setPosY("80vh");
+      setPosY("70vh");
     } else if (isResponsive2) {
       setPosX("71vw");
       setPosY("68vh");
@@ -559,7 +559,7 @@ function Home() {
             {isPhone || isResponsive1 ? (
               <img
                 src="/assets/RotaMobile.svg"
-                style={{ height: "75vh", width: "83vw", marginTop: "15vh" }}
+                style={{ height: "75vh", width: "83vw", marginTop: "5vh" }}
               />
             ) : (
               <img

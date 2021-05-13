@@ -5,12 +5,12 @@ export const useStyles = makeStyles(theme => ({
     // posição
     position: "absolute",
     left: "11.50vw",
-    top: "80vh",
+    top: "65vh",
 
     // dimensionamento
     maxWidth: "80vw",
     zIndex: 300,
-    height: "20vh",
+    height: "auto",
 
     // estilo
     padding: 4,
@@ -25,12 +25,12 @@ export const useStyles = makeStyles(theme => ({
     // posição
     position: "absolute",
     left: "11.50vw",
-    top: "80vh",
+    top: "65vh",
 
     // dimensionamento
     maxWidth: "80vw",
     zIndex: 300,
-    height: "20vh",
+    height: "auto",
 
     // estilo
     padding: 4,
@@ -47,12 +47,12 @@ export const useStyles = makeStyles(theme => ({
     // posição
     position: "absolute",
     left: "11.50vw",
-    top: "80vh",
+    top: "65vh",
 
     // dimensionamento
     maxWidth: "80vw",
     zIndex: 300,
-    height: "20vh",
+    height: "auto",
 
     // estilo
     padding: 4,
@@ -151,13 +151,13 @@ export const useStyles = makeStyles(theme => ({
       left: "11.50vw",
       opacity: "100%",
       display: "initial",
-      height: "20vh",
+      height: "auto",
     },
     "99%": {
       left: "99vw",
       opacity: "1%",
       display: "initial",
-      height: "20vh",
+      height: "auto",
     },
     "100%": {
       left: "100vw",
