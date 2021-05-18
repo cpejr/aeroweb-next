@@ -1,54 +1,64 @@
 import React, { useState, useRef, useEffect } from "react";
+import isMobile from "../utils/isMobile"; // usa para ver se é mobile ou não
+
+// estilização
 import useStyles from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
 
-// imagens
-import Background1 from "../../public/assets/GradienteHome.svg";
-import Logo from "../../public/assets/Logomarca.svg";
-
 // componentes
-import AnimatedModal from "../components/AnimatedModal/index";
-import AnimatedModalMobile from "../components/AnimatedModalMobile/index";
+import AnimatedModalCourses from "../components/AnimatedModalCourses/animatedModalCourses";
 import Footer from "../components/Footer/index";
+import Contacts from "../components/Contacts/contacts";
+import QuemSomos from "../components/QuemSomos/quemSomos";
+import CoursesList from "../components/CoursesList/courseList";
+import InstagramCarousel from "../components/InstagramCarousel";
 
-
-import FeedInstagram from "../components/FeedInstagram/index";
-
-import Contacts from "../components/Contacts/index";
-import ModalQuemSomos from "../components/ModalQuemSomos";
-import QuemSomosMobile from "../components/QuemSomosMobile"
-import CoursesList from "../components/CoursesList";
-import isMobile from './isMobile'; // usa para ver se é mobile ou não
-import data from "../../public/data";
+import { NextSeo } from "next-seo";
 
 function Home() {
+  <>
+    <NextSeo
+      title="Tailwind Aviation"
+      description="Os melhores cursos de aviação."
+      openGraph={{
+        url: "https://www.twcourses.com.br",
+        title: "Tailwind Aviation",
+        description: "Cursos de Aviação, confira nossas redes sociais",
+        images: [
+          {
+            url:
+              "https://images.pexels.com/photos/912050/pexels-photo-912050.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            width: 800,
+            height: 600,
+            alt: "Um avião",
+          },
+        ],
+        site_name: "Tailwind Aviation",
+      }}
+      instagram={{
+        handle: "@tailwindaviation_",
+        site: "@twcourses.com.br",
+        cardType: "Imagem",
+      }}
+    />
+  </>;
+
   const classes = useStyles();
 
   // variaveis da animacao
-  let x1 = 90;
-  let grad = Background1;
+  let selectedComp;
   const [responseSize, setResponseSize] = useState("");
   const [union, setUnion] = useState("");
-  const [title1, setTitle1] = useState("INVISTA HOJE NO SEU FUTURO");
-  const [title2, setTitle2] = useState("E DÊ ASAS AO SEU SONHO");
-  const [posBackground, setPosBackground] = useState();
-  const [gradiente, setGradiente] = useState(grad);
-  const [posX, setPosX] = useState("12vw");
+  const [posBackground, setPosBackground] = useState(90);
+  const [selected, setSelected] = useState();
+  const [posX, setPosX] = useState("18vw");
   const [posXAngle, setPosXAngle] = useState(0);
-  const [posY, setPosY] = useState("15vh");
+  const [posY, setPosY] = useState("22vh");
   const [posYAngle, setPosYAngle] = useState(0);
   const [angle, setAngle] = useState(0);
-  const [colorHome, setColorHome] = useState("#100554");
-  const [colorCursos, setColorCursos] = useState("#100554");
-  const [colorQuemSomos, setColorQuemSomos] = useState("#100554");
-  const [colorContato, setColorContato] = useState("#100554");
-
   const [flying, setFlying] = useState(true);
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
-  const [open, setOpen] = useState(false);
-  const [openQuemSomos, setOpenQuemSomos] = useState(false);
-  const [openMobile, setOpenMobile] = useState(false);
 
   // Parâmetros para o novo gradiente:
   const [newGradient, setNewGradient] = useState();
@@ -56,27 +66,44 @@ function Home() {
     "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
   );
   const [change, setChange] = useState(false);
-  const home = "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)";
-  const cursos = "linear-gradient(258.81deg, #78CBEE -18.81%, #0E41C5 109.84%)";
-  const quemSomos =
+  const cursosGradient =
+    "linear-gradient(258.81deg, #78CBEE -18.81%, #0E41C5 109.84%)";
+  const quemSomosGradient =
     "linear-gradient(346.31deg, #78CBEE 16.62%, #0E41C5 99.07%)";
-  const contato = "linear-gradient(83.83deg, #78CBEE 3.06%, #0E41C5 96.88%)";
+  const contatoGradient =
+    "linear-gradient(83.83deg, #78CBEE 3.06%, #0E41C5 96.88%)";
   const [size, setSize] = useState(null);
 
-  // variaveis da animacao dos modais
-  const [openFirst, setOpenFirst] = useState(false);
-  const [openSecond, setOpenSecond] = useState(false);
-  const [openThird, setOpenThird] = useState(false);
-  const [listStyle, setListStyle] = useState('standby');
-  const [slideStyle, setSlideStyle] = useState('standby');
-  const [contactStyle, setContactStyle] = useState('standby');
+  // controle das animações
+  const [coursesDesktopControl, setCoursesDesktopControl] = useState("standby");
+  const [coursesMobileControl, setCoursesMobileControl] = useState("standby");
 
-  // gambiarra do data.js
-  data[0].open = openFirst;
-  data[1].open = openSecond;
-  data[2].open = openThird;
+  const [quemSomosControl, setQuemSomosControl] = useState("standby");
+  const [quemSomosMobileControl, setQuemSomosMobileControl] = useState(
+    "standby",
+  );
 
-  // --------------------------------- //
+  const [contactsControl, setContactsControl] = useState("standby");
+  const [contactsMobileControl, setContactsMobileControl] = useState("standby");
+
+  const [carouselControl, setCarouselControl] = useState("standby");
+
+  const [openCurso, setOpenCurso] = useState({
+    open: false,
+    index: null,
+    style: "",
+  });
+  const [modalControl, setModalControl] = useState("standby");
+
+  // variaveis das linhas do avião
+  const [isPhone, setPhone] = useState();
+  const [isResponsive1, setResponsive1] = useState();
+  const [isResponsive2, setResponsive2] = useState();
+
+  // reset do array dos modais ao carregar pagina
+  useEffect(() => {
+    if (isMobile) setPhone(true);
+  }, []);
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -87,26 +114,47 @@ function Home() {
 
   useEffect(() => {
     setSize(windowSize());
+    setPhone(window.matchMedia("(max-width: 415px)").matches);
+    setResponsive1(window.matchMedia("(max-width: 800px)").matches);
+    setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
   });
+
+  useEffect(
+    () => {
+      const checkDisplay = () => {
+        setPhone(window.matchMedia("(max-width: 415px)").matches);
+        setResponsive1(window.matchMedia("(max-width: 800px)").matches);
+        setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
+      };
+
+      window.addEventListener("resize", checkDisplay);
+      return () => {
+        window.removeEventListener("resize", checkDisplay);
+      };
+    },
+    [isPhone],
+    [isResponsive1],
+    [isResponsive2],
+  );
 
   useEffect(() => {
     var aux = window.innerWidth;
     if (aux < 500) {
       setResponseSize("/assets/TAILWINDAVIATION.svg");
       setUnion("/assets/Union.svg");
-      setTitle1("");
-      setTitle2("");
     } else {
       setResponseSize("/assets/Logomarca.svg");
       setUnion("");
     }
     return responseSize;
-  });
+  }, []);
 
-  function spin1(e) {
+  function home(e) {
     //Para a animação da linha:
-    x1 = 90;
-    setPosBackground(x1);
+    setPosBackground(90);
+    //Para saber em qual componente está:
+    selectedComp = "HOME";
+    setSelected(selectedComp);
     // Para a animação do gradiente:
     setNewGradient(
       "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
@@ -136,27 +184,52 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("12vw");
-    setPosY("15vh");
+    if (isPhone) {
+      setPosX("20vw");
+      setPosY("27vh");
+    } else if (isResponsive1) {
+      setPosX("26vw");
+      setPosY("36vh");
+    } else if (isResponsive2) {
+      setPosX("18vw");
+      setPosY("33vh");
+    } else {
+      setPosX("18vw");
+      setPosY("22vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
     // controla dos modais
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(contactStyle !== 'standby') setContactStyle('hide');
-    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
+    if (coursesDesktopControl !== "standby") setCoursesDesktopControl("hide");
+    if (isMobile && coursesMobileControl !== "standby")
+      setCoursesMobileControl("hide");
+
+    if (!isMobile && quemSomosControl !== "standby")
+      setQuemSomosControl("hide");
+    if (isMobile && quemSomosMobileControl !== "standby")
+      setQuemSomosMobileControl("hide");
+
+    if (!isMobile && contactsControl !== "standby") setContactsControl("hide");
+    if (isMobile && contactsMobileControl !== "standby")
+      setContactsMobileControl("hide");
+
+    if (isMobile && carouselControl === "hide") setCarouselControl("show");
+    if (!isMobile && carouselControl !== "standby") setCarouselControl("show");
+    if (!isMobile && modalControl !== "standby") setModalControl("hide");
   }
 
-  function spin2(e) {
+  function cursos(e) {
     //Para a animação da linha:
-    x1 = 60;
-    setPosBackground(x1);
+    setPosBackground(60);
+    //Para saber em qual componente está:
+    selectedComp = "CURSOS";
+    setSelected(selectedComp);
     //Para a animação do gradiente:
-    setNewGradient(cursos);
+    setNewGradient(cursosGradient);
     setChange(true);
     setTimeout(() => {
-      setOldGradient(cursos);
-      console.log("cabou Cursos");
+      setOldGradient(cursosGradient);
     }, 1000);
 
     //Para a animação do avião:
@@ -177,37 +250,66 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("33vw");
-    setPosY("30vh");
+    if (isPhone) {
+      setPosX("40vw");
+      setPosY("35vh");
+    } else if (isResponsive1) {
+      setPosX("32vw");
+      setPosY("41vh");
+    } else if (isResponsive2) {
+      setPosX("39vw");
+      setPosY("39vh");
+    } else {
+      setPosX("39vw");
+      setPosY("31vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
-    //Para a animação do modalQuemSomos:
-    setTimeout(() => {
-      setOpen(true);
-    }, 1200);
-
     // controle dos modais
-    if(contactStyle !== 'standby') setContactStyle('hide');
-    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
-    if(listStyle === 'standby' || listStyle === 'hide') {
-      setListStyle('show')
+    if (
+      coursesDesktopControl === "standby" ||
+      coursesDesktopControl === "hide"
+    ) {
+      setCoursesDesktopControl("show");
     } else {
-      setListStyle("hide");
+      setCoursesDesktopControl("hide");
+    }
+    if (isMobile && coursesMobileControl !== "show") {
+      setCoursesMobileControl("show");
+    } else {
+      setCoursesMobileControl("hide");
+    }
+
+    if (!isMobile && quemSomosControl !== "standby")
+      setQuemSomosControl("hide");
+    if (isMobile && quemSomosMobileControl !== "standby")
+      setQuemSomosMobileControl("hide");
+
+    if (!isMobile && contactsControl !== "standby") setContactsControl("hide");
+    if (isMobile && contactsMobileControl !== "standby")
+      setContactsMobileControl("hide");
+
+    if (isMobile && carouselControl !== "hide") setCarouselControl("hide");
+    if (!isMobile && carouselControl !== "standby") setCarouselControl("show");
+    if (!isMobile && modalControl !== "show") {
+      setModalControl("show");
+    } else {
+      setModalControl("hide");
     }
   }
 
-  function spin3(e) {
+  function quemSomos(e) {
     //Para a animação da linha:
-    x1 = 30;
-    setPosBackground(x1);
-
+    setPosBackground(30);
+    //Para saber em qual componente está:
+    selectedComp = "QUEMSOMOS";
+    setSelected(selectedComp);
     //Para a animação do gradiente:
-    setNewGradient(quemSomos);
+    setNewGradient(quemSomosGradient);
     setChange(true);
     setTimeout(() => {
-      setOldGradient(quemSomos);
-      console.log("cabou quem somos");
+      setOldGradient(quemSomosGradient);
     }, 1000);
 
     //Para a animação do avião:
@@ -228,39 +330,58 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("55vw");
-    setPosY("48vh");
+    if (isPhone) {
+      setPosX("49vw");
+      setPosY("47vh");
+    } else if (isResponsive1) {
+      setPosX("47vw");
+      setPosY("50vh");
+    } else if (isResponsive2) {
+      setPosX("55vw");
+      setPosY("57vh");
+    } else {
+      setPosX("55vw");
+      setPosY("59vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
-    setOpenMobile(true);
-
-    //Para a animação do modal:
-    setTimeout(() => {
-      setOpenQuemSomos(true);
-    }, 1200);
-
     // controle dos modais
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(contactStyle !== 'standby') setContactStyle('hide');
-    if(isMobile && slideStyle !== 'show') {
-      setSlideStyle('show')
+    if (coursesDesktopControl !== "standby") setCoursesDesktopControl("hide");
+    if (isMobile && coursesMobileControl !== "standby")
+      setCoursesMobileControl("hide");
+
+    if (!isMobile && quemSomosControl !== "show") {
+      setTimeout(() => setQuemSomosControl("show"), 1000);
     } else {
-      setSlideStyle('hide')
+      setQuemSomosControl("hide");
     }
+    if (isMobile && quemSomosMobileControl !== "show") {
+      setQuemSomosMobileControl("show");
+    } else {
+      setQuemSomosMobileControl("hide");
+    }
+
+    if (!isMobile && contactsControl !== "standby") setContactsControl("hide");
+    if (isMobile && contactsMobileControl !== "standby")
+      setContactsMobileControl("hide");
+
+    if (isMobile && carouselControl !== "hide") setCarouselControl("hide");
+    if (!isMobile && carouselControl !== "standby") setCarouselControl("show");
+    if (!isMobile && modalControl !== "standby") setModalControl("hide");
   }
 
-  function spin4(e) {
+  function contato(e) {
     //Para a animação da linha:
-    x1 = 0;
-    setPosBackground(x1);
-
+    setPosBackground(0);
+    //Para saber em qual componente está:
+    selectedComp = "CONTATO";
+    setSelected(selectedComp);
     //Para a animação do gradiente:
-    setNewGradient(contato);
+    setNewGradient(contatoGradient);
     setChange(true);
     setTimeout(() => {
-      setOldGradient(contato);
-      console.log("cabou contato");
+      setOldGradient(contatoGradient);
     }, 1000);
 
     //Para a animação do avião:
@@ -281,25 +402,63 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    setPosX("85vw");
-    setPosY("68vh");
+    if (isPhone) {
+      setPosX("69vw");
+      setPosY("60vh");
+    } else if (isResponsive1) {
+      setPosX("60vw");
+      setPosY("70vh");
+    } else if (isResponsive2) {
+      setPosX("71vw");
+      setPosY("68vh");
+    } else {
+      setPosX("71vw");
+      setPosY("76vh");
+    }
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
     // controle dos modais
-    if(listStyle !== 'standby') setListStyle('hide');
-    if(isMobile && slideStyle !== 'standby') setSlideStyle('hide');
-    if(contactStyle === 'standby' || contactStyle === 'hide') {
-      setContactStyle('show')
+    if (coursesDesktopControl !== "standby") setCoursesDesktopControl("hide");
+    if (isMobile && coursesMobileControl !== "standby")
+      setCoursesMobileControl("hide");
+
+    if (!isMobile && quemSomosControl !== "standby")
+      setQuemSomosControl("hide");
+    if (isMobile && quemSomosMobileControl !== "standby")
+      setQuemSomosMobileControl("hide");
+
+    if (
+      (!isMobile && contactsControl === "standby") ||
+      contactsControl === "hide"
+    ) {
+      setContactsControl("show");
     } else {
-      setContactStyle("hide");
+      setContactsControl("hide");
     }
+    if (
+      (isMobile && contactsMobileControl === "standby") ||
+      contactsMobileControl === "hide"
+    ) {
+      setContactsMobileControl("show");
+    } else {
+      setContactsMobileControl("hide");
+    }
+
+    if (isMobile && carouselControl !== "hide") setCarouselControl("hide");
+    if (
+      (!isMobile && carouselControl === "show") ||
+      carouselControl === "standby"
+    ) {
+      setCarouselControl("hide");
+    } else if (!isMobile && carouselControl === "hide") {
+      setCarouselControl("show");
+    }
+    if (!isMobile && modalControl !== "standby") setModalControl("hide");
   }
 
   function closeModal() {
-    setOpenFirst(false);
-    setOpenSecond(false);
-    setOpenThird(false);
+    setOpenCurso({ open: false, index: null, style: "" });
   }
 
   return (
@@ -323,7 +482,7 @@ function Home() {
             src="/assets/AviaoIcon.svg"
             width={40}
             height={40}
-            onAnimationEnd={(e) => {
+            onAnimationEnd={e => {
               setFlying(false);
             }}
           />
@@ -341,7 +500,7 @@ function Home() {
               setChange(false);
             }}
             style={{ backgroundImage: newGradient }}
-          ></div>
+          />
           <div
             className={classes.planeContainer}
             style={{
@@ -355,17 +514,25 @@ function Home() {
               color: "#fff",
             }}
           >
-            <h1>{title1}</h1>
-            <h1>{title2}</h1>
+            {!isMobile && (
+              <>
+                <h1 className={classes.footerTitle1}>
+                  INVISTA HOJE NO SEU FUTURO
+                </h1>
+                <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
+              </>
+            )}
           </div>
+
           <div
             className={classes.homeContainerChildren}
             style={{
               backgroundPositionX: posBackground,
+              transitionDuration: "2.5s",
               backgroundPositionY: -200,
               height: "100vh",
             }}
-          ></div>
+          />
           <div
             className={classes.planeContainerMobile}
             style={{
@@ -385,11 +552,36 @@ function Home() {
             <img className={styles.logo} src={responseSize} />
           </div>
 
+          <div
+            className={classes.rotaContainer}
+            style={{ position: "absolute", zIndex: "90" }}
+          >
+            {isPhone || isResponsive1 ? (
+              <img
+                src="/assets/RotaMobile.svg"
+                style={{ height: "75vh", width: "83vw", marginTop: "5vh" }}
+              />
+            ) : (
+              <img
+                src="/assets/RotaDesktop.svg"
+                style={{ height: "75vh", width: "83vw", marginTop: "15vh" }}
+              />
+            )}
+          </div>
+
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
             <p
               className={styles.name}
-              onClick={spin1}
-              style={{ cursor: "pointer" }}
+              onClick={home}
+              style={
+                selected === "HOME"
+                  ? {
+                      cursor: "pointer",
+                      transition: "font-size 1.5s",
+                      fontSize: "1.25rem",
+                    }
+                  : { cursor: "pointer" }
+              }
             >
               HOME
             </p>
@@ -397,8 +589,16 @@ function Home() {
           <div className={classes.button2} style={{ zIndex: "100" }}>
             <p
               className={styles.name}
-              onClick={spin2}
-              style={{ cursor: "pointer" }}
+              onClick={cursos}
+              style={
+                selected === "CURSOS"
+                  ? {
+                      cursor: "pointer",
+                      transition: "font-size 1.5s",
+                      fontSize: "1.25rem",
+                    }
+                  : { cursor: "pointer" }
+              }
             >
               CURSOS
             </p>
@@ -407,8 +607,16 @@ function Home() {
           <div className={classes.button3} style={{ zIndex: "100" }}>
             <p
               className={styles.name}
-              onClick={spin3}
-              style={{ cursor: "pointer" }}
+              onClick={quemSomos}
+              style={
+                selected === "QUEMSOMOS"
+                  ? {
+                      cursor: "pointer",
+                      transition: "font-size 1.5s",
+                      fontSize: "1.25rem",
+                    }
+                  : { cursor: "pointer" }
+              }
             >
               QUEM SOMOS
             </p>
@@ -416,8 +624,16 @@ function Home() {
           <div className={classes.button4} style={{ zIndex: "100" }}>
             <p
               className={styles.name}
-              onClick={spin4}
-              style={{ cursor: "pointer" }}
+              onClick={contato}
+              style={
+                selected === "CONTATO"
+                  ? {
+                      cursor: "pointer",
+                      transition: "font-size 1.5s",
+                      fontSize: "1.25rem",
+                    }
+                  : { cursor: "pointer" }
+              }
             >
               CONTATO
             </p>
@@ -425,46 +641,40 @@ function Home() {
         </div>
       </div>
 
-      { isMobile ? (
-        <QuemSomosMobile slideStyle={slideStyle} close={ () => setSlideStyle('hide') } />
-      ) : (
-        <ModalQuemSomos open={openQuemSomos} setOpen={setOpenQuemSomos} />
-      )}
-
-      <Contacts 
-        contactStyle={contactStyle}
-        close={() => setContactStyle("hide")}
-      />
+      <InstagramCarousel animationControl={carouselControl} />
 
       <CoursesList
-        listStyle={listStyle}
-        // daqui para baixo é GAMBIARRA: passando as funções pro componente retornar
-        openFirst={() => setOpenFirst(true)}
-        openSecond={() => setOpenSecond(true)}
-        openThird={() => setOpenThird(true)}
+        coursesMobileControl={coursesMobileControl}
+        setCoursesMobileControl={setCoursesMobileControl}
+        coursesDesktopControl={coursesDesktopControl}
+        setOpenCurso={setOpenCurso}
       />
 
-      {!isMobile && (
-        <Footer />
+      <QuemSomos
+        quemSomosMobileControl={quemSomosMobileControl}
+        setQuemSomosMobileControl={setQuemSomosMobileControl}
+        quemSomosControl={quemSomosControl}
+        setQuemSomosControl={setQuemSomosControl}
+      />
+
+      <Contacts
+        contactsMobileControl={contactsMobileControl}
+        setContactsMobileControl={setContactsMobileControl}
+        contactsControl={contactsControl}
+        setContactsControl={setContactsControl}
+        setCarouselControl={setCarouselControl}
+      />
+
+      {!isMobile && <Footer />}
+
+      {openCurso.open && (
+        <AnimatedModalCourses
+          openCurso={openCurso}
+          setOpenCurso={setOpenCurso}
+          setCoursesMobileControl={setCoursesMobileControl}
+          closeModal={closeModal}
+        />
       )}
-
-      {
-        // Modais de transição DESKTOP
-        data.map((object, index) => {
-          return (
-            <AnimatedModal
-              key={index}
-              open={object.open}
-              close={closeModal}
-              title={object.title}
-              text1={object.text1}
-              text2={object.text2}
-              text3={object.text3}
-            />
-          );
-        })
-      }
-
     </div>
   );
 }

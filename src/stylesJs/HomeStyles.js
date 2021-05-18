@@ -1,8 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-import { red } from "@material-ui/core/colors";
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   homeContainer: {
     width: "100%",
     height: "100vh",
@@ -13,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
       position: "fixed",
     },
 
-    // overflow: 'hidden'
+    overflow: "hidden",
   },
   homeContainerChildren: {
     width: "100%",
@@ -35,49 +33,108 @@ const useStyles = makeStyles((theme) => ({
 
   buttonHome: {
     paddingTop: "15vh",
-    paddingLeft: "12vw",
+    paddingLeft: "18vw",
     width: "4.5",
     height: "24px",
 
-    [theme.breakpoints.down("765")]: {
-      paddingLeft: "5vw",
+    [theme.breakpoints.down("415")]: {
+      paddingTop: "20vh",
+      paddingLeft: "23vw",
+      width: "50px",
+      height: "20px",
+    },
+
+    [theme.breakpoints.between("415", "800")]: {
+      paddingTop: "10vh",
+      paddingLeft: "29vw",
+      width: "50px",
+      height: "20px",
+    },
+
+    [theme.breakpoints.between("800", "1000")]: {
+      paddingTop: "27vh",
+      paddingLeft: "20vw",
       width: "50px",
       height: "20px",
     },
   },
 
   button2: {
-    paddingTop: "30vh",
+    paddingTop: "26vh",
     marginLeft: "18vw",
     width: "4rem",
     height: "20px",
 
-    [theme.breakpoints.down("765")]: {
-      paddingLeft: "5vw",
+    [theme.breakpoints.down("415")]: {
+      paddingTop: "29vh",
+      marginLeft: "20vw",
+      width: "50px",
+      height: undefined,
+    },
+
+    [theme.breakpoints.between("415", "800")]: {
+      paddingTop: "25vh",
+      marginLeft: "16vw",
+      width: "50px",
+      height: undefined,
+    },
+
+    [theme.breakpoints.between("800", "1000")]: {
+      paddingTop: "33vh",
       width: "50px",
       height: "20px",
       marginLeft: "15vw",
     },
   },
   button3: {
-    paddingTop: "48vh",
-    marginLeft: "17vw",
-    width: "4rem",
+    paddingTop: "53vh",
+    marginLeft: "11vw",
+    width: "8rem",
     height: "20px",
-    [theme.breakpoints.down("765")]: {
-      paddingLeft: "5vw",
-      width: "50px",
+    [theme.breakpoints.down("415")]: {
+      paddingTop: "41vh",
+      marginLeft: "0vw",
+      width: "60px",
+      height: "20px",
+    },
+
+    [theme.breakpoints.between("415", "800")]: {
+      paddingTop: "41vh",
+      marginLeft: "0vw",
+      width: "60px",
+      height: "20px",
+    },
+
+    [theme.breakpoints.between("800", "1000")]: {
+      paddingTop: "50vh",
+      width: "8rem",
       height: "20px",
       marginLeft: "14vw",
     },
   },
   button4: {
-    paddingTop: "68vh",
-    marginLeft: "28vw",
+    paddingTop: "70vh",
+    marginLeft: "8vw",
 
     width: "5.5rem",
     height: "22px",
-    [theme.breakpoints.down("765")]: {
+    [theme.breakpoints.down("415")]: {
+      paddingTop: "55vh",
+      marginLeft: "0vw",
+      width: "50px",
+      height: "20px",
+    },
+
+    [theme.breakpoints.between("415", "800")]: {
+      paddingTop: "60vh",
+      marginLeft: "1vw",
+      width: "50px",
+      height: "20px",
+    },
+
+    [theme.breakpoints.between("800", "1000")]: {
+      paddingTop: "62vh",
+      marginLeft: "1vw",
       width: "50px",
       height: "20px",
     },
@@ -205,6 +262,20 @@ const useStyles = makeStyles((theme) => ({
   buttonOut: {
     "&:hover": {
       borderBottom: "4px solid",
+    },
+  },
+
+  footerTitle1: {
+    fontSize: "4.5vh",
+    [theme.breakpoints.down("1000")]: {
+      fontSize: "3.5vh",
+    },
+  },
+
+  footerTitle2: {
+    fontSize: "4.5vh",
+    [theme.breakpoints.down("1000")]: {
+      fontSize: "3.5vh",
     },
   },
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar } from "@material-ui/core";
 import { Instagram, YouTube, Facebook } from "@material-ui/icons";
-import { useStyles } from "./styles";
+import { useStyles } from "../../stylesJs/footerStyle";
 
 function Footer() {
   const classes = useStyles();
@@ -11,7 +11,7 @@ function Footer() {
       <div className={classes.appBarContainer}>
         <div className={classes.appBarSubContainer}>
           <div className={classes.appBarInfo}>
-            <p className={classes.text}>contato@tailwindaviation.com</p>
+            <p className={classes.text}>contato@twcourses.com.br</p>
             <p className={classes.text}>31 0000-0000</p>
           </div>
 
@@ -23,21 +23,21 @@ function Footer() {
 
         <div className={classes.appBarIcons}>
           <a
-            href="https://www.instagram.com/?hl=pt-br"
+            href="https://www.instagram.com/tailwindaviation_/?igshid=e1xunf1mbnxw"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Instagram className={classes.icon} />
           </a>
           <a
-            href="https://pt-br.facebook.com/"
+            href="https://www.facebook.com/tailwindaviation_-101677271700685/"
             target="_blank"
             rel="noopener noreferrer"
           >
             <Facebook className={classes.icon} />
           </a>
           <a
-            href="https://www.youtube.com/?hl=pt&gl=BR"
+            href="https://www.youtube.com/channel/UCKyRogxlGFKulDlpBgfnokA/featured"
             target="_blank"
             rel="noopener noreferrer"
           >

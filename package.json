@@ -8,6 +8,7 @@
     "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build",
     "lint": "eslint . --ext .js --fix",
+    "lint:list": "eslint . --ext .js",
     "pretty": "prettier --write \"./src/**/*.{js,json}\""
   },
   "dependencies": {
@@ -19,10 +20,11 @@
     "babel-plugin-styled-components": "^1.12.0",
     "emailjs-com": "^2.6.4",
     "eslint-config-airbnb": "^18.2.1",
-    "next": "^10.1.2",
+    "next": "^10.0.8",
+    "next-seo": "^4.23.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-instagram-authless-feed": "jamesmoriarty/react-instagram-authless-feed#v2.0.0"
+    "react-material-ui-carousel": "^2.2.4"
   },
   "eslintConfig": {
     "extends": [
