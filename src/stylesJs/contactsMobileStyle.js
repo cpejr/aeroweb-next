@@ -19,7 +19,7 @@ export const useStyles = makeStyles(theme => ({
 
     position: "absolute",
     left: "10vw",
-    top: "80vh",
+    top: "65vh",
 
     backgroundColor: "#F9F9F922",
 
@@ -32,7 +32,7 @@ export const useStyles = makeStyles(theme => ({
 
     position: "absolute",
     left: "10vw",
-    top: "80vh",
+    top: "65vh",
 
     backgroundColor: "#F9F9F922",
 
@@ -152,7 +152,7 @@ export const useStyles = makeStyles(theme => ({
   "@keyframes upContacts": {
     "0%": {
       backgroundColor: "#F9F9F922",
-      top: "80vh",
+      top: "65vh",
     },
     "100%": {
       backgroundColor: " #3467ebEE",
@@ -167,7 +167,7 @@ export const useStyles = makeStyles(theme => ({
     },
     "100%": {
       backgroundColor: "#F9F9F922",
-      top: "80vh",
+      top: "65vh",
     },
   },
 }));

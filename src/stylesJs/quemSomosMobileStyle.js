@@ -4,13 +4,13 @@ export const useStyles = makeStyles(theme => ({
   card: {
     // posição
     position: "absolute",
-    top: "80vh",
+    top: "65vh",
     left: "11.50vw",
 
     // dimensionamento
     width: "80vw",
     zIndex: 200,
-    maxHeight: "90vh",
+    maxHeight: "80vh",
 
     // estilo
     padding: 16,
@@ -26,13 +26,13 @@ export const useStyles = makeStyles(theme => ({
   cardShow: {
     // posição
     position: "absolute",
-    top: "80vh",
+    top: "65vh",
     left: "11.50vw",
 
     // dimensionamento
     width: "80vw",
     zIndex: 200,
-    maxHeight: "90vh",
+    maxHeight: "80vh",
 
     // estilo
     padding: 16,
@@ -49,7 +49,7 @@ export const useStyles = makeStyles(theme => ({
   cardHide: {
     // posição
     position: "absolute",
-    top: "80vh",
+    top: "65vh",
     left: "11.50vw",
 
     // dimensionamento
@@ -76,7 +76,7 @@ export const useStyles = makeStyles(theme => ({
     // dimensionamento
     maxWidth: "80%",
     zIndex: 300,
-    maxHeight: "90vh",
+    maxHeight: "80vh",
 
     // estilo
     padding: 16,
@@ -98,7 +98,7 @@ export const useStyles = makeStyles(theme => ({
     // dimensionamento
     maxWidth: "80%",
     zIndex: 300,
-    maxHeight: "90vh",
+    maxHeight: "80vh",
 
     // estilo
     padding: 16,
@@ -189,7 +189,7 @@ export const useStyles = makeStyles(theme => ({
 
   "@keyframes upSlide": {
     "0%": {
-      top: "80vh",
+      top: "65vh",
       backgroundColor: "#F9F9F922",
     },
     "100%": {
@@ -204,7 +204,7 @@ export const useStyles = makeStyles(theme => ({
       backgroundColor: " #3467ebEE",
     },
     "100%": {
-      top: "80vh",
+      top: "65vh",
       backgroundColor: "#F9F9F922",
     },
   },
