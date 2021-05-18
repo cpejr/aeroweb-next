@@ -213,7 +213,7 @@ function Home() {
     if (!isMobile && contactsControl !== "standby") setContactsControl("hide");
     if (isMobile && contactsMobileControl !== "standby")
       setContactsMobileControl("hide");
-    
+
     if (isMobile && carouselControl === "hide") setCarouselControl("show");
     if (!isMobile && carouselControl !== "standby") setCarouselControl("show");
     if (!isMobile && modalControl !== "standby") setModalControl("hide");
@@ -289,7 +289,7 @@ function Home() {
     if (!isMobile && contactsControl !== "standby") setContactsControl("hide");
     if (isMobile && contactsMobileControl !== "standby")
       setContactsMobileControl("hide");
-    
+
     if (isMobile && carouselControl !== "hide") setCarouselControl("hide");
     if (!isMobile && carouselControl !== "standby") setCarouselControl("show");
     if (!isMobile && modalControl !== "show") {
@@ -361,11 +361,11 @@ function Home() {
     } else {
       setQuemSomosMobileControl("hide");
     }
-    
+
     if (!isMobile && contactsControl !== "standby") setContactsControl("hide");
     if (isMobile && contactsMobileControl !== "standby")
       setContactsMobileControl("hide");
-    
+
     if (isMobile && carouselControl !== "hide") setCarouselControl("hide");
     if (!isMobile && carouselControl !== "standby") setCarouselControl("show");
     if (!isMobile && modalControl !== "standby") setModalControl("hide");
@@ -444,7 +444,7 @@ function Home() {
     } else {
       setContactsMobileControl("hide");
     }
-    
+
     if (isMobile && carouselControl !== "hide") setCarouselControl("hide");
     if (
       (!isMobile && carouselControl === "show") ||
