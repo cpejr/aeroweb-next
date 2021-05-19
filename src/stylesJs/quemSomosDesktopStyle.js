@@ -20,7 +20,7 @@ export const useStyles = makeStyles(theme => ({
     padding: 16,
     elevation: 8,
     overflowY: "scroll",
-    backgroundColor: "#0E41C5",
+    backgroundColor: "#3467ebEE",
 
     // animação
     display: "none",
@@ -46,7 +46,7 @@ export const useStyles = makeStyles(theme => ({
     padding: 16,
     elevation: 8,
     overflowY: "scroll",
-    backgroundColor: "#0E41C5",
+    backgroundColor: "#3467ebEE",
 
     // animação
     animation: "$showModal 1500ms ease-out forwards",
@@ -72,7 +72,7 @@ export const useStyles = makeStyles(theme => ({
     padding: 16,
     elevation: 8,
     overflowY: "scroll",
-    backgroundColor: "#0E41C5",
+    backgroundColor: "#3467ebEE",
 
     // animação
     animation: "$hideModal 1000ms ease-in forwards",

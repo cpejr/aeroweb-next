@@ -16,7 +16,7 @@ export const useStyles = makeStyles(theme => ({
     padding: 16,
     paddingTop: 8,
     elevation: 8,
-    backgroundColor: "#F9F9F922",
+    backgroundColor: "#0E41C5E6",
     borderRadius: "6px",
     overflow: "hidden",
 
