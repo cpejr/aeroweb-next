@@ -16,33 +16,6 @@ import InstagramCarousel from "../components/InstagramCarousel";
 import { NextSeo } from "next-seo";
 
 function Home() {
-  <>
-    <NextSeo
-      title="Tailwind Aviation"
-      description="Os melhores cursos de aviação."
-      openGraph={{
-        url: "https://www.twcourses.com.br",
-        title: "Tailwind Aviation",
-        description: "Cursos de Aviação, confira nossas redes sociais",
-        images: [
-          {
-            url:
-              "https://images.pexels.com/photos/912050/pexels-photo-912050.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-            width: 800,
-            height: 600,
-            alt: "Um avião",
-          },
-        ],
-        site_name: "Tailwind Aviation",
-      }}
-      instagram={{
-        handle: "@tailwindaviation_",
-        site: "@twcourses.com.br",
-        cardType: "Imagem",
-      }}
-    />
-  </>;
-
   const classes = useStyles();
 
   // variaveis da animacao
@@ -462,220 +435,248 @@ function Home() {
   }
 
   return (
-    <div className={classes.homeContainer}>
-      <div className={classes.homeContainerChildren}>
-        <div
-          className={classes.planeContainer}
-          style={{
-            position: "absolute",
-            left: posX,
-            top: posY,
-            transform: `rotate(${angle}deg)`,
-            transformOrigin: "center",
-            width: size,
-            height: size,
-            zIndex: "200",
-          }}
-        >
-          <img
-            className={"plane" + (flying ? " flying" : "")}
-            src="/assets/AviaoIcon.svg"
-            width={40}
-            height={40}
-            onAnimationEnd={e => {
-              setFlying(false);
-            }}
-          />
-        </div>
-
-        <div
-          className={styles.gradientVelho}
-          style={{ backgroundImage: oldGradient }}
-        >
-          <div
-            className={
-              change ? styles.gradienteMutavel : styles.gradienteImutavel
-            }
-            onAnimationEnd={() => {
-              setChange(false);
-            }}
-            style={{ backgroundImage: newGradient }}
-          />
+    <>
+      <NextSeo
+        title="Tailwind Aviation | Home"
+        description="Os melhores cursos de aviação."
+        openGraph={{
+          url: "https://twcourses.com.br",
+          title: "Tailwind Aviation",
+          description: "Cursos de Aviação, confira nossas redes sociais",
+          images: [
+            {
+              url:
+                "https://images.pexels.com/photos/912050/pexels-photo-912050.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+              width: 800,
+              height: 600,
+              alt: "Um avião",
+            },
+          ],
+          site_name: "Tailwind Aviation",
+        }}
+        instagram={{
+          handle: "@tailwindaviation_",
+          site: "@twcourses.com.br",
+          cardType: "Imagem",
+        }}
+      />
+      <div className={classes.homeContainer}>
+        <div className={classes.homeContainerChildren}>
           <div
             className={classes.planeContainer}
             style={{
               position: "absolute",
-              left: "4vw",
-              top: "65vh",
-              margin: "0",
+              left: posX,
+              top: posY,
+              transform: `rotate(${angle}deg)`,
               transformOrigin: "center",
-              width: "38vw",
+              width: size,
+              height: size,
               zIndex: "200",
-              color: "#fff",
             }}
           >
-            {!isMobile && (
-              <>
-                <h1 className={classes.footerTitle1}>
-                  INVISTA HOJE NO SEU FUTURO
-                </h1>
-                <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
-              </>
-            )}
+            <img
+              className={"plane" + (flying ? " flying" : "")}
+              src="/assets/AviaoIcon.svg"
+              width={40}
+              height={40}
+              onAnimationEnd={e => {
+                setFlying(false);
+              }}
+            />
           </div>
 
           <div
-            className={classes.homeContainerChildren}
-            style={{
-              backgroundPositionX: posBackground,
-              transitionDuration: "2.5s",
-              backgroundPositionY: -200,
-              height: "100vh",
-            }}
-          />
-          <div
-            className={classes.planeContainerMobile}
-            style={{
-              width: size,
-              height: size,
-            }}
+            className={styles.gradientVelho}
+            style={{ backgroundImage: oldGradient }}
           >
-            <img className={styles.logo2} src={union} />
-          </div>
-          <div
-            className={classes.planeContainer}
-            style={{
-              width: size,
-              height: size,
-            }}
-          >
-            <img className={styles.logo} src={responseSize} />
-          </div>
+            <div
+              className={
+                change ? styles.gradienteMutavel : styles.gradienteImutavel
+              }
+              onAnimationEnd={() => {
+                setChange(false);
+              }}
+              style={{ backgroundImage: newGradient }}
+            />
+            <div
+              className={classes.planeContainer}
+              style={{
+                position: "absolute",
+                left: "4vw",
+                top: "65vh",
+                margin: "0",
+                transformOrigin: "center",
+                width: "38vw",
+                zIndex: "200",
+                color: "#fff",
+              }}
+            >
+              {!isMobile && (
+                <>
+                  <h1 className={classes.footerTitle1}>
+                    INVISTA HOJE NO SEU FUTURO
+                  </h1>
+                  <h1 className={classes.footerTitle2}>
+                    E DÊ ASAS AO SEU SONHO
+                  </h1>
+                </>
+              )}
+            </div>
 
-          <div
-            className={classes.rotaContainer}
-            style={{ position: "absolute", zIndex: "90" }}
-          >
-            {isPhone || isResponsive1 ? (
-              <img
-                src="/assets/RotaMobile.svg"
-                style={{ height: "75vh", width: "83vw", marginTop: "5vh" }}
-              />
-            ) : (
-              <img
-                src="/assets/RotaDesktop.svg"
-                style={{ height: "75vh", width: "83vw", marginTop: "15vh" }}
-              />
-            )}
-          </div>
+            <div
+              className={classes.homeContainerChildren}
+              style={{
+                backgroundPositionX: posBackground,
+                transitionDuration: "2.5s",
+                backgroundPositionY: -200,
+                height: "100vh",
+              }}
+            />
+            <div
+              className={classes.planeContainerMobile}
+              style={{
+                width: size,
+                height: size,
+              }}
+            >
+              <img className={styles.logo2} src={union} />
+            </div>
+            <div
+              className={classes.planeContainer}
+              style={{
+                width: size,
+                height: size,
+              }}
+            >
+              <img className={styles.logo} src={responseSize} />
+            </div>
 
-          <div className={classes.buttonHome} style={{ zIndex: "100" }}>
-            <p
-              className={styles.name}
-              onClick={home}
-              style={
-                selected === "HOME"
-                  ? {
-                      cursor: "pointer",
-                      transition: "font-size 1.5s",
-                      fontSize: "1.25rem",
-                    }
-                  : { cursor: "pointer" }
-              }
+            <div
+              className={classes.rotaContainer}
+              style={{ position: "absolute", zIndex: "90" }}
             >
-              HOME
-            </p>
-          </div>
-          <div className={classes.button2} style={{ zIndex: "100" }}>
-            <p
-              className={styles.name}
-              onClick={cursos}
-              style={
-                selected === "CURSOS"
-                  ? {
-                      cursor: "pointer",
-                      transition: "font-size 1.5s",
-                      fontSize: "1.25rem",
-                    }
-                  : { cursor: "pointer" }
-              }
-            >
-              CURSOS
-            </p>
-          </div>
+              {isPhone || isResponsive1 ? (
+                <img
+                  src="/assets/RotaMobile.svg"
+                  style={{ height: "75vh", width: "83vw", marginTop: "5vh" }}
+                />
+              ) : (
+                <img
+                  src="/assets/RotaDesktop.svg"
+                  style={{ height: "75vh", width: "83vw", marginTop: "15vh" }}
+                />
+              )}
+            </div>
 
-          <div className={classes.button3} style={{ zIndex: "100" }}>
-            <p
-              className={styles.name}
-              onClick={quemSomos}
-              style={
-                selected === "QUEMSOMOS"
-                  ? {
-                      cursor: "pointer",
-                      transition: "font-size 1.5s",
-                      fontSize: "1.25rem",
-                    }
-                  : { cursor: "pointer" }
-              }
-            >
-              QUEM SOMOS
-            </p>
-          </div>
-          <div className={classes.button4} style={{ zIndex: "100" }}>
-            <p
-              className={styles.name}
-              onClick={contato}
-              style={
-                selected === "CONTATO"
-                  ? {
-                      cursor: "pointer",
-                      transition: "font-size 1.5s",
-                      fontSize: "1.25rem",
-                    }
-                  : { cursor: "pointer" }
-              }
-            >
-              CONTATO
-            </p>
+            <div className={classes.buttonHome} style={{ zIndex: "100" }}>
+              <p
+                className={styles.name}
+                onClick={home}
+                style={
+                  selected === "HOME"
+                    ? {
+                        cursor: "pointer",
+                        transition: "font-size 1.5s",
+                        fontSize: "1.25rem",
+                      }
+                    : { cursor: "pointer" }
+                }
+              >
+                HOME
+              </p>
+            </div>
+            <div className={classes.button2} style={{ zIndex: "100" }}>
+              <p
+                className={styles.name}
+                onClick={cursos}
+                style={
+                  selected === "CURSOS"
+                    ? {
+                        cursor: "pointer",
+                        transition: "font-size 1.5s",
+                        fontSize: "1.25rem",
+                      }
+                    : { cursor: "pointer" }
+                }
+              >
+                CURSOS
+              </p>
+            </div>
+
+            <div className={classes.button3} style={{ zIndex: "100" }}>
+              <p
+                className={styles.name}
+                onClick={quemSomos}
+                style={
+                  selected === "QUEMSOMOS"
+                    ? {
+                        cursor: "pointer",
+                        transition: "font-size 1.5s",
+                        fontSize: "1.25rem",
+                      }
+                    : { cursor: "pointer" }
+                }
+              >
+                QUEM SOMOS
+              </p>
+            </div>
+            <div className={classes.button4} style={{ zIndex: "100" }}>
+              <p
+                className={styles.name}
+                onClick={contato}
+                style={
+                  selected === "CONTATO"
+                    ? {
+                        cursor: "pointer",
+                        transition: "font-size 1.5s",
+                        fontSize: "1.25rem",
+                      }
+                    : { cursor: "pointer" }
+                }
+              >
+                CONTATO
+              </p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <InstagramCarousel animationControl={carouselControl} />
+        <InstagramCarousel animationControl={carouselControl} />
 
-      <CoursesList
-        coursesMobileControl={coursesMobileControl}
-        setCoursesMobileControl={setCoursesMobileControl}
-        coursesDesktopControl={coursesDesktopControl}
-        setOpenCurso={setOpenCurso}
-      />
-
-      <QuemSomos
-        quemSomosMobileControl={quemSomosMobileControl}
-        setQuemSomosMobileControl={setQuemSomosMobileControl}
-        quemSomosControl={quemSomosControl}
-        setQuemSomosControl={setQuemSomosControl}
-      />
-
-      <Contacts
-        contactsMobileControl={contactsMobileControl}
-        setContactsMobileControl={setContactsMobileControl}
-        contactsControl={contactsControl}
-        setContactsControl={setContactsControl}
-        setCarouselControl={setCarouselControl}
-      />
-
-      {!isMobile && <Footer />}
-
-      {openCurso.open && (
-        <AnimatedModalCourses
-          openCurso={openCurso}
-          setOpenCurso={setOpenCurso}
+        <CoursesList
+          coursesMobileControl={coursesMobileControl}
           setCoursesMobileControl={setCoursesMobileControl}
-          closeModal={closeModal}
+          coursesDesktopControl={coursesDesktopControl}
+          setOpenCurso={setOpenCurso}
         />
-      )}
-    </div>
+
+        <QuemSomos
+          quemSomosMobileControl={quemSomosMobileControl}
+          setQuemSomosMobileControl={setQuemSomosMobileControl}
+          quemSomosControl={quemSomosControl}
+          setQuemSomosControl={setQuemSomosControl}
+        />
+
+        <Contacts
+          contactsMobileControl={contactsMobileControl}
+          setContactsMobileControl={setContactsMobileControl}
+          contactsControl={contactsControl}
+          setContactsControl={setContactsControl}
+          setCarouselControl={setCarouselControl}
+        />
+
+        {!isMobile && <Footer />}
+
+        {openCurso.open && (
+          <AnimatedModalCourses
+            openCurso={openCurso}
+            setOpenCurso={setOpenCurso}
+            setCoursesMobileControl={setCoursesMobileControl}
+            closeModal={closeModal}
+          />
+        )}
+      </div>
+    </>
   );
 }
 
