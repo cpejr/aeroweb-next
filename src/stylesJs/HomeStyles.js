@@ -69,13 +69,10 @@ export const useStylesHome = (props) => makeStyles(theme => ({
   },
 
   rotaContainer: {
-    // backgroundImage: "url(/assets/RotaDesktop.svg)",
-    // backgroundSize: "contain",
-    // backgroundRepeat: 'no-repeat',
-    // backgroundPosition: "left top",
     zIndex: 90,
     height: '70vh',
-    width: '100vw',
+    maxHeight: `calc((100vw / 1641) * 716)`,
+    width: '90vw',
     maxWidth: `calc((70vh / 716) * 1641)`,
     marginTop: '20vh',
     position: 'absolute'
@@ -86,7 +83,8 @@ export const useStylesHome = (props) => makeStyles(theme => ({
   },
   buttonHomeContainer: {
     height: '70vh',
-    width: '100vw',
+    maxHeight: `calc((100vw / 1641) * 716)`,
+    width: '90vw',
     maxWidth: `calc((70vh / 716) * 1641)`,
     marginTop: '20vh',
     display: 'flex',
@@ -95,113 +93,106 @@ export const useStylesHome = (props) => makeStyles(theme => ({
   },
   buttonHome: {
     marginLeft: "22%",
+    marginTop: "1.5%",
     width: "fit-content",
     height: "2rem",
-    marginTop: '0.5%',
-    // [theme.breakpoints.down("415")]: {
-    //   paddingTop: "20vh",
-    //   paddingLeft: "23vw",
-    //   width: "50px",
-    //   height: "20px",
-    // },
-    //
-    // [theme.breakpoints.between("415", "800")]: {
-    //   paddingTop: "10vh",
-    //   paddingLeft: "29vw",
-    //   width: "50px",
-    //   height: "20px",
-    // },
-    //
-    // [theme.breakpoints.between("800", "1000")]: {
-    //   paddingTop: "27vh",
-    //   paddingLeft: "20vw",
-    //   width: "50px",
-    //   height: "20px",
-    // },
+
+    [theme.breakpoints.down(1370)]: {
+      marginTop: 0,
+    },
+
+    [theme.breakpoints.down(850)]: {
+      marginTop: '-1%',
+    },
   },
 
   buttonCursos: {
     width: 'fit-content',
     position: 'relative',
     marginLeft: '48.5%',
-    marginTop: '2.75%',
+    marginTop: '4%',
     height: "2rem",
-    // [theme.breakpoints.down("415")]: {
-    //   paddingTop: "29vh",
-    //   marginLeft: "20vw",
-    //   width: "50px",
-    //   height: undefined,
-    // },
-    //
-    // [theme.breakpoints.between("415", "800")]: {
-    //   paddingTop: "25vh",
-    //   marginLeft: "16vw",
-    //   width: "50px",
-    //   height: undefined,
-    // },
-    //
-    // [theme.breakpoints.between("800", "1000")]: {
-    //   paddingTop: "33vh",
-    //   width: "50px",
-    //   height: "20px",
-    //   marginLeft: "15vw",
-    // },
+
+    [theme.breakpoints.down(1370)]: {
+      marginTop: '2.75%',
+    },
+
+    [theme.breakpoints.down(1000)]: {
+      marginTop: '2%',
+    },
+
+    [theme.breakpoints.down(900)]: {
+      marginTop: '1.5%',
+    },
+
+    [theme.breakpoints.down(730)]: {
+      marginTop: '1%',
+    },
+
+    [theme.breakpoints.down(630)]: {
+      marginTop: '0%',
+    },
+
+    [theme.breakpoints.down(600)]: {
+      marginTop: '-1%',
+    },
+
+    [theme.breakpoints.down(550)]: {
+      marginTop: '-2%',
+    },
   },
   buttonQuemSomos: {
     width: 'fit-content',
     height: "2rem",
-    marginLeft: '68%',
-    marginTop: '13.25%',
-    // [theme.breakpoints.down("415")]: {
-    //   paddingTop: "41vh",
-    //   marginLeft: "0vw",
-    //   width: "60px",
-    //   height: "20px",
-    // },
-    //
-    // [theme.breakpoints.between("415", "800")]: {
-    //   paddingTop: "41vh",
-    //   marginLeft: "0vw",
-    //   width: "60px",
-    //   height: "20px",
-    // },
-    //
-    // [theme.breakpoints.between("800", "1000")]: {
-    //   paddingTop: "50vh",
-    //   width: "8rem",
-    //   height: "20px",
-    //   marginLeft: "14vw",
-    // },
+    marginLeft: '68.25%',
+    marginTop: '14.25%',
+
+    [theme.breakpoints.down(1370)]: {
+      marginTop: '13.25%',
+    },
+
+    [theme.breakpoints.down(1170)]: {
+      marginTop: '12%',
+    },
+
+    [theme.breakpoints.down(780)]: {
+      marginTop: '11%',
+    },
+
+    [theme.breakpoints.down(680)]: {
+      marginTop: '10%',
+    },
+
+    [theme.breakpoints.down(550)]: {
+      marginTop: '9%',
+    },
   },
   buttonContato: {
     width: 'fit-content',
     height: "2rem",
     position: 'relative',
     marginLeft: '89%',
-    marginTop: '7.75%',
-    // [theme.breakpoints.down("415")]: {
-    //   paddingTop: "55vh",
-    //   marginLeft: "0vw",
-    //   width: "50px",
-    //   height: "20px",
-    // },
-    //
-    // [theme.breakpoints.between("415", "800")]: {
-    //   paddingTop: "60vh",
-    //   marginLeft: "1vw",
-    //   width: "50px",
-    //   height: "20px",
-    // },
-    //
-    // [theme.breakpoints.between("800", "1000")]: {
-    //   paddingTop: "62vh",
-    //   marginLeft: "1vw",
-    //   width: "50px",
-    //   height: "20px",
-    // },
-    // [theme.breakpoints.down("500")]: {
-    //   marginLeft: "0vw",
-    // },
+    marginTop: '9.5%',
+
+    [theme.breakpoints.down(1370)]: {
+      marginTop: '7.75%',
+    },
+
+    [theme.breakpoints.down(980)]: {
+      marginTop: '7%',
+    },
+
+    [theme.breakpoints.down(880)]: {
+      marginTop: '6.5%',
+    },
+
+    [theme.breakpoints.down(720)]: {
+      marginTop: '5.5%',
+    },
+
+    [theme.breakpoints.down(530)]: {
+      marginTop: '4.5%',
+    },
   },
 
   buttonPageHome: {
@@ -211,7 +202,19 @@ export const useStylesHome = (props) => makeStyles(theme => ({
     margin: 0,
     textAlign: 'center',
     transition: 'color 0.5s, font-size 1.5s, border-bottom 1.5s',
-    cursor: "pointer"
+    cursor: "pointer",
+    [theme.breakpoints.down(850)]: {
+      fontSize: '1.05rem',
+    },
+    [theme.breakpoints.down(700)]: {
+      fontSize: '0.95rem',
+    },
+    [theme.breakpoints.down(600)]: {
+      fontSize: '0.85rem',
+    },
+    [theme.breakpoints.down(501)]: {
+      fontSize: '0.75rem',
+    },
   },
 
   selectedButtonPageHome: {
@@ -223,6 +226,21 @@ export const useStylesHome = (props) => makeStyles(theme => ({
     cursor: "pointer",
     transition: "color 0.5s, font-size 1.5s, border-bottom 1.5s",
     borderBottom: '3px solid #fff',
+    [theme.breakpoints.down(850)]: {
+      fontSize: '1.15rem',
+    },
+    [theme.breakpoints.down(700)]: {
+      fontSize: '1.05rem',
+      borderBottom: '2.5px solid #fff',
+    },
+    [theme.breakpoints.down(600)]: {
+      fontSize: '0.95rem',
+      borderBottom: '2.25px solid #fff',
+    },
+    [theme.breakpoints.down(501)]: {
+      fontSize: '0.85rem',
+      borderBottom: '2px solid #fff',
+    },
   },
 
   flying: {
@@ -437,19 +455,34 @@ export const useStylesAirPlane = (props) => makeStyles(theme => ({
     left: props.posX,
     top: props.posY,
     transform: `rotate(${props.angle}deg)`,
-
+    width: 40,
+    height: 40,
     transformOrigin: "center",
     zIndex: "200",
     transition:
       "top 1.5s ease-in-out, left 1.5s ease-in-out, width 1.5s ease-in-out, height 1.5s ease-in-out",
-    [theme.breakpoints.down("500")]: {
-      left: "28vw",
-      top: "6vh",
+
+    [theme.breakpoints.down(850)]: {
+      width: 35,
+      height: 35,
     },
-    [theme.breakpoints.down("376")]: {
-      left: "24vw",
-      top: "6vh",
+    [theme.breakpoints.down(700)]: {
+      width: 32,
+      height: 32,
     },
+    [theme.breakpoints.down(600)]: {
+      width: 30,
+      height: 30,
+    },
+    [theme.breakpoints.down(501)]: {
+      width: 28,
+      height: 28,
+    },
+  },
+
+  plane: {
+    width: '100%',
+    height: '100%',
   },
 
   planeContainerMobile: {

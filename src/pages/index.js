@@ -554,8 +554,7 @@ function Home() {
             >
               <img
                 src="/assets/AviaoIcon.svg"
-                width={40}
-                height={40}
+                className={classesAirPlane.plane}
               />
             </div>
             {/*{isPhone || isResponsive1 ? (*/}
