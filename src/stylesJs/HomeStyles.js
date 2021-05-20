@@ -1,147 +1,230 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles(theme => ({
+export const useStylesHome = (props) => makeStyles(theme => ({
+
   homeContainer: {
-    width: "100%",
+    width: "100vw",
+    height: "100vh",
+  },
+
+  homeContainerOldGradient: {
+    position: 'relative',
+    zIndex: 1,
+    height: '100vh',
+    width: '100vw',
+    display: 'flex',
+    backgroundImage: props.oldGradient
+  },
+
+  homeGradienteMutavel: {
+    height: '100vh',
+    width: '100vw',
+    position: 'absolute',
+    display: 'flex',
+    opacity: 0,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    animation:'$sumiu 1s',
+    animationIiterationCount: 1,
+    animationFillMode: 'forwards',
+    backgroundImage: props.newGradient
+  },
+
+  "@keyframes sumiu": {
+    "from": {
+      opacity: '0%'
+    },
+    "to": {
+      opacity: '100%'
+    },
+  },
+
+  homeGradienteImutavel: {
+    height: '100vh',
+    width: '100vw',
+    position: 'absolute',
+    display: 'flex',
+    opacity: 0,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    backgroundImage: props.newGradient
+  },
+
+  logoDesktop: {
+    width: '40vw',
+    alignSelf: 'center'
+  },
+
+  homeContainerChildren: {
+    width: "100vw",
     height: "100vh",
     display: "flex",
     flexDirection: "column",
-    backgroundSize: "1700px",
-    [theme.breakpoints.down("500")]: {
-      position: "fixed",
-    },
-
-    overflow: "hidden",
-  },
-  homeContainerChildren: {
-    width: "100%",
-    maxHeight: "100%",
-    display: "flex",
-    flexDirection: "column",
     backgroundImage: "url(/assets/ImagemDeFundo.svg)",
-    backgroundSize: "cover",
+    backgroundSize: "auto 100%",
+    backgroundRepeat: 'repeat',
+    backgroundPosition: "left top",
     position: "absolute",
-    [theme.breakpoints.down("500")]: {
-      position: "absolute",
-    },
-
     overflow: "hidden",
   },
-  homeGeneral: {
-    display: "flex",
-  },
 
+  rotaContainer: {
+    // backgroundImage: "url(/assets/RotaDesktop.svg)",
+    // backgroundSize: "contain",
+    // backgroundRepeat: 'no-repeat',
+    // backgroundPosition: "left top",
+    zIndex: 90,
+    height: '70vh',
+    width: '100vw',
+    maxWidth: `calc((70vh / 716) * 1641)`,
+    marginTop: '20vh',
+    position: 'absolute'
+
+  },
+  rotasImg: {
+    width: '100%',
+  },
+  buttonHomeContainer: {
+    height: '70vh',
+    width: '100vw',
+    maxWidth: `calc((70vh / 716) * 1641)`,
+    marginTop: '20vh',
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'absolute'
+  },
   buttonHome: {
-    paddingTop: "15vh",
-    paddingLeft: "18vw",
-    width: "4.5",
-    height: "24px",
-
-    [theme.breakpoints.down("415")]: {
-      paddingTop: "20vh",
-      paddingLeft: "23vw",
-      width: "50px",
-      height: "20px",
-    },
-
-    [theme.breakpoints.between("415", "800")]: {
-      paddingTop: "10vh",
-      paddingLeft: "29vw",
-      width: "50px",
-      height: "20px",
-    },
-
-    [theme.breakpoints.between("800", "1000")]: {
-      paddingTop: "27vh",
-      paddingLeft: "20vw",
-      width: "50px",
-      height: "20px",
-    },
+    marginLeft: "22%",
+    width: "fit-content",
+    height: "2rem",
+    marginTop: '0.5%',
+    // [theme.breakpoints.down("415")]: {
+    //   paddingTop: "20vh",
+    //   paddingLeft: "23vw",
+    //   width: "50px",
+    //   height: "20px",
+    // },
+    //
+    // [theme.breakpoints.between("415", "800")]: {
+    //   paddingTop: "10vh",
+    //   paddingLeft: "29vw",
+    //   width: "50px",
+    //   height: "20px",
+    // },
+    //
+    // [theme.breakpoints.between("800", "1000")]: {
+    //   paddingTop: "27vh",
+    //   paddingLeft: "20vw",
+    //   width: "50px",
+    //   height: "20px",
+    // },
   },
 
-  button2: {
-    paddingTop: "26vh",
-    marginLeft: "18vw",
-    width: "4rem",
-    height: "20px",
-
-    [theme.breakpoints.down("415")]: {
-      paddingTop: "29vh",
-      marginLeft: "20vw",
-      width: "50px",
-      height: undefined,
-    },
-
-    [theme.breakpoints.between("415", "800")]: {
-      paddingTop: "25vh",
-      marginLeft: "16vw",
-      width: "50px",
-      height: undefined,
-    },
-
-    [theme.breakpoints.between("800", "1000")]: {
-      paddingTop: "33vh",
-      width: "50px",
-      height: "20px",
-      marginLeft: "15vw",
-    },
+  buttonCursos: {
+    width: 'fit-content',
+    position: 'relative',
+    marginLeft: '48.5%',
+    marginTop: '2.75%',
+    height: "2rem",
+    // [theme.breakpoints.down("415")]: {
+    //   paddingTop: "29vh",
+    //   marginLeft: "20vw",
+    //   width: "50px",
+    //   height: undefined,
+    // },
+    //
+    // [theme.breakpoints.between("415", "800")]: {
+    //   paddingTop: "25vh",
+    //   marginLeft: "16vw",
+    //   width: "50px",
+    //   height: undefined,
+    // },
+    //
+    // [theme.breakpoints.between("800", "1000")]: {
+    //   paddingTop: "33vh",
+    //   width: "50px",
+    //   height: "20px",
+    //   marginLeft: "15vw",
+    // },
   },
-  button3: {
-    paddingTop: "53vh",
-    marginLeft: "11vw",
-    width: "8rem",
-    height: "20px",
-    [theme.breakpoints.down("415")]: {
-      paddingTop: "41vh",
-      marginLeft: "0vw",
-      width: "60px",
-      height: "20px",
-    },
-
-    [theme.breakpoints.between("415", "800")]: {
-      paddingTop: "41vh",
-      marginLeft: "0vw",
-      width: "60px",
-      height: "20px",
-    },
-
-    [theme.breakpoints.between("800", "1000")]: {
-      paddingTop: "50vh",
-      width: "8rem",
-      height: "20px",
-      marginLeft: "14vw",
-    },
+  buttonQuemSomos: {
+    width: 'fit-content',
+    height: "2rem",
+    marginLeft: '68%',
+    marginTop: '13.25%',
+    // [theme.breakpoints.down("415")]: {
+    //   paddingTop: "41vh",
+    //   marginLeft: "0vw",
+    //   width: "60px",
+    //   height: "20px",
+    // },
+    //
+    // [theme.breakpoints.between("415", "800")]: {
+    //   paddingTop: "41vh",
+    //   marginLeft: "0vw",
+    //   width: "60px",
+    //   height: "20px",
+    // },
+    //
+    // [theme.breakpoints.between("800", "1000")]: {
+    //   paddingTop: "50vh",
+    //   width: "8rem",
+    //   height: "20px",
+    //   marginLeft: "14vw",
+    // },
   },
-  button4: {
-    paddingTop: "70vh",
-    marginLeft: "8vw",
-
-    width: "5.5rem",
-    height: "22px",
-    [theme.breakpoints.down("415")]: {
-      paddingTop: "55vh",
-      marginLeft: "0vw",
-      width: "50px",
-      height: "20px",
-    },
-
-    [theme.breakpoints.between("415", "800")]: {
-      paddingTop: "60vh",
-      marginLeft: "1vw",
-      width: "50px",
-      height: "20px",
-    },
-
-    [theme.breakpoints.between("800", "1000")]: {
-      paddingTop: "62vh",
-      marginLeft: "1vw",
-      width: "50px",
-      height: "20px",
-    },
-    [theme.breakpoints.down("500")]: {
-      marginLeft: "0vw",
-    },
+  buttonContato: {
+    width: 'fit-content',
+    height: "2rem",
+    position: 'relative',
+    marginLeft: '89%',
+    marginTop: '7.75%',
+    // [theme.breakpoints.down("415")]: {
+    //   paddingTop: "55vh",
+    //   marginLeft: "0vw",
+    //   width: "50px",
+    //   height: "20px",
+    // },
+    //
+    // [theme.breakpoints.between("415", "800")]: {
+    //   paddingTop: "60vh",
+    //   marginLeft: "1vw",
+    //   width: "50px",
+    //   height: "20px",
+    // },
+    //
+    // [theme.breakpoints.between("800", "1000")]: {
+    //   paddingTop: "62vh",
+    //   marginLeft: "1vw",
+    //   width: "50px",
+    //   height: "20px",
+    // },
+    // [theme.breakpoints.down("500")]: {
+    //   marginLeft: "0vw",
+    // },
   },
+
+  buttonPageHome: {
+    color: '#100554',
+    fontWeight: 500,
+    fontSize: '1.15rem',
+    margin: 0,
+    textAlign: 'center',
+    transition: 'color 0.5s, font-size 1.5s, border-bottom 1.5s',
+    cursor: "pointer"
+  },
+
+  selectedButtonPageHome: {
+    color: '#fff',
+    fontWeight: 530,
+    fontSize: "1.25rem",
+    margin: 0,
+    textAlign: 'center',
+    cursor: "pointer",
+    transition: "color 0.5s, font-size 1.5s, border-bottom 1.5s",
+    borderBottom: '3px solid #fff',
+  },
+
   flying: {
     animation: "fly 0.5s",
   },
@@ -180,6 +263,7 @@ const useStyles = makeStyles(theme => ({
       top: "6vh",
     },
   },
+
   container: {
     display: "flex",
     flexDirection: "column",
@@ -342,4 +426,48 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default useStyles;
+
+export const useStylesAirPlane = (props) => makeStyles(theme => ({
+
+  flying: {
+    animation: "fly 0.5s",
+  },
+  planeContainer: {
+    position: "absolute",
+    left: props.posX,
+    top: props.posY,
+    transform: `rotate(${props.angle}deg)`,
+
+    transformOrigin: "center",
+    zIndex: "200",
+    transition:
+      "top 1.5s ease-in-out, left 1.5s ease-in-out, width 1.5s ease-in-out, height 1.5s ease-in-out",
+    [theme.breakpoints.down("500")]: {
+      left: "28vw",
+      top: "6vh",
+    },
+    [theme.breakpoints.down("376")]: {
+      left: "24vw",
+      top: "6vh",
+    },
+  },
+
+  planeContainerMobile: {
+    position: "absolute",
+    left: "30vw",
+    top: "0.1vh",
+    [theme.breakpoints.down("500")]: {
+      left: "4.5rem",
+      top: "6vh",
+    },
+    [theme.breakpoints.down("376")]: {
+      left: "2.9rem",
+      top: "6vh",
+    },
+    [theme.breakpoints.down("361")]: {
+      left: "2.6rem",
+      top: "6vh",
+    },
+  },
+
+}));

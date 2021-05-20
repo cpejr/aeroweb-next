@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import isMobile from "../utils/isMobile"; // usa para ver se é mobile ou não
 
 // estilização
-import useStyles from "../stylesJs/HomeStyles";
+import {useStylesHome, useStylesAirPlane} from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
 
 // componentes
@@ -43,25 +43,23 @@ function Home() {
     />
   </>;
 
-  const classes = useStyles();
-
   // variaveis da animacao
   let selectedComp;
   const [responseSize, setResponseSize] = useState("");
   const [union, setUnion] = useState("");
   const [posBackground, setPosBackground] = useState(90);
-  const [selected, setSelected] = useState();
-  const [posX, setPosX] = useState("18vw");
+  const [selected, setSelected] = useState('HOME');
+  const [posX, setPosX] = useState("20%");
   const [posXAngle, setPosXAngle] = useState(0);
-  const [posY, setPosY] = useState("22vh");
+  const [posY, setPosY] = useState("6%");
   const [posYAngle, setPosYAngle] = useState(0);
-  const [angle, setAngle] = useState(0);
+  const [angle, setAngle] = useState(349);
   const [flying, setFlying] = useState(true);
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
 
   // Parâmetros para o novo gradiente:
-  const [newGradient, setNewGradient] = useState();
+  const [newGradient, setNewGradient] = useState("linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)");
   const [oldGradient, setOldGradient] = useState(
     "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
   );
@@ -100,6 +98,9 @@ function Home() {
   const [isResponsive1, setResponsive1] = useState();
   const [isResponsive2, setResponsive2] = useState();
 
+  const classesAirPlane = useStylesAirPlane({posX: posX, posY: posY, angle: angle})();
+  const classes = useStylesHome({newGradient: newGradient, oldGradient: oldGradient, change: change})();
+
   // reset do array dos modais ao carregar pagina
   useEffect(() => {
     if (isMobile) setPhone(true);
@@ -131,14 +132,14 @@ function Home() {
       return () => {
         window.removeEventListener("resize", checkDisplay);
       };
-    },
-    [isPhone],
-    [isResponsive1],
-    [isResponsive2],
+    },[]
+    // [isPhone],
+    // [isResponsive1],
+    // [isResponsive2],
   );
 
   useEffect(() => {
-    var aux = window.innerWidth;
+    let aux = window.innerWidth;
     if (aux < 500) {
       setResponseSize("/assets/TAILWINDAVIATION.svg");
       setUnion("/assets/Union.svg");
@@ -146,7 +147,6 @@ function Home() {
       setResponseSize("/assets/Logomarca.svg");
       setUnion("");
     }
-    return responseSize;
   }, []);
 
   function home(e) {
@@ -183,20 +183,22 @@ function Home() {
     setFlying(true);
 
     setAngle(360 - newAngle);
-
-    if (isPhone) {
-      setPosX("20vw");
-      setPosY("27vh");
-    } else if (isResponsive1) {
-      setPosX("26vw");
-      setPosY("36vh");
-    } else if (isResponsive2) {
-      setPosX("18vw");
-      setPosY("33vh");
-    } else {
-      setPosX("18vw");
-      setPosY("22vh");
-    }
+// setAngle(173)
+    // if (isPhone) {
+    //   setPosX("20vw");
+    //   setPosY("27vh");
+    // } else if (isResponsive1) {
+    //   setPosX("26vw");
+    //   setPosY("36vh");
+    // } else if (isResponsive2) {
+    //   setPosX("18vw");
+    //   setPosY("33vh");
+    // } else {
+    //   setPosX("18vw");
+    //   setPosY("22vh");
+    // }
+    setPosX('20%');
+    setPosY('6%');
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -249,20 +251,22 @@ function Home() {
     setFlying(true);
 
     setAngle(360 - newAngle);
-
-    if (isPhone) {
-      setPosX("40vw");
-      setPosY("35vh");
-    } else if (isResponsive1) {
-      setPosX("32vw");
-      setPosY("41vh");
-    } else if (isResponsive2) {
-      setPosX("39vw");
-      setPosY("39vh");
-    } else {
-      setPosX("39vw");
-      setPosY("31vh");
-    }
+    // setAngle(349)
+    // if (isPhone) {
+    //   setPosX("40vw");
+    //   setPosY("35vh");
+    // } else if (isResponsive1) {
+    //   setPosX("32vw");
+    //   setPosY("41vh");
+    // } else if (isResponsive2) {
+    //   setPosX("39vw");
+    //   setPosY("39vh");
+    // } else {
+    //   setPosX("39vw");
+    //   setPosY("31vh");
+    // }
+    setPosX('47%');
+    setPosY('19%');
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -329,20 +333,22 @@ function Home() {
     setFlying(true);
 
     setAngle(360 - newAngle);
-
-    if (isPhone) {
-      setPosX("49vw");
-      setPosY("47vh");
-    } else if (isResponsive1) {
-      setPosX("47vw");
-      setPosY("50vh");
-    } else if (isResponsive2) {
-      setPosX("55vw");
-      setPosY("57vh");
-    } else {
-      setPosX("55vw");
-      setPosY("59vh");
-    }
+    // setAngle(23)
+    // if (isPhone) {
+    //   setPosX("49vw");
+    //   setPosY("47vh");
+    // } else if (isResponsive1) {
+    //   setPosX("47vw");
+    //   setPosY("50vh");
+    // } else if (isResponsive2) {
+    //   setPosX("55vw");
+    //   setPosY("57vh");
+    // } else {
+    //   setPosX("55vw");
+    //   setPosY("59vh");
+    // }
+    setPosX('66%');
+    setPosY('57.5%');
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -401,20 +407,23 @@ function Home() {
     setFlying(true);
 
     setAngle(360 - newAngle);
+    // setAngle(4);
 
-    if (isPhone) {
-      setPosX("69vw");
-      setPosY("60vh");
-    } else if (isResponsive1) {
-      setPosX("60vw");
-      setPosY("70vh");
-    } else if (isResponsive2) {
-      setPosX("71vw");
-      setPosY("68vh");
-    } else {
-      setPosX("71vw");
-      setPosY("76vh");
-    }
+    // if (isPhone) {
+    //   setPosX("69vw");
+    //   setPosY("60vh");
+    // } else if (isResponsive1) {
+    //   setPosX("60vw");
+    //   setPosY("70vh");
+    // } else if (isResponsive2) {
+    //   setPosX("71vw");
+    //   setPosY("68vh");
+    // } else {
+    //   setPosX("71vw");
+    //   setPosY("76vh");
+    // }
+    setPosX('87%');
+    setPosY('83%');
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -462,183 +471,177 @@ function Home() {
   }
 
   return (
-    <div className={classes.homeContainer}>
+    <div
+      className={classes.homeContainer}>
       <div className={classes.homeContainerChildren}>
         <div
-          className={classes.planeContainer}
-          style={{
-            position: "absolute",
-            left: posX,
-            top: posY,
-            transform: `rotate(${angle}deg)`,
-            transformOrigin: "center",
-            width: size,
-            height: size,
-            zIndex: "200",
-          }}
-        >
-          <img
-            className={"plane" + (flying ? " flying" : "")}
-            src="/assets/AviaoIcon.svg"
-            width={40}
-            height={40}
-            onAnimationEnd={e => {
-              setFlying(false);
-            }}
-          />
-        </div>
-
-        <div
-          className={styles.gradientVelho}
-          style={{ backgroundImage: oldGradient }}
+          className={classes.homeContainerOldGradient}
         >
           <div
             className={
-              change ? styles.gradienteMutavel : styles.gradienteImutavel
+              change ? classes.homeGradienteMutavel : classes.homeGradienteImutavel
             }
             onAnimationEnd={() => {
               setChange(false);
             }}
-            style={{ backgroundImage: newGradient }}
           />
-          <div
-            className={classes.planeContainer}
-            style={{
-              position: "absolute",
-              left: "4vw",
-              top: "65vh",
-              margin: "0",
-              transformOrigin: "center",
-              width: "38vw",
-              zIndex: "200",
-              color: "#fff",
-            }}
-          >
-            {!isMobile && (
-              <>
-                <h1 className={classes.footerTitle1}>
-                  INVISTA HOJE NO SEU FUTURO
-                </h1>
-                <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
-              </>
-            )}
-          </div>
+
+
+
+          {/*<div*/}
+          {/*  className={classesAirPlane.planeContainer}*/}
+          {/*  style={{*/}
+          {/*    position: "absolute",*/}
+          {/*    left: "4vw",*/}
+          {/*    top: "65vh",*/}
+          {/*    margin: "0",*/}
+          {/*    transformOrigin: "center",*/}
+          {/*    width: "38vw",*/}
+          {/*    zIndex: "200",*/}
+          {/*    color: "#fff",*/}
+          {/*  }}*/}
+          {/*>*/}
+          {/*  {!isMobile && (*/}
+          {/*    <>*/}
+          {/*      <h1 className={classes.footerTitle1}>*/}
+          {/*        INVISTA HOJE NO SEU FUTURO*/}
+          {/*      </h1>*/}
+          {/*      <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>*/}
+          {/*    </>*/}
+          {/*  )}*/}
+          {/*</div>*/}
 
           <div
             className={classes.homeContainerChildren}
             style={{
               backgroundPositionX: posBackground,
               transitionDuration: "2.5s",
-              backgroundPositionY: -200,
+              // backgroundPositionY: -200,
               height: "100vh",
             }}
           />
-          <div
-            className={classes.planeContainerMobile}
-            style={{
-              width: size,
-              height: size,
-            }}
-          >
-            <img className={styles.logo2} src={union} />
-          </div>
-          <div
-            className={classes.planeContainer}
-            style={{
-              width: size,
-              height: size,
-            }}
-          >
-            <img className={styles.logo} src={responseSize} />
-          </div>
+          {/*<div*/}
+          {/*  className={classesAirPlane.planeContainerMobile}*/}
+          {/*  style={{*/}
+          {/*    width: size,*/}
+          {/*    height: size,*/}
+          {/*  }}*/}
+          {/*>*/}
+          {/*  <img className={styles.logo2} src={union} />*/}
+          {/*</div>*/}
+          {/*<div*/}
+          {/*  className={classes.logoDesktop}*/}
+          {/*  // style={{*/}
+          {/*  //   width: size,*/}
+          {/*  //   height: size,*/}
+          {/*  // }}*/}
+          {/*>*/}
+          {/*  <img className={styles.logo} src={responseSize} />*/}
+          {/*</div>*/}
 
           <div
             className={classes.rotaContainer}
-            style={{ position: "absolute", zIndex: "90" }}
+            // style={{ position: "absolute", zIndex: "90" }}
           >
-            {isPhone || isResponsive1 ? (
-              <img
-                src="/assets/RotaMobile.svg"
-                style={{ height: "75vh", width: "83vw", marginTop: "5vh" }}
-              />
-            ) : (
-              <img
-                src="/assets/RotaDesktop.svg"
-                style={{ height: "75vh", width: "83vw", marginTop: "15vh" }}
-              />
-            )}
+            <img
+              src="/assets/RotaDesktop.svg"
+              className={classes.rotasImg}
+            />
           </div>
+          <div className={classes.buttonHomeContainer}>
+            <div
+              className={classesAirPlane.planeContainer}
+            >
+              <img
+                src="/assets/AviaoIcon.svg"
+                width={40}
+                height={40}
+              />
+            </div>
+            {/*{isPhone || isResponsive1 ? (*/}
+            {/*  <img*/}
+            {/*    src="/assets/RotaMobile.svg"*/}
+            {/*    style={{ height: "75vh", width: "83vw", marginTop: "5vh" }}*/}
+            {/*  />*/}
+            {/*) : (*/}
+            {/*  <img*/}
+            {/*    src="/assets/RotaDesktop.svg"*/}
+            {/*    style={{ height: "75vh", width: "83vw", marginTop: "15vh" }}*/}
+            {/*  />*/}
+            {/*)}*/}
+
 
           <div className={classes.buttonHome} style={{ zIndex: "100" }}>
             <p
-              className={styles.name}
+              className={selected === "HOME" ? classes.selectedButtonPageHome : classes.buttonPageHome}
               onClick={home}
-              style={
-                selected === "HOME"
-                  ? {
-                      cursor: "pointer",
-                      transition: "font-size 1.5s",
-                      fontSize: "1.25rem",
-                    }
-                  : { cursor: "pointer" }
-              }
             >
               HOME
             </p>
           </div>
-          <div className={classes.button2} style={{ zIndex: "100" }}>
+          <div className={classes.buttonCursos} style={{ zIndex: "100" }}>
             <p
-              className={styles.name}
+              className={selected === "CURSOS" ? classes.selectedButtonPageHome : classes.buttonPageHome}
               onClick={cursos}
-              style={
-                selected === "CURSOS"
-                  ? {
-                      cursor: "pointer",
-                      transition: "font-size 1.5s",
-                      fontSize: "1.25rem",
-                    }
-                  : { cursor: "pointer" }
-              }
             >
               CURSOS
             </p>
           </div>
 
-          <div className={classes.button3} style={{ zIndex: "100" }}>
+          <div className={classes.buttonQuemSomos} style={{ zIndex: "100" }}>
             <p
-              className={styles.name}
+              className={selected === "QUEMSOMOS" ? classes.selectedButtonPageHome : classes.buttonPageHome}
               onClick={quemSomos}
-              style={
-                selected === "QUEMSOMOS"
-                  ? {
-                      cursor: "pointer",
-                      transition: "font-size 1.5s",
-                      fontSize: "1.25rem",
-                    }
-                  : { cursor: "pointer" }
-              }
             >
               QUEM SOMOS
             </p>
           </div>
-          <div className={classes.button4} style={{ zIndex: "100" }}>
+          <div className={classes.buttonContato} style={{ zIndex: "100" }}>
             <p
-              className={styles.name}
+              className={selected === "CONTATO" ? classes.selectedButtonPageHome : classes.buttonPageHome}
               onClick={contato}
-              style={
-                selected === "CONTATO"
-                  ? {
-                      cursor: "pointer",
-                      transition: "font-size 1.5s",
-                      fontSize: "1.25rem",
-                    }
-                  : { cursor: "pointer" }
-              }
             >
               CONTATO
             </p>
           </div>
         </div>
+      {/*</div>*/}
+
+      {/*<InstagramCarousel animationControl={carouselControl} />*/}
+
+      {/*<CoursesList*/}
+      {/*  coursesMobileControl={coursesMobileControl}*/}
+      {/*  setCoursesMobileControl={setCoursesMobileControl}*/}
+      {/*  coursesDesktopControl={coursesDesktopControl}*/}
+      {/*  setOpenCurso={setOpenCurso}*/}
+      {/*/>*/}
+
+      {/*<QuemSomos*/}
+      {/*  quemSomosMobileControl={quemSomosMobileControl}*/}
+      {/*  setQuemSomosMobileControl={setQuemSomosMobileControl}*/}
+      {/*  quemSomosControl={quemSomosControl}*/}
+      {/*  setQuemSomosControl={setQuemSomosControl}*/}
+      {/*/>*/}
+
+      {/*<Contacts*/}
+      {/*  contactsMobileControl={contactsMobileControl}*/}
+      {/*  setContactsMobileControl={setContactsMobileControl}*/}
+      {/*  contactsControl={contactsControl}*/}
+      {/*  setContactsControl={setContactsControl}*/}
+      {/*  setCarouselControl={setCarouselControl}*/}
+      {/*/>*/}
+
+      {/*{!isMobile && <Footer />}*/}
+
+      {/*{openCurso.open && (*/}
+      {/*  <AnimatedModalCourses*/}
+      {/*    openCurso={openCurso}*/}
+      {/*    setOpenCurso={setOpenCurso}*/}
+      {/*    setCoursesMobileControl={setCoursesMobileControl}*/}
+      {/*    closeModal={closeModal}*/}
+      {/*  />*/}
+      {/*)}*/}
+      </div>
       </div>
 
       <InstagramCarousel animationControl={carouselControl} />
