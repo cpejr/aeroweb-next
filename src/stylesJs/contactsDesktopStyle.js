@@ -21,7 +21,7 @@ export const useStyles = makeStyles(theme => ({
     left: "25vw",
     top: "30vh",
 
-    backgroundColor: "#0E41C5",
+    backgroundColor: "#3467ebEE",
 
     animation: "$showCard 1000ms linear forwards",
   },
@@ -34,7 +34,7 @@ export const useStyles = makeStyles(theme => ({
     left: "25vw",
     top: "30vh",
 
-    backgroundColor: "#0E41C5",
+    backgroundColor: "#3467ebEE",
 
     animation: "$hideCard 1000ms linear forwards",
   },

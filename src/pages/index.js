@@ -45,16 +45,14 @@ function Home() {
 
   // variaveis da animacao
   let selectedComp;
-  const [responseSize, setResponseSize] = useState("");
-  const [union, setUnion] = useState("");
+
   const [posBackground, setPosBackground] = useState(90);
   const [selected, setSelected] = useState('HOME');
-  const [posX, setPosX] = useState("20%");
+  const [posX, setPosX] = useState(isMobile? "23%":"20%");
   const [posXAngle, setPosXAngle] = useState(0);
-  const [posY, setPosY] = useState("6%");
+  const [posY, setPosY] = useState(isMobile? "11%":"6%");
   const [posYAngle, setPosYAngle] = useState(0);
-  const [angle, setAngle] = useState(349);
-  const [flying, setFlying] = useState(true);
+  const [angle, setAngle] = useState(isMobile? 13:349);
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
 
@@ -93,18 +91,8 @@ function Home() {
   });
   const [modalControl, setModalControl] = useState("standby");
 
-  // variaveis das linhas do avião
-  const [isPhone, setPhone] = useState();
-  const [isResponsive1, setResponsive1] = useState();
-  const [isResponsive2, setResponsive2] = useState();
-
   const classesAirPlane = useStylesAirPlane({posX: posX, posY: posY, angle: angle})();
-  const classes = useStylesHome({newGradient: newGradient, oldGradient: oldGradient, change: change})();
-
-  // reset do array dos modais ao carregar pagina
-  useEffect(() => {
-    if (isMobile) setPhone(true);
-  }, []);
+  const classes = useStylesHome({newGradient: newGradient, oldGradient: oldGradient})();
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -115,39 +103,7 @@ function Home() {
 
   useEffect(() => {
     setSize(windowSize());
-    setPhone(window.matchMedia("(max-width: 415px)").matches);
-    setResponsive1(window.matchMedia("(max-width: 800px)").matches);
-    setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
   });
-
-  useEffect(
-    () => {
-      const checkDisplay = () => {
-        setPhone(window.matchMedia("(max-width: 415px)").matches);
-        setResponsive1(window.matchMedia("(max-width: 800px)").matches);
-        setResponsive2(window.matchMedia("(max-width: 1000px)").matches);
-      };
-
-      window.addEventListener("resize", checkDisplay);
-      return () => {
-        window.removeEventListener("resize", checkDisplay);
-      };
-    },[]
-    // [isPhone],
-    // [isResponsive1],
-    // [isResponsive2],
-  );
-
-  useEffect(() => {
-    let aux = window.innerWidth;
-    if (aux < 500) {
-      setResponseSize("/assets/TAILWINDAVIATION.svg");
-      setUnion("/assets/Union.svg");
-    } else {
-      setResponseSize("/assets/Logomarca.svg");
-      setUnion("");
-    }
-  }, []);
 
   function home(e) {
     //Para a animação da linha:
@@ -180,25 +136,16 @@ function Home() {
     animating.current = true;
     target.current = { x: x - size / 2, y: y - size / 2 };
 
-    setFlying(true);
-
     setAngle(360 - newAngle);
-// setAngle(173)
-    // if (isPhone) {
-    //   setPosX("20vw");
-    //   setPosY("27vh");
-    // } else if (isResponsive1) {
-    //   setPosX("26vw");
-    //   setPosY("36vh");
-    // } else if (isResponsive2) {
-    //   setPosX("18vw");
-    //   setPosY("33vh");
-    // } else {
-    //   setPosX("18vw");
-    //   setPosY("22vh");
-    // }
-    setPosX('20%');
-    setPosY('6%');
+
+    if(isMobile) {
+      setPosX('23%');
+      setPosY('11%');
+    } else {
+      setPosX('20%');
+      setPosY('6%');
+    }
+
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -248,25 +195,16 @@ function Home() {
     animating.current = true;
     target.current = { x: x - size / 2, y: y - size / 2 };
 
-    setFlying(true);
-
     setAngle(360 - newAngle);
-    // setAngle(349)
-    // if (isPhone) {
-    //   setPosX("40vw");
-    //   setPosY("35vh");
-    // } else if (isResponsive1) {
-    //   setPosX("32vw");
-    //   setPosY("41vh");
-    // } else if (isResponsive2) {
-    //   setPosX("39vw");
-    //   setPosY("39vh");
-    // } else {
-    //   setPosX("39vw");
-    //   setPosY("31vh");
-    // }
-    setPosX('47%');
-    setPosY('19%');
+
+    if(isMobile) {
+      setPosX('49%');
+      setPosY('29%');
+    } else {
+      setPosX('47%');
+      setPosY('19%');
+    }
+
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -330,25 +268,16 @@ function Home() {
     animating.current = true;
     target.current = { x: x - size / 2, y: y - size / 2 };
 
-    setFlying(true);
-
     setAngle(360 - newAngle);
-    // setAngle(23)
-    // if (isPhone) {
-    //   setPosX("49vw");
-    //   setPosY("47vh");
-    // } else if (isResponsive1) {
-    //   setPosX("47vw");
-    //   setPosY("50vh");
-    // } else if (isResponsive2) {
-    //   setPosX("55vw");
-    //   setPosY("57vh");
-    // } else {
-    //   setPosX("55vw");
-    //   setPosY("59vh");
-    // }
-    setPosX('66%');
-    setPosY('57.5%');
+
+    if(isMobile) {
+      setPosX('57%');
+      setPosY('54%');
+    } else {
+      setPosX('66%');
+      setPosY('57.5%');
+    }
+
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -404,26 +333,16 @@ function Home() {
     animating.current = true;
     target.current = { x: x - size / 2, y: y - size / 2 };
 
-    setFlying(true);
-
     setAngle(360 - newAngle);
-    // setAngle(4);
 
-    // if (isPhone) {
-    //   setPosX("69vw");
-    //   setPosY("60vh");
-    // } else if (isResponsive1) {
-    //   setPosX("60vw");
-    //   setPosY("70vh");
-    // } else if (isResponsive2) {
-    //   setPosX("71vw");
-    //   setPosY("68vh");
-    // } else {
-    //   setPosX("71vw");
-    //   setPosY("76vh");
-    // }
-    setPosX('87%');
-    setPosY('83%');
+    if(isMobile) {
+      setPosX('80%');
+      setPosY('77%');
+    } else {
+      setPosX('87%');
+      setPosY('83%');
+    }
+
     setPosXAngle(x - size / 2);
     setPosYAngle(y - size / 2 + 40);
 
@@ -474,9 +393,7 @@ function Home() {
     <div
       className={classes.homeContainer}>
       <div className={classes.homeContainerChildren}>
-        <div
-          className={classes.homeContainerOldGradient}
-        >
+        <div className={classes.homeContainerOldGradient}>
           <div
             className={
               change ? classes.homeGradienteMutavel : classes.homeGradienteImutavel
@@ -485,8 +402,6 @@ function Home() {
               setChange(false);
             }}
           />
-
-
 
           {/*<div*/}
           {/*  className={classesAirPlane.planeContainer}*/}
@@ -520,34 +435,32 @@ function Home() {
               height: "100vh",
             }}
           />
-          {/*<div*/}
-          {/*  className={classesAirPlane.planeContainerMobile}*/}
-          {/*  style={{*/}
-          {/*    width: size,*/}
-          {/*    height: size,*/}
-          {/*  }}*/}
-          {/*>*/}
-          {/*  <img className={styles.logo2} src={union} />*/}
-          {/*</div>*/}
-          {/*<div*/}
-          {/*  className={classes.logoDesktop}*/}
-          {/*  // style={{*/}
-          {/*  //   width: size,*/}
-          {/*  //   height: size,*/}
-          {/*  // }}*/}
-          {/*>*/}
-          {/*  <img className={styles.logo} src={responseSize} />*/}
-          {/*</div>*/}
 
-          <div
-            className={classes.rotaContainer}
-            // style={{ position: "absolute", zIndex: "90" }}
-          >
-            <img
-              src="/assets/RotaDesktop.svg"
-              className={classes.rotasImg}
-            />
+          {isMobile ?
+            <div className={classes.logoMobile}>
+              <img className={classes.logoImgMobile} src={"/assets/TAILWINDAVIATION.svg"} />
+              <img className={classes.logoImgMobile} src={"/assets/Union.svg"} />
+            </div>
+            :
+            <div className={classes.logoDesktop}>
+              <img className={classes.logoImgDesktop} src={"/assets/Logomarca.svg"} />
+            </div>
+          }
+
+          <div className={classes.rotaContainer}>
+            {isMobile ?
+              <img
+                src="/assets/RotaMobile.svg"
+                className={classes.rotasImg}
+              />
+            :
+              <img
+                src="/assets/RotaDesktop.svg"
+                className={classes.rotasImg}
+              />
+            }
           </div>
+
           <div className={classes.buttonHomeContainer}>
             <div
               className={classesAirPlane.planeContainer}
@@ -557,126 +470,77 @@ function Home() {
                 className={classesAirPlane.plane}
               />
             </div>
-            {/*{isPhone || isResponsive1 ? (*/}
-            {/*  <img*/}
-            {/*    src="/assets/RotaMobile.svg"*/}
-            {/*    style={{ height: "75vh", width: "83vw", marginTop: "5vh" }}*/}
-            {/*  />*/}
-            {/*) : (*/}
-            {/*  <img*/}
-            {/*    src="/assets/RotaDesktop.svg"*/}
-            {/*    style={{ height: "75vh", width: "83vw", marginTop: "15vh" }}*/}
-            {/*  />*/}
-            {/*)}*/}
 
+            <div className={classes.buttonHome} style={{ zIndex: "100" }}>
+              <p
+                className={selected === "HOME" ? classes.selectedButtonPageHome : classes.buttonPageHome}
+                onClick={home}
+              >
+                HOME
+              </p>
+            </div>
+            <div className={classes.buttonCursos} style={{ zIndex: "100" }}>
+              <p
+                className={selected === "CURSOS" ? classes.selectedButtonPageHome : classes.buttonPageHome}
+                onClick={cursos}
+              >
+                CURSOS
+              </p>
+            </div>
 
-          <div className={classes.buttonHome} style={{ zIndex: "100" }}>
-            <p
-              className={selected === "HOME" ? classes.selectedButtonPageHome : classes.buttonPageHome}
-              onClick={home}
-            >
-              HOME
-            </p>
-          </div>
-          <div className={classes.buttonCursos} style={{ zIndex: "100" }}>
-            <p
-              className={selected === "CURSOS" ? classes.selectedButtonPageHome : classes.buttonPageHome}
-              onClick={cursos}
-            >
-              CURSOS
-            </p>
-          </div>
-
-          <div className={classes.buttonQuemSomos} style={{ zIndex: "100" }}>
-            <p
-              className={selected === "QUEMSOMOS" ? classes.selectedButtonPageHome : classes.buttonPageHome}
-              onClick={quemSomos}
-            >
-              QUEM SOMOS
-            </p>
-          </div>
-          <div className={classes.buttonContato} style={{ zIndex: "100" }}>
-            <p
-              className={selected === "CONTATO" ? classes.selectedButtonPageHome : classes.buttonPageHome}
-              onClick={contato}
-            >
-              CONTATO
-            </p>
+            <div className={classes.buttonQuemSomos} style={{ zIndex: "100" }}>
+              <p
+                className={selected === "QUEMSOMOS" ? classes.selectedButtonPageHome : classes.buttonPageHome}
+                onClick={quemSomos}
+              >
+                QUEM SOMOS
+              </p>
+            </div>
+            <div className={classes.buttonContato} style={{ zIndex: "100" }}>
+              <p
+                className={selected === "CONTATO" ? classes.selectedButtonPageHome : classes.buttonPageHome}
+                onClick={contato}
+              >
+                CONTATO
+              </p>
+            </div>
           </div>
         </div>
-      {/*</div>*/}
+        <InstagramCarousel animationControl={carouselControl} />
 
-      {/*<InstagramCarousel animationControl={carouselControl} />*/}
-
-      {/*<CoursesList*/}
-      {/*  coursesMobileControl={coursesMobileControl}*/}
-      {/*  setCoursesMobileControl={setCoursesMobileControl}*/}
-      {/*  coursesDesktopControl={coursesDesktopControl}*/}
-      {/*  setOpenCurso={setOpenCurso}*/}
-      {/*/>*/}
-
-      {/*<QuemSomos*/}
-      {/*  quemSomosMobileControl={quemSomosMobileControl}*/}
-      {/*  setQuemSomosMobileControl={setQuemSomosMobileControl}*/}
-      {/*  quemSomosControl={quemSomosControl}*/}
-      {/*  setQuemSomosControl={setQuemSomosControl}*/}
-      {/*/>*/}
-
-      {/*<Contacts*/}
-      {/*  contactsMobileControl={contactsMobileControl}*/}
-      {/*  setContactsMobileControl={setContactsMobileControl}*/}
-      {/*  contactsControl={contactsControl}*/}
-      {/*  setContactsControl={setContactsControl}*/}
-      {/*  setCarouselControl={setCarouselControl}*/}
-      {/*/>*/}
-
-      {/*{!isMobile && <Footer />}*/}
-
-      {/*{openCurso.open && (*/}
-      {/*  <AnimatedModalCourses*/}
-      {/*    openCurso={openCurso}*/}
-      {/*    setOpenCurso={setOpenCurso}*/}
-      {/*    setCoursesMobileControl={setCoursesMobileControl}*/}
-      {/*    closeModal={closeModal}*/}
-      {/*  />*/}
-      {/*)}*/}
-      </div>
-      </div>
-
-      <InstagramCarousel animationControl={carouselControl} />
-
-      <CoursesList
-        coursesMobileControl={coursesMobileControl}
-        setCoursesMobileControl={setCoursesMobileControl}
-        coursesDesktopControl={coursesDesktopControl}
-        setOpenCurso={setOpenCurso}
-      />
-
-      <QuemSomos
-        quemSomosMobileControl={quemSomosMobileControl}
-        setQuemSomosMobileControl={setQuemSomosMobileControl}
-        quemSomosControl={quemSomosControl}
-        setQuemSomosControl={setQuemSomosControl}
-      />
-
-      <Contacts
-        contactsMobileControl={contactsMobileControl}
-        setContactsMobileControl={setContactsMobileControl}
-        contactsControl={contactsControl}
-        setContactsControl={setContactsControl}
-        setCarouselControl={setCarouselControl}
-      />
-
-      {!isMobile && <Footer />}
-
-      {openCurso.open && (
-        <AnimatedModalCourses
-          openCurso={openCurso}
-          setOpenCurso={setOpenCurso}
+        <CoursesList
+          coursesMobileControl={coursesMobileControl}
           setCoursesMobileControl={setCoursesMobileControl}
-          closeModal={closeModal}
+          coursesDesktopControl={coursesDesktopControl}
+          setOpenCurso={setOpenCurso}
         />
-      )}
+
+        <QuemSomos
+          quemSomosMobileControl={quemSomosMobileControl}
+          setQuemSomosMobileControl={setQuemSomosMobileControl}
+          quemSomosControl={quemSomosControl}
+          setQuemSomosControl={setQuemSomosControl}
+        />
+
+        <Contacts
+          contactsMobileControl={contactsMobileControl}
+          setContactsMobileControl={setContactsMobileControl}
+          contactsControl={contactsControl}
+          setContactsControl={setContactsControl}
+          setCarouselControl={setCarouselControl}
+        />
+
+        {!isMobile && <Footer />}
+
+        {openCurso.open && (
+          <AnimatedModalCourses
+            openCurso={openCurso}
+            setOpenCurso={setOpenCurso}
+            setCoursesMobileControl={setCoursesMobileControl}
+            closeModal={closeModal}
+          />
+        )}
+      </div>
     </div>
   );
 }

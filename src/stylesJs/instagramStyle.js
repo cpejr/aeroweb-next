@@ -1,123 +1,198 @@
 import { makeStyles } from "@material-ui/core";
+import isMobile from "../utils/isMobile";
 
 export const useStyles = makeStyles(theme => ({
-  card: {
-    // posição
-    position: "absolute",
-    left: "62.50vw",
-    top: "15vh",
-    [theme.breakpoints.down("xs")]: {
-      top: "-10vh",
-      left: "10vw",
-      width: "80%",
-      height: "150px",
-      marginTop: "75vh",
-    },
-    [theme.breakpoints.between("450", "600")]: {
-      height: "175px",
-    },
+  card:
+    isMobile?
+      {
+        // posição
+        position: "absolute",
+        bottom: "2.5vh",
+        left: "5vw",
+        height: `calc(88vh - ((100vw / 332) * 373))`,
+        minHeight: '15vh',
+        maxHeight: '25vh',
+        width: "90vw",
 
-    // dimensionamento
-    width: "30%",
-    height: "13vw",
-    [theme.breakpoints.between("800", "1200")]: {
-      height: "15vw",
-    },
-    [theme.breakpoints.between("600", "800")]: {
-      height: "20vw",
-      width: "40%",
-    },
+        // estilo
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        borderRadius: "8px",
+        zIndex: 250,
+        backgroundColor: "#F9F9F922",
+        padding: "4px !important",
+      } : {
+        // posição
+        position: "absolute",
+        right: "5vw",
+        top: "25vh",
 
-    // estilo
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    borderRadius: "8px",
-    zIndex: 250,
-    backgroundColor: "#F9F9F922",
-    padding: "4px !important",
-  },
+        // dimensionamento
+        width: "30vw",
+        height: "30vh",
 
-  cardShow: {
-    // posição
-    position: "absolute",
-    left: "62.50vw",
-    top: "15vh",
-    [theme.breakpoints.down("xs")]: {
-      top: "-10vh",
-      left: "10vw",
-      width: "80%",
-      height: "150px",
-      marginTop: "75vh",
-    },
-    [theme.breakpoints.between("450", "600")]: {
-      height: "175px",
-    },
+        [theme.breakpoints.down(1200)]: {
+          height: "28vh",
+          width: "32vw",
+          top: "20vh",
+        },
 
-    // dimensionamento
-    width: "30%",
-    height: "13vw",
-    [theme.breakpoints.between("800", "1200")]: {
-      height: "15vw",
-    },
-    [theme.breakpoints.between("600", "800")]: {
-      height: "20vw",
-      width: "40%",
-    },
+        [theme.breakpoints.down(1000)]: {
+          height: "25vh",
+          width: "33vw",
+          top: "20vh",
+        },
 
-    // estilo
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    borderRadius: "8px",
-    zIndex: 250,
-    backgroundColor: "#F9F9F922",
-    padding: "4px !important",
+        [theme.breakpoints.down(850)]: {
+          top:"auto",
+          bottom: "15vh",
+          left: "5vw",
+          height: "25vh",
+          width: "45vw",
+        },
 
-    // animation
-    animation: "$showCarousel 1000ms linear forwards",
-  },
+        // estilo
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        borderRadius: "8px",
+        zIndex: 250,
+        backgroundColor: "#F9F9F922",
+        padding: "4px !important",
+      },
 
-  cardHide: {
-    // posição
-    position: "absolute",
-    left: "62.50vw",
-    top: "15vh",
-    [theme.breakpoints.down("xs")]: {
-      top: "-10vh",
-      left: "10vw",
-      width: "80%",
-      height: "150px",
-      marginTop: "75vh",
-    },
-    [theme.breakpoints.between("450", "600")]: {
-      height: "175px",
-    },
+  cardShow:
+    isMobile?
+      {
+        // posição
+        position: "absolute",
+        bottom: "2.5vh",
+        left: "5vw",
+        height: `calc(88vh - ((100vw / 332) * 373))`,
+        minHeight: '15vh',
+        maxHeight: '25vh',
+        width: "90vw",
 
-    // dimensionamento
-    width: "30%",
-    height: "13vw",
-    [theme.breakpoints.between("800", "1200")]: {
-      height: "15vw",
-    },
-    [theme.breakpoints.between("600", "800")]: {
-      height: "20vw",
-      width: "40%",
-    },
+        // estilo
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        borderRadius: "8px",
+        zIndex: 250,
+        backgroundColor: "#F9F9F922",
+        padding: "4px !important",
+
+        // animation
+        animation: "$showCarousel 1000ms linear forwards",
+      } : {
+        // posição
+        position: "absolute",
+        right: "5vw",
+        top: "25vh",
+
+        // dimensionamento
+        width: "30vw",
+        height: "30vh",
+
+        [theme.breakpoints.down(1200)]: {
+          height: "28vh",
+          width: "32vw",
+          top: "20vh",
+        },
+
+        [theme.breakpoints.down(1000)]: {
+          height: "25vh",
+          width: "33vw",
+          top: "20vh",
+        },
+
+        [theme.breakpoints.down(850)]: {
+          top:"auto",
+          bottom: "15vh",
+          left: "5vw",
+          height: "25vh",
+          width: "45vw",
+        },
+
+        // estilo
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        borderRadius: "8px",
+        zIndex: 250,
+        backgroundColor: "#F9F9F922",
+        padding: "4px !important",
+        // animation
+        animation: "$showCarousel 1000ms linear forwards",
+      },
 
 
-    // estilo
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    borderRadius: "8px",
-    zIndex: 250,
-    backgroundColor: "#F9F9F922",
-    padding: "4px !important",
+  cardHide:
+    isMobile?
+      {
+        // posição
+        position: "absolute",
+        bottom: "2.5vh",
+        left: "5vw",
+        height: `calc(88vh - ((100vw / 332) * 373))`,
+        minHeight: '15vh',
+        maxHeight: '25vh',
+        width: "90vw",
 
-    // animation
-    animation: "$hideCarousel 500ms linear forwards",
-  },
+        // estilo
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        borderRadius: "8px",
+        zIndex: 250,
+        backgroundColor: "#F9F9F922",
+        padding: "4px !important",
+
+        // animation
+        animation: "$hideCarousel 500ms linear forwards",
+      } : {
+        // posição
+        position: "absolute",
+        right: "5vw",
+        top: "25vh",
+
+        // dimensionamento
+        width: "30vw",
+        height: "30vh",
+
+        [theme.breakpoints.down(1200)]: {
+          height: "28vh",
+          width: "32vw",
+          top: "20vh",
+        },
+
+        [theme.breakpoints.down(1000)]: {
+          height: "25vh",
+          width: "33vw",
+          top: "20vh",
+        },
+
+        [theme.breakpoints.down(850)]: {
+          top:"auto",
+          bottom: "15vh",
+          left: "5vw",
+          height: "25vh",
+          width: "45vw",
+        },
+
+        // estilo
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        borderRadius: "8px",
+        zIndex: 250,
+        backgroundColor: "#F9F9F922",
+        padding: "4px !important",
+
+        // animation
+        animation: "$hideCarousel 500ms linear forwards",
+      },
 
   logoTitle: {
     position: "absolute",

@@ -155,7 +155,7 @@ export const useStyles = makeStyles(theme => ({
       top: "65vh",
     },
     "100%": {
-      backgroundColor: " #3467ebEE",
+      backgroundColor: "#3467ebEE",
       top: "10vh",
     },
   },

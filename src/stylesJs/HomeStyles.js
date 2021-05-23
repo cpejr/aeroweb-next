@@ -1,10 +1,12 @@
 import { makeStyles } from "@material-ui/core";
+import isMobile from "../utils/isMobile";
 
 export const useStylesHome = (props) => makeStyles(theme => ({
 
   homeContainer: {
     width: "100vw",
     height: "100vh",
+    overflow: 'hidden'
   },
 
   homeContainerOldGradient: {
@@ -51,8 +53,37 @@ export const useStylesHome = (props) => makeStyles(theme => ({
   },
 
   logoDesktop: {
-    width: '40vw',
-    alignSelf: 'center'
+    position: "absolute",
+    width: '100vw',
+    height: '30vh',
+    display: 'flex',
+    justifyContent: 'center',
+
+    [theme.breakpoints.down(900)]: {
+      height: '28vh',
+    },
+
+    [theme.breakpoints.down(750)]: {
+      height: '25vh',
+    },
+  },
+
+  logoImgDesktop: {
+    position: "absolute",
+    height: '100%'
+  },
+
+  logoMobile: {
+    position: "absolute",
+    width: '100vw',
+    height: '5vh',
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '5vh'
+  },
+
+  logoImgMobile: {
+    position: "absolute",
   },
 
   homeContainerChildren: {
@@ -71,134 +102,169 @@ export const useStylesHome = (props) => makeStyles(theme => ({
   rotaContainer: {
     zIndex: 90,
     height: '70vh',
-    maxHeight: `calc((100vw / 1641) * 716)`,
+    maxHeight: isMobile ? `calc((100vw / 332) * 373)` : `calc((100vw / 1641) * 716)`,
     width: '90vw',
-    maxWidth: `calc((70vh / 716) * 1641)`,
-    marginTop: '20vh',
+    maxWidth: isMobile ? `calc((70vh / 373) * 332)` : `calc((70vh / 716) * 1641)`,
+    marginTop: isMobile ? '12vh' : '25vh',
     position: 'absolute'
-
   },
   rotasImg: {
     width: '100%',
   },
   buttonHomeContainer: {
     height: '70vh',
-    maxHeight: `calc((100vw / 1641) * 716)`,
+    maxHeight: isMobile ? `calc((100vw / 332) * 373)` : `calc((100vw / 1641) * 716)`,
     width: '90vw',
-    maxWidth: `calc((70vh / 716) * 1641)`,
-    marginTop: '20vh',
+    maxWidth:  isMobile ? `calc((70vh / 373) * 332)` : `calc((70vh / 716) * 1641)`,
+    marginTop: isMobile ? '12vh' : '25vh',
     display: 'flex',
     flexDirection: 'column',
     position: 'absolute'
   },
-  buttonHome: {
-    marginLeft: "22%",
-    marginTop: "1.5%",
-    width: "fit-content",
-    height: "2rem",
+  buttonHome:
+    isMobile?
+      {
+        marginLeft: "28%",
+        marginTop: "9%",
+        width: "fit-content",
+        height: "1rem",
+        position: 'relative',
+      } : {
+        marginLeft: "22%",
+        marginTop: "1.5%",
+        width: "fit-content",
+        height: "2rem",
+        position: 'relative',
 
-    [theme.breakpoints.down(1370)]: {
-      marginTop: 0,
-    },
+        [theme.breakpoints.down(1370)]: {
+          marginTop: 0,
+        },
 
-    [theme.breakpoints.down(850)]: {
-      marginTop: '-1%',
-    },
-  },
+        [theme.breakpoints.down(850)]: {
+          marginTop: '-1%',
+        },
+      },
 
-  buttonCursos: {
-    width: 'fit-content',
-    position: 'relative',
-    marginLeft: '48.5%',
-    marginTop: '4%',
-    height: "2rem",
+  buttonCursos:
+    isMobile ?
+      {
+        width: 'fit-content',
+        position: 'relative',
+        marginLeft: '53%',
+        marginTop: '16%',
+        height: "1rem",
+      } : {
+        width: 'fit-content',
+        position: 'relative',
+        marginLeft: '48.5%',
+        marginTop: '4%',
+        height: "2rem",
 
-    [theme.breakpoints.down(1370)]: {
-      marginTop: '2.75%',
-    },
+        [theme.breakpoints.down(1370)]: {
+          marginTop: '2.75%',
+        },
 
-    [theme.breakpoints.down(1000)]: {
-      marginTop: '2%',
-    },
+        [theme.breakpoints.down(1000)]: {
+          marginTop: '2%',
+        },
 
-    [theme.breakpoints.down(900)]: {
-      marginTop: '1.5%',
-    },
+        [theme.breakpoints.down(900)]: {
+          marginTop: '1.5%',
+        },
 
-    [theme.breakpoints.down(730)]: {
-      marginTop: '1%',
-    },
+        [theme.breakpoints.down(730)]: {
+          marginTop: '1%',
+        },
 
-    [theme.breakpoints.down(630)]: {
-      marginTop: '0%',
-    },
+        [theme.breakpoints.down(630)]: {
+          marginTop: '0%',
+        },
 
-    [theme.breakpoints.down(600)]: {
-      marginTop: '-1%',
-    },
+        [theme.breakpoints.down(600)]: {
+          marginTop: '-1%',
+        },
 
-    [theme.breakpoints.down(550)]: {
-      marginTop: '-2%',
-    },
-  },
-  buttonQuemSomos: {
-    width: 'fit-content',
-    height: "2rem",
-    marginLeft: '68.25%',
-    marginTop: '14.25%',
+        [theme.breakpoints.down(550)]: {
+          marginTop: '-2%',
+        },
+      },
+  buttonQuemSomos:
+    isMobile ?
+      {
+        width: 'max-content',
+        height: "1rem",
+        position: 'relative',
+        marginLeft: '61%',
+        marginTop: '27%',
+      } : {
+        width: 'max-content',
+        height: "2rem",
+        position: 'relative',
+        marginLeft: '68.25%',
+        marginTop: '14.25%',
 
-    [theme.breakpoints.down(1370)]: {
-      marginTop: '13.25%',
-    },
+        [theme.breakpoints.down(1370)]: {
+          marginTop: '13.25%',
+        },
 
-    [theme.breakpoints.down(1170)]: {
-      marginTop: '12%',
-    },
+        [theme.breakpoints.down(1170)]: {
+          marginTop: '12%',
+        },
 
-    [theme.breakpoints.down(780)]: {
-      marginTop: '11%',
-    },
+        [theme.breakpoints.down(780)]: {
+          marginTop: '11%',
+        },
 
-    [theme.breakpoints.down(680)]: {
-      marginTop: '10%',
-    },
+        [theme.breakpoints.down(680)]: {
+          marginTop: '10%',
+        },
 
-    [theme.breakpoints.down(550)]: {
-      marginTop: '9%',
-    },
-  },
-  buttonContato: {
-    width: 'fit-content',
-    height: "2rem",
-    position: 'relative',
-    marginLeft: '89%',
-    marginTop: '9.5%',
+        [theme.breakpoints.down(550)]: {
+          marginTop: '9%',
+        },
+      },
 
-    [theme.breakpoints.down(1370)]: {
-      marginTop: '7.75%',
-    },
+  buttonContato:
+    isMobile ?
+      {
+        width: 'fit-content',
+        height: "1rem",
+        position: 'relative',
+        marginLeft: '84%',
+        marginTop: '25%',
+      } : {
+        width: 'fit-content',
+        height: "2rem",
+        position: 'relative',
+        marginLeft: '89%',
+        marginTop: '9.5%',
 
-    [theme.breakpoints.down(980)]: {
-      marginTop: '7%',
-    },
+        [theme.breakpoints.down(1370)]: {
+          marginTop: '7.75%',
+        },
 
-    [theme.breakpoints.down(880)]: {
-      marginTop: '6.5%',
-    },
+        [theme.breakpoints.down(980)]: {
+          marginTop: '7%',
+        },
 
-    [theme.breakpoints.down(720)]: {
-      marginTop: '5.5%',
-    },
+        [theme.breakpoints.down(880)]: {
+          marginTop: '6.5%',
+        },
 
-    [theme.breakpoints.down(530)]: {
-      marginTop: '4.5%',
-    },
-  },
+        [theme.breakpoints.down(720)]: {
+          marginTop: '5.5%',
+        },
+
+        [theme.breakpoints.down(530)]: {
+          marginTop: '4.5%',
+        },
+      },
 
   buttonPageHome: {
     color: '#100554',
     fontWeight: 500,
     fontSize: '1.15rem',
+    letterSpacing: '0.15rem',
     margin: 0,
     textAlign: 'center',
     transition: 'color 0.5s, font-size 1.5s, border-bottom 1.5s',
@@ -219,8 +285,9 @@ export const useStylesHome = (props) => makeStyles(theme => ({
 
   selectedButtonPageHome: {
     color: '#fff',
-    fontWeight: 530,
+    fontWeight: 500,
     fontSize: "1.25rem",
+    letterSpacing: '0.15rem',
     margin: 0,
     textAlign: 'center',
     cursor: "pointer",
@@ -393,7 +460,7 @@ export const useStylesHome = (props) => makeStyles(theme => ({
     position: "relative",
     top: "75%",
 
-    //animation: '$upCard 1500ms ease-in-out forwards'
+    animation: '$upCard 1500ms ease-in-out forwards'
   },
 
   cardMobileUp: {
