@@ -15,10 +15,10 @@ function Footer() {
             <p className={classes.text}>31 0000-0000</p>
           </div>
 
-          <div className={classes.appBarInfo}>
-            <p className={classes.text}>Endereço n°0</p>
-            <p className={classes.text}>Bairro, Belo Horizonte, MG</p>
-          </div>
+          {/*<div className={classes.appBarInfo}>*/}
+          {/*  <p className={classes.text}>Endereço n°0</p>*/}
+          {/*  <p className={classes.text}>Bairro, Belo Horizonte, MG</p>*/}
+          {/*</div>*/}
         </div>
 
         <div className={classes.appBarIcons}>

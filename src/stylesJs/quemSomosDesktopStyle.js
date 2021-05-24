@@ -55,6 +55,26 @@ export const useStyles = makeStyles(theme => ({
       maxWidth: "75vw",
       left: "12.50vw",
     },
+    //scrollbar
+    "&::-webkit-scrollbar": {
+      width: "8px",
+    },
+    "&::-webkit-scrollbar-track": {
+      display: "none",
+    },
+    "&::-webkit-scrollbar-track:hover": {
+      backgroundColor: "#f4f4f4",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "#fff",
+      borderRadius: "20px",
+    },
+    "&::-webkit-scrollbar-thumb:hover": {
+      backgroundColor: "#a0a0a5",
+    },
+    "&::-webkit-scrollbar-button": {
+      display: "none",
+    },
   },
 
   cardHide: {
@@ -80,6 +100,26 @@ export const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down("1000")]: {
       maxWidth: "75vw",
       left: "12.50vw",
+    },
+    //scrollbar
+    "&::-webkit-scrollbar": {
+      width: "8px",
+    },
+    "&::-webkit-scrollbar-track": {
+      display: "none",
+    },
+    "&::-webkit-scrollbar-track:hover": {
+      backgroundColor: "#f4f4f4",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "#fff",
+      borderRadius: "20px",
+    },
+    "&::-webkit-scrollbar-thumb:hover": {
+      backgroundColor: "#a0a0a5",
+    },
+    "&::-webkit-scrollbar-button": {
+      display: "none",
     },
   },
 

@@ -126,11 +126,11 @@ function InstagramCarousel({ animationControl }) {
         <Carousel 
           animation="slide" 
           indicators={false}
-          interval={13000}
+          interval={8000}
           timeout={{
-            enter: 5000,
-            exit: 5000
-          }} 
+            enter: 2000,
+            exit: 1000,
+          }}
           swipe={false} 
           navButtonsAlwaysInvisible={isMobile} 
         >
