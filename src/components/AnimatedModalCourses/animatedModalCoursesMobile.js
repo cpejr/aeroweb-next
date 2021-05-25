@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Card, CardContent, Typography } from "@material-ui/core";
 import { ExpandMore } from "@material-ui/icons";
 import { useStyles } from "../../stylesJs/animatedModalCoursesMobileStyle";
-import listaCursos from "../../../public/listaCursos";
+import listaCursos from "../../../public/contents/listaCursos";
 
 function AnimatedModalCoursesMobile({
   indexCurso,
@@ -87,20 +87,20 @@ function AnimatedModalCoursesMobile({
           </Typography>
           <div className={classes.cardPayments2}>
             <div className={classes.cardPayments3}>
-              <img src="/assets/Visa.png" alt="Forma de pagamento" />
-              <img src="/assets/Mastercard.svg" alt="Forma de pagamento" />
-              <img src="/assets/Paypal.png" alt="Forma de pagamento" />
+              <img src="/imgPagamentos/Visa.png" alt="Forma de pagamento" />
+              <img src="/imgPagamentos/Mastercard.svg" alt="Forma de pagamento" />
+              <img src="/imgPagamentos/Paypal.png" alt="Forma de pagamento" />
             </div>
             <div className={classes.cardPayments3}>
-              <img alt="Forma de pagamento" src="/assets/Hiper.png" />
-              <img src="/assets/Hipercard.png" alt="Forma de pagamento" />
-              <img alt="Forma de pagamento" src="/assets/Googlepay.png" />
+              <img alt="Forma de pagamento" src="/imgPagamentos/Hiper.png" />
+              <img src="/imgPagamentos/Hipercard.png" alt="Forma de pagamento" />
+              <img alt="Forma de pagamento" src="/imgPagamentos/Googlepay.png" />
             </div>
             <div className={classes.cardPayments3}>
-              <img src="/assets/Samsungpay.png" alt="Forma de pagamento" />
-              <img alt="Forma de pagamento" src="/assets/American.png" />
-              <img alt="Forma de pagamento" src="/assets/Diners.png" />
-              <img alt="Forma de pagamento" src="/assets/Elo.png" />
+              <img src="/imgPagamentos/Samsungpay.png" alt="Forma de pagamento" />
+              <img alt="Forma de pagamento" src="/imgPagamentos/American.png" />
+              <img alt="Forma de pagamento" src="/imgPagamentos/Diners.png" />
+              <img alt="Forma de pagamento" src="/imgPagamentos/Elo.png" />
             </div>
           </div>
         </div>

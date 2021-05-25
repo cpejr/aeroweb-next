@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { useStyles } from "../../stylesJs/courseListDesktopStyle";
-import listaCursos from "../../../public/listaCursos";
+import listaCursos from "../../../public/contents/listaCursos";
 
 function CoursesListDesktop({ animationControl, setOpenCurso }) {
   const classes = useStyles();

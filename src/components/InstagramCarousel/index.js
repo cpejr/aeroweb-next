@@ -3,7 +3,7 @@ import { useStyles } from "../../stylesJs/instagramStyle";
 import { Card, Typography } from "@material-ui/core";
 import Carousel from "react-material-ui-carousel";
 import isMobile from "../../utils/isMobile";
-import listaPosts from "../../../public/img/listaPosts"
+import listaPosts from "../../../public/contents/listaPosts"
 
 function Item(props) {
   return (

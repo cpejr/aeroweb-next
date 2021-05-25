@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Card, CardContent, Typography } from "@material-ui/core";
 import { ArrowForwardIos } from "@material-ui/icons";
 import { useStyles } from "../../stylesJs/courseListMobileStyle";
-import listaCursos from "../../../public/listaCursos";
+import listaCursos from "../../../public/contents/listaCursos";
 
 function CoursesListMobile({
   setOpenCurso,
