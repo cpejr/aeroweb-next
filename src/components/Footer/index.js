@@ -11,8 +11,8 @@ function Footer() {
       <div className={classes.appBarContainer}>
         <div className={classes.appBarSubContainer}>
           <div className={classes.appBarInfo}>
-            <p className={classes.text}>contato@twcourses.com.br</p>
-            <p className={classes.text}>31 0000-0000</p>
+            <p className={classes.text}>cr@twcourses.com.br</p>
+            <p className={classes.text}>(31) 972108352</p>
           </div>
 
           {/*<div className={classes.appBarInfo}>*/}

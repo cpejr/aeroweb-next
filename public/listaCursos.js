@@ -4,16 +4,17 @@ const listaCursos = [
     open: "openFirst",
     title: "Simulados ICAO",
     subtitle: " - COMENTADOS",
-    text1: `Os simulados comentados do teste ICAO da ANAC elaborados pela Tailwind Aviation Courses 
-    foram todos criteriosamente desenvolvidos por uma equipe formada por pilotos comerciais e professores 
-    especialistas na área de inglês voltado para a aviação.`,
-    text2: `Nossos simulados trazem situações corriqueiras 
-    apresentadas nas provas oficiais e têm o grau de dificuldade compatível com os exigidos no teste da ANAC. 
-    A qualidade dos áudios, imagens e das questões elaboradas fazem toda a diferença tanto para aqueles que já 
-    são certificados e buscam uma melhora em seu nível de proficiência, quanto para os candidatos que buscam 
-    a qualificação pela primeira vez.`,
-    text3: `Há ainda uma oportunidade de se obter um feedback personalizado de 
-    proficiência e orientações de estudo diretamente da nossa equipe pedagógica.`,
+    text1: `Indicado para aqueles que buscam o estudo autônomo, os simulados do teste ICAO da ANAC foram desenvolvidos 
+    por nossa equipe pedagógica com o objetivo de oferecer, ao mesmo tempo, uma poderosa ferramenta de treinamento 
+    para candidatos em preparação para o exame, assim com um instrumento importante para aqueles que querem se familiarizar 
+    com as características e estrutura das provas. Por isso, nossos simulados têm a mesma estrutura, grau de dificuldade, 
+    duração e complexidade das questões exigidas na avaliação oficial, oferecendo aos candidatos uma forma única e fidedigna 
+    de preparação para o teste.`,
+    text2: `Nossa equipe pedagógica concebeu as questões contemplando as habilidades exigidas 
+    para a aprovação no exame, assim como a concepção e gravação dos áudios de forma a oferecer 
+    a você o que há de melhor no mercado em termos de preparação para o teste ICAO.`,
+    // text3: `Há ainda uma oportunidade de se obter um feedback personalizado de 
+    // proficiência e orientações de estudo diretamente da nossa equipe pedagógica.`,
     videoLink: "youtube.com",
   },
 
