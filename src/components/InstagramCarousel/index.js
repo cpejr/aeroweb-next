@@ -57,11 +57,8 @@ function InstagramCarousel({ animationControl }) {
           animation="slide" 
           indicators={false}
           interval={8000}
-          timeout={{
-            enter: 2000,
-            exit: 1000,
-          }}
-          swipe={false} 
+          timeout={1000}
+          swipe={false}
           navButtonsAlwaysInvisible={isMobile} 
         >
           {listaPosts.map((item, i) => (
