@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import isMobile from "../utils/isMobile"; // usa para ver se é mobile ou não
 
 // estilização
-import {useStylesHome, useStylesAirPlane} from "../stylesJs/HomeStyles";
+import { useStylesHome, useStylesAirPlane } from "../stylesJs/HomeStyles";
 import styles from "../styles/Home.module.css";
 
 // componentes
@@ -47,17 +47,19 @@ function Home() {
   let selectedComp;
 
   const [posBackground, setPosBackground] = useState(90);
-  const [selected, setSelected] = useState('HOME');
-  const [posX, setPosX] = useState(isMobile? "23%":"20%");
+  const [selected, setSelected] = useState("HOME");
+  const [posX, setPosX] = useState(isMobile ? "23%" : "20%");
   const [posXAngle, setPosXAngle] = useState(0);
-  const [posY, setPosY] = useState(isMobile? "11%":"6%");
+  const [posY, setPosY] = useState(isMobile ? "11%" : "6%");
   const [posYAngle, setPosYAngle] = useState(0);
-  const [angle, setAngle] = useState(isMobile? 13:349);
+  const [angle, setAngle] = useState(isMobile ? 13 : 349);
   const animating = useRef(false);
   const target = useRef({ x: 0, y: 0 });
 
   // Parâmetros para o novo gradiente:
-  const [newGradient, setNewGradient] = useState("linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)");
+  const [newGradient, setNewGradient] = useState(
+    "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
+  );
   const [oldGradient, setOldGradient] = useState(
     "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
   );
@@ -91,8 +93,15 @@ function Home() {
   });
   const [modalControl, setModalControl] = useState("standby");
 
-  const classesAirPlane = useStylesAirPlane({posX: posX, posY: posY, angle: angle})();
-  const classes = useStylesHome({newGradient: newGradient, oldGradient: oldGradient})();
+  const classesAirPlane = useStylesAirPlane({
+    posX: posX,
+    posY: posY,
+    angle: angle,
+  })();
+  const classes = useStylesHome({
+    newGradient: newGradient,
+    oldGradient: oldGradient,
+  })();
 
   function windowSize() {
     let proposedWidth = window.innerWidth / 40;
@@ -138,12 +147,12 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    if(isMobile) {
-      setPosX('23%');
-      setPosY('11%');
+    if (isMobile) {
+      setPosX("23%");
+      setPosY("11%");
     } else {
-      setPosX('20%');
-      setPosY('6%');
+      setPosX("20%");
+      setPosY("6%");
     }
 
     setPosXAngle(x - size / 2);
@@ -197,12 +206,12 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    if(isMobile) {
-      setPosX('49%');
-      setPosY('29%');
+    if (isMobile) {
+      setPosX("49%");
+      setPosY("29%");
     } else {
-      setPosX('47%');
-      setPosY('19%');
+      setPosX("47%");
+      setPosY("19%");
     }
 
     setPosXAngle(x - size / 2);
@@ -270,12 +279,12 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    if(isMobile) {
-      setPosX('57%');
-      setPosY('54%');
+    if (isMobile) {
+      setPosX("57%");
+      setPosY("54%");
     } else {
-      setPosX('66%');
-      setPosY('57.5%');
+      setPosX("66%");
+      setPosY("57.5%");
     }
 
     setPosXAngle(x - size / 2);
@@ -319,6 +328,10 @@ function Home() {
       setOldGradient(contatoGradient);
     }, 1000);
 
+    //Para o som do avião:
+    const audio = new Audio("airplane_bell.mp3");
+    audio.play();
+
     //Para a animação do avião:
     const x = e.clientX;
     const y = e.clientY;
@@ -335,12 +348,12 @@ function Home() {
 
     setAngle(360 - newAngle);
 
-    if(isMobile) {
-      setPosX('80%');
-      setPosY('77%');
+    if (isMobile) {
+      setPosX("80%");
+      setPosY("77%");
     } else {
-      setPosX('87%');
-      setPosY('83%');
+      setPosX("87%");
+      setPosY("83%");
     }
 
     setPosXAngle(x - size / 2);
@@ -390,13 +403,14 @@ function Home() {
   }
 
   return (
-    <div
-      className={classes.homeContainer}>
+    <div className={classes.homeContainer}>
       <div className={classes.homeContainerChildren}>
         <div className={classes.homeContainerOldGradient}>
           <div
             className={
-              change ? classes.homeGradienteMutavel : classes.homeGradienteImutavel
+              change
+                ? classes.homeGradienteMutavel
+                : classes.homeGradienteImutavel
             }
             onAnimationEnd={() => {
               setChange(false);
@@ -436,35 +450,36 @@ function Home() {
             }}
           />
 
-          {isMobile ?
+          {isMobile ? (
             <div className={classes.logoMobile}>
-              <img className={classes.logoImgMobile} src={"/assets/TAILWINDAVIATION.svg"} />
-              <img className={classes.logoImgMobile} src={"/assets/Union.svg"} />
+              <img
+                className={classes.logoImgMobile}
+                src={"/assets/TAILWINDAVIATION.svg"}
+              />
+              <img
+                className={classes.logoImgMobile}
+                src={"/assets/Union.svg"}
+              />
             </div>
-            :
+          ) : (
             <div className={classes.logoDesktop}>
-              <img className={classes.logoImgDesktop} src={"/assets/Logomarca.svg"} />
+              <img
+                className={classes.logoImgDesktop}
+                src={"/assets/Logomarca.svg"}
+              />
             </div>
-          }
+          )}
 
           <div className={classes.rotaContainer}>
-            {isMobile ?
-              <img
-                src="/assets/RotaMobile.svg"
-                className={classes.rotasImg}
-              />
-            :
-              <img
-                src="/assets/RotaDesktop.svg"
-                className={classes.rotasImg}
-              />
-            }
+            {isMobile ? (
+              <img src="/assets/RotaMobile.svg" className={classes.rotasImg} />
+            ) : (
+              <img src="/assets/RotaDesktop.svg" className={classes.rotasImg} />
+            )}
           </div>
 
           <div className={classes.buttonHomeContainer}>
-            <div
-              className={classesAirPlane.planeContainer}
-            >
+            <div className={classesAirPlane.planeContainer}>
               <img
                 src="/assets/AviaoIcon.svg"
                 className={classesAirPlane.plane}
@@ -473,7 +488,11 @@ function Home() {
 
             <div className={classes.buttonHome} style={{ zIndex: "100" }}>
               <p
-                className={selected === "HOME" ? classes.selectedButtonPageHome : classes.buttonPageHome}
+                className={
+                  selected === "HOME"
+                    ? classes.selectedButtonPageHome
+                    : classes.buttonPageHome
+                }
                 onClick={home}
               >
                 HOME
@@ -481,7 +500,11 @@ function Home() {
             </div>
             <div className={classes.buttonCursos} style={{ zIndex: "100" }}>
               <p
-                className={selected === "CURSOS" ? classes.selectedButtonPageHome : classes.buttonPageHome}
+                className={
+                  selected === "CURSOS"
+                    ? classes.selectedButtonPageHome
+                    : classes.buttonPageHome
+                }
                 onClick={cursos}
               >
                 CURSOS
@@ -490,7 +513,11 @@ function Home() {
 
             <div className={classes.buttonQuemSomos} style={{ zIndex: "100" }}>
               <p
-                className={selected === "QUEMSOMOS" ? classes.selectedButtonPageHome : classes.buttonPageHome}
+                className={
+                  selected === "QUEMSOMOS"
+                    ? classes.selectedButtonPageHome
+                    : classes.buttonPageHome
+                }
                 onClick={quemSomos}
               >
                 QUEM SOMOS
@@ -498,7 +525,11 @@ function Home() {
             </div>
             <div className={classes.buttonContato} style={{ zIndex: "100" }}>
               <p
-                className={selected === "CONTATO" ? classes.selectedButtonPageHome : classes.buttonPageHome}
+                className={
+                  selected === "CONTATO"
+                    ? classes.selectedButtonPageHome
+                    : classes.buttonPageHome
+                }
                 onClick={contato}
               >
                 CONTATO
