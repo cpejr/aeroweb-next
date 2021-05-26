@@ -16,33 +16,6 @@ import InstagramCarousel from "../components/InstagramCarousel";
 import { NextSeo } from "next-seo";
 
 function Home() {
-  <>
-    <NextSeo
-      title="Tailwind Aviation"
-      description="Os melhores cursos de aviação."
-      openGraph={{
-        url: "https://www.twcourses.com.br",
-        title: "Tailwind Aviation",
-        description: "Cursos de Aviação, confira nossas redes sociais",
-        images: [
-          {
-            url:
-              "https://images.pexels.com/photos/912050/pexels-photo-912050.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-            width: 800,
-            height: 600,
-            alt: "Um avião",
-          },
-        ],
-        site_name: "Tailwind Aviation",
-      }}
-      instagram={{
-        handle: "@tailwindaviation_",
-        site: "@twcourses.com.br",
-        cardType: "Imagem",
-      }}
-    />
-  </>;
-
   // variaveis da animacao
   let selectedComp;
 
@@ -403,176 +376,211 @@ function Home() {
   }
 
   return (
-    <div className={classes.homeContainer}>
-      <div className={classes.homeContainerChildren}>
-        <div className={classes.homeContainerOldGradient}>
-          <div
-            className={
-              change
-                ? classes.homeGradienteMutavel
-                : classes.homeGradienteImutavel
-            }
-            onAnimationEnd={() => {
-              setChange(false);
-            }}
-          />
+    <>
+      <NextSeo
+        title="Tailwind Aviation"
+        description="Os melhores cursos de aviação."
+        openGraph={{
+          url: "https://www.twcourses.com.br",
+          title: "Tailwind Aviation",
+          description: "Cursos de Aviação, confira nossas redes sociais",
+          images: [
+            {
+              url:
+                "https://images.pexels.com/photos/912050/pexels-photo-912050.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+              width: 800,
+              height: 600,
+              alt: "Um avião",
+            },
+          ],
+          site_name: "Tailwind Aviation",
+        }}
+        instagram={{
+          handle: "@tailwindaviation_",
+          site: "@twcourses.com.br",
+          cardType: "Imagem",
+        }}
+      />
+      <div className={classes.homeContainer}>
+        <div className={classes.homeContainerChildren}>
+          <div className={classes.homeContainerOldGradient}>
+            <div
+              className={
+                change
+                  ? classes.homeGradienteMutavel
+                  : classes.homeGradienteImutavel
+              }
+              onAnimationEnd={() => {
+                setChange(false);
+              }}
+            />
 
-          {/*<div*/}
-          {/*  className={classesAirPlane.planeContainer}*/}
-          {/*  style={{*/}
-          {/*    position: "absolute",*/}
-          {/*    left: "4vw",*/}
-          {/*    top: "65vh",*/}
-          {/*    margin: "0",*/}
-          {/*    transformOrigin: "center",*/}
-          {/*    width: "38vw",*/}
-          {/*    zIndex: "200",*/}
-          {/*    color: "#fff",*/}
-          {/*  }}*/}
-          {/*>*/}
-          {/*  {!isMobile && (*/}
-          {/*    <>*/}
-          {/*      <h1 className={classes.footerTitle1}>*/}
-          {/*        INVISTA HOJE NO SEU FUTURO*/}
-          {/*      </h1>*/}
-          {/*      <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>*/}
-          {/*    </>*/}
-          {/*  )}*/}
-          {/*</div>*/}
+            {/*<div*/}
+            {/*  className={classesAirPlane.planeContainer}*/}
+            {/*  style={{*/}
+            {/*    position: "absolute",*/}
+            {/*    left: "4vw",*/}
+            {/*    top: "65vh",*/}
+            {/*    margin: "0",*/}
+            {/*    transformOrigin: "center",*/}
+            {/*    width: "38vw",*/}
+            {/*    zIndex: "200",*/}
+            {/*    color: "#fff",*/}
+            {/*  }}*/}
+            {/*>*/}
+            {/*  {!isMobile && (*/}
+            {/*    <>*/}
+            {/*      <h1 className={classes.footerTitle1}>*/}
+            {/*        INVISTA HOJE NO SEU FUTURO*/}
+            {/*      </h1>*/}
+            {/*      <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>*/}
+            {/*    </>*/}
+            {/*  )}*/}
+            {/*</div>*/}
 
-          <div
-            className={classes.homeContainerChildren}
-            style={{
-              backgroundPositionX: posBackground,
-              transitionDuration: "2.5s",
-              // backgroundPositionY: -200,
-              height: "100vh",
-            }}
-          />
+            <div
+              className={classes.homeContainerChildren}
+              style={{
+                backgroundPositionX: posBackground,
+                transitionDuration: "2.5s",
+                // backgroundPositionY: -200,
+                height: "100vh",
+              }}
+            />
 
-          {isMobile ? (
-            <div className={classes.logoMobile}>
-              <img
-                className={classes.logoImgMobile}
-                src={"/assets/TAILWINDAVIATION.svg"}
-              />
-              <img
-                className={classes.logoImgMobile}
-                src={"/assets/Union.svg"}
-              />
-            </div>
-          ) : (
-            <div className={classes.logoDesktop}>
-              <img
-                className={classes.logoImgDesktop}
-                src={"/assets/Logomarca.svg"}
-              />
-            </div>
-          )}
-
-          <div className={classes.rotaContainer}>
             {isMobile ? (
-              <img src="/assets/RotaMobile.svg" className={classes.rotasImg} />
+              <div className={classes.logoMobile}>
+                <img
+                  className={classes.logoImgMobile}
+                  src={"/assets/TAILWINDAVIATION.svg"}
+                />
+                <img
+                  className={classes.logoImgMobile}
+                  src={"/assets/Union.svg"}
+                />
+              </div>
             ) : (
-              <img src="/assets/RotaDesktop.svg" className={classes.rotasImg} />
+              <div className={classes.logoDesktop}>
+                <img
+                  className={classes.logoImgDesktop}
+                  src={"/assets/Logomarca.svg"}
+                />
+              </div>
             )}
+
+            <div className={classes.rotaContainer}>
+              {isMobile ? (
+                <img
+                  src="/assets/RotaMobile.svg"
+                  className={classes.rotasImg}
+                />
+              ) : (
+                <img
+                  src="/assets/RotaDesktop.svg"
+                  className={classes.rotasImg}
+                />
+              )}
+            </div>
+
+            <div className={classes.buttonHomeContainer}>
+              <div className={classesAirPlane.planeContainer}>
+                <img
+                  src="/assets/AviaoIcon.svg"
+                  className={classesAirPlane.plane}
+                />
+              </div>
+
+              <div className={classes.buttonHome} style={{ zIndex: "100" }}>
+                <p
+                  className={
+                    selected === "HOME"
+                      ? classes.selectedButtonPageHome
+                      : classes.buttonPageHome
+                  }
+                  onClick={home}
+                >
+                  HOME
+                </p>
+              </div>
+              <div className={classes.buttonCursos} style={{ zIndex: "100" }}>
+                <p
+                  className={
+                    selected === "CURSOS"
+                      ? classes.selectedButtonPageHome
+                      : classes.buttonPageHome
+                  }
+                  onClick={cursos}
+                >
+                  CURSOS
+                </p>
+              </div>
+
+              <div
+                className={classes.buttonQuemSomos}
+                style={{ zIndex: "100" }}
+              >
+                <p
+                  className={
+                    selected === "QUEMSOMOS"
+                      ? classes.selectedButtonPageHome
+                      : classes.buttonPageHome
+                  }
+                  onClick={quemSomos}
+                >
+                  QUEM SOMOS
+                </p>
+              </div>
+              <div className={classes.buttonContato} style={{ zIndex: "100" }}>
+                <p
+                  className={
+                    selected === "CONTATO"
+                      ? classes.selectedButtonPageHome
+                      : classes.buttonPageHome
+                  }
+                  onClick={contato}
+                >
+                  CONTATO
+                </p>
+              </div>
+            </div>
           </div>
+          <InstagramCarousel animationControl={carouselControl} />
 
-          <div className={classes.buttonHomeContainer}>
-            <div className={classesAirPlane.planeContainer}>
-              <img
-                src="/assets/AviaoIcon.svg"
-                className={classesAirPlane.plane}
-              />
-            </div>
-
-            <div className={classes.buttonHome} style={{ zIndex: "100" }}>
-              <p
-                className={
-                  selected === "HOME"
-                    ? classes.selectedButtonPageHome
-                    : classes.buttonPageHome
-                }
-                onClick={home}
-              >
-                HOME
-              </p>
-            </div>
-            <div className={classes.buttonCursos} style={{ zIndex: "100" }}>
-              <p
-                className={
-                  selected === "CURSOS"
-                    ? classes.selectedButtonPageHome
-                    : classes.buttonPageHome
-                }
-                onClick={cursos}
-              >
-                CURSOS
-              </p>
-            </div>
-
-            <div className={classes.buttonQuemSomos} style={{ zIndex: "100" }}>
-              <p
-                className={
-                  selected === "QUEMSOMOS"
-                    ? classes.selectedButtonPageHome
-                    : classes.buttonPageHome
-                }
-                onClick={quemSomos}
-              >
-                QUEM SOMOS
-              </p>
-            </div>
-            <div className={classes.buttonContato} style={{ zIndex: "100" }}>
-              <p
-                className={
-                  selected === "CONTATO"
-                    ? classes.selectedButtonPageHome
-                    : classes.buttonPageHome
-                }
-                onClick={contato}
-              >
-                CONTATO
-              </p>
-            </div>
-          </div>
-        </div>
-        <InstagramCarousel animationControl={carouselControl} />
-
-        <CoursesList
-          coursesMobileControl={coursesMobileControl}
-          setCoursesMobileControl={setCoursesMobileControl}
-          coursesDesktopControl={coursesDesktopControl}
-          setOpenCurso={setOpenCurso}
-        />
-
-        <QuemSomos
-          quemSomosMobileControl={quemSomosMobileControl}
-          setQuemSomosMobileControl={setQuemSomosMobileControl}
-          quemSomosControl={quemSomosControl}
-          setQuemSomosControl={setQuemSomosControl}
-        />
-
-        <Contacts
-          contactsMobileControl={contactsMobileControl}
-          setContactsMobileControl={setContactsMobileControl}
-          contactsControl={contactsControl}
-          setContactsControl={setContactsControl}
-          setCarouselControl={setCarouselControl}
-        />
-
-        {!isMobile && <Footer />}
-
-        {openCurso.open && (
-          <AnimatedModalCourses
-            openCurso={openCurso}
-            setOpenCurso={setOpenCurso}
+          <CoursesList
+            coursesMobileControl={coursesMobileControl}
             setCoursesMobileControl={setCoursesMobileControl}
-            closeModal={closeModal}
+            coursesDesktopControl={coursesDesktopControl}
+            setOpenCurso={setOpenCurso}
           />
-        )}
+
+          <QuemSomos
+            quemSomosMobileControl={quemSomosMobileControl}
+            setQuemSomosMobileControl={setQuemSomosMobileControl}
+            quemSomosControl={quemSomosControl}
+            setQuemSomosControl={setQuemSomosControl}
+          />
+
+          <Contacts
+            contactsMobileControl={contactsMobileControl}
+            setContactsMobileControl={setContactsMobileControl}
+            contactsControl={contactsControl}
+            setContactsControl={setContactsControl}
+            setCarouselControl={setCarouselControl}
+          />
+
+          {!isMobile && <Footer />}
+
+          {openCurso.open && (
+            <AnimatedModalCourses
+              openCurso={openCurso}
+              setOpenCurso={setOpenCurso}
+              setCoursesMobileControl={setCoursesMobileControl}
+              closeModal={closeModal}
+            />
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
