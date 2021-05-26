@@ -24,7 +24,8 @@
     "next-seo": "^4.23.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-material-ui-carousel": "^2.2.4"
+    "react-material-ui-carousel": "^2.2.4",
+    "yarn": "^1.22.10"
   },
   "eslintConfig": {
     "extends": [

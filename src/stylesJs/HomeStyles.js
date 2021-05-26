@@ -349,6 +349,40 @@ export const useStylesHome = (props) => makeStyles(theme => ({
     },
   },
 
+  aviaoHome: {
+    position: "absolute",
+    zIndex: "100",
+    maxHeight: "77.50vh",
+    opacity: "100%",
+
+    bottom: 0,
+    left: 0,
+  },
+
+  aviaoHomeShow: {
+    position: "absolute",
+    zIndex: "100",
+    maxHeight: "77.50vh",
+    opacity: "100%",
+
+    bottom: 0,
+    left: 0,
+
+    animation: "$showPlane 1000ms linear forwards"
+  },
+
+  aviaoHomeHide: {
+    position: "absolute",
+    zIndex: "100",
+    maxHeight: "77.50vh",
+    opacity: "100%",
+
+    bottom: 0,
+    left: 0,
+
+    animation: "$hidePlane 1000ms linear forwards"
+  },
+
   container: {
     display: "flex",
     flexDirection: "column",
@@ -509,6 +543,31 @@ export const useStylesHome = (props) => makeStyles(theme => ({
       transform: "translateY(0)",
     },
   },
+
+  
+  "@keyframes showPlane": {
+    "0%": {
+      opacity: "0%",
+    },
+    "50%": {
+      opacity: "50%",
+    },
+    "100%": {
+      opacity: "100%",
+    },
+  },
+
+  "@keyframes hidePlane": {
+    "0%": {
+      opacity: "100%",
+    },
+    "50%": {
+      opacity: "50%",
+    },
+    "100%": {
+      opacity: "0%",
+    },
+  },
 }));
 
 
@@ -568,6 +627,6 @@ export const useStylesAirPlane = (props) => makeStyles(theme => ({
       left: "2.6rem",
       top: "6vh",
     },
-  },
+  }
 
 }));
