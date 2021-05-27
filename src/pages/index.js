@@ -66,6 +66,8 @@ function Home() {
   });
   const [modalControl, setModalControl] = useState("standby");
 
+  const [homePlaneControl, setHomePlaneControl] = useState("show");
+
   const classesAirPlane = useStylesAirPlane({
     posX: posX,
     posY: posY,
@@ -97,7 +99,7 @@ function Home() {
     setNewGradient(
       "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
     );
-    setChange(true);
+    // setChange(true);
     setTimeout(() => {
       setOldGradient(
         "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
@@ -148,6 +150,10 @@ function Home() {
     if (isMobile && carouselControl === "hide") setCarouselControl("show");
     if (!isMobile && carouselControl !== "standby") setCarouselControl("show");
     if (!isMobile && modalControl !== "standby") setModalControl("hide");
+
+    if (!isMobile && homePlaneControl === "hide") {
+      setHomePlaneControl("show");
+    }
   }
 
   function cursos(e) {
@@ -158,7 +164,7 @@ function Home() {
     setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(cursosGradient);
-    setChange(true);
+    // setChange(true);
     setTimeout(() => {
       setOldGradient(cursosGradient);
     }, 1000);
@@ -221,6 +227,8 @@ function Home() {
     } else {
       setModalControl("hide");
     }
+
+    if (!isMobile && homePlaneControl === "show") setHomePlaneControl("hide");
   }
 
   function quemSomos(e) {
@@ -231,7 +239,7 @@ function Home() {
     setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(quemSomosGradient);
-    setChange(true);
+    // setChange(true);
     setTimeout(() => {
       setOldGradient(quemSomosGradient);
     }, 1000);
@@ -286,6 +294,8 @@ function Home() {
     if (isMobile && carouselControl !== "hide") setCarouselControl("hide");
     if (!isMobile && carouselControl !== "standby") setCarouselControl("show");
     if (!isMobile && modalControl !== "standby") setModalControl("hide");
+
+    if (!isMobile && homePlaneControl === "show") setHomePlaneControl("hide")
   }
 
   function contato(e) {
@@ -296,7 +306,7 @@ function Home() {
     setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(contatoGradient);
-    setChange(true);
+    // setChange(true);
     setTimeout(() => {
       setOldGradient(contatoGradient);
     }, 1000);
@@ -369,11 +379,15 @@ function Home() {
       setCarouselControl("show");
     }
     if (!isMobile && modalControl !== "standby") setModalControl("hide");
+
+    if (!isMobile && homePlaneControl === "show") setHomePlaneControl("hide");
   }
 
   function closeModal() {
     setOpenCurso({ open: false, index: null, style: "" });
   }
+
+  useEffect(() => console.log(homePlaneControl), [homePlaneControl]);
 
   return (
     <>
@@ -401,6 +415,7 @@ function Home() {
           cardType: "Imagem",
         }}
       />
+
       <div className={classes.homeContainer}>
         <div className={classes.homeContainerChildren}>
           <div className={classes.homeContainerOldGradient}>
@@ -415,28 +430,22 @@ function Home() {
               }}
             />
 
-            {/*<div*/}
-            {/*  className={classesAirPlane.planeContainer}*/}
-            {/*  style={{*/}
-            {/*    position: "absolute",*/}
-            {/*    left: "4vw",*/}
-            {/*    top: "65vh",*/}
-            {/*    margin: "0",*/}
-            {/*    transformOrigin: "center",*/}
-            {/*    width: "38vw",*/}
-            {/*    zIndex: "200",*/}
-            {/*    color: "#fff",*/}
-            {/*  }}*/}
-            {/*>*/}
-            {/*  {!isMobile && (*/}
-            {/*    <>*/}
-            {/*      <h1 className={classes.footerTitle1}>*/}
-            {/*        INVISTA HOJE NO SEU FUTURO*/}
-            {/*      </h1>*/}
-            {/*      <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>*/}
-            {/*    </>*/}
-            {/*  )}*/}
-            {/*</div>*/}
+            <div
+              className={
+                homePlaneControl === "show" ?
+                  classes.aviaoHomeTitleShow :
+                  classes.aviaoHomeTitleHide
+              }
+            >
+              {!isMobile && (
+                <>
+                  <h1 className={classes.footerTitle1}>
+                    INVISTA HOJE NO SEU FUTURO
+                  </h1>
+                  <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
+                </>
+              )}
+            </div>
 
             <div
               className={classes.homeContainerChildren}
@@ -481,6 +490,17 @@ function Home() {
                 />
               )}
             </div>
+
+            { !isMobile && (
+                <img
+                  src="/assets/aviaoHome.svg"
+                  className={
+                    homePlaneControl === "show" ? 
+                      classes.aviaoHomeShow :
+                      classes.aviaoHomeHide
+                  }
+                />
+              ) }
 
             <div className={classes.buttonHomeContainer}>
               <div className={classesAirPlane.planeContainer}>

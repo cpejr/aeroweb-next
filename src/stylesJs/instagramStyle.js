@@ -45,11 +45,12 @@ export const useStyles = makeStyles(theme => ({
         },
 
         [theme.breakpoints.down(850)]: {
-          top:"auto",
-          bottom: "15vh",
-          left: "5vw",
           height: "25vh",
-          width: "45vw",
+          width: "33vw",
+        },
+
+        [theme.breakpoints.down(765)]: {
+          display: 'none'
         },
 
         // estilo
@@ -108,11 +109,12 @@ export const useStyles = makeStyles(theme => ({
         },
 
         [theme.breakpoints.down(850)]: {
-          top:"auto",
-          bottom: "15vh",
-          left: "5vw",
           height: "25vh",
-          width: "45vw",
+          width: "20vw",
+        },
+
+        [theme.breakpoints.down(765)]: {
+          display: 'none'
         },
 
         // estilo
@@ -174,11 +176,12 @@ export const useStyles = makeStyles(theme => ({
         },
 
         [theme.breakpoints.down(850)]: {
-          top:"auto",
-          bottom: "15vh",
-          left: "5vw",
           height: "25vh",
-          width: "45vw",
+          width: "20vw",
+        },
+
+        [theme.breakpoints.down(765)]: {
+          display: 'none'
         },
 
         // estilo

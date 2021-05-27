@@ -333,46 +333,46 @@ function ContactsMobile({ animationControl }) {
         >
           contato@twcourses.com.br
         </Typography>
-        <Typography
-          style={{
-            color: "white",
-            fontSize: "14px",
-            width: "100%",
-            marginTop: "8px",
-          }}
-        >
-          31 0000-0000
-        </Typography>
-        <Typography
-          style={{
-            color: "white",
-            fontSize: "14px",
-            width: "100%",
-            marginTop: "8px",
-          }}
-        >
-          endereço, n° 00
-        </Typography>
-        <Typography
-          style={{
-            color: "white",
-            fontSize: "14px",
-            width: "100%",
-            marginTop: "8px",
-          }}
-        >
-          Bairro
-        </Typography>
-        <Typography
-          style={{
-            color: "white",
-            fontSize: "14px",
-            width: "100%",
-            marginTop: "8px",
-          }}
-        >
-          Belo Horizonte
-        </Typography>
+        {/*<Typography*/}
+        {/*  style={{*/}
+        {/*    color: "white",*/}
+        {/*    fontSize: "14px",*/}
+        {/*    width: "100%",*/}
+        {/*    marginTop: "8px",*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  31 0000-0000*/}
+        {/*</Typography>*/}
+        {/*<Typography*/}
+        {/*  style={{*/}
+        {/*    color: "white",*/}
+        {/*    fontSize: "14px",*/}
+        {/*    width: "100%",*/}
+        {/*    marginTop: "8px",*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  endereço, n° 00*/}
+        {/*</Typography>*/}
+        {/*<Typography*/}
+        {/*  style={{*/}
+        {/*    color: "white",*/}
+        {/*    fontSize: "14px",*/}
+        {/*    width: "100%",*/}
+        {/*    marginTop: "8px",*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  Bairro*/}
+        {/*</Typography>*/}
+        {/*<Typography*/}
+        {/*  style={{*/}
+        {/*    color: "white",*/}
+        {/*    fontSize: "14px",*/}
+        {/*    width: "100%",*/}
+        {/*    marginTop: "8px",*/}
+        {/*  }}*/}
+        {/*>*/}
+        {/*  Belo Horizonte*/}
+        {/*</Typography>*/}
 
         <div className={classes.appBarIcons}>
           <a
