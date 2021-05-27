@@ -310,9 +310,6 @@ export const useStylesHome = (props) => makeStyles(theme => ({
     },
   },
 
-  flying: {
-    animation: "fly 0.5s",
-  },
   planeContainer: {
     position: "absolute",
     left: "44vw",
@@ -331,140 +328,70 @@ export const useStylesHome = (props) => makeStyles(theme => ({
       top: "6vh",
     },
   },
-  planeContainerMobile: {
-    position: "absolute",
-    left: "30vw",
-    top: "0.1vh",
-    [theme.breakpoints.down("500")]: {
-      left: "4.5rem",
-      top: "6vh",
-    },
-    [theme.breakpoints.down("376")]: {
-      left: "2.9rem",
-      top: "6vh",
-    },
-    [theme.breakpoints.down("361")]: {
-      left: "2.6rem",
-      top: "6vh",
-    },
-  },
-
-  aviaoHome: {
-    position: "absolute",
-    zIndex: "100",
-    maxHeight: "77.50vh",
-    opacity: "100%",
-
-    bottom: 0,
-    left: 0,
-  },
 
   aviaoHomeShow: {
     position: "absolute",
     zIndex: "100",
     maxHeight: "77.50vh",
-    opacity: "100%",
-
+    maxWidth: "70vw",
+    opacity: 1,
     bottom: 0,
     left: 0,
-
-    animation: "$showPlane 1000ms linear forwards"
+    transition: "opacity 1s",
+    [theme.breakpoints.down(600)]: {
+      display: 'none'
+    },
   },
 
   aviaoHomeHide: {
     position: "absolute",
     zIndex: "100",
     maxHeight: "77.50vh",
-    opacity: "100%",
-
+    maxWidth: "70vw",
+    opacity: 0,
     bottom: 0,
     left: 0,
-
-    animation: "$hidePlane 1000ms linear forwards"
-  },
-
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-
-    paddingTop: "5%",
-  },
-
-  root: {
-    width: "100%",
-    maxWidth: 360,
-  },
-
-  fadeRoot: {
-    width: "100%",
-    height: "100%",
-
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  backDrop: {
-    backdropFilter: "blur(3px)",
-    backgroundColor: "rgba(0,0,30,0.4)",
-  },
-
-  card: {
-    maxWidth: "50%",
-    [theme.breakpoints.down("765")]: {
-      maxWidth: "80%",
-      maxHeight: "90%",
-    },
-
-    padding: 16,
-    elevation: 8,
-
-    overflow: "auto",
-  },
-
-  cardContent: {
-    display: "flex",
-    flexDirection: "column",
-  },
-
-  cardTitle: {
-    width: "95%",
-
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-
-    marginBottom: 16,
-  },
-
-  cardBody: {
-    width: "95%",
-
-    display: "flex",
-    flexDirection: "column",
-  },
-
-  buttonContainer: {
-    width: "100%",
-
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  button: {
-    backgroundColor: "#3467eb",
-    "&:hover": {
-      backgroundColor: "#3467eb",
+    transition: "opacity 1s",
+    [theme.breakpoints.down(600)]: {
+      display: 'none'
     },
   },
 
-  buttonOut: {
-    "&:hover": {
-      borderBottom: "4px solid",
+  aviaoHomeTitleShow: {
+    position: "absolute",
+    left: "4vw",
+    top: "65vh",
+    margin: "0",
+    transformOrigin: "center",
+    // width: "38vw",
+    maxWidth: "70vw",
+    zIndex: "200",
+    color: "#fff",
+    opacity: 1,
+
+    transition: "opacity 1s",
+
+    [theme.breakpoints.down(600)]: {
+      display: 'none'
+    },
+  },
+
+  aviaoHomeTitleHide: {
+    position: "absolute",
+    left: "4vw",
+    top: "65vh",
+    margin: "0",
+    transformOrigin: "center",
+    // width: "38vw",
+    maxWidth: "70vw",
+    zIndex: "200",
+    color: "#fff",
+    opacity: 0,
+
+    transition: "opacity 1s",
+
+    [theme.breakpoints.down(600)]: {
+      display: 'none'
     },
   },
 
@@ -481,101 +408,10 @@ export const useStylesHome = (props) => makeStyles(theme => ({
       fontSize: "3.5vh",
     },
   },
-
-  cardMobile: {
-    width: "100%",
-    height: "100%",
-
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-
-    position: "relative",
-    top: "75%",
-
-    animation: '$upCard 1500ms ease-in-out forwards'
-  },
-
-  cardMobileUp: {
-    width: "100%",
-    height: "100%",
-
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-
-    position: "relative",
-    top: "75%",
-    animation: "$upCard 1500ms ease-in-out forwards",
-  },
-
-  cardMobileDown: {
-    width: "100%",
-    height: "100%",
-
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-
-    position: "relative",
-    top: "75%",
-    animation: "$downCard 1500ms linear forwards",
-  },
-
-  // animações de transição dos modais
-  "@keyframes upCard": {
-    "0%": {
-      transform: "translateY(0)",
-    },
-    "100%": {
-      transform: "translateY(-75%)",
-    },
-  },
-
-  "@keyframes downCard": {
-    "0%": {
-      transform: "translateY(-75%)",
-    },
-    "100%": {
-      transform: "translateY(0)",
-    },
-  },
-
-  
-  "@keyframes showPlane": {
-    "0%": {
-      opacity: "0%",
-    },
-    "50%": {
-      opacity: "50%",
-    },
-    "100%": {
-      opacity: "100%",
-    },
-  },
-
-  "@keyframes hidePlane": {
-    "0%": {
-      opacity: "100%",
-    },
-    "50%": {
-      opacity: "50%",
-    },
-    "100%": {
-      opacity: "0%",
-    },
-  },
 }));
 
 
 export const useStylesAirPlane = (props) => makeStyles(theme => ({
-
-  flying: {
-    animation: "fly 0.5s",
-  },
   planeContainer: {
     position: "absolute",
     left: props.posX,
@@ -610,23 +446,4 @@ export const useStylesAirPlane = (props) => makeStyles(theme => ({
     width: '100%',
     height: '100%',
   },
-
-  planeContainerMobile: {
-    position: "absolute",
-    left: "30vw",
-    top: "0.1vh",
-    [theme.breakpoints.down("500")]: {
-      left: "4.5rem",
-      top: "6vh",
-    },
-    [theme.breakpoints.down("376")]: {
-      left: "2.9rem",
-      top: "6vh",
-    },
-    [theme.breakpoints.down("361")]: {
-      left: "2.6rem",
-      top: "6vh",
-    },
-  }
-
 }));

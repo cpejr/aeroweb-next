@@ -430,28 +430,22 @@ function Home() {
               }}
             />
 
-            {/*<div*/}
-            {/*  className={classesAirPlane.planeContainer}*/}
-            {/*  style={{*/}
-            {/*    position: "absolute",*/}
-            {/*    left: "4vw",*/}
-            {/*    top: "65vh",*/}
-            {/*    margin: "0",*/}
-            {/*    transformOrigin: "center",*/}
-            {/*    width: "38vw",*/}
-            {/*    zIndex: "200",*/}
-            {/*    color: "#fff",*/}
-            {/*  }}*/}
-            {/*>*/}
-            {/*  {!isMobile && (*/}
-            {/*    <>*/}
-            {/*      <h1 className={classes.footerTitle1}>*/}
-            {/*        INVISTA HOJE NO SEU FUTURO*/}
-            {/*      </h1>*/}
-            {/*      <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>*/}
-            {/*    </>*/}
-            {/*  )}*/}
-            {/*</div>*/}
+            <div
+              className={
+                homePlaneControl === "show" ?
+                  classes.aviaoHomeTitleShow :
+                  classes.aviaoHomeTitleHide
+              }
+            >
+              {!isMobile && (
+                <>
+                  <h1 className={classes.footerTitle1}>
+                    INVISTA HOJE NO SEU FUTURO
+                  </h1>
+                  <h1 className={classes.footerTitle2}>E DÊ ASAS AO SEU SONHO</h1>
+                </>
+              )}
+            </div>
 
             <div
               className={classes.homeContainerChildren}
