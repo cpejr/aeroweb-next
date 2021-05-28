@@ -155,15 +155,15 @@ export const useStyles = makeStyles(theme => ({
       top: "65vh",
     },
     "100%": {
-      backgroundColor: " #3467ebEE",
-      top: "10vh",
+      backgroundColor: "#3467ebEE",
+      top: "20vh",
     },
   },
 
   "@keyframes downContacts": {
     "0%": {
       backgroundColor: " #3467ebEE",
-      top: "10vh",
+      top: "20vh",
     },
     "100%": {
       backgroundColor: "#F9F9F922",

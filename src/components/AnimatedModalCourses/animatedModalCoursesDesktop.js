@@ -9,7 +9,7 @@ import {
 import { ExpandMore } from "@material-ui/icons";
 import { useStyles } from "../../stylesJs/animatedModalCoursesDesktopStyle";
 import React, { useState, useEffect } from "react";
-import listaCursos from "../../../public/listaCursos";
+import listaCursos from "../../../public/contents/listaCursos";
 
 function AnimatedModalCoursesDesktop({
   close,
@@ -100,32 +100,32 @@ function AnimatedModalCoursesDesktop({
               </Typography>
               <div className={classes.cardPayments2}>
                 <div className={classes.cardPayments3}>
-                  <img src="/assets/Visa.png" alt="Forma de pagamento" />
-                  <img src="/assets/Mastercard.svg" alt="Forma de pagamento" />
-                  <img src="/assets/Paypal.png" alt="Forma de pagamento" />
-                  <img src="/assets/Samsungpay.png" alt="Forma de pagamento" />
-                  <img src="/assets/Hipercard.png" alt="Forma de pagamento" />
+                  <img src="/imgPagamentos/Visa.png" alt="Forma de pagamento" />
+                  <img src="/imgPagamentos/Mastercard.svg" alt="Forma de pagamento" />
+                  <img src="/imgPagamentos/Paypal.png" alt="Forma de pagamento" />
+                  <img src="/imgPagamentos/Samsungpay.png" alt="Forma de pagamento" />
+                  <img src="/imgPagamentos/Hipercard.png" alt="Forma de pagamento" />
                 </div>
                 <div className={classes.cardPayments4}>
                   <img
                     style={{ width: "4vw", height: "4vh" }}
-                    src="/assets/Googlepay.png"
+                    src="/imgPagamentos/Googlepay.png"
                   />
                   <img
                     style={{ width: "4vw", height: "4vh" }}
-                    src="/assets/Hiper.png"
+                    src="/imgPagamentos/Hiper.png"
                   />
                   <img
                     style={{ width: "4vw", height: "4vh" }}
-                    src="/assets/American.png"
+                    src="/imgPagamentos/American.png"
                   />
                   <img
                     style={{ width: "4vw", height: "4vh" }}
-                    src="/assets/Diners.png"
+                    src="/imgPagamentos/Diners.png"
                   />
                   <img
                     style={{ width: "4vw", height: "4vh" }}
-                    src="/assets/Elo.png"
+                    src="/imgPagamentos/Elo.png"
                   />
                 </div>
               </div>

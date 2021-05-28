@@ -5,6 +5,27 @@ export const useStyles = makeStyles(theme => ({
   scrollList: {
     overflowY: "auto",
     maxHeight: "150px",
+
+    //scrollbar
+    "&::-webkit-scrollbar": {
+      width: "8px",
+    },
+    "&::-webkit-scrollbar-track": {
+      display: "none",
+    },
+    "&::-webkit-scrollbar-track:hover": {
+      backgroundColor: "#f4f4f4",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "#f4f4f4",
+      borderRadius: "20px",
+    },
+    "&::-webkit-scrollbar-thumb:hover": {
+      backgroundColor: "#a0a0a5",
+    },
+    "&::-webkit-scrollbar-button": {
+      display: "none",
+    },
   },
 
   card: {

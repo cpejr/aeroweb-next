@@ -82,7 +82,7 @@ export const useStyles = makeStyles(theme => ({
     padding: 16,
     paddingTop: 8,
     elevation: 8,
-    backgroundColor: " #3467ebEE",
+    backgroundColor: "#2234CCFF",
     borderRadius: "6px",
     overflowY: "scroll",
 

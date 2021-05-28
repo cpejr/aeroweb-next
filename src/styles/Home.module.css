@@ -46,16 +46,18 @@
   color: #100554;
   font-weight: 500;
   font-size: 1.15rem;
-
+margin: 0;
   text-align: center;
+  transition: color 0.5s, font-size 1.5s, border-bottom 1.5s;
 }
 
-.name:hover {
-  color: #fff;
-  transition: color 0.5s;
-  border-bottom: 3px solid #fff;
-  font-weight: 530;
-}
+/*.name:hover {*/
+/*  color: #fff;*/
+/*  transition: color 0.5s, font-size 1.5s;*/
+/*  border-bottom: 3px solid #fff;*/
+/*  font-weight: 530;*/
+/*  font-size: 1.25rem*/
+/*}*/
 
 .logo {
   width: 18vw;
