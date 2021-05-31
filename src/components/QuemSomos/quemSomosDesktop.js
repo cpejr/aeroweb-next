@@ -40,7 +40,8 @@ function QuemSomosDesktop({ animationControl, close }) {
                   transition: "width 0.5s",
                   objectFit: "cover",
                 }}
-              ></img>
+                alt="Logomarca da Tailwind Aviation"  
+              />
               <Typography
                 style={{
                   color: "white",
@@ -61,7 +62,8 @@ function QuemSomosDesktop({ animationControl, close }) {
                 <img
                   src="/assets/Close.svg"
                   style={{ height: "3vh", fontFamily: "Roboto" }}
-                ></img>
+                  alt="Ícone para fechar o modal"
+                />
               </div>
             </div>
             <div className={classes.cardBody}>

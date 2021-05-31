@@ -18,10 +18,14 @@ function Item(props) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={item.src} alt={item.alt} style={{
-            height: "100%",
-            width: "100%"
-          }} />
+          <img 
+            src={item.src} 
+            alt={item.alt} 
+            style={{
+              height: "100%",
+              width: "100%"
+            }} 
+          />
         </a>
       ))}
     </div>
@@ -40,7 +44,7 @@ function InstagramCarousel({ animationControl }) {
 
   return (
     <Card className={carouselClass}>
-      <img src="/assets/Union.svg" className={classes.logoTitle} />
+      <img src="/assets/Union.svg" className={classes.logoTitle} alt="Decoração do título do carrosel do Instagram"/>
       <Typography
         style={{
           marginBottom: "8px",
