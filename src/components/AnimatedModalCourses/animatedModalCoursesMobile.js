@@ -72,7 +72,11 @@ function AnimatedModalCoursesMobile({
           {curso.text3} <br /> <br className={classes.line} />
         </Typography>
 
-        <div className={classes.cardVideo}></div>
+        <div className={classes.cardVideo}>
+          <iframe width="258" height="315"
+            src="https://www.youtube.com/embed/iDlxpk_8Ggc">
+          </iframe> 
+        </div>
 
         <div className={classes.cardPayments}>
           <Typography

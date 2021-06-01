@@ -85,7 +85,7 @@ function AnimatedModalCoursesDesktop({
             </div>
 
             <div className={classes.cardVideo} >
-              <iframe width="360" height="315"
+              <iframe width="364" height="316"
                 src="https://www.youtube.com/embed/iDlxpk_8Ggc">
               </iframe> 
             </div>
