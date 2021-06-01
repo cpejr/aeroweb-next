@@ -158,6 +158,7 @@ function ContactsDesktop({ animationControl, close }) {
           <img
             src="/assets/Tailwind3.svg"
             style={{ height: "75px", fontFamily: "Roboto" }}
+            alt="Logomarca da Tailwind Aviation"
           ></img>
           <Typography
             variant="h5"
