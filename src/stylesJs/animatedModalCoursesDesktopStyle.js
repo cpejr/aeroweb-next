@@ -213,6 +213,9 @@ export const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
 
+    justifyContent: "space-between",
+    alignItems: "center",
+
     marginTop: "2vh",
   },
 
