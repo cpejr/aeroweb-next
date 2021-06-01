@@ -53,6 +53,7 @@ function AnimatedModalCoursesDesktop({
                   width: "100px",
                   fontFamily: "Roboto",
                 }}
+                alt="Logomarca da Tailwind Aviation"
               />
               <Typography
                 variant="h5"
@@ -103,32 +104,37 @@ function AnimatedModalCoursesDesktop({
               </Typography>
               <div className={classes.cardPayments2}>
                 <div className={classes.cardPayments3}>
-                  <img src="/imgPagamentos/Visa.png" alt="Forma de pagamento" />
-                  <img src="/imgPagamentos/Mastercard.svg" alt="Forma de pagamento" />
-                  <img src="/imgPagamentos/Paypal.png" alt="Forma de pagamento" />
-                  <img src="/imgPagamentos/Samsungpay.png" alt="Forma de pagamento" />
-                  <img src="/imgPagamentos/Hipercard.png" alt="Forma de pagamento" />
+                  <img src="/imgPagamentos/Visa.png" alt="Forma de pagamento com cartão Visa" />
+                  <img src="/imgPagamentos/Mastercard.svg" alt="Forma de pagamento com cartão Mastercard" />
+                  <img src="/imgPagamentos/Paypal.png" alt="Forma de pagamento com Paypal" />
+                  <img src="/imgPagamentos/Samsungpay.png" alt="Forma de pagamento com SamsungPay" />
+                  <img src="/imgPagamentos/Hipercard.png" alt="Forma de pagamento com cartão Hipercard" />
                 </div>
                 <div className={classes.cardPayments4}>
                   <img
                     style={{ width: "4vw", height: "4vh" }}
                     src="/imgPagamentos/Googlepay.png"
+                    alt="Forma de pagamento com GooglePay"
                   />
                   <img
                     style={{ width: "4vw", height: "4vh" }}
                     src="/imgPagamentos/Hiper.png"
+                    alt="Forma de pagamento com cartão Hiper"
                   />
                   <img
                     style={{ width: "4vw", height: "4vh" }}
                     src="/imgPagamentos/American.png"
+                    alt="Forma de pagamento com cartão American Express"
                   />
                   <img
                     style={{ width: "4vw", height: "4vh" }}
                     src="/imgPagamentos/Diners.png"
+                    alt="Forma de pagamento com cartão Diners"
                   />
                   <img
                     style={{ width: "4vw", height: "4vh" }}
                     src="/imgPagamentos/Elo.png"
+                    alt="Forma de pagamento com cartão Elo"
                   />
                 </div>
               </div>

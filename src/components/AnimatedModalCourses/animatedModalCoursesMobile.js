@@ -33,7 +33,11 @@ function AnimatedModalCoursesMobile({
     <Card className={slideClass}>
       <CardContent className={classes.cardContent}>
         <div className={classes.cardHeader}>
-          <img className={classes.image} src={"/assets/LogomarcaAzul.svg"} />
+          <img 
+            className={classes.image} 
+            src={"/assets/LogomarcaAzul.svg"} 
+            alt="Logomarca Azul da Tailwind Aviation" 
+          />
 
           <ExpandMore
             fontSize="large"
@@ -91,20 +95,51 @@ function AnimatedModalCoursesMobile({
           </Typography>
           <div className={classes.cardPayments2}>
             <div className={classes.cardPayments3}>
-              <img src="/imgPagamentos/Visa.png" alt="Forma de pagamento" />
-              <img src="/imgPagamentos/Mastercard.svg" alt="Forma de pagamento" />
-              <img src="/imgPagamentos/Paypal.png" alt="Forma de pagamento" />
+              <img 
+                src="/imgPagamentos/Visa.png" 
+                alt="Forma de pagamento com cartão Visa" 
+              />
+              <img 
+                src="/imgPagamentos/Mastercard.svg" 
+                alt="Forma de pagamento com cartão Mastercard" 
+              />
+              <img 
+                src="/imgPagamentos/Paypal.png" 
+                alt="Forma de pagamento com Paypal" 
+              />
             </div>
             <div className={classes.cardPayments3}>
-              <img alt="Forma de pagamento" src="/imgPagamentos/Hiper.png" />
-              <img src="/imgPagamentos/Hipercard.png" alt="Forma de pagamento" />
-              <img alt="Forma de pagamento" src="/imgPagamentos/Googlepay.png" />
+              <img 
+                src="/imgPagamentos/Hiper.png" 
+                alt="Forma de pagamento com cartão Hiper" 
+              />
+              <img 
+                src="/imgPagamentos/Hipercard.png" 
+                alt="Forma de pagamento com cartão Hipercard" 
+              />
+              <img 
+                src="/imgPagamentos/Googlepay.png" 
+                alt="Forma de pagamento com GooglePay" 
+              />
             </div>
+
             <div className={classes.cardPayments3}>
-              <img src="/imgPagamentos/Samsungpay.png" alt="Forma de pagamento" />
-              <img alt="Forma de pagamento" src="/imgPagamentos/American.png" />
-              <img alt="Forma de pagamento" src="/imgPagamentos/Diners.png" />
-              <img alt="Forma de pagamento" src="/imgPagamentos/Elo.png" />
+              <img 
+                src="/imgPagamentos/Samsungpay.png" 
+                alt="Forma de pagamento com SamsungPay" 
+              />
+              <img 
+                src="/imgPagamentos/American.png" 
+                alt="Forma de pagamento com cartão American Express" 
+              />
+              <img 
+                src="/imgPagamentos/Diners.png" 
+                alt="Forma de pagamento com cartão Diners" 
+              />
+              <img 
+                src="/imgPagamentos/Elo.png" 
+                alt="Forma de pagamento com cartão Elo" 
+              />
             </div>
           </div>
         </div>
