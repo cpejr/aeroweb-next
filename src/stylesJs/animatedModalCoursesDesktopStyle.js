@@ -213,7 +213,6 @@ export const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
 
-    border: "1px solid #3467eb",
     marginTop: "2vh",
   },
 

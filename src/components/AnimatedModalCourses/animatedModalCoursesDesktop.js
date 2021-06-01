@@ -14,7 +14,6 @@ import listaCursos from "../../../public/contents/listaCursos";
 function AnimatedModalCoursesDesktop({
   close,
   animationControl,
-  videoLink,
   indexCurso,
 }) {
   const classes = useStyles();
@@ -86,8 +85,8 @@ function AnimatedModalCoursesDesktop({
 
             <div className={classes.cardVideo} >
               <iframe width="364" height="316"
-                src="https://www.youtube.com/embed/iDlxpk_8Ggc">
-              </iframe> 
+                src={`https://www.youtube.com/embed/${curso.videoLink}`}>
+              </iframe>
             </div>
 
             <div className={classes.cardPayments}>
