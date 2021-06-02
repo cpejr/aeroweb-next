@@ -46,6 +46,14 @@ function QuemSomosMobile({ animationControl }) {
           Nossa história
         </Typography>
         {isUp ? (
+          <Typography
+            style={{ fontFamily: "Roboto", color: "white" }}
+            className={classes.text}
+          >
+            Voltar
+          </Typography>
+        ) : ("")}
+        {isUp ? (
           <ExpandMore
             fontSize="large"
             style={{ flex: "1", color: "white", cursor: "pointer" }}

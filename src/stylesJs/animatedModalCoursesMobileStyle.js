@@ -71,6 +71,14 @@ export const useStyles = makeStyles(theme => ({
     flexDirection: "column",
   },
 
+  cardGoBack:{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    color: "#3467eb",
+    marginLeft: "35%",
+  },
+
   image: {},
 
   cardHeader: {
@@ -82,7 +90,7 @@ export const useStyles = makeStyles(theme => ({
   },
 
   icon: {
-    width: "20%",
+    width: "100%",
   },
 
   text: {
