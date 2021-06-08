@@ -99,7 +99,7 @@ function Home() {
     setNewGradient(
       "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
     );
-    // setChange(true);
+    setChange(true);
     setTimeout(() => {
       setOldGradient(
         "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
@@ -164,7 +164,7 @@ function Home() {
     setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(cursosGradient);
-    // setChange(true);
+    setChange(true);
     setTimeout(() => {
       setOldGradient(cursosGradient);
     }, 1000);
@@ -239,7 +239,7 @@ function Home() {
     setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(quemSomosGradient);
-    // setChange(true);
+    setChange(true);
     setTimeout(() => {
       setOldGradient(quemSomosGradient);
     }, 1000);
@@ -306,7 +306,7 @@ function Home() {
     setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(contatoGradient);
-    // setChange(true);
+    setChange(true);
     setTimeout(() => {
       setOldGradient(contatoGradient);
     }, 1000);
