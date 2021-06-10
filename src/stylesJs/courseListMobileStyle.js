@@ -32,7 +32,6 @@ export const useStyles = makeStyles(theme => ({
     maxWidth: "80vw",
     zIndex: 300,
     height: "auto",
-    maxHeight: "22vh",
 
     // estilo
     padding: 4,

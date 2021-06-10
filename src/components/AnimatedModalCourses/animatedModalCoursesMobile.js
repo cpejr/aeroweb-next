@@ -33,24 +33,26 @@ function AnimatedModalCoursesMobile({
     <Card className={slideClass}>
       <CardContent className={classes.cardContent}>
         <div className={classes.cardHeader}>
-          <img 
-            className={classes.image} 
-            src={"/assets/LogomarcaAzul.svg"} 
-            alt="Logomarca Azul da Tailwind Aviation" 
+          <img
+            className={classes.image}
+            src={"/assets/LogomarcaAzul.svg"}
+            alt="Logomarca Azul da Tailwind Aviation"
           />
-
-          <ExpandMore
-            fontSize="large"
-            className={classes.icon}
-            style={{ color: "#3467eb", cursor: "pointer" }}
-            onClick={() => {
-              setSlideClass(classes.cardDown);
-              setTimeout(() => {
-                setCoursesMobileControl("fadeOut");
-                setOpenCurso({ open: false, index: indexCurso, style: "down" });
-              }, 1000);
-            }}
-          />
+          <div className={classes.cardGoBack}>
+            Voltar
+            <ExpandMore
+              fontSize="large"
+              className={classes.icon}
+              style={{ color: "#3467eb", cursor: "pointer" }}
+              onClick={() => {
+                setSlideClass(classes.cardDown);
+                setTimeout(() => {
+                  setCoursesMobileControl("fadeOut");
+                  setOpenCurso({ open: false, index: indexCurso, style: "down" });
+                }, 1000);
+              }}
+            />
+          </div>
         </div>
 
         <Typography
@@ -77,9 +79,11 @@ function AnimatedModalCoursesMobile({
         </Typography>
 
         <div className={classes.cardVideo}>
-          <iframe width="258" height="315"
+          <iframe
+            width="258"
+            height="315"
             src="https://www.youtube.com/embed/iDlxpk_8Ggc">
-          </iframe> 
+          </iframe>
         </div>
 
         <div className={classes.cardPayments}>
