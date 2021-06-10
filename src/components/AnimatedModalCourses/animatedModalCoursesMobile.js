@@ -145,7 +145,7 @@ function AnimatedModalCoursesMobile({
         </div>
 
         <div className={classes.buttonContainer}>
-          <Button variant="contained" className={classes.button}>
+          <Button variant="contained" className={classes.button} href={curso.href}>
             Garanta sua vaga
           </Button>
         </div>
