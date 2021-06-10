@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 8080",
+    "dev": "next dev",
     "build": "next build",
-    "start": "yarn && next build && next start -p 8080",
+    "start": "yarn && next start -p 8080",
     "heroku-postbuild": "npm run build",
     "lint": "eslint . --ext .js --fix",
     "lint:list": "eslint . --ext .js",
