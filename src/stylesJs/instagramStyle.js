@@ -30,7 +30,6 @@ export const useStyles = makeStyles(theme => ({
 
         // dimensionamento
         width: "30vw",
-        height: "30vh",
 
         [theme.breakpoints.down(1200)]: {
           height: "28vh",
