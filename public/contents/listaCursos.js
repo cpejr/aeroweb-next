@@ -16,6 +16,7 @@ const listaCursos = [
     para aqueles que já são certificados e buscam uma melhora em seu nível de proficiência, quanto para os candidatos 
     que buscam a qualificação pela primeira vez.`,
     videoLink: "iDlxpk_8Ggc",
+    href: "https://payment.hotmart.com/Q51938861I?checkoutMode=10",
   },
 
   {
@@ -33,6 +34,7 @@ const listaCursos = [
     para a prova, com grande histórico de aprovações, certificações internacionais e formação superior em 
     ensino de língua estrangeira.`,
     videoLink: "iDlxpk_8Ggc",
+    href: "",
   },
 
   {
@@ -50,6 +52,7 @@ const listaCursos = [
     General Airway Manual, assim como, e não menos importante, a interpretação, entendimento e briefing de 
     cartas aeronáuticas.`,
     videoLink: "iDlxpk_8Ggc",
+    href: "",
   },
 ];
 

@@ -148,6 +148,7 @@ function AnimatedModalCoursesDesktop({
               variant="contained"
               className={classes.button}
               onClick={close}
+              href={curso.href}
             >
               Garanta sua vaga
             </Button>
