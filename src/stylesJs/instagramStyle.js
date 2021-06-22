@@ -2,16 +2,15 @@ import { makeStyles } from "@material-ui/core";
 import isMobile from "../utils/isMobile";
 
 export const useStyles = makeStyles(theme => ({
-  card:
-    isMobile?
-      {
+  card: isMobile
+    ? {
         // posição
         position: "absolute",
         bottom: "2.5vh",
         left: "5vw",
         height: `calc(88vh - ((100vw / 332) * 373))`,
-        minHeight: '15vh',
-        maxHeight: '25vh',
+        minHeight: "15vh",
+        maxHeight: "25vh",
         width: "90vw",
 
         // estilo
@@ -22,7 +21,8 @@ export const useStyles = makeStyles(theme => ({
         zIndex: 250,
         backgroundColor: "#F9F9F922",
         padding: "4px !important",
-      } : {
+      }
+    : {
         // posição
         position: "absolute",
         right: "5vw",
@@ -50,7 +50,7 @@ export const useStyles = makeStyles(theme => ({
         },
 
         [theme.breakpoints.down(765)]: {
-          display: 'none'
+          display: "none",
         },
 
         // estilo
@@ -63,16 +63,15 @@ export const useStyles = makeStyles(theme => ({
         padding: "4px !important",
       },
 
-  cardShow:
-    isMobile?
-      {
+  cardShow: isMobile
+    ? {
         // posição
         position: "absolute",
         bottom: "2.5vh",
         left: "5vw",
         height: `calc(88vh - ((100vw / 332) * 373))`,
-        minHeight: '15vh',
-        maxHeight: '25vh',
+        minHeight: "15vh",
+        maxHeight: "25vh",
         width: "90vw",
 
         // estilo
@@ -86,7 +85,8 @@ export const useStyles = makeStyles(theme => ({
 
         // animation
         animation: "$showCarousel 1000ms linear forwards",
-      } : {
+      }
+    : {
         // posição
         position: "absolute",
         right: "5vw",
@@ -114,7 +114,7 @@ export const useStyles = makeStyles(theme => ({
         },
 
         [theme.breakpoints.down(765)]: {
-          display: 'none'
+          display: "none",
         },
 
         // estilo
@@ -129,17 +129,15 @@ export const useStyles = makeStyles(theme => ({
         animation: "$showCarousel 1000ms linear forwards",
       },
 
-
-  cardHide:
-    isMobile?
-      {
+  cardHide: isMobile
+    ? {
         // posição
         position: "absolute",
         bottom: "2.5vh",
         left: "5vw",
         height: `calc(88vh - ((100vw / 332) * 373))`,
-        minHeight: '15vh',
-        maxHeight: '25vh',
+        minHeight: "15vh",
+        maxHeight: "25vh",
         width: "90vw",
 
         // estilo
@@ -153,7 +151,8 @@ export const useStyles = makeStyles(theme => ({
 
         // animation
         animation: "$hideCarousel 500ms linear forwards",
-      } : {
+      }
+    : {
         // posição
         position: "absolute",
         right: "5vw",
@@ -181,7 +180,7 @@ export const useStyles = makeStyles(theme => ({
         },
 
         [theme.breakpoints.down(765)]: {
-          display: 'none'
+          display: "none",
         },
 
         // estilo

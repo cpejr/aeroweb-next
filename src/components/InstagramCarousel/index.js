@@ -3,12 +3,17 @@ import { useStyles } from "../../stylesJs/instagramStyle";
 import { Card, Typography } from "@material-ui/core";
 import Carousel from "react-material-ui-carousel";
 import isMobile from "../../utils/isMobile";
-import listaPosts from "../../../public/contents/listaPosts"
+import listaPosts from "../../../public/contents/listaPosts";
 
 function Item(props) {
   return (
     <div
-      style={{ display: "flex", flexDirection: "row", alignItems: "center", overflow: "hidden" }}
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        overflow: "hidden",
+      }}
     >
       {props.item.map((item, index) => (
         <a
@@ -18,10 +23,14 @@ function Item(props) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={item.src} alt={item.alt} style={{
-            height: "100%",
-            width: "100%"
-          }} />
+          <img
+            src={item.src}
+            alt={item.alt}
+            style={{
+              height: "100%",
+              width: "100%",
+            }}
+          />
         </a>
       ))}
     </div>
@@ -40,7 +49,11 @@ function InstagramCarousel({ animationControl }) {
 
   return (
     <Card className={carouselClass}>
-      <img src="/assets/Union.svg" className={classes.logoTitle} />
+      <img
+        src="/assets/Union.svg"
+        className={classes.logoTitle}
+        alt="Decoração do título do carrosel do Instagram"
+      />
       <Typography
         style={{
           marginBottom: "8px",
@@ -52,14 +65,14 @@ function InstagramCarousel({ animationControl }) {
         Últimos Posts
       </Typography>
       {/* precisa da div para esconder o overflow ao carregar imagem */}
-      <div className={classes.carouselContainer}> 
-        <Carousel 
-          animation="slide" 
+      <div className={classes.carouselContainer}>
+        <Carousel
+          animation="slide"
           indicators={false}
           interval={8000}
           timeout={1000}
-          swipe={false}
-          navButtonsAlwaysInvisible={isMobile} 
+          swipe={true}
+          navButtonsAlwaysInvisible={isMobile}
         >
           {listaPosts.map((item, i) => (
             <Item key={i} item={item} />

@@ -99,7 +99,7 @@ function Home() {
     setNewGradient(
       "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
     );
-    // setChange(true);
+    setChange(true);
     setTimeout(() => {
       setOldGradient(
         "linear-gradient(214.44deg, #78CBEE -1.2%, #0E41C5 113.99%)",
@@ -164,7 +164,7 @@ function Home() {
     setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(cursosGradient);
-    // setChange(true);
+    setChange(true);
     setTimeout(() => {
       setOldGradient(cursosGradient);
     }, 1000);
@@ -239,7 +239,7 @@ function Home() {
     setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(quemSomosGradient);
-    // setChange(true);
+    setChange(true);
     setTimeout(() => {
       setOldGradient(quemSomosGradient);
     }, 1000);
@@ -306,7 +306,7 @@ function Home() {
     setSelected(selectedComp);
     //Para a animação do gradiente:
     setNewGradient(contatoGradient);
-    // setChange(true);
+    setChange(true);
     setTimeout(() => {
       setOldGradient(contatoGradient);
     }, 1000);
@@ -462,10 +462,12 @@ function Home() {
                 <img
                   className={classes.logoImgMobile}
                   src={"/assets/TAILWINDAVIATION.svg"}
+                  alt="Logomarca da Tailwind Aviation"
                 />
                 <img
                   className={classes.logoImgMobile}
                   src={"/assets/Union.svg"}
+                  alt="Decoração do título da página"
                 />
               </div>
             ) : (
@@ -473,6 +475,7 @@ function Home() {
                 <img
                   className={classes.logoImgDesktop}
                   src={"/assets/Logomarca.svg"}
+                  alt="Logomarca da Tailwind Aviation"
                 />
               </div>
             )}
@@ -482,11 +485,13 @@ function Home() {
                 <img
                   src="/assets/RotaMobile.svg"
                   className={classes.rotasImg}
+                  alt="Desenho de rotas aeronáuticas para o avião mover na página"
                 />
               ) : (
                 <img
                   src="/assets/RotaDesktop.svg"
                   className={classes.rotasImg}
+                  alt="Desenho de rotas aeronáuticas para o avião mover na página"
                 />
               )}
             </div>
@@ -499,6 +504,7 @@ function Home() {
                       classes.aviaoHomeShow :
                       classes.aviaoHomeHide
                   }
+                  alt="Avião de passageiros no canto inferior da página"
                 />
               ) }
 
@@ -507,6 +513,7 @@ function Home() {
                 <img
                   src="/assets/AviaoIcon.svg"
                   className={classesAirPlane.plane}
+                  alt="Ícone de avião que se desloca pela página ao clicar"
                 />
               </div>
 

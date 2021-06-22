@@ -2,24 +2,24 @@ const listaPosts = [
   [
     {
       src: "./imgPosts/tailwindPost1.jpg",
-      alt: "Aviation Vocabulary",
+      alt: "Vobulário de aviação",
       href: "https://www.instagram.com/p/CMf8NH9J_7t/?igshid=1pelqeaupblvj",
     },
     {
       src: "./imgPosts/tailwindPost2.jpg",
-      alt: "Exemple of instructions",
+      alt: "Exemplo de instruções",
       href: "https://www.instagram.com/p/CMdZD2GJJwL/?igshid=1u3wiwrsmc191",
     },
     {
       src: "./imgPosts/tailwindPost3.jpg",
-      alt: "Box de frequências de uma carta",
+      alt: "Box de frequências de uma carta aeronáutica",
       href: "https://www.instagram.com/p/CLvA4_eJ6c3/?igshid=1879431vqvt7p",
     },
   ],
   [
     {
       src: "./imgPosts/tailwindPost4.jpg",
-      alt: "Um avião com uma frase",
+      alt: "Um avião com uma frase: 'Siga em frente em seus objetivos, mas não deixe de aproveitar a jornada'",
       href: "https://www.instagram.com/p/CLVKNdBpVZG/?igshid=tanx49fy5ztm",
     },
     {
@@ -29,7 +29,7 @@ const listaPosts = [
     },
     {
       src: "./imgPosts/tailwindPost6.jpg",
-      alt: "ICAO tips describing incidents",
+      alt: "Dicas para o ICAO - descrevendo incidentes",
       href: "https://www.instagram.com/p/CIoxLfZJQqS/?igshid=1hz0daegrjmpl",
     },
   ],
