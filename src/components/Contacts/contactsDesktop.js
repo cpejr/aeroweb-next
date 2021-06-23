@@ -19,9 +19,9 @@ function ContactsDesktop({ animationControl, close }) {
   const [contactsClass, setContactsClass] = useState(classes.card);
 
   // variaveis de configuração do emailJs
-  const serviceId = "service_p5jlw0d";
-  const templateId = "template_d282t06";
-  const userId = "user_gLVfhvvveWgsdihdNm20d";
+  const serviceId = "service_cvbz72e";
+  const templateId = "template_gw9dj3v";
+  const userId = "user_QXyzm2XiqRZOTLl3tqksz";
 
   // variaveis de input do usuario
   const nameInput = useRef("");
@@ -158,6 +158,7 @@ function ContactsDesktop({ animationControl, close }) {
           <img
             src="/assets/Tailwind3.svg"
             style={{ height: "75px", fontFamily: "Roboto" }}
+            alt="Logomarca da Tailwind Aviation"
           ></img>
           <Typography
             variant="h5"

@@ -111,6 +111,14 @@ export const useStyles = makeStyles(theme => ({
     animation: "$downSlide 1000ms linear forwards",
   },
 
+  cardGoBack:{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    color: "white",
+    marginLeft: "35%",
+  },
+
   cardContent: {
     display: "flex",
     flexDirection: "column",

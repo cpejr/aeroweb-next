@@ -15,7 +15,8 @@ const listaCursos = [
     text3: `Cabe ressaltar que a qualidade dos áudios, imagens e das questões elaboradas fazem toda a diferença tanto 
     para aqueles que já são certificados e buscam uma melhora em seu nível de proficiência, quanto para os candidatos 
     que buscam a qualificação pela primeira vez.`,
-    videoLink: "https://youtu.be/iDlxpk_8Ggc",
+    videoLink: "iDlxpk_8Ggc",
+    href: "https://payment.hotmart.com/Q51938861I?checkoutMode=10",
   },
 
   {
@@ -32,7 +33,8 @@ const listaCursos = [
     text3: `O curso foi preparado por profissionais que contam com larga experiência na preparação de alunos 
     para a prova, com grande histórico de aprovações, certificações internacionais e formação superior em 
     ensino de língua estrangeira.`,
-    videoLink: "youtube.com",
+    videoLink: "iDlxpk_8Ggc",
+    href: "",
   },
 
   {
@@ -49,7 +51,8 @@ const listaCursos = [
     relacionados à cartografia aeronáutica Jeppesen, no que diz respeito à utilização do Jeppesen 
     General Airway Manual, assim como, e não menos importante, a interpretação, entendimento e briefing de 
     cartas aeronáuticas.`,
-    videoLink: "youtube.com",
+    videoLink: "iDlxpk_8Ggc",
+    href: "",
   },
 ];
 

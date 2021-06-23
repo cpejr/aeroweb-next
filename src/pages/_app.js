@@ -1,3 +1,4 @@
+// SSR do next habilitado
 // import "../styles/globals.css";
 
 // function MyApp({ Component, pageProps }) {
