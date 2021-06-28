@@ -66,7 +66,7 @@ function AnimatedModalCoursesMobile({
             cursor: "pointer",
           }}
         >
-          {curso.title}
+          {curso.title} {curso.subtitle}
         </Typography>
 
         <Typography

@@ -64,7 +64,7 @@ function AnimatedModalCoursesDesktop({
                   textAlign: "center",
                 }}
               >
-                {curso.title}
+                {curso.title} {curso.subtitle}
               </Typography>
               <ExpandMore
                 onClick={handleClose}
@@ -81,6 +81,7 @@ function AnimatedModalCoursesDesktop({
                 {curso.text1} <br /> <br />
                 {curso.text2} <br /> <br />
                 {curso.text3} <br /> <br />
+                {curso.text4} 
               </Typography>
             </div>
 

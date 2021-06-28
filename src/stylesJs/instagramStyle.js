@@ -31,6 +31,7 @@ export const useStyles = makeStyles(theme => ({
         // dimensionamento
         width: "30vw",
         maxHeight: "30vh",
+        minHeight: "25vh",
 
         [theme.breakpoints.down(1200)]: {
           height: "28vh",
@@ -95,6 +96,7 @@ export const useStyles = makeStyles(theme => ({
         // dimensionamento
         width: "30vw",
         maxHeight: "30vh",
+        minHeight: "25vh",
 
         [theme.breakpoints.down(1200)]: {
           height: "28vh",
@@ -161,6 +163,7 @@ export const useStyles = makeStyles(theme => ({
         // dimensionamento
         width: "30vw",
         maxHeight: "30vh",
+        minHeight: "25vh",
 
         [theme.breakpoints.down(1200)]: {
           height: "28vh",
