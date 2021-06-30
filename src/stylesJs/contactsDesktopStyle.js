@@ -11,6 +11,7 @@ export const useStyles = makeStyles(theme => ({
 
     opacity: "0%",
     display: "none",
+    zIndex: 400,
   },
 
   cardShow: {
@@ -24,6 +25,7 @@ export const useStyles = makeStyles(theme => ({
     backgroundColor: "#3467ebEE",
 
     animation: "$showCard 1000ms linear forwards",
+    zIndex: 400,
   },
 
   cardHide: {
@@ -37,6 +39,7 @@ export const useStyles = makeStyles(theme => ({
     backgroundColor: "#3467ebEE",
 
     animation: "$hideCard 1000ms linear forwards",
+    zIndex: 400,
   },
 
   cardContent: {
@@ -60,6 +63,7 @@ export const useStyles = makeStyles(theme => ({
 
   icon: {
     minWidth: "75px",
+    zIndex: 400
   },
 
   button: {

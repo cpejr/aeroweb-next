@@ -18,7 +18,7 @@ function Item(props) {
       {props.item.map((item, index) => (
         <a
           key={index}
-          href={item.href}
+          href={ props.control !== "hide" ? item.href : null }
           style={{ padding: "2%", height: "100%", width: "100%" }}
           target="_blank"
           rel="noopener noreferrer"
@@ -75,7 +75,7 @@ function InstagramCarousel({ animationControl }) {
           navButtonsAlwaysInvisible={isMobile}
         >
           {listaPosts.map((item, i) => (
-            <Item key={i} item={item} />
+            <Item key={i} item={item} control={animationControl} />
           ))}
         </Carousel>
       </div>

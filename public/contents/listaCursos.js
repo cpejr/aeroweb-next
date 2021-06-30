@@ -51,7 +51,7 @@ const listaCursos = [
     text3: `O curso foi preparado por profissionais que contam com larga experiência na preparação de alunos 
     para a prova, com grande histórico de aprovações, certificações internacionais e formação superior em 
     ensino de língua estrangeira.`,
-    videoLink: "7Ox7rkHEEc0",
+    videoLink: "",
     href: "",
   },
 
@@ -68,7 +68,7 @@ const listaCursos = [
     relacionados à cartografia aeronáutica Jeppesen, no que diz respeito à utilização do Jeppesen 
     General Airway Manual, assim como, e não menos importante, a interpretação, entendimento e briefing de 
     cartas aeronáuticas.`,
-    videoLink: "7Ox7rkHEEc0",
+    videoLink: "",
     href: "",
   },
 ];

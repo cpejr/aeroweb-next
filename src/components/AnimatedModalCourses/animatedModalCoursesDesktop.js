@@ -150,6 +150,8 @@ function AnimatedModalCoursesDesktop({
               className={classes.button}
               onClick={close}
               href={curso.href}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Garanta sua vaga
             </Button>

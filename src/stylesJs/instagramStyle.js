@@ -230,14 +230,20 @@ export const useStyles = makeStyles(theme => ({
     "0%": {
       opacity: "100%",
       height: "auto",
+      display: "initial",
+      zIndex: 250,
     },
     "99%": {
       opacity: "1%",
       height: "auto",
+      display: "initial",
+      zIndex: 250,
     },
     "100%": {
       opacity: "0%",
       height: "0px",
+      display: "none",
+      zIndex: 0,
     },
   },
 }));

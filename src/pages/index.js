@@ -387,8 +387,6 @@ function Home() {
     setOpenCurso({ open: false, index: null, style: "" });
   }
 
-  useEffect(() => console.log(homePlaneControl), [homePlaneControl]);
-
   return (
     <>
       <NextSeo
@@ -573,6 +571,7 @@ function Home() {
               </div>
             </div>
           </div>
+
           <InstagramCarousel animationControl={carouselControl} />
 
           <CoursesList

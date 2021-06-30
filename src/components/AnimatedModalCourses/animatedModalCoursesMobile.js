@@ -82,7 +82,7 @@ function AnimatedModalCoursesMobile({
           <iframe
             width="258"
             height="315"
-            src="https://www.youtube.com/embed/iDlxpk_8Ggc">
+            src={`https://www.youtube.com/embed/${curso.videoLink}`}>
           </iframe>
         </div>
 
@@ -149,7 +149,13 @@ function AnimatedModalCoursesMobile({
         </div>
 
         <div className={classes.buttonContainer}>
-          <Button variant="contained" className={classes.button} href={curso.href}>
+          <Button 
+            variant="contained" 
+            className={classes.button} 
+            href={curso.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Garanta sua vaga
           </Button>
         </div>
