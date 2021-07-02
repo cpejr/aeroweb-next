@@ -25,7 +25,7 @@ const listaCursos = [
     subtitle: " - COMENTADOS",
 
     text1: `Os simulados comentados do teste ICAO da ANAC elaborados pela Tailwind Aviation Courses foram todos 
-    criteriosamente desenvolvidos por uma equipe formada por pilotos comerciais e professores especialistas na área 
+    criteriosamente desenvolvidos por uma equipe formada por pilotos comerciais e professores especialistas na aérea 
     de inglês voltado para a aviação.`,
     text2: `Indicado para aqueles que buscam um estudo autônomo, nossos simulados trazem situações corriqueiras 
     apresentadas nas provas oficiais e têm o grau de dificuldade compatível com os exigidos no teste da ANAC. 
@@ -35,7 +35,7 @@ const listaCursos = [
     para aqueles que já são certificados e buscam uma melhora em seu nível de proficiência, quanto para os candidatos 
     que buscam a qualificação pela primeira vez.`,
     videoLink: "",
-    href: "https://payment.hotmart.com/Q51938861I?checkoutMode=10",
+    href: "",
   },
 
   {
@@ -56,11 +56,11 @@ const listaCursos = [
   },
 
   {
-    title: "Curso Cartas Jappesen",
+    title: "Curso Cartas Jeppesen",
     text1: `A interpretação e manuseio de cartas aeronáuticas é uma habilidade que todo piloto deve ter, 
     sendo ela necessária tanto para a manutenção da padronização quanto, como consequência, para a 
     segurança de voo. Além disso, essas habilidades demonstram-se essenciais para aqueles candidatos 
-    que buscam o ingresso em uma linha área ou taxi aéreo.`,
+    que buscam o ingresso em uma linha aérea ou taxi aéreo.`,
     text2: `O curso de Cartas Jeppesen da Tailwind Aviation Courses foi elaborado por profissionais capacitados e 
     estruturado de maneira lógica para facilitar o entendimento e proporcionar uma 
     abordagem prática do tema.`,
