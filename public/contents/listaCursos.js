@@ -25,7 +25,7 @@ const listaCursos = [
     subtitle: " - COMENTADOS",
 
     text1: `Os simulados comentados do teste ICAO da ANAC elaborados pela Tailwind Aviation Courses foram todos 
-    criteriosamente desenvolvidos por uma equipe formada por pilotos comerciais e professores especialistas na aérea 
+    criteriosamente desenvolvidos por uma equipe formada por pilotos comerciais e professores especialistas na área 
     de inglês voltado para a aviação.`,
     text2: `Indicado para aqueles que buscam um estudo autônomo, nossos simulados trazem situações corriqueiras 
     apresentadas nas provas oficiais e têm o grau de dificuldade compatível com os exigidos no teste da ANAC. 
